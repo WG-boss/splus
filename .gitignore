@@ -1,0 +1,22 @@
+# ---- Python 运行时 ----
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- 页面产物（可由 run.py 重新生成；决策 JSON/MD 入库以便追溯）----
+data/splus_report_*.html
+
+# ---- 优化中间产物（体积大且可重算）----
+data/sig_test.json
+data/optimize_result.json
+
+# ---- 本地覆盖与密钥 ----
+config.local.yaml
+.env
+.env.*
+*.pem
+*.key
+
+# ---- 临时侦察 ----
+_recon/
+*.log

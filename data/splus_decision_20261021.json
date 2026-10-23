@@ -1,0 +1,1087 @@
+{
+  "_paths": {
+    "ledger": "C:\\Users\\wlx21\\.openclaw-windclaw\\users\\144682877-f9b66e0207e0\\openclaw\\workspace-agent\\splus\\data/ledger\\predictions.jsonl",
+    "governance": "C:\\Users\\wlx21\\.openclaw-windclaw\\users\\144682877-f9b66e0207e0\\openclaw\\workspace-agent\\splus\\data/ledger\\governance.jsonl"
+  },
+  "as_of": "2026-10-21",
+  "portfolio_dd": {
+    "ok": true,
+    "as_of": "2026-10-21",
+    "dd": -0.366751,
+    "mdd": -0.366751,
+    "nav_points": 272,
+    "note": "等权组合净值回撤（5 只，2025-08-21→2026-10-21）",
+    "dd_used": -0.366751,
+    "source": "computed"
+  },
+  "generated_at": "2026-10-23 00:32:14",
+  "config_version": "1.0.0",
+  "per_index": {
+    "000688": {
+      "name": "科创50",
+      "role": "进攻候选",
+      "bucket": "core",
+      "as_of": "2026-10-21",
+      "close": 1343.28,
+      "ann_vol_20": 0.35111596728337086,
+      "dd_from_high": -0.4043764549384769,
+      "pos_in_52w": 0.09368540308475114,
+      "er20": 0.407291747989695,
+      "adx14": 40.87953650615016,
+      "above_ma200": -0.15484022558608468,
+      "ma200_slope": 0.01145020108824224,
+      "vol_z20": -0.9650624526782517,
+      "state": {
+        "probs": {
+          "A": 0.0502,
+          "B": 0.0248,
+          "C": 0.0248,
+          "D": 0.0248,
+          "E": 0.8754
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.8754,
+        "scores": {
+          "A": 0.6,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 3.029
+        }
+      },
+      "state_weight": 0.1534,
+      "tradeable": true,
+      "sizing": {
+        "cap_vol": 0.4272,
+        "coef_dd": 0.15,
+        "coef_corr": 1.0,
+        "state_weight": 0.1534,
+        "final": 0.0098,
+        "raw_before_clamp": 0.0098,
+        "binding": "dd",
+        "decomposition": {
+          "vol": 0.4272,
+          "dd": 0.15,
+          "corr": 1.0,
+          "state": 0.1534
+        },
+        "notes": {
+          "vol": "vol目标 15% / 实际 35.1% = 43%",
+          "dd": "组合回撤 -36.7% → 系数 0.15",
+          "corr": "相关性 0.58（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 dd（四层取最小）"
+        }
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 1987.47,
+        "trigger_price": 1934.61,
+        "fail_price": 1257.01,
+        "single_trade_risk_nav": 0.003,
+        "note": "指数级标准口径",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": true,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "399673": {
+      "name": "创业板50",
+      "role": "左侧候选",
+      "bucket": "core",
+      "as_of": "2026-10-21",
+      "close": 2748.03,
+      "ann_vol_20": 0.29600272778606634,
+      "dd_from_high": -0.41722600059803666,
+      "pos_in_52w": 0.006398763680071953,
+      "er20": 0.6204741101766279,
+      "adx14": 57.28356752194435,
+      "above_ma200": -0.2585172549556132,
+      "ma200_slope": -0.002573357945900634,
+      "vol_z20": -0.5149251680329539,
+      "state": {
+        "probs": {
+          "A": 0.0341,
+          "B": 0.0168,
+          "C": 0.0168,
+          "D": 0.0168,
+          "E": 0.9156
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.9156,
+        "scores": {
+          "A": 0.602,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 3.4
+        }
+      },
+      "state_weight": 0.1361,
+      "tradeable": true,
+      "sizing": {
+        "cap_vol": 0.5068,
+        "coef_dd": 0.15,
+        "coef_corr": 1.0,
+        "state_weight": 0.1361,
+        "final": 0.0103,
+        "raw_before_clamp": 0.0103,
+        "binding": "state",
+        "decomposition": {
+          "vol": 0.5068,
+          "dd": 0.15,
+          "corr": 1.0,
+          "state": 0.1361
+        },
+        "notes": {
+          "vol": "vol目标 15% / 实际 29.6% = 51%",
+          "dd": "组合回撤 -36.7% → 系数 0.15",
+          "corr": "相关性 0.58（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）"
+        }
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 4044.56,
+        "trigger_price": 3938.11,
+        "fail_price": 2628.91,
+        "single_trade_risk_nav": 0.003,
+        "note": "指数级标准口径",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": true,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "hkHSTECH": {
+      "name": "恒生科技",
+      "role": "领先观察",
+      "bucket": "core",
+      "as_of": "2026-10-21",
+      "close": 3994.77,
+      "ann_vol_20": 0.22358067047778443,
+      "dd_from_high": -0.35630311409318105,
+      "pos_in_52w": 0.004116468124394746,
+      "er20": 0.4216554492856291,
+      "adx14": 27.592245653540576,
+      "above_ma200": -0.18134680548613646,
+      "ma200_slope": -0.026930905196568933,
+      "vol_z20": -0.5689449111272579,
+      "state": {
+        "probs": {
+          "A": 0.163,
+          "B": 0.0205,
+          "C": 0.0205,
+          "D": 0.0205,
+          "E": 0.7754
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.7754,
+        "scores": {
+          "A": 1.761,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 3.087
+        }
+      },
+      "state_weight": 0.1624,
+      "tradeable": true,
+      "sizing": {
+        "cap_vol": 0.6709,
+        "coef_dd": 0.15,
+        "coef_corr": 1.0,
+        "state_weight": 0.1624,
+        "final": 0.0163,
+        "raw_before_clamp": 0.0163,
+        "binding": "dd",
+        "decomposition": {
+          "vol": 0.6709,
+          "dd": 0.15,
+          "corr": 1.0,
+          "state": 0.1624
+        },
+        "notes": {
+          "vol": "vol目标 15% / 实际 22.4% = 67%",
+          "dd": "组合回撤 -36.7% → 系数 0.15",
+          "corr": "相关性 0.58（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 dd（四层取最小）"
+        }
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 5051.5,
+        "trigger_price": 4948.5,
+        "fail_price": 3882.63,
+        "single_trade_risk_nav": 0.003,
+        "note": "指数级标准口径",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": true,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "H30590": {
+      "name": "机器人",
+      "role": "事件驱动",
+      "bucket": "theme",
+      "as_of": "2026-10-21",
+      "close": 1566.43,
+      "ann_vol_20": 0.294737708453791,
+      "dd_from_high": -0.323122461325728,
+      "pos_in_52w": 0.12250046939541884,
+      "er20": 0.2841991107255178,
+      "adx14": 54.20391588992665,
+      "above_ma200": -0.18248571823796167,
+      "ma200_slope": -0.007633564658104275,
+      "vol_z20": -0.8243829212293866,
+      "state": {
+        "probs": {
+          "A": 0.1257,
+          "B": 0.0384,
+          "C": 0.0384,
+          "D": 0.0384,
+          "E": 0.7591
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.7591,
+        "scores": {
+          "A": 1.008,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 2.537
+        }
+      },
+      "state_weight": 0.1899,
+      "tradeable": true,
+      "sizing": {
+        "cap_vol": 0.5089,
+        "coef_dd": 0.15,
+        "coef_corr": 1.0,
+        "state_weight": 0.1899,
+        "final": 0.0145,
+        "raw_before_clamp": 0.0145,
+        "binding": "dd",
+        "decomposition": {
+          "vol": 0.5089,
+          "dd": 0.15,
+          "corr": 1.0,
+          "state": 0.1899
+        },
+        "notes": {
+          "vol": "vol目标 15% / 实际 29.5% = 51%",
+          "dd": "组合回撤 -36.7% → 系数 0.15",
+          "corr": "相关性 0.58（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 dd（四层取最小）"
+        }
+      },
+      "execution": {
+        "chase_atr_mult": 0.7,
+        "chase_cap_price": 1977.54,
+        "trigger_price": 1942.57,
+        "fail_price": 1437.06,
+        "single_trade_risk_nav": 0.003,
+        "note": "主题指数：追价上限与失效位均收紧",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": false,
+          "vol_expanding": false,
+          "score": 0,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "H30184": {
+      "name": "半导体",
+      "role": "上游映射",
+      "bucket": "theme",
+      "as_of": "2026-10-21",
+      "close": 10437.93,
+      "ann_vol_20": 0.3743806179008409,
+      "dd_from_high": -0.4673131283851334,
+      "pos_in_52w": 0.1958475709730423,
+      "er20": 0.3875962185734774,
+      "adx14": 39.017540346035105,
+      "above_ma200": -0.13505721034564866,
+      "ma200_slope": 0.025885817974835135,
+      "vol_z20": -1.2110211513111664,
+      "state": {
+        "probs": {
+          "A": 0.0595,
+          "B": 0.0267,
+          "C": 0.0267,
+          "D": 0.0267,
+          "E": 0.8603
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.8603,
+        "scores": {
+          "A": 0.68,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 2.95
+        }
+      },
+      "state_weight": 0.1584,
+      "tradeable": true,
+      "sizing": {
+        "cap_vol": 0.4007,
+        "coef_dd": 0.15,
+        "coef_corr": 1.0,
+        "state_weight": 0.1584,
+        "final": 0.0095,
+        "raw_before_clamp": 0.0095,
+        "binding": "dd",
+        "decomposition": {
+          "vol": 0.4007,
+          "dd": 0.15,
+          "corr": 1.0,
+          "state": 0.1584
+        },
+        "notes": {
+          "vol": "vol目标 15% / 实际 37.4% = 40%",
+          "dd": "组合回撤 -36.7% → 系数 0.15",
+          "corr": "相关性 0.58（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 dd（四层取最小）"
+        }
+      },
+      "execution": {
+        "chase_atr_mult": 0.7,
+        "chase_cap_price": 15570.93,
+        "trigger_price": 15252.13,
+        "fail_price": 9964.34,
+        "single_trade_risk_nav": 0.003,
+        "note": "主题指数：追价上限与失效位均收紧",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": true,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "000300": {
+      "name": "沪深300",
+      "role": "市场基准",
+      "bucket": "ref",
+      "as_of": "2026-10-21",
+      "close": 4111.93,
+      "ann_vol_20": 0.13361242860115868,
+      "dd_from_high": -0.18805079508004116,
+      "pos_in_52w": 0.013436098248231396,
+      "er20": 0.5348741556325434,
+      "adx14": 60.28082118892998,
+      "above_ma200": -0.12025977596409088,
+      "ma200_slope": -0.004547512855083591,
+      "vol_z20": -1.4612486579328687,
+      "state": {
+        "probs": {
+          "A": 0.0638,
+          "B": 0.0163,
+          "C": 0.0163,
+          "D": 0.0163,
+          "E": 0.8874
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.8874,
+        "scores": {
+          "A": 1.162,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 3.4
+        }
+      },
+      "state_weight": 0.1396,
+      "tradeable": false,
+      "sizing": {
+        "cap_vol": 0.0,
+        "coef_dd": 1.0,
+        "coef_corr": 1.0,
+        "state_weight": 0.1396,
+        "final": 0.0,
+        "notes": {
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 4844.21,
+        "trigger_price": 4772.08,
+        "fail_price": 4026.83,
+        "single_trade_risk_nav": 0.003,
+        "note": "参照系，不生成执行计划",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": true,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "000905": {
+      "name": "中证500",
+      "role": "风格参照",
+      "bucket": "ref",
+      "as_of": "2026-10-21",
+      "close": 6840.56,
+      "ann_vol_20": 0.22237038753363808,
+      "dd_from_high": -0.2521984004477696,
+      "pos_in_52w": 0.060181771518660096,
+      "er20": 0.45635098956322523,
+      "adx14": 55.507001756543204,
+      "above_ma200": -0.1502299362218409,
+      "ma200_slope": 0.0030817564698510935,
+      "vol_z20": -1.7428711588779082,
+      "state": {
+        "probs": {
+          "A": 0.0463,
+          "B": 0.0201,
+          "C": 0.0201,
+          "D": 0.0201,
+          "E": 0.8934
+        },
+        "dominant": "E",
+        "dominant_name": "下跌/衰退",
+        "confidence": 0.8934,
+        "scores": {
+          "A": 0.709,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 3.225
+        }
+      },
+      "state_weight": 0.1441,
+      "tradeable": false,
+      "sizing": {
+        "cap_vol": 0.0,
+        "coef_dd": 1.0,
+        "coef_corr": 1.0,
+        "state_weight": 0.1441,
+        "final": 0.0,
+        "notes": {
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 8390.26,
+        "trigger_price": 8211.31,
+        "fail_price": 6513.88,
+        "single_trade_risk_nav": 0.003,
+        "note": "参照系，不生成执行计划",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": false,
+          "er_rising": false,
+          "vol_expanding": false,
+          "score": 0,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    },
+    "usNDX": {
+      "name": "纳斯达克100",
+      "role": "全球上游",
+      "bucket": "lead",
+      "as_of": "2026-10-21",
+      "close": 29822.52,
+      "ann_vol_20": 0.15843889419145277,
+      "dd_from_high": -0.04906832832876876,
+      "pos_in_52w": 0.8193827428564724,
+      "er20": 0.144528609199121,
+      "adx14": 36.733398488497414,
+      "above_ma200": 0.07264038076479795,
+      "ma200_slope": 0.01823552325916622,
+      "vol_z20": 0.26405005963496975,
+      "state": {
+        "probs": {
+          "A": 0.1094,
+          "B": 0.112,
+          "C": 0.2428,
+          "D": 0.4264,
+          "E": 0.1094
+        },
+        "dominant": "D",
+        "dominant_name": "区间/派发",
+        "confidence": 0.4264,
+        "scores": {
+          "A": 0.0,
+          "B": 0.02,
+          "C": 0.678,
+          "D": 1.156,
+          "E": 0.0
+        }
+      },
+      "state_weight": 0.5226,
+      "tradeable": false,
+      "sizing": {
+        "cap_vol": 0.0,
+        "coef_dd": 1.0,
+        "coef_corr": 1.0,
+        "state_weight": 0.5226,
+        "final": 0.0,
+        "notes": {
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
+      },
+      "execution": {
+        "chase_atr_mult": 1.0,
+        "chase_cap_price": 31826.47,
+        "trigger_price": 31361.37,
+        "fail_price": 28608.19,
+        "single_trade_risk_nav": 0.003,
+        "note": "参照系，不生成执行计划",
+        "rebound": {
+          "above_ema20": false,
+          "ema20_above_ema60": true,
+          "er_rising": false,
+          "vol_expanding": false,
+          "score": 1,
+          "active": false,
+          "label": "下跌中继（不参与）"
+        },
+        "rebound_allowance": 0.0
+      }
+    }
+  },
+  "correlation": {
+    "ok": true,
+    "matrix": {
+      "000688": {
+        "000688": 1.0,
+        "399673": 0.807,
+        "hkHSTECH": 0.334,
+        "H30590": 0.758,
+        "H30184": 0.986,
+        "000300": 0.829,
+        "000905": 0.893,
+        "usNDX": 0.16
+      },
+      "399673": {
+        "000688": 0.807,
+        "399673": 1.0,
+        "hkHSTECH": 0.447,
+        "H30590": 0.778,
+        "H30184": 0.778,
+        "000300": 0.897,
+        "000905": 0.876,
+        "usNDX": 0.284
+      },
+      "hkHSTECH": {
+        "000688": 0.334,
+        "399673": 0.447,
+        "hkHSTECH": 1.0,
+        "H30590": 0.37,
+        "H30184": 0.272,
+        "000300": 0.503,
+        "000905": 0.439,
+        "usNDX": 0.09
+      },
+      "H30590": {
+        "000688": 0.758,
+        "399673": 0.778,
+        "hkHSTECH": 0.37,
+        "H30590": 1.0,
+        "H30184": 0.726,
+        "000300": 0.737,
+        "000905": 0.853,
+        "usNDX": 0.207
+      },
+      "H30184": {
+        "000688": 0.986,
+        "399673": 0.778,
+        "hkHSTECH": 0.272,
+        "H30590": 0.726,
+        "H30184": 1.0,
+        "000300": 0.803,
+        "000905": 0.878,
+        "usNDX": 0.126
+      },
+      "000300": {
+        "000688": 0.829,
+        "399673": 0.897,
+        "hkHSTECH": 0.503,
+        "H30590": 0.737,
+        "H30184": 0.803,
+        "000300": 1.0,
+        "000905": 0.913,
+        "usNDX": 0.211
+      },
+      "000905": {
+        "000688": 0.893,
+        "399673": 0.876,
+        "hkHSTECH": 0.439,
+        "H30590": 0.853,
+        "H30184": 0.878,
+        "000300": 0.913,
+        "000905": 1.0,
+        "usNDX": 0.168
+      },
+      "usNDX": {
+        "000688": 0.16,
+        "399673": 0.284,
+        "hkHSTECH": 0.09,
+        "H30590": 0.207,
+        "H30184": 0.126,
+        "000300": 0.211,
+        "000905": 0.168,
+        "usNDX": 1.0
+      }
+    },
+    "mean_pairwise": 0.576,
+    "n_days": 53
+  },
+  "chain": {
+    "leader": "usNDX",
+    "leader_as_of": "2026-10-21",
+    "leader_ret20": -0.021259069080077686,
+    "leader_ret60": 0.07417715509742595,
+    "leader_dd": -0.04906832832876876,
+    "lags": {
+      "000688": {
+        "name": "科创50",
+        "ok": true,
+        "best_lag_days": 0,
+        "best_corr": 0.276,
+        "n_overlap": 297,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": -0.046
+          },
+          {
+            "lag": 24,
+            "corr": 0.0506
+          },
+          {
+            "lag": 25,
+            "corr": 0.0562
+          },
+          {
+            "lag": 26,
+            "corr": 0.0762
+          },
+          {
+            "lag": 27,
+            "corr": 0.0385
+          },
+          {
+            "lag": 28,
+            "corr": 0.0266
+          },
+          {
+            "lag": 29,
+            "corr": -0.0525
+          },
+          {
+            "lag": 30,
+            "corr": -0.0235
+          }
+        ]
+      },
+      "399673": {
+        "name": "创业板50",
+        "ok": true,
+        "best_lag_days": 0,
+        "best_corr": 0.2617,
+        "n_overlap": 297,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": 0.0378
+          },
+          {
+            "lag": 24,
+            "corr": 0.0463
+          },
+          {
+            "lag": 25,
+            "corr": 0.0471
+          },
+          {
+            "lag": 26,
+            "corr": 0.031
+          },
+          {
+            "lag": 27,
+            "corr": 0.0217
+          },
+          {
+            "lag": 28,
+            "corr": 0.0506
+          },
+          {
+            "lag": 29,
+            "corr": -0.0564
+          },
+          {
+            "lag": 30,
+            "corr": -0.0188
+          }
+        ]
+      },
+      "hkHSTECH": {
+        "name": "恒生科技",
+        "ok": true,
+        "best_lag_days": 0,
+        "best_corr": 0.2058,
+        "n_overlap": 306,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": -0.03
+          },
+          {
+            "lag": 24,
+            "corr": 0.0367
+          },
+          {
+            "lag": 25,
+            "corr": -0.0088
+          },
+          {
+            "lag": 26,
+            "corr": -0.0555
+          },
+          {
+            "lag": 27,
+            "corr": 0.092
+          },
+          {
+            "lag": 28,
+            "corr": 0.0121
+          },
+          {
+            "lag": 29,
+            "corr": -0.0822
+          },
+          {
+            "lag": 30,
+            "corr": -0.0116
+          }
+        ]
+      },
+      "H30590": {
+        "name": "机器人",
+        "ok": true,
+        "best_lag_days": 1,
+        "best_corr": 0.2557,
+        "n_overlap": 271,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": -0.0755
+          },
+          {
+            "lag": 24,
+            "corr": 0.0432
+          },
+          {
+            "lag": 25,
+            "corr": 0.0186
+          },
+          {
+            "lag": 26,
+            "corr": 0.0416
+          },
+          {
+            "lag": 27,
+            "corr": -0.0148
+          },
+          {
+            "lag": 28,
+            "corr": 0.0751
+          },
+          {
+            "lag": 29,
+            "corr": -0.026
+          },
+          {
+            "lag": 30,
+            "corr": -0.0824
+          }
+        ]
+      },
+      "H30184": {
+        "name": "半导体",
+        "ok": true,
+        "best_lag_days": 0,
+        "best_corr": 0.2585,
+        "n_overlap": 271,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": -0.0777
+          },
+          {
+            "lag": 24,
+            "corr": 0.0687
+          },
+          {
+            "lag": 25,
+            "corr": 0.065
+          },
+          {
+            "lag": 26,
+            "corr": 0.0624
+          },
+          {
+            "lag": 27,
+            "corr": 0.0808
+          },
+          {
+            "lag": 28,
+            "corr": 0.0249
+          },
+          {
+            "lag": 29,
+            "corr": -0.011
+          },
+          {
+            "lag": 30,
+            "corr": -0.0446
+          }
+        ]
+      },
+      "000300": {
+        "name": "沪深300",
+        "ok": true,
+        "best_lag_days": 1,
+        "best_corr": 0.2664,
+        "n_overlap": 297,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": 0.0023
+          },
+          {
+            "lag": 24,
+            "corr": 0.0126
+          },
+          {
+            "lag": 25,
+            "corr": 0.0793
+          },
+          {
+            "lag": 26,
+            "corr": 0.0436
+          },
+          {
+            "lag": 27,
+            "corr": -0.0028
+          },
+          {
+            "lag": 28,
+            "corr": 0.0583
+          },
+          {
+            "lag": 29,
+            "corr": -0.0913
+          },
+          {
+            "lag": 30,
+            "corr": -0.0373
+          }
+        ]
+      },
+      "000905": {
+        "name": "中证500",
+        "ok": true,
+        "best_lag_days": 1,
+        "best_corr": 0.2739,
+        "n_overlap": 297,
+        "curve": [
+          {
+            "lag": 23,
+            "corr": -0.0848
+          },
+          {
+            "lag": 24,
+            "corr": 0.0183
+          },
+          {
+            "lag": 25,
+            "corr": 0.0471
+          },
+          {
+            "lag": 26,
+            "corr": 0.0639
+          },
+          {
+            "lag": 27,
+            "corr": 0.0169
+          },
+          {
+            "lag": 28,
+            "corr": 0.0542
+          },
+          {
+            "lag": 29,
+            "corr": -0.0425
+          },
+          {
+            "lag": 30,
+            "corr": -0.0304
+          }
+        ]
+      }
+    }
+  },
+  "buckets": {
+    "core": {
+      "codes": [
+        "000688",
+        "399673",
+        "hkHSTECH"
+      ],
+      "exposure": 0.0034,
+      "per_name": 0.0011,
+      "note": "同桶合并计仓（最高vol 35.1%，3 只等权）",
+      "exposure_pre_switch": 0.0068
+    },
+    "theme": {
+      "codes": [
+        "H30590",
+        "H30184"
+      ],
+      "exposure": 0.0039,
+      "per_name": 0.0019,
+      "note": "同桶合并计仓（最高vol 37.4%，2 只等权）",
+      "exposure_pre_switch": 0.0078
+    }
+  },
+  "total_exposure": 0.0073,
+  "total_exposure_pre_switch": 0.0146,
+  "switch_haircut_applied": [
+    "BROAD_E→0.50"
+  ],
+  "switch_haircut": 0.5,
+  "hedge_need": 0.35,
+  "hedge_note": "P(D)+P(E) 均值 0.83 → 建议对冲 35% beta",
+  "kill_switches": [
+    {
+      "id": "BROAD_E",
+      "level": "HIGH",
+      "action": "两个以上可交易指数处于 E 阶段 → 禁止左侧加仓，仅允许右侧确认后建仓",
+      "detail": "E 阶段主导 5/5（仅计可交易标的）"
+    }
+  ],
+  "data_gaps": [],
+  "data_excluded": [],
+  "quality_warnings": [
+    "创业板50：存在 2 处 >15% 跳空（真行情，已保留）",
+    "科创50：存在 2 处 >15% 跳空（真行情，已保留）"
+  ],
+  "min_confidence_to_act": 0.65,
+  "data_lag": [
+    {
+      "code": "000688",
+      "name": "科创50",
+      "had": "2026-10-22",
+      "used": "2026-10-21",
+      "reason": "为与其他标的对齐，截断至 2026-10-21"
+    },
+    {
+      "code": "hkHSTECH",
+      "name": "恒生科技",
+      "had": "2026-10-22",
+      "used": "2026-10-21",
+      "reason": "为与其他标的对齐，截断至 2026-10-21"
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "had": "2026-10-22",
+      "used": "2026-10-21",
+      "reason": "为与其他标的对齐，截断至 2026-10-21"
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "had": "2026-10-22",
+      "used": "2026-10-21",
+      "reason": "为与其他标的对齐，截断至 2026-10-21"
+    },
+    {
+      "code": "usNDX",
+      "name": "纳斯达克100",
+      "had": "2026-10-22",
+      "used": "2026-10-21",
+      "reason": "为与其他标的对齐，截断至 2026-10-21"
+    }
+  ],
+  "as_of_rule": "统一取所有可交易标的都有数据的最近交易日；滞后标的已截断对齐",
+  "calibration": {
+    "horizon_days": 20,
+    "brier_alert": 0.28,
+    "settled_n": 0,
+    "status": "样本不足（已结算 0 条 < 门槛 30），不建议据此调整参数",
+    "calibration_curve": [],
+    "newly_settled": 0
+  },
+  "governance": {
+    "require_premortem": true,
+    "require_redteam": true,
+    "attribution_buckets": [
+      "beta",
+      "sector",
+      "stage",
+      "execution"
+    ],
+    "gate_note": "开仓前必须通过 check_gate；未通过则不允许建仓",
+    "attribution_health": {
+      "status": "无归因记录"
+    },
+    "gate_log_count": 0
+  }
+}

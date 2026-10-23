@@ -1,0 +1,180 @@
+# ============================================================
+# S++ 投研管理系统 —— 配置外置（唯一口径来源）
+# 原则：代码零硬编码；调整规则只改本文件
+# ============================================================
+
+meta:
+  version: "1.0.0"
+  project: splus
+  title: "S++ 指数投研管理系统"
+  note: >
+    L1 状态概率 / L2 跨市场传导 / L3 三重仓位约束 / L4 执行纪律
+    L5 风险开关 / L6 元归因台账。所有阈值均为可调参数，非结论。
+
+data:
+  cache_dir: "../stock-pool/_cache"
+  output_dir: "data"
+  state_file: "state/last_state.json"
+  ledger_dir: "data/ledger"
+
+# ============================================================
+# 监控标的（按桶分组：同桶视为一个仓位，禁止分别计仓）
+# bucket=core 宽基成长三剑客；bucket=theme 主题四方向；bucket=ref 参照系
+# ============================================================
+universe:
+  - {code: "000688",  name: "科创50",      bucket: "core",  role: "进攻候选", enabled: true, tradeable: true}
+  - {code: "399673",  name: "创业板50",    bucket: "core",  role: "左侧候选", enabled: true, tradeable: true}
+  - {code: "hkHSTECH", name: "恒生科技",   bucket: "core",  role: "领先观察", enabled: true, tradeable: true}
+  - {code: "H30590",  name: "机器人",      bucket: "theme", role: "事件驱动", enabled: true, tradeable: true}
+  - {code: "H30184",  name: "半导体",      bucket: "theme", role: "上游映射", enabled: true, tradeable: true}
+  - {code: "000300",  name: "沪深300",     bucket: "ref",   role: "市场基准", enabled: true, tradeable: false}
+  - {code: "000905",  name: "中证500",     bucket: "ref",   role: "风格参照", enabled: true, tradeable: false}
+  - {code: "usNDX",   name: "纳斯达克100", bucket: "lead",  role: "全球上游", enabled: true, tradeable: false}
+
+# ============================================================
+# L1 状态层
+# ============================================================
+state:
+  persistence: 0.55      # 先验粘性（越大越不轻易切换状态，抗噪）
+  temperature: 0.85      # 似然温度（越大越平缓，越保守）
+  min_confidence_to_act: 0.65   # 低于此置信度只能持有/观察，不得开新仓
+  uniform_prior: 0.20           # 无历史先验时的均匀先验（五状态各 1/5）
+  # 五状态：A 吸筹 / B 突破 / C 通道 / D 派发 / E 下跌
+
+
+  # ---- 五状态打分模型（原硬编码 76 个字面量全部移至此处）----
+  # 字段说明：feat 特征名 / dir up|down|bool / lo,hi 隶属度区间 / w 权重
+  #          gate 必须项（乘法门控，缺则大幅压分）/ gate_op= max 时取最大
+  # 可选派生特征：dd_pos, abs_above_ma200, rel_ema20, hhll, lh_ll,
+  #              down_er, stacked, is_breakout（在 engine._derive 中实现）
+  scoring:
+    # gate 中 dir=bool 未命中时的默认给分（原代码硬编码 0.05）
+    _default_miss: 0.05
+    A:
+      gate:
+        # 门控语义：是否已发生足够深度回撤。达到 18% 即满格，10%~18% 部分给分。
+        # 原为 lo:0.18 hi:0.40，导致回撤 19.6% 时 gate 仅 0.07（语义错误）。
+        - {feat: dd_pos, dir: up, lo: 0.10, hi: 0.18}
+      core:
+        - {feat: atr_pct_rank, dir: down, lo: 0.20, hi: 0.60, w: 1.20}
+        - {feat: er20, dir: down, lo: 0.10, hi: 0.35, w: 1.00}
+        - {feat: abs_above_ma200, dir: down, lo: 0.00, hi: 0.15, w: 0.80}
+        - {feat: range_width_60, dir: down, lo: 0.08, hi: 0.25, w: 0.80}
+        - {feat: vol_contract, dir: down, lo: 0.90, hi: 1.40, w: 0.60}
+    B:
+      gate:
+        - {feat: is_breakout, dir: bool, miss: 0.05}
+      core:
+        - {feat: is_breakout, dir: up, lo: 0.00, hi: 1.00, w: 1.60}
+        - {feat: vol_z20, dir: up, lo: 1.00, hi: 2.50, w: 1.20}
+        - {feat: breakout_hold3, dir: up, lo: 0.00, hi: 3.00, w: 1.00}
+        - {feat: dd_pos, dir: down, lo: 0.00, hi: 0.15, w: 0.60}
+    C:
+      gate:
+        - {feat: above_ma200, dir: up, lo: -0.02, hi: 0.06}
+        - {feat: ma200_slope, dir: up, lo: -0.01, hi: 0.04}
+      core:
+        - {feat: er20, dir: up, lo: 0.25, hi: 0.55, w: 1.60}
+        - {feat: adx14, dir: up, lo: 20.0, hi: 35.0, w: 1.20}
+        - {feat: hhll, dir: up, lo: 2.0, hi: 6.0, w: 1.00}
+        - {feat: stacked, dir: up, lo: 0.00, hi: 1.00, w: 1.00}
+    D:
+      gate:
+        - {feat: dd_pos, dir: down, lo: 0.00, hi: 0.15}
+      core:
+        - {feat: er20, dir: down, lo: 0.15, hi: 0.40, w: 1.20}
+        - {feat: down_vol_ratio, dir: up, lo: 1.00, hi: 1.60, w: 1.00}
+        - {feat: failed_breakouts_40, dir: up, lo: 1.00, hi: 3.00, w: 1.00}
+        - {feat: vol_z20, dir: up, lo: 1.00, hi: 2.50, w: 0.80}
+    E:
+      gate_op: max
+      gate:
+        - {feat: above_ma200, dir: down, lo: -0.05, hi: 0.02}
+        - {feat: ma200_slope, dir: down, lo: -0.06, hi: 0.01}
+      core:
+        - {feat: above_ma200, dir: down, lo: -0.06, hi: 0.01, w: 1.40}
+        - {feat: down_er, dir: up, lo: 0.20, hi: 0.50, w: 1.20}
+        - {feat: lh_ll, dir: up, lo: 2.0, hi: 6.0, w: 1.00}
+        - {feat: rel_ema20, dir: down, lo: -0.03, hi: 0.03, w: 0.80}
+
+  # 状态 -> 满仓映射系数（原代码 STATE_POS_WEIGHT 硬编码）
+  weights:
+    A: 0.25
+    B: 0.85
+    C: 0.90
+    D: 0.40
+    E: 0.10
+
+# ============================================================
+# L2 因果层
+# ============================================================
+chain:
+  leader: "usNDX"        # 全球上游：纳指100 为 AI 硬件周期的定价源头
+  max_lag: 30            # 领先滞后搜索上限（交易日）
+  corr_look: 60          # 相关性滚动窗口
+  # L2 -> L1 反馈（原实现只写报告不参与决策，此处让上游弱势真实压降下游状态权重）
+  leader_suppress_thr: -0.05   # leader 20日收益低于此值开始压制
+  leader_suppress_k: 0.50      # 压制强度（0=不压制）
+
+# ============================================================
+# L3 仓位层 —— 三重约束
+# ============================================================
+risk:
+  vol_target: 0.15           # 目标组合年化波动率
+  max_single: 0.35           # 单标的上限
+  bucket_max: 0.30           # 同桶合计上限（相关性合并）
+  corr_threshold: 0.70       # 相关性惩罚起始
+  corr_penalty_k: 1.5        # 惩罚斜率
+  corr_penalty_floor: 0.30   # 相关性惩罚下限（系数不得低于此值）
+  kill_corr: 0.80            # 系统性风险开关阈值
+  kill_deep_dd: 0.25        # SYS_CORR 判定“深度回撤”的阈值
+  kill_upstream_ret20: 0.08 # UPSTREAM_WEAK 判定 leader 20 日跌幅阈值
+  hedge_trigger_p_de: 0.60   # 触发对冲的 P(D)+P(E)
+  hedge_max: 0.50            # 对冲上限
+  portfolio_dd_assumed: 0.0  # 当前组合回撤（由用户/上游账户填入，0=无回撤）
+  # ---- 风险开关对仓位的硬约束（开关必须真咬，不能只是展示）----
+  switch_haircut:
+    HIGH: 0.50               # HIGH 开关生效 → 总敞口乘以 0.5
+    MED: 0.80                # MED 开关生效 → 总敞口乘以 0.8
+  theme_cap_under_e: 0.06    # E 阶段下主题桶总敞口硬上限（叙事崩塌风险无法用止损覆盖）
+  rebound_tactical_max: 0.08
+  # 回撤节流档位表（原代码 DD_THROTTLE 硬编码）
+  # 含义：组合回撤 < dd_below 时取对应 coef
+  dd_throttle:
+    - {dd_below: 0.05, coef: 1.00}
+    - {dd_below: 0.10, coef: 0.75}
+    - {dd_below: 0.15, coef: 0.50}
+    - {dd_below: 0.20, coef: 0.30}
+    - {dd_below: 99.0, coef: 0.15}
+ # E 阶段反弹子状态下的战术仓上限（仅当 rebound.active）
+
+# ============================================================
+# L4 执行层
+# ============================================================
+execution:
+  chase_atr_index: 1.0       # 指数级追价上限（ATR）
+  chase_atr_theme: 0.7       # 主题指数追价上限（ATR）
+  fail_atr_offset: 1.0       # 结构失效位（前低下方 ATR 倍数）
+  fail_atr_theme: 0.5        # 主题指数失效位
+  single_trade_risk_nav: 0.003   # 单笔风险≤0.3% NAV
+
+# ============================================================
+# L6 元层 —— 概率校准与归因台账
+# ============================================================
+meta_layer:
+  calibration:
+    horizon_days: 20         # 概率预测对应的前瞻窗口
+    min_bucket_n: 30         # 单个概率桶最少观测数（未达则不给结论）
+    brier_alert: 0.28        # Brier 劣化预警阀
+  attribution:
+    buckets: ["beta", "sector", "stage", "execution"]
+  journal:
+    require_premortem: true  # 建仓前强制写死亡条件
+    require_redteam: true    # 强制写“赚的是谁的钱”
+
+# ============================================================
+# 输出
+# ============================================================
+output:
+  report_html: true
+  keep_days: 180

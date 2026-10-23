@@ -1,0 +1,264 @@
+# -*- coding: utf-8 -*-
+"""S++ 决策 CLI：跑一次，输出 JSON + Markdown 摘要。"""
+from __future__ import annotations
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import engine
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+
+PLAYBOOK = {
+    "A": "分批吸纳（单批≤1/3目标仓），只在区间上沿突破确认后加仓；下沿放量破位则清出底仓",
+    "B": "突破确认后建仓（要求上游链条同向），追价不超上限；3日内不站稳判定假突破并回滚",
+    "C": "持有为主，让利润奔跑；用EMA20/通道下轨移动止盈；缩量回调可加仓",
+    "D": "主动降仓不低吸；反弹至上沿分批减；禁止以估值便宜作为加仓理由",
+    "E": "以观察为主，通道内不抄底；需反向spike+波动收敛+区间形成+首次H2/L2四项齐备才试探",
+}
+
+
+def pct(x, d=1):
+    return "—" if x is None else f"{x * 100:+.{d}f}%"
+
+
+def pp(x):
+    return "—" if x is None else f"{x * 100:.0f}%"
+
+
+def render(res):
+    L = []
+    L.append(f"# S++ 投研决策 · {res['as_of']}")
+    L.append("")
+    L.append(f"> 生成 {res['generated_at']} ｜ 配置 v{res['config_version']}")
+    L.append("")
+
+    # ---- 0 风险开关 ----
+    sw = res.get("kill_switches") or []
+    if sw:
+        L.append("## 生效中的风险开关（警告）")
+        for s in sw:
+            L.append(f"- **[{s['level']}] {s['id']}** — {s['action']}")
+            L.append(f"  - {s['detail']}")
+    else:
+        L.append("## 无风险开关触发")
+    L.append("")
+
+    # ---- 0.1 数据披露 ----
+    gaps = res.get("data_gaps") or []
+    excl = res.get("data_excluded") or []
+    warns = res.get("quality_warnings") or []
+    if gaps or excl or warns:
+        L.append("## 数据口径披露")
+        for g in gaps:
+            L.append(f"- 样本不足，未纳入：{g}")
+        for e in excl:
+            L.append(f"- 硬异常，已排除：{e}")
+        for w in warns:
+            L.append(f"- 软提示（保留使用）：{w}")
+        L.append("")
+
+    # ---- 1 状态 ----
+    L.append("## 一、状态概率向量（L1）")
+    L.append("")
+    L.append("| 指数 | 收盘 | 年化波动 | 距52周高 | 主状态 | 概率 | 置信 | 状态权重 |")
+    L.append("|---|---|---|---|---|---|---|---|")
+    for c, v in res["per_index"].items():
+        tag = "" if v.get("tradeable", True) else "（参照）"
+        L.append(
+            f"| {v['name']}{tag} | {v['close']:.1f} | {pp(v['ann_vol_20'])} | "
+            f"{pct(v['dd_from_high'])} | {v['state']['dominant_name']} | "
+            f"{pp(v['state']['probs'][v['state']['dominant']])} | "
+            f"{v['state']['confidence']:.2f} | {v['state_weight']:.2f} |"
+        )
+    L.append("")
+    L.append("### 概率分布明细")
+    L.append("")
+    L.append("| 指数 | A吸筹 | B突破 | C通道 | D派发 | E下跌 |")
+    L.append("|---|---|---|---|---|---|")
+    for c, v in res["per_index"].items():
+        p = v["state"]["probs"]
+        L.append(f"| {v['name']} | {pp(p['A'])} | {pp(p['B'])} | {pp(p['C'])} | "
+                 f"{pp(p['D'])} | {pp(p['E'])} |")
+    L.append("")
+
+    # ---- 2 传导链 ----
+    L.append("## 二、跨市场传导链（L2）")
+    L.append("")
+    ch = res.get("chain") or {}
+    if ch.get("error"):
+        L.append(f"⚠️ {ch['error']}")
+    else:
+        L.append(f"- 上游锚：**{ch.get('leader')}**（最新 {ch.get('leader_as_of', '—')}）")
+        L.append(f"- 上游 20 日 {pct(ch.get('leader_ret20'))}｜60 日 "
+                 f"{pct(ch.get('leader_ret60'))}｜距高点 {pct(ch.get('leader_dd'))}")
+        L.append("")
+        L.append("| 下游 | 最佳滞后 | 领先相关 | 重叠样本 |")
+        L.append("|---|---|---|---|")
+        for c, v in (ch.get("lags") or {}).items():
+            if not v.get("ok"):
+                L.append(f"| {v['name']} | — | — | {v.get('reason', '—')} |")
+                continue
+            L.append(f"| {v['name']} | {v['best_lag_days']} 日 | "
+                     f"{v['best_corr']:.3f} | {v['n_overlap']} |")
+    L.append("")
+
+    # ---- 3 相关性 ----
+    L.append("## 三、相关性（L3 输入）")
+    L.append("")
+    cor = res.get("correlation") or {}
+    if cor.get("ok"):
+        L.append(f"- 60 日平均两两相关 **{cor['mean_pairwise']:.2f}**"
+                 f"（样本 {cor['n_days']} 日）")
+        L.append("")
+        names = list(cor["matrix"].keys())
+        L.append("| | " + " | ".join(names) + " |")
+        L.append("|---" * (len(names) + 1) + "|")
+        for a in names:
+            L.append(f"| {a} | " + " | ".join(
+                f"{cor['matrix'][a][b]:.2f}" for b in names) + " |")
+    else:
+        L.append(f"⚠️ {cor.get('reason')}")
+    L.append("")
+
+    # ---- 4 仓位 ----
+    L.append("## 四、仓位建议（L3 三重约束）")
+    L.append("")
+    L.append("| 指数 | vol上限 | 回撤系数 | 相关系数 | 状态权重 | 最终仓位 |")
+    L.append("|---|---|---|---|---|---|")
+    for c, v in res["per_index"].items():
+        s = v["sizing"]
+        if not v.get("tradeable", True):
+            L.append(f"| {v['name']}（参照） | — | — | — | {s['state_weight']:.2f} | 不计仓 |")
+            continue
+        L.append(f"| {v['name']} | {pp(s['cap_vol'])} | {s['coef_dd']:.2f} | "
+                 f"{s['coef_corr']:.2f} | {s['state_weight']:.2f} | "
+                 f"**{s['final'] * 100:.1f}%** |")
+    L.append("")
+
+    L.append("### 按桶合并（同桶视为一个仓位）")
+    L.append("")
+    L.append("| 桶 | 标的 | 压缩前 | **压缩后** | 说明 |")
+    L.append("|---|---|---|---|---|")
+    for b, v in res["buckets"].items():
+        L.append(f"| {b} | {', '.join(v['codes'])} | "
+                 f"{v.get('exposure_pre_switch', v['exposure']) * 100:.1f}% | "
+                 f"**{v['exposure'] * 100:.1f}%** | {v['note']}"
+                 f"{'；' + v['cap_reason'] if v.get('cap_reason') else ''} |")
+    L.append("")
+    L.append(f"**合计建议敞口：{res['total_exposure'] * 100:.1f}%**")
+    L.append(f"（开关压缩 {res.get('total_exposure_pre_switch', 0) * 100:.1f}% → "
+             f"{res.get('total_exposure', 0) * 100:.1f}%，系数 "
+             f"{res.get('switch_haircut', 1.0):.2f}，触发 "
+             f"{', '.join(res.get('switch_haircut_applied') or ['无'])}）")
+    L.append("")
+    L.append(f"**对冲建议：** {res.get('hedge_note')}")
+    L.append("")
+
+    # ---- 5 执行 ----
+    L.append("## 五、执行层（L4）")
+    L.append("")
+    L.append("> 设计说明：在 E 阶段下所有价格均低于触发位，执行层的作用是"
+             "**明确“涨到什么位置才允许动手”**，避免在下跌通道中提前进场。")
+    L.append("")
+    L.append("| 指数 | 触发位 | 追价上限 | 失效位 | 距触发位 | 反弹资格 | 单笔风险 |")
+    L.append("|---|---|---|---|---|---|---|")
+    for c, v in res["per_index"].items():
+        if not v.get("tradeable", True):
+            continue
+        e = v.get("execution") or {}
+        rb = e.get("rebound") or {}
+        dist = None
+        if e.get("trigger_price") and v.get("close"):
+            dist = e["trigger_price"] / v["close"] - 1
+        if rb.get("active"):
+            rb_txt = f"[可参与] 战术参与（上限 {e.get('rebound_allowance', 0)*100:.0f}%）"
+        else:
+            rb_txt = f"[不可] 下跌中继（{rb.get('score', 0)}/4 项）"
+        L.append(f"| {v['name']} | {e.get('trigger_price') or '—'} | "
+                 f"{e.get('chase_cap_price') or '—'}（{e.get('chase_atr_mult')} ATR） | "
+                 f"{e.get('fail_price') or '—'} | {pct(dist)} | {rb_txt} | "
+                 f"{e.get('single_trade_risk_nav', 0) * 100:.1f}% NAV |")
+    L.append("")
+
+    # ---- 6 行为矩阵 ----
+    L.append("## 六、阶段行为矩阵（动作指令）")
+    L.append("")
+    L.append("| 指数 | 主状态 | 置信 | 开仓许可 | 行为指令 |")
+    L.append("|---|---|---|---|---|")
+    thr = res.get("min_confidence_to_act", 0.65)
+    for c, v in res["per_index"].items():
+        if not v.get("tradeable", True):
+            continue
+        st = v["state"]
+        conf_ok = st["confidence"] >= thr
+        state_ok = st["dominant"] in ("A", "B", "C")
+        if conf_ok and state_ok:
+            gate = "允许开仓"
+        elif conf_ok and not state_ok:
+            gate = "置信达标但状态禁新仓"
+        else:
+            gate = "置信不足"
+        L.append(f"| {v['name']} | {st['dominant_name']} | {st['confidence']:.2f} | "
+                 f"{gate} | {PLAYBOOK.get(st['dominant'], '—')} |")
+    L.append("")
+
+    # ---- 7 元层 ----
+    L.append("## 七、元层台账（L6）")
+    L.append("")
+    cal = res.get("calibration") or {}
+    L.append(f"- 概率校准：{cal.get('status', '台账未建立')}")
+    L.append(f"- 前瞻窗口 {cal.get('horizon_days', '—')} 交易日；"
+             f"Brier 阈值 {cal.get('brier_alert', '—')}")
+    L.append(f"- 已结算样本 {cal.get('settled_n', 0)} 条；本次新结算 "
+             f"{cal.get('newly_settled', 0)} 条")
+    L.append(f"- 预测台账：{res.get('_paths', {}).get('ledger', '—')}")
+    L.append("")
+
+    L.append("---")
+    L.append("*由 S++ 引擎按外置配置自动生成。所有阈值均为可调参数，"
+             "不构成买卖建议；数据口径问题已在报告开头披露。*")
+    return "\n".join(L)
+
+
+def _report_html_enabled(cfg_path):
+    """从配置读 output.report_html；配置缺失时默认开启。"""
+    try:
+        c = engine.load_config(cfg_path)
+        return bool((c.get("output") or {}).get("report_html", True))
+    except Exception:
+        return True
+
+
+def main():
+    cfg_path = os.path.join(BASE, "splus_config.yaml")
+    res = engine.run(cfg_path, BASE)
+    out_dir = os.path.join(BASE, "data")
+    os.makedirs(out_dir, exist_ok=True)
+    md_path = os.path.join(out_dir, f"splus_report_{res['as_of'].replace('-', '')}.md")
+
+    md = render(res)
+    with open(md_path, "w", encoding="utf-8") as fh:
+        fh.write(md)
+
+    # HTML 报告（配置 output.report_html 控制；渲染失败不得阻断主流程）
+    html_path = None
+    if _report_html_enabled(cfg_path):
+        try:
+            import render_html
+            html_path = render_html.write_html(res, out_dir, res["as_of"])
+        except Exception as exc:
+            print(f"[warn] HTML 渲染失败（Markdown 已生成）：{exc}", file=sys.stderr)
+
+    print(md)
+    print()
+    print("---")
+    print("JSON:", res["_paths"]["decision"])
+    print("MD  :", md_path)
+    if html_path:
+        print("HTML:", html_path)
+
+
+if __name__ == "__main__":
+    main()
