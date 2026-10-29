@@ -196,12 +196,19 @@ def render(res):
         state_ok = st["dominant"] in ("A", "B", "C")
         if conf_ok and state_ok:
             gate = "允许开仓"
+            play = PLAYBOOK.get(st["dominant"], "—")
         elif conf_ok and not state_ok:
             gate = "置信达标但状态禁新仓"
+            play = PLAYBOOK.get(st["dominant"], "—")
         else:
+            # 置信不达门槛时，行为指令不能再说“分批吸纳”。
+            # 否则同一行里门禁说禁止开仓、动作说买入，是自相矛盾的输出——
+            # 这类矛盾会被执行层误读为“可以干”，是比不输出更危险的失败模式。
             gate = "置信不足"
+            play = (f"只观察不动手（置信 {st['confidence']:.2f} < 门槛 {thr:.2f}）；"
+                    f"若{st['dominant_name']}概率升至门槛以上再执行“{PLAYBOOK.get(st['dominant'], '—')}”")
         L.append(f"| {v['name']} | {st['dominant_name']} | {st['confidence']:.2f} | "
-                 f"{gate} | {PLAYBOOK.get(st['dominant'], '—')} |")
+                 f"{gate} | {play} |")
     L.append("")
 
     # ---- 7 元层 ----

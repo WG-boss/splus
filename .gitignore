@@ -20,3 +20,11 @@ config.local.yaml
 # ---- 临时侦察 ----
 _recon/
 *.log
+
+# ---- 本轮补充：临时侦察与备份 ----
+_p1.txt
+_p2.txt
+_p3.txt
+_p4.txt
+_peek.py
+data/_cache_backup/

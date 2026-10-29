@@ -8,6 +8,9 @@ render_html.py —— 把 engine.run() 的结果渲染成单文件 HTML 报告
   2. 零外部依赖，CSS 内联，双击即开，不联网。
   3. 加一列概率条形图 —— 终端里看不到的信息，HTML 才有意义。
   4. 所有数值来自 res，本模块不含任何决策阈值（不做第二套逻辑）。
+  5. 分层渲染（2026-10-29）：可交易标的主表优先，观察池（watch/ref/lead）
+     折叠展示 —— 106 只观察池全量铺表曾把相关性矩阵撑到 118×118（450KB），
+     可读性与体积双输。渲染层只做「呈现分层」，不做任何决策过滤。
 """
 from __future__ import annotations
 
@@ -22,40 +25,48 @@ PLAYBOOK = {
     "E": "以观察为主，通道内不抄底；需反向spike+波动收敛+区间形成+首次H2/L2四项齐备才试探",
 }
 
+STATE_ORDER = ["A", "B", "C", "D", "E"]
+STATE_FULL = {"A": "A 吸筹", "B": "B 突破", "C": "C 通道", "D": "D 派发", "E": "E 下跌"}
+
 CSS = """
 :root{
-  --bg:#0f1115; --card:#171a21; --line:#252a33; --tx:#e6e9ef;
-  --dim:#8b93a3; --red:#e5534b; --grn:#3fb950; --amb:#d29922; --blu:#4c8ef7;
+  --bg:#f0f7f0; --card:#ffffff; --line:#d4e4d4; --tx:#1a2820;
+  --dim:#5a7a5e; --red:#c0392b; --grn:#27ae60; --amb:#b8860b; --blu:#2980b9;
 }
 *{box-sizing:border-box}
 body{margin:0;padding:28px 20px 60px;background:var(--bg);color:var(--tx);
   font:14px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
 .wrap{max-width:1180px;margin:0 auto}
 h1{font-size:26px;margin:0 0 6px;letter-spacing:.5px}
-.sub{color:var(--dim);font-size:13px;margin-bottom:22px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:14px}
 h2{font-size:17px;margin:34px 0 12px;padding-left:10px;
   border-left:3px solid var(--blu);letter-spacing:.3px}
 h3{font-size:14px;color:var(--dim);margin:18px 0 8px;font-weight:600}
 table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:13px}
-th{background:#1e232c;color:#aab2c0;font-weight:600;text-align:left;
+th{background:#e8f0e8;color:#3a5a40;font-weight:600;text-align:left;
   padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
-td{padding:8px 10px;border-bottom:1px solid #1d222a;vertical-align:middle}
-tr:hover td{background:#1a1e26}
+td{padding:8px 10px;border-bottom:1px solid #e0ece0;vertical-align:middle}
+tr:hover td{background:#eaf5ea}
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:16px 18px;margin:14px 0}
+.banner{display:flex;flex-wrap:wrap;gap:22px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blu);
+  border-radius:8px;padding:12px 18px;margin:12px 0 4px;font-size:13px}
+.banner b{font-size:16px}
+.banner .bl{color:var(--dim);font-size:12px}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0}
 .kpi>div{flex:1 1 170px;background:var(--card);border:1px solid var(--line);
   border-radius:10px;padding:14px 16px}
 .kpi .lbl{color:var(--dim);font-size:12px;margin-bottom:6px}
 .kpi .val{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
 .pos{color:var(--grn)} .neg{color:var(--red)} .warn{color:var(--amb)}
-.sw{border-left:3px solid var(--red);background:#241a1a;padding:10px 14px;
+.sw{border-left:3px solid var(--red);background:#fdf0ee;padding:10px 14px;
   border-radius:6px;margin:8px 0}
 .sw .lv{font-weight:700;color:var(--red);margin-right:6px}
 .note{color:var(--dim);font-size:12px;margin-top:6px}
 .bar{display:flex;height:16px;border-radius:4px;overflow:hidden;
-  background:#11141a;min-width:120px}
+  background:#e8f0e8;min-width:120px}
 .bar span{display:block;height:100%}
 .ba{background:#4c8ef7}.bb{background:#3fb950}.bc{background:#26a69a}
 .bd{background:#d29922}.be{background:#e5534b}
@@ -63,9 +74,18 @@ tr:hover td{background:#1a1e26}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
 .tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;
   border:1px solid var(--line);color:var(--dim)}
+details.fold{border:1px solid var(--line);border-radius:8px;background:var(--card);
+  margin:10px 0;padding:0}
+details.fold>summary{cursor:pointer;padding:10px 14px;color:var(--dim);
+  font-size:13px;user-select:none;list-style:none}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::before{content:"\\25B8 ";color:var(--blu)}
+details.fold[open]>summary::before{content:"\\25BE "}
+details.fold[open]>summary{border-bottom:1px solid #e0ece0}
+details.fold .inner{padding:4px 14px 12px}
 .foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
   color:var(--dim);font-size:12px}
-code{background:#1e232c;padding:1px 5px;border-radius:3px;font-size:12px}
+code{background:#e8f0e8;padding:1px 5px;border-radius:3px;font-size:12px}
 """
 
 
@@ -89,6 +109,35 @@ def _pnl_cls(x):
     if x is None:
         return ""
     return "pos" if x > 0 else ("neg" if x < 0 else "")
+
+
+def _split(res):
+    """按 tradeable 拆分：主层（可交易）与观察层（watch/ref/lead）。"""
+    tr, wa = [], []
+    for c, v in (res.get("per_index") or {}).items():
+        (tr if v.get("tradeable", True) else wa).append((c, v))
+    return tr, wa
+
+
+def _state_dist(rows):
+    cnt = {k: 0 for k in STATE_ORDER}
+    for _c, v in rows:
+        d = v["state"]["dominant"]
+        if d in cnt:
+            cnt[d] += 1
+    return cnt
+
+
+def _dist_bar(cnt):
+    total = sum(cnt.values()) or 1
+    seg = []
+    for k in STATE_ORDER:
+        w = cnt[k] / total * 100
+        if w <= 0:
+            continue
+        seg.append(f'<span class="b{k.lower()}" style="width:{w:.2f}%" '
+                   f'title="{STATE_FULL[k]}: {cnt[k]} 只"></span>')
+    return f'<div class="bar">{"".join(seg)}</div>'
 
 
 def _probbar(p):
@@ -131,6 +180,7 @@ def _validate(res):
 
 def render_html(res):
     _validate(res)
+    trade_rows, watch_rows = _split(res)
     L = []
     a = L.append
     a('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">')
@@ -142,6 +192,21 @@ def render_html(res):
     a(f'<div class="sub">生成 {_e(res.get("generated_at"))} ｜ '
       f'配置 v{_e(res.get("config_version"))} ｜ 统一口径：'
       f'{_e(res.get("as_of_rule", "—"))}</div>')
+
+    # ---- 顶部状态横幅（一眼结论）----
+    n_sw = len(res.get("kill_switches") or [])
+    a('<div class="banner">')
+    a(f'<span><b>{len(trade_rows)}</b><div class="bl">可交易标的</div></span>')
+    a(f'<span><b>{len(watch_rows)}</b><div class="bl">观察池（折叠于下方各表）</div></span>')
+    a(f'<span><b>{res.get("total_exposure", 0) * 100:.2f}%</b>'
+      f'<div class="bl">总敞口（压缩前 '
+      f'{res.get("total_exposure_pre_switch", 0) * 100:.2f}%）</div></span>')
+    a(f'<span><b class="{"neg" if n_sw else "pos"}">{n_sw}</b>'
+      f'<div class="bl">风险开关生效</div></span>')
+    hedge = res.get("hedge_need", 0) or 0
+    a(f'<span><b class="{"warn" if hedge > 0 else ""}">{hedge * 100:.0f}%</b>'
+      f'<div class="bl">对冲建议（beta）</div></span>')
+    a("</div>")
 
     # ---- 风险开关 ----
     sw = res.get("kill_switches") or []
@@ -185,11 +250,9 @@ def render_html(res):
     a(f'<div><div class="lbl">对冲建议</div>'
       f'<div class="val warn">{res.get("hedge_need", 0) * 100:.0f}%</div>'
       f'<div class="note">beta 敞口</div></div>')
-    n_e = sum(1 for v in (res.get("per_index") or {}).values()
-              if v.get("tradeable") and v["state"]["dominant"] == "E")
-    n_t = sum(1 for v in (res.get("per_index") or {}).values() if v.get("tradeable"))
+    n_e = sum(1 for _c, v in trade_rows if v["state"]["dominant"] == "E")
     a(f'<div><div class="lbl">可交易标的处 E 阶段</div>'
-      f'<div class="val neg">{n_e}/{n_t}</div>'
+      f'<div class="val neg">{n_e}/{len(trade_rows)}</div>'
       f'<div class="note">下跌/衰退</div></div>')
     a("</div>")
 
@@ -200,12 +263,10 @@ def render_html(res):
       '<span><i class="bd"></i>D 派发</span><span><i class="be"></i>E 下跌</span></div>')
     a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
       "<th>主状态</th><th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th></tr>")
-    for c, v in (res.get("per_index") or {}).items():
+    for _c, v in trade_rows:
         st = v["state"]
-        tag = "" if v.get("tradeable", True) else " <span class='tag'>参照</span>"
         pos = (v.get("sizing") or {}).get("final")
-        pos_td = (f"{pos * 100:.2f}%" if v.get("tradeable", True) else "—")
-        a(f"<tr><td>{_e(v['name'])}{tag}</td>"
+        a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{v['close']:.1f}</td>"
           f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
           f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
@@ -213,8 +274,34 @@ def render_html(res):
           f"<td>{_probbar(st['probs'])}</td>"
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
-          f"<td class='num'><b>{pos_td}</b></td></tr>")
+          f"<td class='num'><b>{pos * 100:.2f}%</b></td></tr>")
     a("</table>")
+
+    # 观察池折叠表
+    if watch_rows:
+        cnt = _state_dist(watch_rows)
+        non_e = cnt["A"] + cnt["B"] + cnt["C"]
+        a(f'<details class="fold"><summary>观察池（{len(watch_rows)} 只 · '
+          f'不参与仓位）—— A {cnt["A"]} ｜ B {cnt["B"]} ｜ C {cnt["C"]} ｜ '
+          f'D {cnt["D"]} ｜ E {cnt["E"]}'
+          f'{" ｜ ◆ 非 E 状态 " + str(non_e) + " 只值得关注" if non_e else ""}</summary>'
+          f'<div class="inner">')
+        a('<div class="note">观察池来自 106 只筛选源与参照系（bucket=watch/ref/lead），'
+          '参与五状态评分但无仓位、无执行计划。非 E 状态（A/B/C）= 潜在候选。</div>')
+        a(_dist_bar(cnt))
+        a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
+          "<th>主状态</th><th>概率分布</th><th>置信</th><th>角色</th></tr>")
+        for _c, v in watch_rows:
+            st = v["state"]
+            a(f"<tr><td>{_e(v['name'])}</td>"
+              f"<td class='num'>{v['close']:.1f}</td>"
+              f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
+              f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
+              f"<td>{_e(st['dominant_name'])}</td>"
+              f"<td>{_probbar(st['probs'])}</td>"
+              f"<td class='num'>{st['confidence']:.2f}</td>"
+              f"<td class='note'>{_e(v.get('role', '—'))}</td></tr>")
+        a("</table></div></details>")
 
     # ---- L2 ----
     ch = res.get("chain") or {}
@@ -228,9 +315,14 @@ def render_html(res):
         a(f'<div class="note">上游 20 日 {_pct(ch.get("leader_ret20"))}｜'
           f'60 日 {_pct(ch.get("leader_ret60"))}｜'
           f'距高点 {_pct(ch.get("leader_dd"))}</div></div>')
-        a("<table><tr><th>下游</th><th>最佳滞后</th><th>领先相关</th>"
+        trade_codes = {c for c, _v in trade_rows}
+        main_lags = [(c, v) for c, v in (ch.get("lags") or {}).items()
+                     if c in trade_codes]
+        rest_lags = [(c, v) for c, v in (ch.get("lags") or {}).items()
+                     if c not in trade_codes]
+        a("<table><tr><th>下游（可交易）</th><th>最佳滞后</th><th>领先相关</th>"
           "<th>重叠样本</th></tr>")
-        for c, v in (ch.get("lags") or {}).items():
+        for _c, v in main_lags:
             if not v.get("ok"):
                 a(f"<tr><td>{_e(v.get('name'))}</td><td>—</td><td>—</td>"
                   f"<td class='note'>{_e(v.get('reason', '—'))}</td></tr>")
@@ -239,39 +331,54 @@ def render_html(res):
               f"<td class='num'>{v['best_corr']:.3f}</td>"
               f"<td class='num'>{v['n_overlap']}</td></tr>")
         a("</table>")
+        if rest_lags:
+            ok_n = sum(1 for _c, v in rest_lags if v.get("ok"))
+            a(f'<details class="fold"><summary>参照系与观察池传导（{len(rest_lags)} 只'
+              f' · 有效 {ok_n}）</summary><div class="inner">')
+            a("<table><tr><th>下游</th><th>最佳滞后</th><th>领先相关</th>"
+              "<th>重叠样本</th></tr>")
+            for _c, v in rest_lags:
+                if not v.get("ok"):
+                    a(f"<tr><td>{_e(v.get('name'))}</td><td>—</td><td>—</td>"
+                      f"<td class='note'>{_e(v.get('reason', '—'))}</td></tr>")
+                    continue
+                a(f"<tr><td>{_e(v['name'])}</td><td class='num'>{v['best_lag_days']} 日</td>"
+                  f"<td class='num'>{v['best_corr']:.3f}</td>"
+                  f"<td class='num'>{v['n_overlap']}</td></tr>")
+            a("</table></div></details>")
 
     # ---- 相关性 ----
     cor = res.get("correlation") or {}
     a("<h2>三、相关性（L3 输入）</h2>")
     if cor.get("ok"):
-        a(f'<div class="note">60 日平均两两相关 '
-          f'<b>{cor["mean_pairwise"]:.2f}</b>（样本 {cor["n_days"]} 日）</div>')
-        names = list(cor["matrix"].keys())
-        # 代码 → 中文名（直接展示 000688/hkHSTECH 极难阅读）
-        nm = {c: (v.get("name") or c)
-              for c, v in (res.get("per_index") or {}).items()}
+        a(f'<div class="note">全池 60 日平均两两相关 '
+          f'<b>{cor["mean_pairwise"]:.2f}</b>（样本 {cor["n_days"]} 日；'
+          f'L3 惩罚与对冲口径）。下表为可交易标的子矩阵。</div>')
+        full = cor["matrix"]
+        names = [c for c, _v in trade_rows if c in full]
+        nm = {c: v.get("name") or c for c, v in trade_rows}
         a("<table><tr><th></th>"
           + "".join(f"<th>{_e(nm.get(n, n))}</th>" for n in names) + "</tr>")
         for x in names:
-            a(f"<tr><td>{_e(nm.get(x, x))}</td>" + "".join(
-                f"<td class='num'>{cor['matrix'][x][y]:.2f}</td>" for y in names)
-              + "</tr>")
+            row = full.get(x) or {}
+            cells = []
+            for y in names:
+                val = row.get(y)
+                cells.append(f"<td class='num'>{val:.2f}</td>"
+                             if val is not None else "<td class='num'>—</td>")
+            a(f"<tr><td>{_e(nm.get(x, x))}</td>" + "".join(cells) + "</tr>")
         a("</table>")
     else:
         a(f'<div class="card warn">{_e(cor.get("reason"))}</div>')
 
     # ---- 仓位 ----
     a("<h2>四、仓位建议（L3 四层约束取最小）</h2>")
+    a(f'<div class="note">观察池与参照系共 {len(watch_rows)} 只不参与仓位，'
+      f'下表仅列可交易标的。</div>')
     a("<table><tr><th>指数</th><th>vol 上限</th><th>回撤系数</th><th>相关惩罚</th>"
       "<th>状态权重</th><th>生效约束</th><th>最终仓位</th></tr>")
-    for c, v in (res.get("per_index") or {}).items():
+    for _c, v in trade_rows:
         s = v["sizing"]
-        if not v.get("tradeable", True):
-            a(f"<tr><td>{_e(v['name'])} <span class='tag'>参照</span></td>"
-              f"<td>—</td><td>—</td><td>—</td>"
-              f"<td class='num'>{s['state_weight']:.2f}</td>"
-              f"<td colspan='2'>不计仓位</td></tr>")
-            continue
         bind = s.get("binding") or "—"
         a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{_pp(s['cap_vol'])}</td>"
@@ -298,9 +405,7 @@ def render_html(res):
       '明确「涨到什么位置才允许动手」，避免在下跌通道中提前进场。</div>')
     a("<table><tr><th>指数</th><th>触发位</th><th>追价上限</th><th>失效位</th>"
       "<th>距触发位</th><th>反弹资格</th><th>单笔风险</th></tr>")
-    for c, v in (res.get("per_index") or {}).items():
-        if not v.get("tradeable", True):
-            continue
+    for _c, v in trade_rows:
         e = v.get("execution") or {}
         rb = e.get("rebound") or {}
         dist = None
@@ -310,7 +415,7 @@ def render_html(res):
             rb_txt = (f'<span class="pos">[可参与] 战术参与 '
                       f'上限 {e.get("rebound_allowance", 0) * 100:.0f}%</span>')
         else:
-            rb_txt = (f'<span class="dim">[不可] 下跌中继 '
+            rb_txt = (f'<span style="color:var(--dim)">[不可] 下跌中继 '
                       f'（{rb.get("score", 0)}/4 项）</span>')
         a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{_e(e.get('trigger_price'))}</td>"
@@ -327,9 +432,7 @@ def render_html(res):
     thr = res.get("min_confidence_to_act", 0.65)
     a("<table><tr><th>指数</th><th>主状态</th><th>置信</th><th>开仓许可</th>"
       "<th>行为指令</th></tr>")
-    for c, v in (res.get("per_index") or {}).items():
-        if not v.get("tradeable", True):
-            continue
+    for _c, v in trade_rows:
         st = v["state"]
         conf_ok = st["confidence"] >= thr
         state_ok = st["dominant"] in ("A", "B", "C")

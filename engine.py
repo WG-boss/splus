@@ -183,6 +183,12 @@ def quality_check(bars: List[Dict[str, Any]]) -> List[str]:
     if jumps > 0:
         issues.append(f"SOFT|存在 {jumps} 处 >15% 跳空（真行情，已保留）")
 
+    # 6) 仅收盘价（软）：部分新发布中证指数在官网只给 close，无 OHLC。
+    #    ATR/ADX 会退化为收盘口径代理，必须在报告里披露，不得静默当正常数据。
+    ohlc_flat = sum(1 for b in bars if b["high"] == b["low"] == b["close"])
+    if ohlc_flat > len(bars) * 0.9:
+        issues.append("SOFT|源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理")
+
     return issues
 
 
@@ -1036,16 +1042,29 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             haircut = h
         applied.append(f"{s['id']}→{h:.2f}")
 
-    theme_cap = cfg["risk"]["theme_cap_under_e"]
+    theme_cap = cfg["risk"].get("theme_cap_under_e", 0.06)
+    theme_bks = set(cfg["risk"].get("theme_buckets") or ["theme"])
     e_dom_n = sum(1 for v in per_index.values()
                   if v.get("tradeable", True) and v["state"]["dominant"] == "E")
+
+    # 主题组按【组内合计】卡硬顶，不是每桶各卡一次。
+    # 否则每加一个主题桶，硬顶就实际抬高一倍（6%→12%→18%），约束被静默放宽。
+    theme_sum = 0.0
+    for b, v in bucket_exposure.items():
+        if b in theme_bks:
+            theme_sum += v["exposure"] * haircut
+    theme_scale = 1.0
+    if e_dom_n >= 2 and theme_sum > theme_cap > 0:
+        theme_scale = theme_cap / theme_sum
+
     for b, v in bucket_exposure.items():
         pre = v["exposure"]
         v["exposure_pre_switch"] = pre
         capped = pre * haircut
-        if b == "theme" and e_dom_n >= 2 and capped > theme_cap:
-            capped = theme_cap
-            v["cap_reason"] = f"E 阶段主题桶硬上限 {theme_cap:.0%}"
+        if b in theme_bks and theme_scale < 1.0:
+            capped = pre * haircut * theme_scale
+            v["cap_reason"] = (f"E 阶段主题组硬上限 {theme_cap:.0%}"
+                               f"（组内合计 {theme_sum:.2%} → 缩放 {theme_scale:.2f}）")
         v["exposure"] = round(capped, 4)
         if len(v.get("codes", [])) > 1:
             v["per_name"] = round(capped / len(v["codes"]), 4)
