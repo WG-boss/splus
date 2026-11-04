@@ -47,7 +47,9 @@ def main():
     chk("输出以 <!DOCTYPE 开头", h.startswith("<!DOCTYPE"))
     chk("输出以 </html> 结尾", h.rstrip().endswith("</html>"))
     chk("包含全部 9 张表（L1 主/观察池、传导主/观察、相关性、仓位、桶、执行、行为）",
-        h.count("<table>") == 9, f"实际 {h.count('<table>')}")
+        h.count("<table") == 9, f"实际 {h.count('<table')}")
+    chk("表头排序脚本内置（除相关性矩阵外全部表可排序）",
+        render_html.SORT_JS in h and h.count('<table class="mx">') == 1)
     chk("概率条形图数量 = 标的数（主表+观察池表）",
         h.count('class="bar"') >= len(res["per_index"]),
         "{} vs {}".format(h.count('class="bar"'), len(res["per_index"])))
@@ -62,7 +64,7 @@ def main():
     chk("观察池折叠块存在", "<details class=\"fold\">" in h)
     chk("观察池 summary 带五状态分布", "不参与仓位）—— A" in h)
     chk("相关性只渲染可交易子矩阵",
-        h.count("<table><tr><th></th>") == 1
+        h.count('<table class="mx"><tr><th></th>') == 1
         and h.split("三、相关性")[1].split("</table>")[0].count("<th>") == n_tr + 1,
         f"矩阵列应为 {n_tr + 1}")
     chk("仓位表不含观察池行",

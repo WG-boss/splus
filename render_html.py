@@ -86,6 +86,61 @@ details.fold .inner{padding:4px 14px 12px}
 .foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
   color:var(--dim);font-size:12px}
 code{background:#e8f0e8;padding:1px 5px;border-radius:3px;font-size:12px}
+/* 表头排序（点击循环 升序→降序；▲▼ 指示当前方向）*/
+th.srt{cursor:pointer;user-select:none}
+th.srt:hover{background:#dceadc}
+th.srt[data-dir="asc"]::after{content:" \\25B2";color:var(--blu);font-size:11px}
+th.srt[data-dir="desc"]::after{content:" \\25BE";color:var(--blu);font-size:11px}
+"""
+
+# 通用表头排序脚本（2026-11-04）：全部指数列表点击表头即排序。
+# 规则：数值列按数值（td 的 data-v 优先，其次清洗文本后 parseFloat）；
+# 文本列按 zh 拼音序；"—"/空缺恒排末尾；同值保持原序（稳定）；
+# 再点一次反向；▲▼ 指示方向；相关性矩阵（.mx）不参与。
+SORT_JS = r"""
+(function(){
+  function cellVal(td){
+    var d=td.getAttribute('data-v');
+    if(d!==null&&d!==''){var f=parseFloat(d);if(isFinite(f))return{k:'n',v:f};}
+    var t=(td.textContent||'').replace(/[\s,%]/g,'').replace(/日$/,'');
+    if(t==='\u2014'||t==='')return{k:'m'};
+    var f2=parseFloat(t);
+    if(isFinite(f2))return{k:'n',v:f2};
+    return{k:'s',v:t};
+  }
+  document.querySelectorAll('table:not(.mx)').forEach(function(tb){
+    var head=tb.rows[0];if(!head||head.cells.length<2)return;
+    var body=tb.tBodies[tb.tBodies.length-1]||tb;
+    Array.prototype.forEach.call(head.cells,function(th,ci){
+      if(th.classList.contains('srt'))return;
+      th.classList.add('srt');th.title='点击排序';
+      th.addEventListener('click',function(){
+        var dir=th.getAttribute('data-dir')==='asc'?'desc':'asc';
+        Array.prototype.forEach.call(head.cells,function(h){h.removeAttribute('data-dir');});
+        th.setAttribute('data-dir',dir);
+        var rows=[],r;
+        for(r=1;r<tb.rows.length;r++)rows.push(tb.rows[r]);
+        var nums=[],strs=[],miss=[],i;
+        for(i=0;i<rows.length;i++){rows[i]._i=i;
+          var v=cellVal(rows[i].cells[ci]);
+          if(v.k==='n')nums.push(rows[i]);
+          else if(v.k==='s')strs.push(rows[i]);
+          else miss.push(rows[i]);
+        }
+        var mul=(dir==='asc')?1:-1;
+        function cmp(a,b){
+          var va=cellVal(a.cells[ci]),vb=cellVal(b.cells[ci]);
+          if(va.k==='n'){var d=va.v-vb.v;if(d!==0)return d*mul;}
+          else{var ds=va.v.localeCompare(vb.v,'zh');if(ds!==0)return ds*mul;}
+          return a._i-b._i;
+        }
+        nums.sort(cmp);strs.sort(cmp);
+        miss.sort(function(a,b){return a._i-b._i;});
+        nums.concat(strs,miss).forEach(function(tr){body.appendChild(tr);});
+      });
+    });
+  });
+})();
 """
 
 
@@ -270,8 +325,8 @@ def render_html(res):
           f"<td class='num'>{v['close']:.1f}</td>"
           f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
           f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
-          f"<td>{_e(st['dominant_name'])}</td>"
-          f"<td>{_probbar(st['probs'])}</td>"
+          f"<td data-v='{STATE_ORDER.index(st['dominant'])}'>{_e(st['dominant_name'])}</td>"
+          f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
           f"<td class='num'><b>{pos * 100:.2f}%</b></td></tr>")
@@ -297,8 +352,8 @@ def render_html(res):
               f"<td class='num'>{v['close']:.1f}</td>"
               f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
               f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
-              f"<td>{_e(st['dominant_name'])}</td>"
-              f"<td>{_probbar(st['probs'])}</td>"
+              f"<td data-v='{STATE_ORDER.index(st['dominant'])}'>{_e(st['dominant_name'])}</td>"
+              f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
               f"<td class='num'>{st['confidence']:.2f}</td>"
               f"<td class='note'>{_e(v.get('role', '—'))}</td></tr>")
         a("</table></div></details>")
@@ -357,7 +412,7 @@ def render_html(res):
         full = cor["matrix"]
         names = [c for c, _v in trade_rows if c in full]
         nm = {c: v.get("name") or c for c, v in trade_rows}
-        a("<table><tr><th></th>"
+        a("<table class=\"mx\"><tr><th></th>"
           + "".join(f"<th>{_e(nm.get(n, n))}</th>" for n in names) + "</tr>")
         for x in names:
             row = full.get(x) or {}
@@ -442,7 +497,8 @@ def render_html(res):
             gate = '<span class="warn">置信达标但状态禁新仓</span>'
         else:
             gate = '<span class="neg">置信不足</span>'
-        a(f"<tr><td>{_e(v['name'])}</td><td>{_e(st['dominant_name'])}</td>"
+        a(f"<tr><td>{_e(v['name'])}</td>"
+          f"<td data-v='{STATE_ORDER.index(st['dominant'])}'>{_e(st['dominant_name'])}</td>"
           f"<td class='num'>{st['confidence']:.2f}</td><td>{gate}</td>"
           f"<td class='note'>{_e(PLAYBOOK.get(st['dominant'], '—'))}</td></tr>")
     a("</table>")
@@ -463,6 +519,7 @@ def render_html(res):
     a('<div class="foot">由 S++ 引擎按外置配置自动生成。'
       '所有阈值均为可调参数，不构成买卖建议。'
       '本文件单文件自包含，无外部依赖。</div>')
+    a("<script>" + SORT_JS + "</script>")
     a("</div></body></html>")
     return "\n".join(L)
 
