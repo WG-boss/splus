@@ -1,1 +1,2 @@
 {"type": "daily", "ts": "2026-11-05 10:35:38", "as_of": "2026-11-04", "market_veto": true, "market_reasons": ["A股整体市场为「减量」，非「增量」", "大盘闸门关闭（沪深300 收盘低于 EMA20）"], "open_intents": 0, "allowed": 0, "tradeable": 11, "account_source": "unconfigured"}
+{"type": "daily", "ts": "2026-11-05 20:27:45", "as_of": "2026-11-05", "market_veto": true, "market_reasons": ["大盘闸门关闭（沪深300 收盘低于 EMA20）"], "open_intents": 0, "allowed": 0, "tradeable": 11, "account_source": "unconfigured"}
