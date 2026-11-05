@@ -310,6 +310,7 @@ market_context:
   gate_state_file: "data/market_gate_state.json"
   require_state: "增量"
   require_gate_open: true
+  use_ideal_state: false       # O2：市场否决默认读滞回确认态 state；置 true 改读 B+ 暴露的即时态 state_ideal（转强时少否决 1-2 日，但更跳变）
   max_lag_days: 4              # 覆盖周末；快照更旧一律 fail-closed
   on_error: "veto"             # 库缺失/未定稿/异常 → 否决开新仓
 

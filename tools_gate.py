@@ -21,6 +21,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import engine
 import governance as gov
+import market_context
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 CFG = os.path.join(BASE, "splus_config.yaml")
@@ -58,6 +59,13 @@ def main() -> int:
     if args.check:
         pre, red = gov.load_journal(ledger, day, args.check)
         g = gov.check_gate(cfg, args.check, pre, red)
+        # O6：顶层市场否决也作为开仓许可的硬约束，避免否决日误报 allowed=True
+        mc = market_context.load(BASE, cfg, day)
+        if mc.get("veto"):
+            g = dict(g)
+            g["allowed"] = False
+            g["errors"] = list(g.get("errors") or []) + [
+                f"市场否决：{mc.get('label')}（{('；'.join(mc.get('reasons') or [])) or '—'}）"]
         print(f"{args.check} @ {day}: allowed={g['allowed']}")
         if g["errors"]:
             for e in g["errors"]:

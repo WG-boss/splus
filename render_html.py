@@ -381,12 +381,24 @@ def render_html(res):
       '<span><i class="bd"></i>D 派发</span><span><i class="be"></i>E 下跌</span></div>')
     a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
       "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
-      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th><th>L2抑制</th></tr>")
+      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th><th>L2抑制</th><th>开仓许可</th></tr>")
     for _c, v in trade_rows:
         st = v["state"]
         _sd = st.get("state_start")
         _days = int(st.get("state_days", 0) or 0)
         pos = (v.get("sizing") or {}).get("final")
+        _gov = v.get("governance_gate")
+        _oa = bool(v.get("open_allowed"))
+        if bool((res.get("market_context") or {}).get("veto")):
+            _perm_icon, _perm_tip = "✕", "顶层市场否决：今日禁止开新仓"
+        elif _gov is not None and not _gov.get("allowed"):
+            _perm_icon, _perm_tip = "✕", "治理门禁未通过：" + (
+                ((_gov.get("errors") or ["未通过"])[0]) if _gov.get("errors") else "未通过")
+        elif _oa:
+            _perm_icon, _perm_tip = "✓", "允许开仓（治理通过且市场未否决）"
+        else:
+            _perm_icon, _perm_tip = "—", "未配置治理门禁"
+        _perm_cell = f"<td class='mono' title='{_e(_perm_tip)}'>{_perm_icon}</td>"
         _l2 = v.get("l2_suppress")
         if _l2:
             _l2f = _l2.get("factor")
@@ -405,7 +417,7 @@ def render_html(res):
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
           f"<td class='num'><b>{pos * 100:.2f}%</b></td>"
-          f"{_l2cell}</tr>")
+          f"{_l2cell}{_perm_cell}</tr>")
     a("</table>")
 
     # 观察池折叠表
@@ -658,8 +670,9 @@ def render_html(res):
     a(f"<div class='note warn'>概率口径：{_e(dc.get('calibration_label'))}"
       f"（{_e(dc.get('calibration_status') or '—')}）</div>")
     mc = res.get("market_context") or {}
+    _mc_ideal = "（即时态）" if mc.get("use_ideal_state") else ""
     a(f"<div class='note'>市场闸门：{_e(mc.get('label') or '—')}；"
-      f"口径 {_e(mc.get('require_state') or '—')} + 大盘闸门"
+      f"口径 {_e(mc.get('require_state') or '—')}{_mc_ideal} + 大盘闸门"
       f"{'开' if (mc.get('gate') or {}).get('allow') else '关'}</div>")
     em = res.get("etf_map") or {}
     a(f"<div class='note'>场内映射：{em.get('count', 0)} 只全覆盖，"
