@@ -16,6 +16,7 @@ import datetime
 import io
 import json
 import os
+import re
 
 BUCKETS = ["beta", "sector", "stage", "execution"]
 
@@ -223,3 +224,69 @@ def read_jsonl(path):
                 except Exception:
                     pass
     return out
+
+
+# ============================================================
+# 2026-11-05 P0-③：让门禁真正接进决策链（此前 check_gate 只在 selftest 调用）
+# ============================================================
+
+def journal_path(ledger_dir, as_of, code):
+    """每标的、每日一份事前验尸 / 红队质询记录。"""
+    return os.path.join(ledger_dir, "journal", f"{as_of}_{code}.json")
+
+
+def load_journal(ledger_dir, as_of, code):
+    """读不到就返回 (None, None)，由 check_gate 如实拦下，不静默放行。"""
+    p = journal_path(ledger_dir, as_of, code)
+    if not os.path.exists(p):
+        return None, None
+    try:
+        txt = io.open(p, "r", encoding="utf-8").read()
+        # 模板里的尖括号占位未填完 → 视为无效，绝不能让空模板骗过门禁
+        if re.search(r"<[^>]{2,}>", txt):
+            return None, None
+        rec = json.loads(txt)
+        return rec.get("premortem"), rec.get("redteam")
+    except Exception:
+        return None, None
+
+
+def write_template(ledger_dir, as_of, code, name=""):
+    """生成待填写模板（不覆盖已有文件）。返回 (路径, 是否已存在)。"""
+    p = journal_path(ledger_dir, as_of, code)
+    if os.path.exists(p):
+        return p, True
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    rec = {
+        "as_of": as_of, "code": code, "name": name,
+        "premortem": {**PREMORTEM_TEMPLATE,
+                      "thesis": "<一句话论点>",
+                      "kill_conditions": ["<可观测条件，如：收盘跌破 XXXX 点且放量>"],
+                      "max_loss_pct": 8, "time_stop_days": 20,
+                      "evidence": ["<具体证据，非观点>"]},
+        "redteam": {"counterparty": "<对手方为什么愿意在此价位卖给我>",
+                    "edge_source": "<我的信息/结构/时滞优势>",
+                    "crowding": "<拥挤度与已有布局>",
+                    "fail_mode": "<最可能让我亏钱的具体路径>"},
+        "_hint": "填完后删除尖括号占位；validate_ 会拒绝主观措辞与过短回答",
+    }
+    with io.open(p, "w", encoding="utf-8") as fh:
+        fh.write(json.dumps(rec, ensure_ascii=False, indent=2) + "\n")
+    return p, False
+
+
+def log_daily(ledger_dir, as_of, summary):
+    """
+    日级门禁汇总台账（幂等）：同一 as_of 只写一条。
+    这样即使 engine 同日重跑 10 次，governance.jsonl 也不会被刷屏。
+    """
+    path = os.path.join(ledger_dir, "governance.jsonl")
+    for r in read_jsonl(path):
+        if r.get("type") == "daily" and r.get("as_of") == as_of:
+            return {"path": path, "written": False}
+    os.makedirs(ledger_dir, exist_ok=True)
+    rec = {"type": "daily", "ts": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+           "as_of": as_of, **summary}
+    with io.open(path, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    return {"path": path, "written": True}

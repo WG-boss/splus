@@ -293,6 +293,43 @@ meta_layer:
     require_redteam: true    # 强制写“赚的是谁的钱”
 
 # ============================================================
+# P0（2026-11-05）：账户真实净值 / 市场闸门 / 治理门禁 / ETF 映射
+# 参数一律外置；本段只加约束与披露，不改 L1~L5 任何模型参数
+# ============================================================
+account:
+  file: "account.yaml"
+
+account_policy:
+  on_missing: "no_throttle"   # 真实账户缺失 → 不压仓 + 红色披露（绝不用假设组合顶替）
+  max_stale_days: 10
+
+market_context:
+  enabled: true
+  stock_pool_dir: "../stock-pool"
+  db_file: "data/stock_pool.db"
+  gate_state_file: "data/market_gate_state.json"
+  require_state: "增量"
+  require_gate_open: true
+  max_lag_days: 4              # 覆盖周末；快照更旧一律 fail-closed
+  on_error: "veto"             # 库缺失/未定稿/异常 → 否决开新仓
+
+etf_map:
+  file: "etf_map.yaml"          # 118 只全覆盖（11 可交易 + 107 观察池）
+  show_candidates: true
+  max_candidates: 3
+
+hedge:
+  retail_actionable: false     # beta 对冲对个人不可直接执行
+  retail_note: "融券/期指对冲对个人通常不可执行；替代方案为降低敞口、持有现金或低相关宽基"
+
+calibration_display:
+  min_settled: 30
+  uncalibrated_label: "概率未校准（结算样本不足）"
+
+decision_card:
+  enabled: true                # 一页纸「今天做/不做」决策卡；735 行完整报告仍保留
+
+# ============================================================
 # 输出
 # ============================================================
 output:

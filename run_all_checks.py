@@ -21,6 +21,8 @@ CHECKS = [
     ("历史回溯 + 参数敏感性", ["selftest_history.py"]),
     ("参数优化流程自检", ["selftest_optimize.py"]),
     ("HTML 渲染器自检", ["selftest_html.py"]),
+    ("P0 账户/闸门/治理/ETF", ["selftest_p0.py"]),
+    ("ETF 映射覆盖校验", ["tools_etf_map.py", "--check"]),
     ("生产运行", ["run.py"]),
 ]
 

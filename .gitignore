@@ -28,3 +28,11 @@ _p3.txt
 _p4.txt
 _peek.py
 data/_cache_backup/
+
+# ---- 2026-11-05 P0：个人资产与本地数据（绝不入库）----
+account.yaml
+data/account_nav.jsonl
+data/ledger/journal/
+# 场内 ETF 清单缓存可由 tools_etf_map.py --refresh 重算
+data/etf_universe.json
+# 注意：etf_map.yaml 必须入库（人工确认结果），data/ledger/governance.jsonl 入库以便追溯

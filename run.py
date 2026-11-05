@@ -34,6 +34,35 @@ def render(res):
     L.append(f"> 生成 {res['generated_at']} ｜ 配置 v{res['config_version']}")
     L.append("")
 
+    # ---- 0 一页纸决策卡（个人投资参考：今天做/不做）----
+    card = res.get("decision_card") or {}
+    if card.get("enabled"):
+        L.append("## 今日行动卡")
+        L.append("")
+        L.append(f"> **{card.get('headline')}**")
+        L.append("")
+        L.append(f"- 账户口径：{card.get('account_label')}")
+        alloc = card.get("allocation_cny")
+        L.append(f"- 模型建议敞口 {card.get('model_exposure', 0) * 100:.2f}% ｜ "
+                 f"可执行敞口 **{card.get('actionable_exposure', 0) * 100:.2f}%**"
+                 + (f"（约 ¥{alloc:,.0f}）" if alloc else ""))
+        L.append(f"- 场内标的映射：{card.get('instrument_confirmed')}/"
+                 f"{card.get('instrument_tradeable')} 已核实；未确认项禁止据此下单")
+        L.append(f"- 对冲：{card.get('hedge')}")
+        L.append(f"- 概率口径：{card.get('calibration_label')}")
+        L.append(f"- 复核时点：{card.get('review_at')}")
+        if card.get("reasons"):
+            L.append("")
+            L.append("否决/提示原因：")
+            for r in card["reasons"]:
+                L.append(f"  - {r}")
+        if card.get("steps"):
+            L.append("")
+            L.append("今天该做的：")
+            for s in card["steps"]:
+                L.append(f"  - {s}")
+        L.append("")
+
     # ---- 0 风险开关 ----
     sw = res.get("kill_switches") or []
     if sw:
@@ -221,11 +250,25 @@ def render(res):
     L.append(f"- 已结算样本 {cal.get('settled_n', 0)} 条；本次新结算 "
              f"{cal.get('newly_settled', 0)} 条")
     L.append(f"- 预测台账：{res.get('_paths', {}).get('ledger', '—')}")
+    card = res.get("decision_card") or {}
+    L.append(f"- 概率口径：{card.get('calibration_label', '台账未建立')}"
+             f"（{card.get('calibration_status', '—')}）")
+    gp = res.get("governance") or {}
+    L.append(f"- 治理台账：日级汇总 {gp.get('daily_records', 0)} 条，"
+             f"本次开仓意向 {gp.get('checked_today', 0)} 个、通过 "
+             f"{gp.get('allowed_today', 0)} 个")
+    mc = res.get("market_context") or {}
+    L.append(f"- 市场闸门：{mc.get('label', '—')}")
+    em = res.get("etf_map") or {}
+    L.append(f"- ETF 映射：{em.get('count', 0)} 只全覆盖，"
+             f"已核实 {(em.get('stats') or {}).get('confirmed', 0)} 只，"
+             f"候选 {(em.get('stats') or {}).get('candidates', 0)} 只")
     L.append("")
 
     L.append("---")
-    L.append("*由 S++ 引擎按外置配置自动生成。所有阈值均为可调参数，"
-             "不构成买卖建议；数据口径问题已在报告开头披露。*")
+    L.append("*由 S++ 引擎按外置配置自动生成。所有阈值均为可调参数，不构成买卖建议。"
+             "仓位为模型建议比例而非下单指令；指数点位与场内 ETF 代码须自行核实，"
+             "未确认的候选标的一律不得据此下单。概率未经校准，不得解读为胜率。*")
     return "\n".join(L)
 
 

@@ -50,6 +50,14 @@ tr:hover td{background:#eaf5ea}
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:16px 18px;margin:14px 0}
+.dcard{background:var(--card);border:1px solid var(--line);
+  border-left:5px solid var(--red);border-radius:10px;padding:16px 20px;margin:16px 0}
+.dcard.ok{border-left-color:var(--grn)}
+.dcard h2{margin:0 0 8px;border:0;padding:0;font-size:19px}
+.dcard ul{margin:8px 0 0;padding-left:20px}
+.dcard li{margin:3px 0}
+.dcard .kv{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;margin:8px 0}
+.dcard .kv b{font-variant-numeric:tabular-nums}
 .banner{display:flex;flex-wrap:wrap;gap:22px;background:var(--card);
   border:1px solid var(--line);border-left:4px solid var(--blu);
   border-radius:8px;padding:12px 18px;margin:12px 0 4px;font-size:13px}
@@ -263,6 +271,35 @@ def render_html(res):
       f'<div class="bl">对冲建议（beta）</div></span>')
     a("</div>")
 
+    # ---- 一页纸决策卡（个人投资参考：今天做/不做）----
+    import etf_map as _etf
+    dc = res.get("decision_card") or {}
+    if dc.get("enabled"):
+        veto = bool((res.get("market_context") or {}).get("veto"))
+        a('<div class="dcard%s">' % ("" if veto else " ok"))
+        a(f'<h2>今日行动卡 · {_e(dc.get("headline"))}</h2>')
+        a('<div class="kv">')
+        a(f'<span>账户口径：<b>{_e(dc.get("account_label"))}</b></span>')
+        a(f'<span>模型建议敞口：<b>{dc.get("model_exposure", 0) * 100:.2f}%</b></span>')
+        cls = "neg" if not dc.get("actionable_exposure") else "pos"
+        a(f'<span>可执行敞口：<b class="{cls}">'
+          f'{dc.get("actionable_exposure", 0) * 100:.2f}%</b></span>')
+        if dc.get("allocation_cny"):
+            a(f'<span>参考金额：<b>¥{dc["allocation_cny"]:,.0f}</b></span>')
+        a(f'<span>场内已核实：<b>{dc.get("instrument_confirmed", 0)}/'
+          f'{dc.get("instrument_tradeable", 0)}</b></span>')
+        a("</div>")
+        if dc.get("reasons"):
+            a('<div class="note"><b>否决原因：</b>' +
+              "；".join(_e(x) for x in dc["reasons"]) + "</div>")
+        a("<ul>")
+        for s in dc.get("steps") or []:
+            a(f"<li>{_e(s)}</li>")
+        a("</ul>")
+        a(f'<div class="note">概率口径：{_e(dc.get("calibration_label"))} ｜ '
+          f'复核：{_e(dc.get("review_at"))}</div>')
+        a("</div>")
+
     # ---- 风险开关 ----
     sw = res.get("kill_switches") or []
     a("<h2>生效中的风险开关</h2>")
@@ -295,16 +332,16 @@ def render_html(res):
     # ---- KPI ----
     dd = (res.get("portfolio_dd") or {})
     a('<div class="kpi">')
-    a(f'<div><div class="lbl">组合回撤（自动计算）</div>'
-      f'<div class="val neg">{_pct(dd.get("dd"))}</div>'
-      f'<div class="note">{_e(dd.get("source"))}</div></div>')
+    a(f'<div><div class="lbl">账户回撤（节流输入）</div>'
+      f'<div class="val {"neg" if dd.get("ok") else "warn"}">{_pct(dd.get("dd"))}</div>'
+      f'<div class="note">{_e(dd.get("label") or dd.get("source"))}</div></div>')
     a(f'<div><div class="lbl">合计建议敞口</div>'
       f'<div class="val">{res.get("total_exposure", 0) * 100:.2f}%</div>'
       f'<div class="note">压缩前 {res.get("total_exposure_pre_switch", 0) * 100:.2f}%'
       f'（系数 {res.get("switch_haircut", 1):.2f}）</div></div>')
-    a(f'<div><div class="lbl">对冲建议</div>'
+    a(f'<div><div class="lbl">对冲建议（模型）</div>'
       f'<div class="val warn">{res.get("hedge_need", 0) * 100:.0f}%</div>'
-      f'<div class="note">beta 敞口</div></div>')
+      f'<div class="note">beta 敞口；个人不可直接执行，替代为降敞口/现金</div></div>')
     n_e = sum(1 for _c, v in trade_rows if v["state"]["dominant"] == "E")
     a(f'<div><div class="lbl">可交易标的处 E 阶段</div>'
       f'<div class="val neg">{n_e}/{len(trade_rows)}</div>'
@@ -458,8 +495,9 @@ def render_html(res):
     a("<h2>五、执行层（L4）</h2>")
     a('<div class="note">在 E 阶段下所有价格均低于触发位，执行层的作用是'
       '明确「涨到什么位置才允许动手」，避免在下跌通道中提前进场。</div>')
-    a("<table><tr><th>指数</th><th>触发位</th><th>追价上限</th><th>失效位</th>"
-      "<th>距触发位</th><th>反弹资格</th><th>单笔风险</th></tr>")
+    a("<table><tr><th>指数</th><th>场内标的（执行参考）</th><th>触发位</th>"
+      "<th>追价上限</th><th>失效位</th><th>距触发位</th><th>反弹资格</th>"
+      "<th>单笔风险</th></tr>")
     for _c, v in trade_rows:
         e = v.get("execution") or {}
         rb = e.get("rebound") or {}
@@ -472,7 +510,13 @@ def render_html(res):
         else:
             rb_txt = (f'<span style="color:var(--dim)">[不可] 下跌中继 '
                       f'（{rb.get("score", 0)}/4 项）</span>')
-        a(f"<tr><td>{_e(v['name'])}</td>"
+        ins = v.get("instrument") or {}
+        txt, icls = _etf.display(ins)
+        top = (ins.get("candidates") or [])[:3]
+        cand = "、".join(f"{_e(c.get('code'))} {_e(c.get('name'))}" for c in top)
+        etf_cell = (f"<td><span class='{icls}'>{_e(txt)}</span>"
+                    + (f"<div class='note'>候选：{cand}</div>" if cand else "") + "</td>")
+        a(f"<tr><td>{_e(v['name'])}</td>{etf_cell}"
           f"<td class='num'>{_e(e.get('trigger_price'))}</td>"
           f"<td class='num'>{_e(e.get('chase_cap_price'))}"
           f"（{_e(e.get('chase_atr_mult'))} ATR）</td>"
@@ -513,7 +557,21 @@ def render_html(res):
     gp = (res.get("governance") or {})
     a(f"<div class='note'>治理门禁：premortem "
       f"{'必需' if gp.get('require_premortem') else '免'} ／ redteam "
-      f"{'必需' if gp.get('require_redteam') else '免'}</div>")
+      f"{'必需' if gp.get('require_redteam') else '免'}"
+      f"；日级台账 {gp.get('daily_records', 0)} 条，本次开仓意向 "
+      f"{gp.get('checked_today', 0)} 个、通过 {gp.get('allowed_today', 0)} 个</div>")
+    dc = res.get("decision_card") or {}
+    a(f"<div class='note warn'>概率口径：{_e(dc.get('calibration_label'))}"
+      f"（{_e(dc.get('calibration_status') or '—')}）</div>")
+    mc = res.get("market_context") or {}
+    a(f"<div class='note'>市场闸门：{_e(mc.get('label') or '—')}；"
+      f"口径 {_e(mc.get('require_state') or '—')} + 大盘闸门"
+      f"{'开' if (mc.get('gate') or {}).get('allow') else '关'}</div>")
+    em = res.get("etf_map") or {}
+    a(f"<div class='note'>场内映射：{em.get('count', 0)} 只全覆盖，"
+      f"已核实 {(em.get('stats') or {}).get('confirmed', 0)} 只、"
+      f"待确认 {(em.get('stats') or {}).get('candidates', 0)} 只；"
+      f"候选未核实跟踪指数，禁止据此下单</div>")
     a("</div>")
 
     a('<div class="foot">由 S++ 引擎按外置配置自动生成。'

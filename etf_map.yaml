@@ -1,0 +1,4753 @@
+meta:
+  version: 1.0.0
+  generated_at: '2026-11-05T10:31:45'
+  source: 东方财富 push2 场内基金板块（代码+名称）
+  universe_count: 118
+  etf_universe_count: 1374
+  confirmed_count: 0
+  policy: 候选一律 needs_review；仅 --confirm 后 status=confirmed 才展示可下单代码
+instruments:
+  000688:
+    name: 科创50
+    bucket: core
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588150'
+      name: 科创50ETF南方
+      score: 1.0
+      market: sh
+    - code: '588000'
+      name: 科创50ETF华夏
+      score: 1.0
+      market: sh
+    - code: '588720'
+      name: 科创50ETF中银
+      score: 1.0
+      market: sh
+    - code: '588280'
+      name: 科创50ETF华安
+      score: 1.0
+      market: sh
+    - code: '588050'
+      name: 科创50ETF工银
+      score: 1.0
+      market: sh
+    - code: '588080'
+      name: 科创50ETF易方达
+      score: 1.0
+      market: sh
+    - code: '588090'
+      name: 科创50ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '588040'
+      name: 科创50ETF鹏华
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399673':
+    name: 创业板50
+    bucket: core
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159369'
+      name: 创业板50ETF易方达
+      score: 1.0
+      market: sz
+    - code: '159949'
+      name: 创业板50ETF华安
+      score: 1.0
+      market: sz
+    - code: '159367'
+      name: 创业板50ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159682'
+      name: 创业板50ETF景顺
+      score: 1.0
+      market: sz
+    - code: '159383'
+      name: 创业板50ETF华泰柏瑞
+      score: 1.0
+      market: sz
+    - code: '159298'
+      name: 创业板50ETF大成
+      score: 1.0
+      market: sz
+    - code: '159681'
+      name: 创业板50ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '159371'
+      name: 创业板50ETF富国
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  hkHSTECH:
+    name: 恒生科技
+    bucket: core
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '516500'
+      name: 生物科技ETF华夏
+      score: 0.6
+      market: sh
+    - code: '159849'
+      name: 生物科技ETF招商
+      score: 0.6
+      market: sz
+    - code: '159837'
+      name: 生物科技ETF易方达
+      score: 0.5455
+      market: sz
+    - code: '516930'
+      name: 生物科技ETF民生加银
+      score: 0.5
+      market: sh
+    - code: '515860'
+      name: 科技ETF嘉实
+      score: 0.5
+      market: sh
+    - code: '515000'
+      name: 科技ETF华宝
+      score: 0.5
+      market: sh
+    - code: '159807'
+      name: 科技ETF易方达
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  H30590:
+    name: 机器人
+    bucket: theme
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159048'
+      name: 机器人ETF大成
+      score: 1.0
+      market: sz
+    - code: '560630'
+      name: 机器人ETF万家
+      score: 1.0
+      market: sh
+    - code: '158037'
+      name: 机器人ETF博时
+      score: 1.0
+      market: sz
+    - code: '562360'
+      name: 机器人ETF银华
+      score: 1.0
+      market: sh
+    - code: '159526'
+      name: 机器人ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '159272'
+      name: 机器人ETF富国
+      score: 1.0
+      market: sz
+    - code: '159770'
+      name: 机器人ETF天弘
+      score: 1.0
+      market: sz
+    - code: '159039'
+      name: 机器人ETF华安
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  H30184:
+    name: 半导体
+    bucket: ai_hw
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159582'
+      name: 半导体ETF博时
+      score: 1.0
+      market: sz
+    - code: '159325'
+      name: 半导体ETF南方
+      score: 1.0
+      market: sz
+    - code: '159813'
+      name: 半导体ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '512480'
+      name: 半导体ETF国联安
+      score: 0.9167
+      market: sh
+    - code: '560780'
+      name: 半导体设备ETF广发
+      score: 0.85
+      market: sh
+    - code: '562590'
+      name: 半导体设备ETF华夏
+      score: 0.85
+      market: sh
+    - code: '561980'
+      name: 半导体设备ETF招商
+      score: 0.85
+      market: sh
+    - code: '159327'
+      name: 半导体设备ETF万家
+      score: 0.85
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931152':
+    name: 创新药
+    bucket: pharma
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '517380'
+      name: 创新药ETF天弘
+      score: 1.0
+      market: sh
+    - code: '159748'
+      name: 创新药ETF富国
+      score: 1.0
+      market: sz
+    - code: '517110'
+      name: 创新药ETF国泰
+      score: 1.0
+      market: sh
+    - code: '159835'
+      name: 创新药ETF建信
+      score: 1.0
+      market: sz
+    - code: '159992'
+      name: 创新药ETF银华
+      score: 1.0
+      market: sz
+    - code: '159858'
+      name: 创新药ETF南方
+      score: 1.0
+      market: sz
+    - code: '560900'
+      name: 创新药ETF摩根
+      score: 1.0
+      market: sh
+    - code: '516060'
+      name: 创新药ETF工银
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '932666':
+    name: 高频PCB
+    bucket: ai_hw
+    tradeable: true
+    status: unmapped
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates: []
+    note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+  '931594':
+    name: 商业航天
+    bucket: theme
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159267'
+      name: 航天ETF华安
+      score: 0.5
+      market: sz
+    - code: '512620'
+      name: 农业ETF天弘
+      score: 0.5
+      market: sh
+    - code: '159977'
+      name: 创业板ETF天弘
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931743':
+    name: 半导体材料设备
+    bucket: ai_hw
+    tradeable: true
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '560780'
+      name: 半导体设备ETF广发
+      score: 0.7143
+      market: sh
+    - code: '562590'
+      name: 半导体设备ETF华夏
+      score: 0.7143
+      market: sh
+    - code: '561980'
+      name: 半导体设备ETF招商
+      score: 0.7143
+      market: sh
+    - code: '159327'
+      name: 半导体设备ETF万家
+      score: 0.7143
+      market: sz
+    - code: '159516'
+      name: 半导体设备ETF国泰
+      score: 0.7143
+      market: sz
+    - code: '159558'
+      name: 半导体设备ETF易方达
+      score: 0.6667
+      market: sz
+    - code: '589020'
+      name: 科创半导体设备ETF鹏华
+      score: 0.625
+      market: sh
+    - code: '588710'
+      name: 科创半导体设备ETF华泰柏瑞
+      score: 0.5556
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931723':
+    name: 光模块CPO
+    bucket: ai_hw
+    tradeable: true
+    status: unmapped
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates: []
+    note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+  '932580':
+    name: 磁电存储
+    bucket: ai_hw
+    tradeable: true
+    status: unmapped
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates: []
+    note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+  '000300':
+    name: 沪深300
+    bucket: ref
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515360'
+      name: 沪深300ETF方正富邦
+      score: 1.0
+      market: sh
+    - code: '515350'
+      name: 沪深300ETF民生加银
+      score: 1.0
+      market: sh
+    - code: '510370'
+      name: 沪深300ETF兴业
+      score: 1.0
+      market: sh
+    - code: '515130'
+      name: 沪深300ETF博时
+      score: 1.0
+      market: sh
+    - code: '510380'
+      name: 沪深300ETF国寿
+      score: 1.0
+      market: sh
+    - code: '510360'
+      name: 沪深300ETF广发
+      score: 1.0
+      market: sh
+    - code: '561930'
+      name: 沪深300ETF招商
+      score: 1.0
+      market: sh
+    - code: '510330'
+      name: 沪深300ETF华夏
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000905:
+    name: 中证500
+    bucket: ref
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515550'
+      name: 中证500ETF国联
+      score: 1.0
+      market: sh
+    - code: '510550'
+      name: 中证500ETF方正富邦
+      score: 1.0
+      market: sh
+    - code: '510570'
+      name: 中证500ETF兴业
+      score: 1.0
+      market: sh
+    - code: '510530'
+      name: 中证500ETF工银
+      score: 1.0
+      market: sh
+    - code: '159968'
+      name: 中证500ETF博时
+      score: 1.0
+      market: sz
+    - code: '159982'
+      name: 中证500ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '510500'
+      name: 中证500ETF南方
+      score: 1.0
+      market: sh
+    - code: '515530'
+      name: 中证500ETF泰康
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  usNDX:
+    name: 纳斯达克100
+    bucket: lead
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.4615
+      market: sz
+    - code: '159970'
+      name: 深100ETF工银
+      score: 0.4615
+      market: sz
+    - code: '159975'
+      name: 深100ETF招商
+      score: 0.4615
+      market: sz
+    - code: '159212'
+      name: 深100ETF南方
+      score: 0.4615
+      market: sz
+    - code: '561880'
+      name: A100ETF华富
+      score: 0.4615
+      market: sh
+    - code: '512060'
+      name: A100ETF天弘
+      score: 0.4615
+      market: sh
+    - code: '561770'
+      name: A100ETF博时
+      score: 0.4615
+      market: sh
+    - code: '560380'
+      name: A100ETF南方
+      score: 0.4615
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000009:
+    name: 上证380
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510290'
+      name: 上证380ETF南方
+      score: 1.0
+      market: sh
+    - code: '530380'
+      name: 上证380ETF易方达
+      score: 1.0
+      market: sh
+    - code: '530530'
+      name: 上证580ETF华夏
+      score: 0.6667
+      market: sh
+    - code: '530680'
+      name: 上证180ETF兴业
+      score: 0.6667
+      market: sh
+    - code: '530800'
+      name: 上证180ETF银华
+      score: 0.6667
+      market: sh
+    - code: '510180'
+      name: 上证180ETF华安
+      score: 0.6667
+      market: sh
+    - code: '530280'
+      name: 上证180ETF平安
+      score: 0.6667
+      market: sh
+    - code: '530580'
+      name: 上证180ETF南方
+      score: 0.6667
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000010':
+    name: 上证180
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '530680'
+      name: 上证180ETF兴业
+      score: 1.0
+      market: sh
+    - code: '530180'
+      name: 上证180ETF易方达
+      score: 1.0
+      market: sh
+    - code: '530800'
+      name: 上证180ETF银华
+      score: 1.0
+      market: sh
+    - code: '510180'
+      name: 上证180ETF华安
+      score: 1.0
+      market: sh
+    - code: '530280'
+      name: 上证180ETF平安
+      score: 1.0
+      market: sh
+    - code: '530580'
+      name: 上证180ETF南方
+      score: 1.0
+      market: sh
+    - code: '530300'
+      name: 上证180ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '530080'
+      name: 上证180ETF天弘
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000015':
+    name: 红利指数
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159905'
+      name: 红利ETF工银
+      score: 0.9167
+      market: sz
+    - code: '159589'
+      name: 红利ETF广发
+      score: 0.9167
+      market: sz
+    - code: '515890'
+      name: 红利ETF博时
+      score: 0.9167
+      market: sh
+    - code: '159581'
+      name: 红利ETF万家
+      score: 0.9167
+      market: sz
+    - code: '515180'
+      name: 红利ETF易方达
+      score: 0.8214
+      market: sh
+    - code: '560020'
+      name: 红利ETF汇添富
+      score: 0.8214
+      market: sh
+    - code: '159708'
+      name: 红利ETF西部利得
+      score: 0.75
+      market: sz
+    - code: '560700'
+      name: 央企红利ETF广发
+      score: 0.75
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000016':
+    name: 上证50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510680'
+      name: 上证50ETF万家
+      score: 1.0
+      market: sh
+    - code: '510950'
+      name: 上证50ETF广发
+      score: 1.0
+      market: sh
+    - code: '530050'
+      name: 上证50ETF东财
+      score: 1.0
+      market: sh
+    - code: '510050'
+      name: 上证50ETF华夏
+      score: 1.0
+      market: sh
+    - code: '510190'
+      name: 上证50ETF华安
+      score: 1.0
+      market: sh
+    - code: '510100'
+      name: 上证50ETF易方达
+      score: 1.0
+      market: sh
+    - code: '530000'
+      name: 上证50ETF天弘
+      score: 1.0
+      market: sh
+    - code: '510710'
+      name: 上证50ETF博时
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000044':
+    name: 上证中盘
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510130'
+      name: 上证中盘ETF易方达
+      score: 1.0
+      market: sh
+    - code: '510910'
+      name: 上证指数ETF南方
+      score: 0.5
+      market: sh
+    - code: '510210'
+      name: 上证指数ETF富国
+      score: 0.5
+      market: sh
+    - code: '510760'
+      name: 上证指数ETF国泰
+      score: 0.5
+      market: sh
+    - code: '510980'
+      name: 上证指数ETF汇添富
+      score: 0.4444
+      market: sh
+    - code: '530060'
+      name: 上证指数ETF易方达
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000048:
+    name: 责任指数
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510090'
+      name: 责任ETF建信
+      score: 0.9167
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000056':
+    name: 上证国企
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510210'
+      name: 上证指数ETF富国
+      score: 0.75
+      market: sh
+    - code: '510760'
+      name: 上证指数ETF国泰
+      score: 0.75
+      market: sh
+    - code: '510810'
+      name: 上海国企ETF汇添富
+      score: 0.5455
+      market: sh
+    - code: '510910'
+      name: 上证指数ETF南方
+      score: 0.5
+      market: sh
+    - code: '512880'
+      name: 证券ETF国泰
+      score: 0.5
+      market: sh
+    - code: '515850'
+      name: 证券ETF富国
+      score: 0.5
+      market: sh
+    - code: '510270'
+      name: 国企ETF中银
+      score: 0.5
+      market: sh
+    - code: '159719'
+      name: 国企ETF平安
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000068:
+    name: 上证资源
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510910'
+      name: 上证指数ETF南方
+      score: 0.5
+      market: sh
+    - code: '510210'
+      name: 上证指数ETF富国
+      score: 0.5
+      market: sh
+    - code: '510760'
+      name: 上证指数ETF国泰
+      score: 0.5
+      market: sh
+    - code: '510410'
+      name: 资源ETF博时
+      score: 0.5
+      market: sh
+    - code: '510980'
+      name: 上证指数ETF汇添富
+      score: 0.4444
+      market: sh
+    - code: '530060'
+      name: 上证指数ETF易方达
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000069:
+    name: 消费80
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515650'
+      name: 消费50ETF富国
+      score: 0.6
+      market: sh
+    - code: '159670'
+      name: 消费50ETF国联安
+      score: 0.5455
+      market: sz
+    - code: '510150'
+      name: 消费ETF招商
+      score: 0.5
+      market: sh
+    - code: '159672'
+      name: 消费ETF博时
+      score: 0.5
+      market: sz
+    - code: '159689'
+      name: 消费ETF南方
+      score: 0.5
+      market: sz
+    - code: '510630'
+      name: 消费ETF华夏
+      score: 0.5
+      market: sh
+    - code: '512600'
+      name: 消费ETF嘉实
+      score: 0.5
+      market: sh
+    - code: '560680'
+      name: 消费ETF广发
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '000510':
+    name: 中证A500
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '560530'
+      name: 中证A500ETF摩根
+      score: 1.0
+      market: sh
+    - code: '563650'
+      name: 中证A500ETF兴业
+      score: 1.0
+      market: sh
+    - code: '563860'
+      name: 中证A500ETF海富通
+      score: 1.0
+      market: sh
+    - code: '159338'
+      name: 中证A500ETF国泰
+      score: 1.0
+      market: sz
+    - code: '159353'
+      name: 中证A500ETF景顺
+      score: 1.0
+      market: sz
+    - code: '560510'
+      name: 中证A500ETF泰康
+      score: 1.0
+      market: sh
+    - code: '159358'
+      name: 中证A500ETF大成
+      score: 1.0
+      market: sz
+    - code: '159226'
+      name: 中证A500增强ETF国泰
+      score: 0.9871
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000685:
+    name: 科创芯片
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588290'
+      name: 科创芯片ETF华安
+      score: 1.0
+      market: sh
+    - code: '588200'
+      name: 科创芯片ETF嘉实
+      score: 1.0
+      market: sh
+    - code: '589190'
+      name: 科创芯片ETF华宝
+      score: 1.0
+      market: sh
+    - code: '588990'
+      name: 科创芯片ETF博时
+      score: 1.0
+      market: sh
+    - code: '589130'
+      name: 科创芯片ETF易方达
+      score: 1.0
+      market: sh
+    - code: '588810'
+      name: 科创芯片ETF富国
+      score: 1.0
+      market: sh
+    - code: '589210'
+      name: 科创芯片设计ETF广发
+      score: 1.0
+      market: sh
+    - code: '588920'
+      name: 科创芯片ETF鹏华
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000698:
+    name: 科创100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '589270'
+      name: 科创100ETF前海开源
+      score: 1.0
+      market: sh
+    - code: '588210'
+      name: 科创100ETF易方达
+      score: 1.0
+      market: sh
+    - code: '588190'
+      name: 科创100ETF银华
+      score: 1.0
+      market: sh
+    - code: '588900'
+      name: 科创100ETF南方
+      score: 1.0
+      market: sh
+    - code: '589950'
+      name: 科创100ETF富国
+      score: 1.0
+      market: sh
+    - code: '588220'
+      name: 科创100ETF鹏华
+      score: 1.0
+      market: sh
+    - code: '588120'
+      name: 科创100ETF国泰
+      score: 1.0
+      market: sh
+    - code: '588800'
+      name: 科创100ETF华夏
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000813:
+    name: 细分化工
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159129'
+      name: 化工ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '159133'
+      name: 化工ETF天弘
+      score: 0.5
+      market: sz
+    - code: '159082'
+      name: 化工ETF华夏
+      score: 0.5
+      market: sz
+    - code: '158032'
+      name: 化工ETF景顺
+      score: 0.5
+      market: sz
+    - code: '516020'
+      name: 化工ETF华宝
+      score: 0.5
+      market: sh
+    - code: '516220'
+      name: 化工ETF国泰
+      score: 0.5
+      market: sh
+    - code: '158006'
+      name: 化工ETF博时
+      score: 0.5
+      market: sz
+    - code: '159087'
+      name: 化工ETF万家
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000852:
+    name: 中证1000
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '512100'
+      name: 中证1000ETF南方
+      score: 1.0
+      market: sh
+    - code: '159845'
+      name: 中证1000ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159633'
+      name: 中证1000ETF易方达
+      score: 1.0
+      market: sz
+    - code: '159629'
+      name: 中证1000ETF富国
+      score: 1.0
+      market: sz
+    - code: '560010'
+      name: 中证1000ETF广发
+      score: 1.0
+      market: sh
+    - code: '516300'
+      name: 中证1000ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '560110'
+      name: 中证1000ETF汇添富
+      score: 1.0
+      market: sh
+    - code: '159680'
+      name: 中证1000增强ETF招商
+      score: 0.9871
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000922:
+    name: 中证红利
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515080'
+      name: 中证红利ETF招商
+      score: 1.0
+      market: sh
+    - code: '159905'
+      name: 红利ETF工银
+      score: 0.5
+      market: sz
+    - code: '159589'
+      name: 红利ETF广发
+      score: 0.5
+      market: sz
+    - code: '515890'
+      name: 红利ETF博时
+      score: 0.5
+      market: sh
+    - code: '159581'
+      name: 红利ETF万家
+      score: 0.5
+      market: sz
+    - code: '515180'
+      name: 红利ETF易方达
+      score: 0.4444
+      market: sh
+    - code: '560020'
+      name: 红利ETF汇添富
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399001':
+    name: 深证成指
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159943'
+      name: 深证成指ETF大成
+      score: 1.0
+      market: sz
+    - code: '159216'
+      name: 深证100ETF大成
+      score: 0.5455
+      market: sz
+    - code: '159903'
+      name: 深成ETF南方
+      score: 0.5
+      market: sz
+    - code: '159058'
+      name: 证券ETF大成
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399005':
+    name: 中小100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159902'
+      name: 中小100ETF华夏
+      score: 1.0
+      market: sz
+    - code: '512100'
+      name: 中证1000ETF南方
+      score: 0.6154
+      market: sh
+    - code: '159845'
+      name: 中证1000ETF华夏
+      score: 0.6154
+      market: sz
+    - code: '159629'
+      name: 中证1000ETF富国
+      score: 0.6154
+      market: sz
+    - code: '560010'
+      name: 中证1000ETF广发
+      score: 0.6154
+      market: sh
+    - code: '159923'
+      name: 中证A100ETF大成
+      score: 0.6154
+      market: sz
+    - code: '561200'
+      name: 中证A100ETF工银
+      score: 0.6154
+      market: sh
+    - code: '159633'
+      name: 中证1000ETF易方达
+      score: 0.5714
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399006':
+    name: 创业板指
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159289'
+      name: 创业板综指ETF鹏华
+      score: 0.7273
+      market: sz
+    - code: '159958'
+      name: 创业板ETF工银
+      score: 0.6667
+      market: sz
+    - code: '159977'
+      name: 创业板ETF天弘
+      score: 0.6667
+      market: sz
+    - code: '159964'
+      name: 创业板ETF平安
+      score: 0.6667
+      market: sz
+    - code: '159948'
+      name: 创业板ETF南方
+      score: 0.6667
+      market: sz
+    - code: '159956'
+      name: 创业板ETF建信
+      score: 0.6667
+      market: sz
+    - code: '159952'
+      name: 创业板ETF广发
+      score: 0.6667
+      market: sz
+    - code: '159908'
+      name: 创业板ETF博时
+      score: 0.6667
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399012':
+    name: 创业300
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159836'
+      name: 创业板300ETF天弘
+      score: 0.7692
+      market: sz
+    - code: '159571'
+      name: 创业板200ETF富国
+      score: 0.6154
+      market: sz
+    - code: '159573'
+      name: 创业板200ETF华夏
+      score: 0.6154
+      market: sz
+    - code: '159575'
+      name: 创业板200ETF银华
+      score: 0.6154
+      market: sz
+    - code: '159270'
+      name: 创业板200ETF南方
+      score: 0.6154
+      market: sz
+    - code: '159572'
+      name: 创业板200ETF易方达
+      score: 0.5714
+      market: sz
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.5455
+      market: sz
+    - code: '589220'
+      name: 科创200ETF国泰
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399019':
+    name: 创业200
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159571'
+      name: 创业板200ETF富国
+      score: 0.7692
+      market: sz
+    - code: '159573'
+      name: 创业板200ETF华夏
+      score: 0.7692
+      market: sz
+    - code: '159575'
+      name: 创业板200ETF银华
+      score: 0.7692
+      market: sz
+    - code: '159270'
+      name: 创业板200ETF南方
+      score: 0.7692
+      market: sz
+    - code: '159572'
+      name: 创业板200ETF易方达
+      score: 0.7143
+      market: sz
+    - code: '589220'
+      name: 科创200ETF国泰
+      score: 0.6667
+      market: sh
+    - code: '589820'
+      name: 科创200ETF建信
+      score: 0.6667
+      market: sh
+    - code: '589460'
+      name: 科创200ETF华宝
+      score: 0.6667
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399102':
+    name: 创业板综
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159288'
+      name: 创业板综ETF银华
+      score: 1.0
+      market: sz
+    - code: '159563'
+      name: 创业板综ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159541'
+      name: 创业板综ETF万家
+      score: 1.0
+      market: sz
+    - code: '159287'
+      name: 创业板综ETF博时
+      score: 1.0
+      market: sz
+    - code: '159289'
+      name: 创业板综指ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '159291'
+      name: 创业板综增强ETF招商
+      score: 0.93
+      market: sz
+    - code: '158022'
+      name: 创业板综增强ETF国联
+      score: 0.93
+      market: sz
+    - code: '159292'
+      name: 创业板综增强ETF华宝
+      score: 0.93
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399264':
+    name: 创业软件
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158072'
+      name: 创业板软件ETF南方
+      score: 0.7273
+      market: sz
+    - code: '159256'
+      name: 创业板软件ETF华夏
+      score: 0.7273
+      market: sz
+    - code: '159107'
+      name: 创业板软件ETF富国
+      score: 0.7273
+      market: sz
+    - code: '158011'
+      name: 创业板软件ETF国泰
+      score: 0.7273
+      market: sz
+    - code: '159108'
+      name: 工业软件ETF博时
+      score: 0.6
+      market: sz
+    - code: '159145'
+      name: 工业软件ETF广发
+      score: 0.6
+      market: sz
+    - code: '159180'
+      name: 软件ETF银华
+      score: 0.5
+      market: sz
+    - code: '159035'
+      name: 软件ETF天弘
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399266':
+    name: 创新能源
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '589960'
+      name: 科创新能源ETF易方达
+      score: 1.0
+      market: sh
+    - code: '588960'
+      name: 科创新能源ETF富国
+      score: 1.0
+      market: sh
+    - code: '588830'
+      name: 科创新能源ETF鹏华
+      score: 1.0
+      market: sh
+    - code: '516270'
+      name: 新能源ETF华安
+      score: 0.6667
+      market: sh
+    - code: '159190'
+      name: 创业板新能源ETF天弘
+      score: 0.6667
+      market: sz
+    - code: '159122'
+      name: 创业板新能源ETF富国
+      score: 0.6667
+      market: sz
+    - code: '159187'
+      name: 创业板新能源ETF景顺
+      score: 0.6667
+      market: sz
+    - code: '159149'
+      name: 创业板新能源ETF工银
+      score: 0.6667
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399275':
+    name: 创医药
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588860'
+      name: 科创医药ETF工银
+      score: 0.9167
+      market: sh
+    - code: '588700'
+      name: 科创医药ETF嘉实
+      score: 0.9167
+      market: sh
+    - code: '588130'
+      name: 科创医药ETF华夏
+      score: 0.9167
+      market: sh
+    - code: '588250'
+      name: 科创医药ETF鹏华
+      score: 0.9167
+      market: sh
+    - code: '159377'
+      name: 创业板医药ETF国泰
+      score: 0.5
+      market: sz
+    - code: '512120'
+      name: 医药ETF华安
+      score: 0.4714
+      market: sh
+    - code: '159938'
+      name: 医药ETF广发
+      score: 0.4714
+      market: sz
+    - code: '510660'
+      name: 医药ETF华夏
+      score: 0.4714
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399276':
+    name: 创科技
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159777'
+      name: 创科技ETF国联安
+      score: 0.9167
+      market: sz
+    - code: '515860'
+      name: 科技ETF嘉实
+      score: 0.4714
+      market: sh
+    - code: '515000'
+      name: 科技ETF华宝
+      score: 0.4714
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399291':
+    name: 创精选88
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159804'
+      name: 创中盘88ETF国寿
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399293':
+    name: 创业大盘
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159814'
+      name: 创业大盘ETF西部利得
+      score: 1.0
+      market: sz
+    - code: '159991'
+      name: 创业板大盘ETF招商
+      score: 0.7273
+      market: sz
+    - code: '158053'
+      name: 创业板算力ETF大成
+      score: 0.5455
+      market: sz
+    - code: '159298'
+      name: 创业板50ETF大成
+      score: 0.5455
+      market: sz
+    - code: '159242'
+      name: 创业板人工智能ETF大成
+      score: 0.4615
+      market: sz
+    - code: '159958'
+      name: 创业板ETF工银
+      score: 0.4444
+      market: sz
+    - code: '159977'
+      name: 创业板ETF天弘
+      score: 0.4444
+      market: sz
+    - code: '159964'
+      name: 创业板ETF平安
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399295':
+    name: 创价值
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588910'
+      name: 科创价值ETF建信
+      score: 0.9167
+      market: sh
+    - code: '589550'
+      name: 科创价值ETF华夏
+      score: 0.9167
+      market: sh
+    - code: '159966'
+      name: 创业板价值ETF华夏
+      score: 0.5
+      market: sz
+    - code: '512040'
+      name: 价值ETF富国
+      score: 0.4714
+      market: sh
+    - code: '159085'
+      name: 价值ETF永赢
+      score: 0.4714
+      market: sz
+    - code: '159037'
+      name: 价值ETF鹏华
+      score: 0.4714
+      market: sz
+    - code: '158001'
+      name: 价值ETF嘉实
+      score: 0.4714
+      market: sz
+    - code: '159079'
+      name: 价值ETF兴全
+      score: 0.4714
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399296':
+    name: 创成长
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '589490'
+      name: 科创成长ETF华夏
+      score: 0.9167
+      market: sh
+    - code: '589700'
+      name: 科创成长ETF南方
+      score: 0.9167
+      market: sh
+    - code: '588110'
+      name: 科创成长ETF广发
+      score: 0.9167
+      market: sh
+    - code: '588070'
+      name: 科创成长ETF万家
+      score: 0.9167
+      market: sh
+    - code: '588020'
+      name: 科创成长ETF易方达
+      score: 0.85
+      market: sh
+    - code: '158025'
+      name: 创业板成长ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '159967'
+      name: 创业板成长ETF华夏
+      score: 0.5
+      market: sz
+    - code: '159597'
+      name: 创业板成长ETF易方达
+      score: 0.4455
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399303':
+    name: 国证2000
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159907'
+      name: 国证2000ETF广发
+      score: 1.0
+      market: sz
+    - code: '159543'
+      name: 国证2000ETF工银
+      score: 1.0
+      market: sz
+    - code: '159505'
+      name: 国证2000ETF博时
+      score: 1.0
+      market: sz
+    - code: '159521'
+      name: 国证2000ETF平安
+      score: 1.0
+      market: sz
+    - code: '159628'
+      name: 国证2000ETF万家
+      score: 1.0
+      market: sz
+    - code: '159535'
+      name: 中证2000ETF嘉实
+      score: 0.7143
+      market: sz
+    - code: '159533'
+      name: 中证2000ETF博时
+      score: 0.7143
+      market: sz
+    - code: '562660'
+      name: 中证2000ETF华夏
+      score: 0.7143
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399324':
+    name: 深证红利
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515080'
+      name: 中证红利ETF招商
+      score: 0.6
+      market: sh
+    - code: '159905'
+      name: 红利ETF工银
+      score: 0.5
+      market: sz
+    - code: '159589'
+      name: 红利ETF广发
+      score: 0.5
+      market: sz
+    - code: '515890'
+      name: 红利ETF博时
+      score: 0.5
+      market: sh
+    - code: '159581'
+      name: 红利ETF万家
+      score: 0.5
+      market: sz
+    - code: '512530'
+      name: 沪深300红利ETF建信
+      score: 0.4615
+      market: sh
+    - code: '515180'
+      name: 红利ETF易方达
+      score: 0.4444
+      market: sh
+    - code: '560020'
+      name: 红利ETF汇添富
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399326':
+    name: 成长40
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159906'
+      name: 深成长ETF大成
+      score: 0.4444
+      market: sz
+    - code: '159259'
+      name: 成长ETF易方达
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399330':
+    name: 深证100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159219'
+      name: 深证100ETF融通
+      score: 1.0
+      market: sz
+    - code: '159576'
+      name: 深证100ETF广发
+      score: 1.0
+      market: sz
+    - code: '159211'
+      name: 深证100ETF富国
+      score: 1.0
+      market: sz
+    - code: '159706'
+      name: 深证100ETF华安
+      score: 1.0
+      market: sz
+    - code: '159716'
+      name: 深证100ETF华宝
+      score: 1.0
+      market: sz
+    - code: '159216'
+      name: 深证100ETF大成
+      score: 1.0
+      market: sz
+    - code: '159721'
+      name: 深证100ETF永赢
+      score: 1.0
+      market: sz
+    - code: '159901'
+      name: 深证100ETF易方达
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399348':
+    name: 深证价值
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159913'
+      name: 深价值ETF交银
+      score: 0.6667
+      market: sz
+    - code: '512040'
+      name: 价值ETF富国
+      score: 0.5
+      market: sh
+    - code: '159085'
+      name: 价值ETF永赢
+      score: 0.5
+      market: sz
+    - code: '159037'
+      name: 价值ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '158001'
+      name: 价值ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '159079'
+      name: 价值ETF兴全
+      score: 0.5
+      market: sz
+    - code: '159098'
+      name: 价值ETF招商
+      score: 0.5
+      market: sz
+    - code: '158043'
+      name: 价值ETF南方
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399361':
+    name: 在线消费
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159728'
+      name: 在线消费ETF南方
+      score: 1.0
+      market: sz
+    - code: '159793'
+      name: 线上消费ETF平安
+      score: 0.6
+      market: sz
+    - code: '159725'
+      name: 线上消费ETF工银
+      score: 0.6
+      market: sz
+    - code: '510150'
+      name: 消费ETF招商
+      score: 0.5
+      market: sh
+    - code: '159672'
+      name: 消费ETF博时
+      score: 0.5
+      market: sz
+    - code: '159689'
+      name: 消费ETF南方
+      score: 0.5
+      market: sz
+    - code: '510630'
+      name: 消费ETF华夏
+      score: 0.5
+      market: sh
+    - code: '512600'
+      name: 消费ETF嘉实
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399362':
+    name: 民企100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159106'
+      name: 民企300ETF前海开源
+      score: 0.5714
+      market: sz
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.5455
+      market: sz
+    - code: '159970'
+      name: 深100ETF工银
+      score: 0.5455
+      market: sz
+    - code: '159975'
+      name: 深100ETF招商
+      score: 0.5455
+      market: sz
+    - code: '159212'
+      name: 深100ETF南方
+      score: 0.5455
+      market: sz
+    - code: '561880'
+      name: A100ETF华富
+      score: 0.5455
+      market: sh
+    - code: '512060'
+      name: A100ETF天弘
+      score: 0.5455
+      market: sh
+    - code: '561770'
+      name: A100ETF博时
+      score: 0.5455
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399365':
+    name: 国证粮食
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158065'
+      name: 粮食ETF招商
+      score: 0.5
+      market: sz
+    - code: '158047'
+      name: 粮食ETF永赢
+      score: 0.5
+      market: sz
+    - code: '159063'
+      name: 粮食ETF南方
+      score: 0.5
+      market: sz
+    - code: '159031'
+      name: 粮食ETF博时
+      score: 0.5
+      market: sz
+    - code: '159033'
+      name: 粮食ETF国泰
+      score: 0.5
+      market: sz
+    - code: '158038'
+      name: 粮食ETF富国
+      score: 0.5
+      market: sz
+    - code: '159072'
+      name: 粮食ETF景顺
+      score: 0.5
+      market: sz
+    - code: '159060'
+      name: 粮食ETF浦银
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399372':
+    name: 大盘成长
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158026'
+      name: 大盘成长ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159203'
+      name: 大盘成长ETF博时
+      score: 1.0
+      market: sz
+    - code: '159155'
+      name: 电池ETF大成
+      score: 0.5
+      market: sz
+    - code: '159058'
+      name: 证券ETF大成
+      score: 0.5
+      market: sz
+    - code: '159059'
+      name: 电力ETF大成
+      score: 0.5
+      market: sz
+    - code: '159642'
+      name: 碳中和ETF大成
+      score: 0.4444
+      market: sz
+    - code: '159048'
+      name: 机器人ETF大成
+      score: 0.4444
+      market: sz
+    - code: '159906'
+      name: 深成长ETF大成
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399373':
+    name: 大盘价值
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159021'
+      name: 大盘价值ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159391'
+      name: 大盘价值ETF博时
+      score: 1.0
+      market: sz
+    - code: '512040'
+      name: 价值ETF富国
+      score: 0.5
+      market: sh
+    - code: '159085'
+      name: 价值ETF永赢
+      score: 0.5
+      market: sz
+    - code: '159037'
+      name: 价值ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '158001'
+      name: 价值ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '159079'
+      name: 价值ETF兴全
+      score: 0.5
+      market: sz
+    - code: '159098'
+      name: 价值ETF招商
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399378':
+    name: ESG 300
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159653'
+      name: ESG300ETF国联安
+      score: 1.0
+      market: sz
+    - code: '159621'
+      name: ESGETF国泰
+      score: 0.5455
+      market: sz
+    - code: '159717'
+      name: ESGETF鹏华
+      score: 0.5455
+      market: sz
+    - code: '516720'
+      name: ESGETF浦银
+      score: 0.5455
+      market: sh
+    - code: '159912'
+      name: 深300ETF汇添富
+      score: 0.4615
+      market: sz
+    - code: '510370'
+      name: 沪深300ETF兴业
+      score: 0.4615
+      market: sh
+    - code: '515130'
+      name: 沪深300ETF博时
+      score: 0.4615
+      market: sh
+    - code: '510380'
+      name: 沪深300ETF国寿
+      score: 0.4615
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399389':
+    name: 国证通信
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515880'
+      name: 通信ETF国泰
+      score: 0.5
+      market: sh
+    - code: '159695'
+      name: 通信ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '515050'
+      name: 通信ETF华夏
+      score: 0.5
+      market: sh
+    - code: '159511'
+      name: 通信ETF南方
+      score: 0.5
+      market: sz
+    - code: '159583'
+      name: 通信ETF富国
+      score: 0.5
+      market: sz
+    - code: '159507'
+      name: 通信ETF广发
+      score: 0.5
+      market: sz
+    - code: '159994'
+      name: 通信ETF银华
+      score: 0.5
+      market: sz
+    - code: '515560'
+      name: 证券ETF建信
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399396':
+    name: 国证食品
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159151'
+      name: 食品ETF华夏
+      score: 0.5
+      market: sz
+    - code: '159043'
+      name: 食品ETF华安
+      score: 0.5
+      market: sz
+    - code: '515840'
+      name: 食品ETF南方
+      score: 0.5
+      market: sh
+    - code: '560320'
+      name: 食品ETF富国
+      score: 0.5
+      market: sh
+    - code: '563850'
+      name: 食品ETF广发
+      score: 0.5
+      market: sh
+    - code: '561020'
+      name: 食品ETF招商
+      score: 0.5
+      market: sh
+    - code: '560130'
+      name: 食品ETF鹏华
+      score: 0.5
+      market: sh
+    - code: '560160'
+      name: 食品ETF易方达
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399433':
+    name: 国证交运
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159662'
+      name: 交运ETF南方
+      score: 0.5
+      market: sz
+    - code: '561320'
+      name: 交运ETF国泰
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399437':
+    name: 证券龙头
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159993'
+      name: 证券ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '515560'
+      name: 证券ETF建信
+      score: 0.5
+      market: sh
+    - code: '159692'
+      name: 证券ETF东财
+      score: 0.5
+      market: sz
+    - code: '159016'
+      name: 证券ETF广发
+      score: 0.5
+      market: sz
+    - code: '512880'
+      name: 证券ETF国泰
+      score: 0.5
+      market: sh
+    - code: '516730'
+      name: 证券ETF浦银
+      score: 0.5
+      market: sh
+    - code: '516200'
+      name: 证券ETF华安
+      score: 0.5
+      market: sh
+    - code: '515850'
+      name: 证券ETF富国
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399438':
+    name: 绿色电力
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159067'
+      name: 绿色电力ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '159061'
+      name: 绿色电力ETF南方
+      score: 1.0
+      market: sz
+    - code: '159669'
+      name: 绿色电力ETF国泰
+      score: 1.0
+      market: sz
+    - code: '159625'
+      name: 绿色电力ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '562960'
+      name: 绿色电力ETF易方达
+      score: 1.0
+      market: sh
+    - code: '561610'
+      name: 绿色电力ETF鑫元
+      score: 1.0
+      market: sh
+    - code: '561170'
+      name: 绿色电力ETF富国
+      score: 1.0
+      market: sh
+    - code: '159046'
+      name: 绿电ETF天弘
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399439':
+    name: 国证油气
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '561760'
+      name: 油气ETF博时
+      score: 0.5
+      market: sh
+    - code: '563150'
+      name: 油气ETF银华
+      score: 0.5
+      market: sh
+    - code: '159309'
+      name: 油气ETF汇添富
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399441':
+    name: 生物医药
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159839'
+      name: 生物医药ETF汇添富
+      score: 1.0
+      market: sz
+    - code: '159859'
+      name: 生物医药ETF天弘
+      score: 1.0
+      market: sz
+    - code: '159508'
+      name: 生物医药ETF华安
+      score: 1.0
+      market: sz
+    - code: '512290'
+      name: 生物医药ETF国泰
+      score: 1.0
+      market: sh
+    - code: '512120'
+      name: 医药ETF华安
+      score: 0.5
+      market: sh
+    - code: '159938'
+      name: 医药ETF广发
+      score: 0.5
+      market: sz
+    - code: '510660'
+      name: 医药ETF华夏
+      score: 0.5
+      market: sh
+    - code: '515960'
+      name: 医药ETF嘉实
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399550':
+    name: 央视50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159965'
+      name: 央视50ETF国联
+      score: 1.0
+      market: sz
+    - code: '563060'
+      name: 央企50ETF易方达
+      score: 0.5455
+      market: sh
+    - code: '159370'
+      name: 创50ETF工银
+      score: 0.4444
+      market: sz
+    - code: '159136'
+      name: A50ETF广发
+      score: 0.4444
+      market: sz
+    - code: '512240'
+      name: A50ETF鹏华
+      score: 0.4444
+      market: sh
+    - code: '159591'
+      name: A50ETF富国
+      score: 0.4444
+      market: sz
+    - code: '562890'
+      name: A50ETF嘉实
+      score: 0.4444
+      market: sh
+    - code: '512250'
+      name: A50ETF招商
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399610':
+    name: TMT50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159909'
+      name: TMT50ETF招商
+      score: 1.0
+      market: sz
+    - code: '512220'
+      name: TMTETF景顺
+      score: 0.6
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399624':
+    name: 中创400
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159918'
+      name: 中创400ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.5455
+      market: sz
+    - code: '589220'
+      name: 科创200ETF国泰
+      score: 0.5
+      market: sh
+    - code: '589820'
+      name: 科创200ETF建信
+      score: 0.5
+      market: sh
+    - code: '589460'
+      name: 科创200ETF华宝
+      score: 0.5
+      market: sh
+    - code: '588140'
+      name: 科创200ETF广发
+      score: 0.5
+      market: sh
+    - code: '589780'
+      name: 科创200ETF富国
+      score: 0.5
+      market: sh
+    - code: '589320'
+      name: 科创200ETF嘉实
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399667':
+    name: 创业成长
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158025'
+      name: 创业板成长ETF鹏华
+      score: 0.7273
+      market: sz
+    - code: '159967'
+      name: 创业板成长ETF华夏
+      score: 0.7273
+      market: sz
+    - code: '159597'
+      name: 创业板成长ETF易方达
+      score: 0.6667
+      market: sz
+    - code: '589490'
+      name: 科创成长ETF华夏
+      score: 0.6
+      market: sh
+    - code: '589700'
+      name: 科创成长ETF南方
+      score: 0.6
+      market: sh
+    - code: '588110'
+      name: 科创成长ETF广发
+      score: 0.6
+      market: sh
+    - code: '588070'
+      name: 科创成长ETF万家
+      score: 0.6
+      market: sh
+    - code: '158053'
+      name: 创业板算力ETF大成
+      score: 0.5455
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399750':
+    name: 深主板50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159578'
+      name: 深证主板50ETF南方
+      score: 0.7692
+      market: sz
+    - code: '159350'
+      name: 深证50ETF富国
+      score: 0.5455
+      market: sz
+    - code: '159949'
+      name: 创业板50ETF华安
+      score: 0.5
+      market: sz
+    - code: '159367'
+      name: 创业板50ETF华夏
+      score: 0.5
+      market: sz
+    - code: '159682'
+      name: 创业板50ETF景顺
+      score: 0.5
+      market: sz
+    - code: '159298'
+      name: 创业板50ETF大成
+      score: 0.5
+      market: sz
+    - code: '159681'
+      name: 创业板50ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '159371'
+      name: 创业板50ETF富国
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399975':
+    name: 证券公司
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159993'
+      name: 证券ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '515560'
+      name: 证券ETF建信
+      score: 0.5
+      market: sh
+    - code: '159692'
+      name: 证券ETF东财
+      score: 0.5
+      market: sz
+    - code: '159016'
+      name: 证券ETF广发
+      score: 0.5
+      market: sz
+    - code: '512880'
+      name: 证券ETF国泰
+      score: 0.5
+      market: sh
+    - code: '516730'
+      name: 证券ETF浦银
+      score: 0.5
+      market: sh
+    - code: '516200'
+      name: 证券ETF华安
+      score: 0.5
+      market: sh
+    - code: '515850'
+      name: 证券ETF富国
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399986':
+    name: 中证银行
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510530'
+      name: 中证500ETF工银
+      score: 0.5455
+      market: sh
+    - code: '561230'
+      name: 中证A50ETF工银
+      score: 0.5455
+      market: sh
+    - code: '562390'
+      name: 中药ETF银华
+      score: 0.5
+      market: sh
+    - code: '561200'
+      name: 中证A100ETF工银
+      score: 0.5
+      market: sh
+    - code: '516730'
+      name: 证券ETF浦银
+      score: 0.5
+      market: sh
+    - code: '510270'
+      name: 国企ETF中银
+      score: 0.5
+      market: sh
+    - code: '512410'
+      name: 银行ETF广发
+      score: 0.5
+      market: sh
+    - code: '159887'
+      name: 银行ETF富国
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '399989':
+    name: 中证医疗
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159828'
+      name: 医疗ETF国泰
+      score: 0.5
+      market: sz
+    - code: '158010'
+      name: 医疗ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '560260'
+      name: 医疗ETF广发
+      score: 0.5
+      market: sh
+    - code: '512170'
+      name: 医疗ETF华宝
+      score: 0.5
+      market: sh
+    - code: '159877'
+      name: 医疗ETF南方
+      score: 0.5
+      market: sz
+    - code: '159891'
+      name: 医疗ETF建信
+      score: 0.5
+      market: sz
+    - code: '159847'
+      name: 医疗ETF易方达
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '930708':
+    name: 中证有色
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159163'
+      name: 有色ETF泰康
+      score: 0.5
+      market: sz
+    - code: '159049'
+      name: 有色ETF工银
+      score: 0.5
+      market: sz
+    - code: '560290'
+      name: 有色ETF景顺
+      score: 0.5
+      market: sh
+    - code: '512940'
+      name: 有色ETF华安
+      score: 0.5
+      market: sh
+    - code: '159871'
+      name: 有色ETF银华
+      score: 0.5
+      market: sz
+    - code: '159029'
+      name: 有色ETF广发
+      score: 0.5
+      market: sz
+    - code: '159880'
+      name: 有色ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '159876'
+      name: 有色ETF华宝
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '930709':
+    name: 香港证券
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159993'
+      name: 证券ETF鹏华
+      score: 0.5
+      market: sz
+    - code: '515560'
+      name: 证券ETF建信
+      score: 0.5
+      market: sh
+    - code: '159692'
+      name: 证券ETF东财
+      score: 0.5
+      market: sz
+    - code: '159016'
+      name: 证券ETF广发
+      score: 0.5
+      market: sz
+    - code: '512880'
+      name: 证券ETF国泰
+      score: 0.5
+      market: sh
+    - code: '516730'
+      name: 证券ETF浦银
+      score: 0.5
+      market: sh
+    - code: '516200'
+      name: 证券ETF华安
+      score: 0.5
+      market: sh
+    - code: '515850'
+      name: 证券ETF富国
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '930955':
+    name: 红利低波100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159307'
+      name: 红利低波100ETF博时
+      score: 1.0
+      market: sz
+    - code: '515480'
+      name: 红利低波100ETF南方
+      score: 1.0
+      market: sh
+    - code: '515100'
+      name: 红利低波100ETF景顺
+      score: 1.0
+      market: sh
+    - code: '159083'
+      name: 红利低波100ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '560720'
+      name: 红利低波100ETF工银
+      score: 1.0
+      market: sh
+    - code: '560520'
+      name: 红利低波100ETF大成
+      score: 1.0
+      market: sh
+    - code: '159188'
+      name: 红利100ETF景顺
+      score: 0.7143
+      market: sz
+    - code: '515450'
+      name: 红利低波50ETF南方
+      score: 0.6667
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931071':
+    name: 人工智能
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588760'
+      name: 科创人工智能ETF广发
+      score: 1.0
+      market: sh
+    - code: '589520'
+      name: 科创人工智能ETF华宝
+      score: 1.0
+      market: sh
+    - code: '589410'
+      name: 科创人工智能ETF嘉实
+      score: 1.0
+      market: sh
+    - code: '588930'
+      name: 科创人工智能ETF银华
+      score: 1.0
+      market: sh
+    - code: '589380'
+      name: 科创人工智能ETF富国
+      score: 1.0
+      market: sh
+    - code: '589230'
+      name: 科创人工智能ETF南方
+      score: 1.0
+      market: sh
+    - code: '589010'
+      name: 科创人工智能ETF华夏
+      score: 1.0
+      market: sh
+    - code: '589110'
+      name: 科创人工智能ETF国泰
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931079':
+    name: 5G通信
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515880'
+      name: 通信ETF国泰
+      score: 0.5
+      market: sh
+    - code: '159695'
+      name: 通信ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '515050'
+      name: 通信ETF华夏
+      score: 0.5
+      market: sh
+    - code: '159511'
+      name: 通信ETF南方
+      score: 0.5
+      market: sz
+    - code: '159583'
+      name: 通信ETF富国
+      score: 0.5
+      market: sz
+    - code: '159811'
+      name: 5GETF博时
+      score: 0.5
+      market: sz
+    - code: '159507'
+      name: 通信ETF广发
+      score: 0.5
+      market: sz
+    - code: '159994'
+      name: 通信ETF银华
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931160':
+    name: 通信设备
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515880'
+      name: 通信ETF国泰
+      score: 0.5
+      market: sh
+    - code: '159695'
+      name: 通信ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '515050'
+      name: 通信ETF华夏
+      score: 0.5
+      market: sh
+    - code: '159511'
+      name: 通信ETF南方
+      score: 0.5
+      market: sz
+    - code: '159583'
+      name: 通信ETF富国
+      score: 0.5
+      market: sz
+    - code: '159507'
+      name: 通信ETF广发
+      score: 0.5
+      market: sz
+    - code: '159994'
+      name: 通信ETF银华
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931238':
+    name: SSH黄金股票
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '517400'
+      name: 黄金股ETF国泰
+      score: 0.5
+      market: sh
+    - code: '517520'
+      name: 黄金股ETF永赢
+      score: 0.5
+      market: sh
+    - code: '159562'
+      name: 黄金股ETF华夏
+      score: 0.5
+      market: sz
+    - code: '159321'
+      name: 黄金股ETF华安
+      score: 0.5
+      market: sz
+    - code: '159315'
+      name: 黄金股ETF工银
+      score: 0.5
+      market: sz
+    - code: '159322'
+      name: 黄金股ETF平安
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931573':
+    name: 港股通科技
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '517350'
+      name: 沪港深科技ETF广发
+      score: 0.5
+      market: sh
+    - code: '517360'
+      name: 沪港深科技ETF华安
+      score: 0.5
+      market: sh
+    - code: '515860'
+      name: 科技ETF嘉实
+      score: 0.4444
+      market: sh
+    - code: '515000'
+      name: 科技ETF华宝
+      score: 0.4444
+      market: sh
+    - code: '517950'
+      name: 沪深港科技50ETF交银
+      score: 0.4286
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931637':
+    name: 港股通互联网
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159550'
+      name: 互联网ETF东财
+      score: 0.5455
+      market: sz
+    - code: '517200'
+      name: 互联网ETF嘉实
+      score: 0.5455
+      market: sh
+    - code: '159729'
+      name: 互联网ETF汇添富
+      score: 0.5
+      market: sz
+    - code: '517050'
+      name: 互联网ETF华泰柏瑞
+      score: 0.4615
+      market: sh
+    - code: '159075'
+      name: 工业互联网ETF华夏
+      score: 0.4615
+      market: sz
+    - code: '159013'
+      name: 工业互联网ETF大成
+      score: 0.4615
+      market: sz
+    - code: '159778'
+      name: 工业互联网ETF鹏华
+      score: 0.4615
+      market: sz
+    - code: '158027'
+      name: 工业互联网ETF易方达
+      score: 0.4286
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931643':
+    name: 科创创业50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '588350'
+      name: 科创创业50ETF鹏扬
+      score: 1.0
+      market: sh
+    - code: '588300'
+      name: 科创创业50ETF招商
+      score: 1.0
+      market: sh
+    - code: '159783'
+      name: 科创创业50ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159012'
+      name: 科创创业50ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '588660'
+      name: 科创创业50ETF兴银
+      score: 1.0
+      market: sh
+    - code: '159780'
+      name: 科创创业50ETF南方
+      score: 1.0
+      market: sz
+    - code: '588150'
+      name: 科创50ETF南方
+      score: 0.6667
+      market: sh
+    - code: '588000'
+      name: 科创50ETF华夏
+      score: 0.6667
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931719':
+    name: CS电池
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159077'
+      name: 电池ETF鑫元
+      score: 0.5
+      market: sz
+    - code: '512460'
+      name: 电池ETF华夏
+      score: 0.5
+      market: sh
+    - code: '159155'
+      name: 电池ETF大成
+      score: 0.5
+      market: sz
+    - code: '560410'
+      name: 电池ETF鹏华
+      score: 0.5
+      market: sh
+    - code: '158019'
+      name: 电池ETF永赢
+      score: 0.5
+      market: sz
+    - code: '159147'
+      name: 电池ETF南方
+      score: 0.5
+      market: sz
+    - code: '561910'
+      name: 电池ETF招商
+      score: 0.5
+      market: sh
+    - code: '562880'
+      name: 电池ETF嘉实
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931994':
+    name: 电网设备主题
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '561380'
+      name: 电网设备ETF国泰
+      score: 0.6667
+      market: sh
+    - code: '159326'
+      name: 电网设备ETF华夏
+      score: 0.6667
+      market: sz
+    - code: '159320'
+      name: 电网设备ETF广发
+      score: 0.6667
+      market: sz
+    - code: '515940'
+      name: 电网设备ETF南方
+      score: 0.6667
+      market: sh
+    - code: '560390'
+      name: 电网设备ETF易方达
+      score: 0.6154
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '950125':
+    name: 科创半导体材料设备
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '589020'
+      name: 科创半导体设备ETF鹏华
+      score: 0.7778
+      market: sh
+    - code: '588710'
+      name: 科创半导体设备ETF华泰柏瑞
+      score: 0.7
+      market: sh
+    - code: '560780'
+      name: 半导体设备ETF广发
+      score: 0.625
+      market: sh
+    - code: '562590'
+      name: 半导体设备ETF华夏
+      score: 0.625
+      market: sh
+    - code: '561980'
+      name: 半导体设备ETF招商
+      score: 0.625
+      market: sh
+    - code: '159327'
+      name: 半导体设备ETF万家
+      score: 0.625
+      market: sz
+    - code: '159516'
+      name: 半导体设备ETF国泰
+      score: 0.625
+      market: sz
+    - code: '588170'
+      name: 科创半导体ETF华夏
+      score: 0.625
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '950580':
+    name: 上证580
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '530530'
+      name: 上证580ETF华夏
+      score: 1.0
+      market: sh
+    - code: '530100'
+      name: 上证580ETF易方达
+      score: 1.0
+      market: sh
+    - code: '510680'
+      name: 上证50ETF万家
+      score: 0.7273
+      market: sh
+    - code: '510950'
+      name: 上证50ETF广发
+      score: 0.7273
+      market: sh
+    - code: '530050'
+      name: 上证50ETF东财
+      score: 0.7273
+      market: sh
+    - code: '510050'
+      name: 上证50ETF华夏
+      score: 0.7273
+      market: sh
+    - code: '510190'
+      name: 上证50ETF华安
+      score: 0.7273
+      market: sh
+    - code: '530000'
+      name: 上证50ETF天弘
+      score: 0.7273
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '970070':
+    name: 创业板人工智能
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159279'
+      name: 创业板人工智能ETF华安
+      score: 1.0
+      market: sz
+    - code: '159388'
+      name: 创业板人工智能ETF国泰
+      score: 1.0
+      market: sz
+    - code: '159363'
+      name: 创业板人工智能ETF华宝
+      score: 1.0
+      market: sz
+    - code: '159246'
+      name: 创业板人工智能ETF富国
+      score: 1.0
+      market: sz
+    - code: '159382'
+      name: 创业板人工智能ETF南方
+      score: 1.0
+      market: sz
+    - code: '159242'
+      name: 创业板人工智能ETF大成
+      score: 1.0
+      market: sz
+    - code: '159381'
+      name: 创业板人工智能ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159243'
+      name: 创业板人工智能ETF招商
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '970081':
+    name: 创业板电池
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158078'
+      name: 创业板电池ETF华宝
+      score: 1.0
+      market: sz
+    - code: '158079'
+      name: 创业板电池ETF华安
+      score: 1.0
+      market: sz
+    - code: '158082'
+      name: 创业板电池ETF银华
+      score: 1.0
+      market: sz
+    - code: '158081'
+      name: 创业板电池ETF永赢
+      score: 1.0
+      market: sz
+    - code: '159958'
+      name: 创业板ETF工银
+      score: 0.6
+      market: sz
+    - code: '159977'
+      name: 创业板ETF天弘
+      score: 0.6
+      market: sz
+    - code: '159964'
+      name: 创业板ETF平安
+      score: 0.6
+      market: sz
+    - code: '159948'
+      name: 创业板ETF南方
+      score: 0.6
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '970083':
+    name: 创业板算力
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158063'
+      name: 创业板算力ETF南方
+      score: 1.0
+      market: sz
+    - code: '158056'
+      name: 创业板算力ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '158055'
+      name: 创业板算力ETF国泰
+      score: 1.0
+      market: sz
+    - code: '158059'
+      name: 创业板算力ETF富国
+      score: 1.0
+      market: sz
+    - code: '158053'
+      name: 创业板算力ETF大成
+      score: 1.0
+      market: sz
+    - code: '158057'
+      name: 创业板算力ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '158041'
+      name: 创业板算力ETF华夏
+      score: 1.0
+      market: sz
+    - code: '158061'
+      name: 创业板算力ETF天弘
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '970085':
+    name: 创业板金融科技
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158058'
+      name: 创业板金融科技ETF华泰柏瑞
+      score: 1.0
+      market: sz
+    - code: '158062'
+      name: 创业板金融科技ETF建信
+      score: 1.0
+      market: sz
+    - code: '158067'
+      name: 创业板金融科技ETF万家
+      score: 1.0
+      market: sz
+    - code: '158052'
+      name: 创业板金融科技ETF景顺
+      score: 1.0
+      market: sz
+    - code: '159773'
+      name: 创业板科技ETF华泰柏瑞
+      score: 0.625
+      market: sz
+    - code: '563670'
+      name: 金融科技ETF鹏华
+      score: 0.6154
+      market: sh
+    - code: '563570'
+      name: 金融科技ETF兴业
+      score: 0.6154
+      market: sh
+    - code: '516860'
+      name: 金融科技ETF博时
+      score: 0.6154
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980001':
+    name: 湾创100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.7273
+      market: sz
+    - code: '588190'
+      name: 科创100ETF银华
+      score: 0.6667
+      market: sh
+    - code: '588900'
+      name: 科创100ETF南方
+      score: 0.6667
+      market: sh
+    - code: '589950'
+      name: 科创100ETF富国
+      score: 0.6667
+      market: sh
+    - code: '588220'
+      name: 科创100ETF鹏华
+      score: 0.6667
+      market: sh
+    - code: '588120'
+      name: 科创100ETF国泰
+      score: 0.6667
+      market: sh
+    - code: '588800'
+      name: 科创100ETF华夏
+      score: 0.6667
+      market: sh
+    - code: '588030'
+      name: 科创100ETF博时
+      score: 0.6667
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980015':
+    name: 疫苗生科
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '562860'
+      name: 疫苗ETF嘉实
+      score: 0.5
+      market: sh
+    - code: '561920'
+      name: 疫苗ETF招商
+      score: 0.5
+      market: sh
+    - code: '159643'
+      name: 疫苗ETF国泰
+      score: 0.5
+      market: sz
+    - code: '159645'
+      name: 疫苗ETF富国
+      score: 0.5
+      market: sz
+    - code: '159657'
+      name: 疫苗ETF鹏华
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980016':
+    name: 医疗健康
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159760'
+      name: 医疗健康ETF泰康
+      score: 1.0
+      market: sz
+    - code: '159828'
+      name: 医疗ETF国泰
+      score: 0.5
+      market: sz
+    - code: '158010'
+      name: 医疗ETF嘉实
+      score: 0.5
+      market: sz
+    - code: '560260'
+      name: 医疗ETF广发
+      score: 0.5
+      market: sh
+    - code: '512170'
+      name: 医疗ETF华宝
+      score: 0.5
+      market: sh
+    - code: '159877'
+      name: 医疗ETF南方
+      score: 0.5
+      market: sz
+    - code: '159891'
+      name: 医疗ETF建信
+      score: 0.5
+      market: sz
+    - code: '159847'
+      name: 医疗ETF易方达
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980017':
+    name: 国证芯片
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '516640'
+      name: 芯片ETF富国
+      score: 0.5
+      market: sh
+    - code: '159599'
+      name: 芯片ETF东财
+      score: 0.5
+      market: sz
+    - code: '159560'
+      name: 芯片ETF景顺
+      score: 0.5
+      market: sz
+    - code: '159310'
+      name: 芯片ETF天弘
+      score: 0.5
+      market: sz
+    - code: '512760'
+      name: 芯片ETF国泰
+      score: 0.5
+      market: sh
+    - code: '159801'
+      name: 芯片ETF广发
+      score: 0.5
+      market: sz
+    - code: '159995'
+      name: 芯片ETF华夏
+      score: 0.5
+      market: sz
+    - code: '516350'
+      name: 芯片ETF易方达
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980018':
+    name: 卫星通信
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158036'
+      name: 卫星ETF华夏
+      score: 0.5
+      market: sz
+    - code: '563790'
+      name: 卫星ETF鹏华
+      score: 0.5
+      market: sh
+    - code: '158046'
+      name: 卫星ETF南方
+      score: 0.5
+      market: sz
+    - code: '563230'
+      name: 卫星ETF富国
+      score: 0.5
+      market: sh
+    - code: '512630'
+      name: 卫星ETF广发
+      score: 0.5
+      market: sh
+    - code: '562420'
+      name: 卫星ETF平安
+      score: 0.5
+      market: sh
+    - code: '159218'
+      name: 卫星ETF招商
+      score: 0.5
+      market: sz
+    - code: '159206'
+      name: 卫星ETF永赢
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980022':
+    name: 机器人产业
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159048'
+      name: 机器人ETF大成
+      score: 0.6
+      market: sz
+    - code: '560630'
+      name: 机器人ETF万家
+      score: 0.6
+      market: sh
+    - code: '158037'
+      name: 机器人ETF博时
+      score: 0.6
+      market: sz
+    - code: '562360'
+      name: 机器人ETF银华
+      score: 0.6
+      market: sh
+    - code: '159526'
+      name: 机器人ETF嘉实
+      score: 0.6
+      market: sz
+    - code: '159272'
+      name: 机器人ETF富国
+      score: 0.6
+      market: sz
+    - code: '159770'
+      name: 机器人ETF天弘
+      score: 0.6
+      market: sz
+    - code: '159039'
+      name: 机器人ETF华安
+      score: 0.6
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980027':
+    name: 国证储能电池
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158008'
+      name: 储能电池ETF华夏
+      score: 0.6667
+      market: sz
+    - code: '159193'
+      name: 储能电池ETF银华
+      score: 0.6667
+      market: sz
+    - code: '159052'
+      name: 储能电池ETF嘉实
+      score: 0.6667
+      market: sz
+    - code: '159071'
+      name: 储能电池ETF华宝
+      score: 0.6667
+      market: sz
+    - code: '159305'
+      name: 储能电池ETF广发
+      score: 0.6667
+      market: sz
+    - code: '159566'
+      name: 储能电池ETF易方达
+      score: 0.6154
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980028':
+    name: 龙头家电
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '560880'
+      name: 家电ETF广发
+      score: 0.5
+      market: sh
+    - code: '159176'
+      name: 家电ETF华宝
+      score: 0.5
+      market: sz
+    - code: '159025'
+      name: 家电ETF华安
+      score: 0.5
+      market: sz
+    - code: '561120'
+      name: 家电ETF富国
+      score: 0.5
+      market: sh
+    - code: '159182'
+      name: 家电ETF南方
+      score: 0.5
+      market: sz
+    - code: '159996'
+      name: 家电ETF国泰
+      score: 0.5
+      market: sz
+    - code: '515640'
+      name: 家电ETF华夏
+      score: 0.5
+      market: sh
+    - code: '159730'
+      name: 家电ETF博时
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980030':
+    name: 消费电子
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159178'
+      name: 消费电子ETF汇添富
+      score: 1.0
+      market: sz
+    - code: '159153'
+      name: 消费电子ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '159732'
+      name: 消费电子ETF华夏
+      score: 1.0
+      market: sz
+    - code: '561600'
+      name: 消费电子ETF平安
+      score: 1.0
+      market: sh
+    - code: '561100'
+      name: 消费电子ETF富国
+      score: 1.0
+      market: sh
+    - code: '562950'
+      name: 消费电子ETF易方达
+      score: 1.0
+      market: sh
+    - code: '159779'
+      name: 消费电子ETF招商
+      score: 1.0
+      market: sz
+    - code: '159997'
+      name: 电子ETF天弘
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980032':
+    name: 新能电池
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '158008'
+      name: 储能电池ETF华夏
+      score: 0.6
+      market: sz
+    - code: '159193'
+      name: 储能电池ETF银华
+      score: 0.6
+      market: sz
+    - code: '159052'
+      name: 储能电池ETF嘉实
+      score: 0.6
+      market: sz
+    - code: '159071'
+      name: 储能电池ETF华宝
+      score: 0.6
+      market: sz
+    - code: '159305'
+      name: 储能电池ETF广发
+      score: 0.6
+      market: sz
+    - code: '159566'
+      name: 储能电池ETF易方达
+      score: 0.5455
+      market: sz
+    - code: '159077'
+      name: 电池ETF鑫元
+      score: 0.5
+      market: sz
+    - code: '512460'
+      name: 电池ETF华夏
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980034':
+    name: 工业软件
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159108'
+      name: 工业软件ETF博时
+      score: 1.0
+      market: sz
+    - code: '159145'
+      name: 工业软件ETF广发
+      score: 1.0
+      market: sz
+    - code: '158072'
+      name: 创业板软件ETF南方
+      score: 0.5455
+      market: sz
+    - code: '159256'
+      name: 创业板软件ETF华夏
+      score: 0.5455
+      market: sz
+    - code: '159107'
+      name: 创业板软件ETF富国
+      score: 0.5455
+      market: sz
+    - code: '158011'
+      name: 创业板软件ETF国泰
+      score: 0.5455
+      market: sz
+    - code: '159180'
+      name: 软件ETF银华
+      score: 0.5
+      market: sz
+    - code: '159035'
+      name: 软件ETF天弘
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980076':
+    name: 通用航空
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '563870'
+      name: 通用航空ETF鹏华
+      score: 1.0
+      market: sh
+    - code: '159230'
+      name: 通用航空ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159378'
+      name: 通用航空ETF永赢
+      score: 1.0
+      market: sz
+    - code: '159283'
+      name: 通用航空ETF南方
+      score: 1.0
+      market: sz
+    - code: '159231'
+      name: 通用航空ETF华宝
+      score: 1.0
+      market: sz
+    - code: '561660'
+      name: 通用航空ETF平安
+      score: 1.0
+      market: sh
+    - code: '563320'
+      name: 通用航空ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '159255'
+      name: 通用航空ETF易方达
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980080':
+    name: 成长100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.5455
+      market: sz
+    - code: '159970'
+      name: 深100ETF工银
+      score: 0.5455
+      market: sz
+    - code: '159975'
+      name: 深100ETF招商
+      score: 0.5455
+      market: sz
+    - code: '159212'
+      name: 深100ETF南方
+      score: 0.5455
+      market: sz
+    - code: '561880'
+      name: A100ETF华富
+      score: 0.5455
+      market: sh
+    - code: '512060'
+      name: A100ETF天弘
+      score: 0.5455
+      market: sh
+    - code: '561770'
+      name: A100ETF博时
+      score: 0.5455
+      market: sh
+    - code: '560380'
+      name: A100ETF南方
+      score: 0.5455
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980081':
+    name: 价值100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159808'
+      name: 创100ETF融通
+      score: 0.5455
+      market: sz
+    - code: '159970'
+      name: 深100ETF工银
+      score: 0.5455
+      market: sz
+    - code: '159975'
+      name: 深100ETF招商
+      score: 0.5455
+      market: sz
+    - code: '159212'
+      name: 深100ETF南方
+      score: 0.5455
+      market: sz
+    - code: '561880'
+      name: A100ETF华富
+      score: 0.5455
+      market: sh
+    - code: '512060'
+      name: A100ETF天弘
+      score: 0.5455
+      market: sh
+    - code: '561770'
+      name: A100ETF博时
+      score: 0.5455
+      market: sh
+    - code: '560380'
+      name: A100ETF南方
+      score: 0.5455
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '980092':
+    name: 自由现金流
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159236'
+      name: 自由现金流ETF工银
+      score: 1.0
+      market: sz
+    - code: '159232'
+      name: 自由现金流ETF南方
+      score: 1.0
+      market: sz
+    - code: '159233'
+      name: 自由现金流ETF平安
+      score: 1.0
+      market: sz
+    - code: '563580'
+      name: 自由现金流800ETF万家
+      score: 1.0
+      market: sh
+    - code: '159229'
+      name: 自由现金流ETF广发
+      score: 1.0
+      market: sz
+    - code: '159222'
+      name: 自由现金流ETF易方达
+      score: 1.0
+      market: sz
+    - code: '159201'
+      name: 自由现金流ETF华夏
+      score: 1.0
+      market: sz
+    - code: '563900'
+      name: 300自由现金流ETF摩根
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '987008':
+    name: 港股通科技
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '517350'
+      name: 沪港深科技ETF广发
+      score: 0.5
+      market: sh
+    - code: '517360'
+      name: 沪港深科技ETF华安
+      score: 0.5
+      market: sh
+    - code: '515860'
+      name: 科技ETF嘉实
+      score: 0.4444
+      market: sh
+    - code: '515000'
+      name: 科技ETF华宝
+      score: 0.4444
+      market: sh
+    - code: '517950'
+      name: 沪深港科技50ETF交银
+      score: 0.4286
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '987016':
+    name: 港股通红利低波
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159118'
+      name: 港股通红利低波ETF华夏
+      score: 1.0
+      market: sz
+    - code: '159220'
+      name: 港股通红利低波ETF华宝
+      score: 1.0
+      market: sz
+    - code: '159117'
+      name: 港股通红利低波ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '158039'
+      name: 港股通红利低波ETF广发
+      score: 1.0
+      market: sz
+    - code: '520610'
+      name: 港股红利低波ETF银华
+      score: 0.8
+      market: sh
+    - code: '159228'
+      name: 红利低波ETF长城
+      score: 0.6154
+      market: sz
+    - code: '159549'
+      name: 红利低波ETF天弘
+      score: 0.6154
+      market: sz
+    - code: '158023'
+      name: 红利低波ETF万家
+      score: 0.6154
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '987019':
+    name: 港股通创新药（人民币）
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '517380'
+      name: 创新药ETF天弘
+      score: 0.5455
+      market: sh
+    - code: '159748'
+      name: 创新药ETF富国
+      score: 0.5455
+      market: sz
+    - code: '517110'
+      name: 创新药ETF国泰
+      score: 0.5455
+      market: sh
+    - code: '159835'
+      name: 创新药ETF建信
+      score: 0.5455
+      market: sz
+    - code: '159992'
+      name: 创新药ETF银华
+      score: 0.5455
+      market: sz
+    - code: '159858'
+      name: 创新药ETF南方
+      score: 0.5455
+      market: sz
+    - code: '560900'
+      name: 创新药ETF摩根
+      score: 0.5455
+      market: sh
+    - code: '516060'
+      name: 创新药ETF工银
+      score: 0.5455
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '987023':
+    name: 港股通互联网（人民币）
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159550'
+      name: 互联网ETF东财
+      score: 0.5455
+      market: sz
+    - code: '517200'
+      name: 互联网ETF嘉实
+      score: 0.5455
+      market: sh
+    - code: '159729'
+      name: 互联网ETF汇添富
+      score: 0.5
+      market: sz
+    - code: '517050'
+      name: 互联网ETF华泰柏瑞
+      score: 0.4615
+      market: sh
+    - code: '159075'
+      name: 工业互联网ETF华夏
+      score: 0.4615
+      market: sz
+    - code: '159013'
+      name: 工业互联网ETF大成
+      score: 0.4615
+      market: sz
+    - code: '159778'
+      name: 工业互联网ETF鹏华
+      score: 0.4615
+      market: sz
+    - code: '158027'
+      name: 工业互联网ETF易方达
+      score: 0.4286
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '987024':
+    name: 港股通消费
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '510150'
+      name: 消费ETF招商
+      score: 0.4444
+      market: sh
+    - code: '159672'
+      name: 消费ETF博时
+      score: 0.4444
+      market: sz
+    - code: '159689'
+      name: 消费ETF南方
+      score: 0.4444
+      market: sz
+    - code: '510630'
+      name: 消费ETF华夏
+      score: 0.4444
+      market: sh
+    - code: '512600'
+      name: 消费ETF嘉实
+      score: 0.4444
+      market: sh
+    - code: '560680'
+      name: 消费ETF广发
+      score: 0.4444
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  CN5075:
+    name: 国证信创
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159537'
+      name: 信创ETF国泰
+      score: 0.5
+      market: sz
+    - code: '562570'
+      name: 信创ETF华夏
+      score: 0.5
+      market: sh
+    - code: '562030'
+      name: 信创ETF华宝
+      score: 0.5
+      market: sh
+    - code: '159539'
+      name: 信创ETF广发
+      score: 0.5
+      market: sz
+    - code: '159538'
+      name: 信创ETF富国
+      score: 0.5
+      market: sz
+    - code: '515560'
+      name: 证券ETF建信
+      score: 0.5
+      market: sh
+    - code: '560850'
+      name: 信创ETF汇添富
+      score: 0.4444
+      market: sh
+    - code: '159540'
+      name: 信创ETF易方达
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  CN5082:
+    name: 国证航天
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159267'
+      name: 航天ETF华安
+      score: 0.5
+      market: sz
+    - code: '159841'
+      name: 证券ETF天弘
+      score: 0.5
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  CN5097:
+    name: 消费服务
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '516600'
+      name: 消费服务ETF工银
+      score: 1.0
+      market: sh
+    - code: '510150'
+      name: 消费ETF招商
+      score: 0.5
+      market: sh
+    - code: '159672'
+      name: 消费ETF博时
+      score: 0.5
+      market: sz
+    - code: '159689'
+      name: 消费ETF南方
+      score: 0.5
+      market: sz
+    - code: '510630'
+      name: 消费ETF华夏
+      score: 0.5
+      market: sh
+    - code: '512600'
+      name: 消费ETF嘉实
+      score: 0.5
+      market: sh
+    - code: '560680'
+      name: 消费ETF广发
+      score: 0.5
+      market: sh
+    - code: '159928'
+      name: 消费ETF汇添富
+      score: 0.4444
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  CN6051:
+    name: 有色指数
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159163'
+      name: 有色ETF泰康
+      score: 0.9167
+      market: sz
+    - code: '159049'
+      name: 有色ETF工银
+      score: 0.9167
+      market: sz
+    - code: '560290'
+      name: 有色ETF景顺
+      score: 0.9167
+      market: sh
+    - code: '512940'
+      name: 有色ETF华安
+      score: 0.9167
+      market: sh
+    - code: '159871'
+      name: 有色ETF银华
+      score: 0.9167
+      market: sz
+    - code: '159029'
+      name: 有色ETF广发
+      score: 0.9167
+      market: sz
+    - code: '159880'
+      name: 有色ETF鹏华
+      score: 0.9167
+      market: sz
+    - code: '159876'
+      name: 有色ETF华宝
+      score: 0.9167
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  H30269:
+    name: 红利低波
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '520610'
+      name: 港股红利低波ETF银华
+      score: 1.0
+      market: sh
+    - code: '159228'
+      name: 红利低波ETF长城
+      score: 1.0
+      market: sz
+    - code: '159549'
+      name: 红利低波ETF天弘
+      score: 1.0
+      market: sz
+    - code: '515450'
+      name: 红利低波50ETF南方
+      score: 1.0
+      market: sh
+    - code: '158023'
+      name: 红利低波ETF万家
+      score: 1.0
+      market: sz
+    - code: '560730'
+      name: 红利低波ETF国泰海通
+      score: 1.0
+      market: sh
+    - code: '512890'
+      name: 红利低波ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '159525'
+      name: 红利低波ETF富国
+      score: 1.0
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '930050':
+    name: 中证A50
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '560530'
+      name: 中证A500ETF摩根
+      score: 1.0
+      market: sh
+    - code: '563650'
+      name: 中证A500ETF兴业
+      score: 1.0
+      market: sh
+    - code: '563860'
+      name: 中证A500ETF海富通
+      score: 1.0
+      market: sh
+    - code: '159338'
+      name: 中证A500ETF国泰
+      score: 1.0
+      market: sz
+    - code: '159353'
+      name: 中证A500ETF景顺
+      score: 1.0
+      market: sz
+    - code: '560510'
+      name: 中证A500ETF泰康
+      score: 1.0
+      market: sh
+    - code: '159358'
+      name: 中证A500ETF大成
+      score: 1.0
+      market: sz
+    - code: '560820'
+      name: 中证A50ETF新华
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000903:
+    name: 中证A100
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159923'
+      name: 中证A100ETF大成
+      score: 1.0
+      market: sz
+    - code: '561200'
+      name: 中证A100ETF工银
+      score: 1.0
+      market: sh
+    - code: '512100'
+      name: 中证1000ETF南方
+      score: 0.7143
+      market: sh
+    - code: '159845'
+      name: 中证1000ETF华夏
+      score: 0.7143
+      market: sz
+    - code: '159629'
+      name: 中证1000ETF富国
+      score: 0.7143
+      market: sz
+    - code: '560010'
+      name: 中证1000ETF广发
+      score: 0.7143
+      market: sh
+    - code: '560530'
+      name: 中证A500ETF摩根
+      score: 0.7143
+      market: sh
+    - code: '563650'
+      name: 中证A500ETF兴业
+      score: 0.7143
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  000906:
+    name: 中证800
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '515810'
+      name: 中证800ETF易方达
+      score: 1.0
+      market: sh
+    - code: '159800'
+      name: 中证800ETF鹏华
+      score: 1.0
+      market: sz
+    - code: '515800'
+      name: 中证800ETF汇添富
+      score: 1.0
+      market: sh
+    - code: '159517'
+      name: 中证800增强ETF银华
+      score: 0.9633
+      market: sz
+    - code: '515550'
+      name: 中证500ETF国联
+      score: 0.6667
+      market: sh
+    - code: '510570'
+      name: 中证500ETF兴业
+      score: 0.6667
+      market: sh
+    - code: '510530'
+      name: 中证500ETF工银
+      score: 0.6667
+      market: sh
+    - code: '159968'
+      name: 中证500ETF博时
+      score: 0.6667
+      market: sz
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '932000':
+    name: 中证2000
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159535'
+      name: 中证2000ETF嘉实
+      score: 1.0
+      market: sz
+    - code: '159533'
+      name: 中证2000ETF博时
+      score: 1.0
+      market: sz
+    - code: '562660'
+      name: 中证2000ETF华夏
+      score: 1.0
+      market: sh
+    - code: '159531'
+      name: 中证2000ETF南方
+      score: 1.0
+      market: sz
+    - code: '563200'
+      name: 中证2000ETF富国
+      score: 1.0
+      market: sh
+    - code: '563300'
+      name: 中证2000ETF华泰柏瑞
+      score: 1.0
+      market: sh
+    - code: '560220'
+      name: 中证2000ETF广发
+      score: 1.0
+      market: sh
+    - code: '561370'
+      name: 中证2000ETF国泰
+      score: 1.0
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  H30007:
+    name: 芯片
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '516640'
+      name: 芯片ETF富国
+      score: 0.9167
+      market: sh
+    - code: '159599'
+      name: 芯片ETF东财
+      score: 0.9167
+      market: sz
+    - code: '159560'
+      name: 芯片ETF景顺
+      score: 0.9167
+      market: sz
+    - code: '159310'
+      name: 芯片ETF天弘
+      score: 0.9167
+      market: sz
+    - code: '512760'
+      name: 芯片ETF国泰
+      score: 0.9167
+      market: sh
+    - code: '159801'
+      name: 芯片ETF广发
+      score: 0.9167
+      market: sz
+    - code: '159995'
+      name: 芯片ETF华夏
+      score: 0.9167
+      market: sz
+    - code: '516350'
+      name: 芯片ETF易方达
+      score: 0.8214
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+  '931239':
+    name: 港股汽车
+    bucket: watch
+    tradeable: false
+    status: needs_review
+    etf_code: null
+    etf_name: null
+    verified: false
+    market: null
+    qdii: false
+    candidates:
+    - code: '159512'
+      name: 汽车ETF广发
+      score: 0.5
+      market: sz
+    - code: '516110'
+      name: 汽车ETF国泰
+      score: 0.5
+      market: sh
+    - code: '516840'
+      name: 汽车ETF南方
+      score: 0.5
+      market: sh
+    note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单

@@ -816,6 +816,20 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     cfg = load_config(cfg_path)
     cache_dir = os.path.join(base_dir, cfg["data"]["cache_dir"])
 
+    # ---- P0（2026-11-05）：账户真实口径 + 全量 ETF 映射（异常隔离）----
+    try:
+        import account as account_mod
+        account_state = account_mod.load(base_dir, cfg)
+    except Exception as exc:
+        account_state = {"configured": False, "dd": None, "source": "unconfigured",
+                         "reason": f"账户模块异常：{exc}", "capital": None}
+    try:
+        import etf_map as etf_map_mod
+        mapping = etf_map_mod.load(base_dir, cfg)
+    except Exception as exc:
+        mapping = {"ok": False, "instruments": {}, "count": 0,
+                   "reason": f"{type(exc).__name__}: {exc}"}
+
     # ---- 载入各指数 ----
     loaded: Dict[str, Dict[str, Any]] = {}
     missing: List[str] = []
@@ -952,10 +966,22 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         chain["l2_suppress_applied"] = l2_applied
 
     # ---- L3 仓位 ----
-    # 组合回撤：优先用真实计算值，只有在无历史净值时才回落到配置假设值。
-    # 原实现直接取 portfolio_dd_assumed（默认 0），导致回撤节流层结构上永不生效。
-    dd_info = portfolio_drawdown(cfg, base_dir)
-    port_dd = dd_info["dd"] if dd_info.get("ok") else float(cfg["risk"]["portfolio_dd_assumed"])
+    # P0-①（2026-11-05）：回撤输入改为【真实账户净值】。
+    # 原实现用 11 只可交易指数的等权合成净值算 -44.88%，与用户实际账户无关，
+    # 使 coef_dd 恒为 0.15、结构性锁死。该合成值降级为"演示参考"，不再参与压仓。
+    import account as account_mod
+    synthetic = portfolio_drawdown(cfg, base_dir)
+    port_dd = account_mod.throttle_dd(account_state, cfg)
+    dd_info = {
+        "ok": bool(account_state.get("configured")),
+        "dd": account_state.get("dd"),
+        "dd_used": round(port_dd, 6),
+        "source": account_state.get("source") if account_state.get("configured") else "unconfigured",
+        "label": account_mod.label(account_state),
+        "note": account_state.get("note") or account_state.get("reason") or "",
+        "synthetic_demo": synthetic,
+        "synthetic_note": "假设组合等权净值，仅供参考，不参与账户级节流",
+    }
     corr_mean = corr.get("mean_pairwise") if corr.get("ok") else None
 
     for code, v in per_index.items():
@@ -1079,6 +1105,17 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         hedge_need = round(clamp((p_de - cfg["risk"]["hedge_trigger_p_de"]) * 1.5, 0,
                                 cfg["risk"]["hedge_max"]), 3)
 
+    # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
+    try:
+        import decision_layer
+        layer = decision_layer.apply(
+            cfg, base_dir,
+            common_as_of or (max(v["as_of"] for v in per_index.values()) if per_index else ""),
+            per_index, total_exposure, p_de, hedge_need, account_state, mapping)
+    except Exception as exc:
+        layer = {"result_fields": {"decision_layer_error": f"{type(exc).__name__}: {exc}"},
+                 "gate_results": {}}
+
     # ---- 汇总 ----
     # 统一 as_of（不再取 max，避免混日期）
     as_of = common_as_of or (max(v["as_of"] for v in per_index.values()) if per_index else "")
@@ -1086,8 +1123,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     result = {
         "_paths": {},
         "as_of": as_of,
-        "portfolio_dd": {**dd_info, "dd_used": round(port_dd, 6),
-                         "source": "computed" if dd_info.get("ok") else "config_assumed"},
+        "portfolio_dd": dd_info,
         "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "config_version": cfg["meta"]["version"],
         "per_index": {
@@ -1114,6 +1150,10 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                 "tradeable": v["tradeable"],
                 "sizing": v["sizing"],
                 "execution": v["execution"],
+                "l2_suppress": v.get("l2_suppress"),
+                "instrument": v.get("instrument"),
+                "governance_gate": (layer.get("gate_results") or {}).get(c),
+                "open_allowed": bool(v.get("open_allowed")),
             } for c, v in per_index.items()
         },
         "correlation": corr,
@@ -1135,6 +1175,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         "min_confidence_to_act": cfg["state"]["min_confidence_to_act"],
         "data_lag": lag_info,
         "as_of_rule": "统一取所有可交易标的都有数据的最近交易日；滞后标的已截断对齐",
+        **layer["result_fields"],
     }
 
 
@@ -1170,11 +1211,30 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         attr_recs = governance.read_jsonl(attr_path)
         gov["attribution_health"] = governance.attribute_health(attr_recs)
         gov_path = os.path.join(ledger_dir, "governance.jsonl")
-        gov["gate_log_count"] = len(governance.read_jsonl(gov_path))
+        recs = governance.read_jsonl(gov_path)
+        gov["gate_log_count"] = len(recs)
+        gov["daily_records"] = sum(1 for r in recs if r.get("type") == "daily")
+        gov["checked_today"] = sum(1 for g in (layer.get("gate_results") or {}).values()
+                                   if g.get("open_intent"))
+        gov["allowed_today"] = sum(1 for g in (layer.get("gate_results") or {}).values()
+                                   if g.get("allowed"))
+        gov["market_veto"] = bool((result.get("market_context") or {}).get("veto"))
+        gov["journal_dir"] = os.path.join(ledger_dir, "journal")
         result["governance"] = gov
         result["_paths"]["governance"] = gov_path
     except Exception as exc:
         result["governance"] = {"status": f"治理层未运行：{exc}"}
+
+    # ---- P0：概率未校准不得显示成"胜率" ----
+    if isinstance(result.get("decision_card"), dict):
+        cal = result.get("calibration") or {}
+        settled = int(cal.get("settled_n") or 0)
+        need = int((cfg.get("calibration_display") or {}).get("min_settled") or 30)
+        card = result["decision_card"]
+        card["calibration_status"] = cal.get("status", "台账未建立")
+        card["calibration_settled"] = settled
+        card["calibration_label"] = (f"概率已校准（{settled} 条结算）" if settled >= need
+                                     else f"{card['calibration_label']}：{settled}/{need} 条结算样本")
 
     # ---- 落盘（必须在所有层跑完之后，否则 governance/calibration 会写成 null）----
     if not as_of:
