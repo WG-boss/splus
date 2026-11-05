@@ -77,15 +77,31 @@ def render(res):
     # ---- 0.1 数据披露 ----
     gaps = res.get("data_gaps") or []
     excl = res.get("data_excluded") or []
-    warns = res.get("quality_warnings") or []
-    if gaps or excl or warns:
+    qr = res.get("quality_report") or {}
+    if gaps or excl or qr.get("total"):
         L.append("## 数据口径披露")
         for g in gaps:
             L.append(f"- 样本不足，未纳入：{g}")
         for e in excl:
             L.append(f"- 硬异常，已排除：{e}")
-        for w in warns:
-            L.append(f"- 软提示（保留使用）：{w}")
+        lv = qr.get("levels") or {}
+        if qr.get("total"):
+            L.append("")
+            L.append(f"### 数据软提示分级（共 {qr['total']} 条："
+                     f"HIGH {lv.get('HIGH', 0)} ／ MED {lv.get('MED', 0)} "
+                     f"／ LOW {lv.get('LOW', 0)}）")
+            L.append("")
+            L.append(f"> {qr.get('policy')}")
+            L.append("")
+            if qr.get("high_note"):
+                L.append(f"> **HIGH：{qr['high_note']}**")
+                L.append("")
+            for it in (qr.get("items") or []):
+                if it.get("level") == "HIGH":
+                    L.append(f"- **[HIGH/{it['label']}] {it['name']}**：{it['text']}")
+            low_n = lv.get("MED", 0) + lv.get("LOW", 0)
+            L.append("")
+            L.append(f"- MED / LOW 共 {low_n} 条按级别折叠于 HTML 报告（不改变样本是否参与计算）")
         L.append("")
 
     # ---- 1 状态 ----
@@ -211,6 +227,41 @@ def render(res):
                  f"{e.get('single_trade_risk_nav', 0) * 100:.1f}% NAV |")
     L.append("")
 
+    # ---- 5·补 执行换算（P1-① 个人下单参考）----
+    ep = res.get("execution_plan") or {}
+    if ep.get("enabled") and ep.get("rows"):
+        def fm(x):
+            return "—" if x is None else f"{x:,.2f}"
+        L.append("## 五·补 执行换算（个人下单参考）")
+        L.append("")
+        L.append(f"> **{ep.get('mode') or '—'}** ｜ 状态 `{ep.get('status') or '—'}` ｜ "
+                 f"基数 {ep.get('capital_base')} ｜ 最小 {ep.get('lot_size')} 份/手")
+        L.append("")
+        for wn in ep.get("warnings") or []:
+            L.append(f"- ⚠️ {wn}")
+        L.append("")
+        L.append("| 指数 | 场内标的 | 预案权重 | 预案金额(元) | 现价 | "
+                 "整手份额 | 实际金额(元) | 费用(元) | 状态 |")
+        L.append("|---|---|---|---|---|---|---|---|---|")
+        for r in ep["rows"]:
+            etf = r.get("etf_code") or "未核实"
+            status = ("✅ 可下单" if r.get("executable")
+                      else "⛔ " + "；".join(r.get("reasons") or []))
+            shares = r.get("shares") if r.get("shares") is not None else "—"
+            L.append(f"| {r['name']} | {etf} {r.get('etf_name') or ''} | "
+                     f"{r['target_weight'] * 100:.2f}% | {fm(r.get('target_cny'))} | "
+                     f"{fm(r.get('price'))} | {shares} | {fm(r.get('actual_cny'))} | "
+                     f"{fm(r.get('fee_cny'))} | {status} |")
+        s = ep.get("summary") or {}
+        L.append("")
+        L.append(f"- 合计：预案 {fm(s.get('target_total_cny'))} 元 ／ 实际 "
+                 f"{fm(s.get('actual_total_cny'))} 元 ／ 费用 {fm(s.get('fee_total_cny'))} 元；"
+                 f"可下单 {s.get('executable', 0)}/{s.get('tradeable', 0)} 只")
+        q = ep.get("quotes") or {}
+        L.append(f"- 报价快照：{q.get('count', 0)} 只（{q.get('fetched_at') or '—'}）；"
+                 f"{ep.get('disclaimer')}")
+        L.append("")
+
     # ---- 6 行为矩阵 ----
     L.append("## 六、阶段行为矩阵（动作指令）")
     L.append("")
@@ -263,12 +314,28 @@ def render(res):
     L.append(f"- ETF 映射：{em.get('count', 0)} 只全覆盖，"
              f"已核实 {(em.get('stats') or {}).get('confirmed', 0)} 只，"
              f"候选 {(em.get('stats') or {}).get('candidates', 0)} 只")
+    sp = res.get("settlement_progress") or {}
+    L.append(f"- 结算进度：{sp.get('label', '—')}；已结算 {sp.get('settled_n', 0)}/"
+             f"{sp.get('min_settled', 30)} 条，待结算 {sp.get('pending_n', 0)} 条；"
+             f"最早一批还需约 {sp.get('next_remaining_days', '—')} 个交易日"
+             f"（≈{sp.get('next_est_weeks', '—')} 周）")
+    L.append(f"> {sp.get('note', '')}")
+    ar = res.get("attribution_rebuild") or {}
+    L.append(f"- 归因台账：{ar.get('total_records', 0)} 条（本次新写 "
+             f"{ar.get('written', 0)} 条，基准 {ar.get('benchmark_code', '—')}）；"
+             f"{ar.get('reason') or ar.get('note') or ''}")
+    ep = res.get("execution_plan") or {}
+    L.append(f"- 执行换算：{ep.get('status', '—')} ｜ "
+             f"可下单 {(ep.get('summary') or {}).get('executable', 0)}/"
+             f"{(ep.get('summary') or {}).get('tradeable', 0)} 只")
     L.append("")
 
     L.append("---")
     L.append("*由 S++ 引擎按外置配置自动生成。所有阈值均为可调参数，不构成买卖建议。"
              "仓位为模型建议比例而非下单指令；指数点位与场内 ETF 代码须自行核实，"
-             "未确认的候选标的一律不得据此下单。概率未经校准，不得解读为胜率。*")
+             "未确认的候选标的一律不得据此下单。概率未经校准，不得解读为胜率。"
+             "执行换算在闸门否决/账户未配置/标的未核实时一律为「预案」，不得据此下单；"
+             "报价为快照，下单前以券商实时价为准。*")
     return "\n".join(L)
 
 

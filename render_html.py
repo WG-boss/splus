@@ -94,6 +94,13 @@ details.fold .inner{padding:4px 14px 12px}
 .foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
   color:var(--dim);font-size:12px}
 code{background:#e8f0e8;padding:1px 5px;border-radius:3px;font-size:12px}
+.qtag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600;
+  margin-right:6px;white-space:nowrap}
+.qhigh{background:#fdecea;color:var(--red);border:1px solid #f0c0b8}
+.qmed{background:#fdf6e3;color:var(--amb);border:1px solid #ead9a0}
+.qlow{background:#eaf5ea;color:var(--dim);border:1px solid var(--line)}
+.plan-note{background:#fdf0ee;border-left:3px solid var(--red);padding:10px 14px;
+  border-radius:6px;margin:10px 0;font-size:13px}
 /* 表头排序（点击循环 升序→降序；▲▼ 指示当前方向）*/
 th.srt{cursor:pointer;user-select:none}
 th.srt:hover{background:#dceadc}
@@ -314,16 +321,35 @@ def render_html(res):
     # ---- 数据披露 ----
     gaps = res.get("data_gaps") or []
     excl = res.get("data_excluded") or []
-    warns = res.get("quality_warnings") or []
+    qr = res.get("quality_report") or {}
     lag = res.get("data_lag") or []
-    if gaps or excl or warns or lag:
+    if gaps or excl or qr.get("total") or lag:
         a("<h2>数据口径披露</h2><div class='card'>")
         for g in gaps:
             a(f"<div class='warn'>样本不足，未纳入：{_e(g)}</div>")
         for e in excl:
             a(f"<div class='neg'>硬异常，已排除：{_e(e)}</div>")
-        for w in warns:
-            a(f"<div class='warn'>软提示（保留使用）：{_e(w)}</div>")
+        lv = qr.get("levels") or {}
+        if qr.get("total"):
+            a(f"<h3>数据软提示分级 · 共 {qr['total']} 条 "
+              f"（HIGH {lv.get('HIGH', 0)} ／ MED {lv.get('MED', 0)} "
+              f"／ LOW {lv.get('LOW', 0)}）</h3>")
+            a(f"<div class='note'>{_e(qr.get('policy'))}</div>")
+            if qr.get("high_note"):
+                a(f"<div class='neg'><b>HIGH：</b>{_e(qr['high_note'])}</div>")
+            groups = qr.get("groups") or {}
+            for cat, items in groups.items():
+                if not items:
+                    continue
+                lvl = items[0].get("level", "MED")
+                qcls = {"HIGH": "qhigh", "MED": "qmed", "LOW": "qlow"}.get(lvl, "qlow")
+                a("<details class='fold'%s><summary><span class='qtag %s'>%s</span>"
+                  "%s · %d 条</summary><div class='inner'>"
+                  % (" open" if lvl == "HIGH" else "", qcls, _e(lvl),
+                     _e(items[0].get("label") or cat), len(items)))
+                for it in items:
+                    a(f"<div class='note'>{_e(it.get('name'))}：{_e(it.get('text'))}</div>")
+                a("</div></details>")
         for x in lag:
             a(f"<div class='note'>滞后对齐：{_e(x.get('name'))} "
               f"{_e(x.get('had'))} → {_e(x.get('used'))}</div>")
@@ -526,6 +552,48 @@ def render_html(res):
           f"<td class='num'>{e.get('single_trade_risk_nav', 0) * 100:.1f}% NAV</td></tr>")
     a("</table>")
 
+    # ---- 五·补 执行换算（P1-① 个人下单参考）----
+    ep = res.get("execution_plan") or {}
+    if ep.get("enabled") and ep.get("rows"):
+        a("<h2>五·补 执行换算（个人下单参考）</h2>")
+        a(f"<div class='plan-note'><b>{_e(ep.get('mode'))}</b> ｜ 状态 "
+          f"{_e(ep.get('status'))} ｜ 基数 {_e(ep.get('capital_base'))} ｜ "
+          f"最小 {_e(ep.get('lot_size'))} 份/手</div>")
+        for wn in ep.get("warnings") or []:
+            a(f"<div class='note warn'>{_e(wn)}</div>")
+        a("<table><tr><th>指数</th><th>场内标的</th><th>预案权重</th>"
+          "<th>预案金额(元)</th><th>现价</th><th>整手份额</th>"
+          "<th>实际金额(元)</th><th>费用(元)</th><th>状态</th></tr>")
+        for r in ep["rows"]:
+            def _numtd(v, money=False):
+                if v is None:
+                    return "<td data-v=''>—</td>"
+                txt = f"{v:,.2f}" if money else str(v)
+                return f"<td class='num' data-v='{v}'>{txt}</td>"
+            etf = r.get("etf_code") or "未核实"
+            if r.get("executable"):
+                status = "<span class='pos'>✅ 可下单</span>"
+            else:
+                status = "<span class='neg'>⛔ " + _e("；".join(r.get("reasons") or [])) + "</span>"
+            a(f"<tr><td>{_e(r['name'])}</td>"
+              f"<td>{_e(etf)} {_e(r.get('etf_name') or '')}</td>"
+              f"<td class='num' data-v='{r['target_weight']}'>"
+              f"{r['target_weight'] * 100:.2f}%</td>"
+              + _numtd(r.get("target_cny"), True)
+              + _numtd(r.get("price"), True)
+              + _numtd(r.get("shares"))
+              + _numtd(r.get("actual_cny"), True)
+              + _numtd(r.get("fee_cny"), True)
+              + f"<td class='note'>{status}</td></tr>")
+        a("</table>")
+        s = ep.get("summary") or {}
+        q = ep.get("quotes") or {}
+        a(f"<div class='note'>合计：预案 {_e(s.get('target_total_cny'))} 元 ／ 实际 "
+          f"{_e(s.get('actual_total_cny'))} 元 ／ 费用 {_e(s.get('fee_total_cny'))} 元；"
+          f"可下单 {s.get('executable', 0)}/{s.get('tradeable', 0)} 只</div>")
+        a(f"<div class='note'>报价快照 {q.get('count', 0)} 只"
+          f"（{_e(q.get('fetched_at'))}）；{_e(ep.get('disclaimer'))}</div>")
+
     # ---- 行为矩阵 ----
     a("<h2>六、阶段行为矩阵（动作指令）</h2>")
     thr = res.get("min_confidence_to_act", 0.65)
@@ -572,6 +640,21 @@ def render_html(res):
       f"已核实 {(em.get('stats') or {}).get('confirmed', 0)} 只、"
       f"待确认 {(em.get('stats') or {}).get('candidates', 0)} 只；"
       f"候选未核实跟踪指数，禁止据此下单</div>")
+    sp = res.get("settlement_progress") or {}
+    a(f"<h3>结算进度 · {_e(sp.get('label'))}</h3>")
+    a(f"<div class='note'>已结算 {sp.get('settled_n', 0)}/{sp.get('min_settled', 30)} 条"
+      f"（{sp.get('progress_pct', 0)}%）｜ 待结算 {sp.get('pending_n', 0)} 条 ｜ "
+      f"距门槛还差 {sp.get('to_threshold', '—')} 条 ｜ 最早一批还需约 "
+      f"{_e(sp.get('next_remaining_days'))} 个交易日（≈{_e(sp.get('next_est_weeks'))} 周）</div>")
+    a(f"<div class='note'>{_e(sp.get('note'))}</div>")
+    ar = res.get("attribution_rebuild") or {}
+    a(f"<div class='note'>归因台账：{ar.get('total_records', 0)} 条"
+      f"（本次新写 {ar.get('written', 0)} 条，基准 {_e(ar.get('benchmark_code'))}）；"
+      f"{_e(ar.get('reason') or ar.get('note'))}</div>")
+    ep = res.get("execution_plan") or {}
+    a(f"<div class='note'>执行换算：{_e(ep.get('status'))} ｜ 可下单 "
+      f"{(ep.get('summary') or {}).get('executable', 0)}/"
+      f"{(ep.get('summary') or {}).get('tradeable', 0)} 只</div>")
     a("</div>")
 
     a('<div class="foot">由 S++ 引擎按外置配置自动生成。'

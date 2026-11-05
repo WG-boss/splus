@@ -21,6 +21,8 @@ import account as account_mod
 import etf_map as etf_map_mod
 import governance as gov_mod
 import market_context as mc_mod
+import execution_plan as ep_mod
+import quality as quality_mod
 
 
 def _hedge_text(cfg: Dict[str, Any], p_de: float, hedge_need: float) -> str:
@@ -36,7 +38,9 @@ def _hedge_text(cfg: Dict[str, Any], p_de: float, hedge_need: float) -> str:
 def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
           per_index: Dict[str, Any], total_exposure: float,
           p_de: float, hedge_need: float,
-          account_state: Dict[str, Any], mapping: Dict[str, Any]) -> Dict[str, Any]:
+          account_state: Dict[str, Any], mapping: Dict[str, Any],
+          buckets: Optional[Dict[str, Any]] = None,
+          quality_warnings: Optional[list] = None) -> Dict[str, Any]:
     """返回 {"result_fields": ..., "gate_results": ...}；per_index 原地注入。"""
     ledger_dir = os.path.join(base_dir, cfg["data"]["ledger_dir"])
 
@@ -110,6 +114,21 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
     tradeable_n = sum(1 for v in per_index.values() if v.get("tradeable"))
     alloc = account_mod.allocation(account_state, actionable)
 
+    # P1-①：敞口 → 金额/份额/整手（三重 fail-closed，异常隔离）
+    try:
+        execution = ep_mod.build(cfg, base_dir, account_state, actionable,
+                                 buckets or {}, per_index, mapping, market)
+    except Exception as exc:
+        execution = {"enabled": False, "status": "error", "rows": [],
+                     "summary": {}, "quotes": {}, "disclaimer": "",
+                     "warnings": [f"执行换算模块异常：{type(exc).__name__}: {exc}"]}
+    # P2-③：48 条软提示分级（分级只影响展示，不剔除样本）
+    try:
+        quality_report = quality_mod.summarize(list(quality_warnings or []), cfg)
+    except Exception as exc:
+        quality_report = {"total": 0, "levels": {}, "groups": {}, "items": [],
+                          "high_names": [], "error": str(exc)}
+
     steps = []
     if veto:
         steps.append("今日不开新仓（顶层否决），已有持仓按各自失效位管理")
@@ -124,9 +143,21 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
     if alloc is not None:
         steps.append(f"按可用资金换算，当前可执行敞口约 ¥{alloc:,.0f}")
     steps.append(f"概率{min_settled}条结算样本前不作胜率解读")
-
+    ep_label = {
+        "blocked_veto": "执行换算：今日闸门否决，下表仅为预案",
+        "no_account": "执行换算：账户资金未配置，不给金额/份额",
+        "no_instrument": "执行换算：场内标的未核实，不给份额",
+        "no_quotes": "执行换算：行情快照不可用，不给份额",
+        "ready": "执行换算：已给出金额与整手份额（下单前复核实时价）",
+    }.get(execution.get("status"))
+    if ep_label:
+        steps.append(ep_label)
+    if quality_report.get("high_names"):
+        steps.append(f"数据口径：{len(quality_report['high_names'])} 只标的为 HIGH 级提示，"
+                     "触发位/失效位可靠性下降，详见数据口径披露")
     card = {
         "enabled": bool((cfg.get("decision_card") or {}).get("enabled", True)),
+        "execution_status": execution.get("status"),
         "headline": "今日禁止开新仓" if veto else "市场闸门通过 · 仍需逐标的治理门禁",
         "reasons": market.get("reasons") or [],
         "account_label": account_mod.label(account_state),
@@ -158,6 +189,8 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
         "governance_gates": gate_results,
         "governance_daily": gov_daily,
         "decision_card": card,
+        "execution_plan": execution,
+        "quality_report": quality_report,
         "hedge_note": hedge_txt,
         "hedge_retail_actionable": card["hedge_retail_actionable"],
     }

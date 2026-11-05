@@ -54,6 +54,7 @@ def for_code(m: Dict[str, Any], code: str, name: str, tradeable: bool) -> Dict[s
         "note": rec.get("note") or "",
         "market": rec.get("market"),
         "qdii": bool(rec.get("qdii")),
+        "review": rec.get("review") or {},
     }
 
 
@@ -79,8 +80,10 @@ def display(ins: Dict[str, Any]) -> Tuple[str, str]:
     if ins.get("status") == "confirmed" and ins.get("etf_code"):
         return f"{ins['etf_code']} {ins.get('etf_name') or ''}".strip(), "pos"
     n = len(ins.get("candidates") or [])
+    risk = (ins.get("review") or {}).get("risk")
     if n:
-        return f"待确认（候选 {n} 只）", "warn"
+        head = "⚠️ 候选疑似错配" if risk == "high" else "待确认"
+        return f"{head}（候选 {n} 只）", "warn"
     return "未映射（仅观察）", "neg"
 
 

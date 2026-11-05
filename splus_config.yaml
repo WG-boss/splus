@@ -330,6 +330,37 @@ decision_card:
   enabled: true                # 一页纸「今天做/不做」决策卡；735 行完整报告仍保留
 
 # ============================================================
+# P1/P2（2026-11-05）：执行换算 / 映射复核 / 结算进度 / 归因 / 提示分级
+# 全部为展示与执行层参数，不改 L1~L5 任何模型阈值
+# ============================================================
+execution_plan:
+  enabled: true
+  quotes_file: "data/etf_quotes.json"
+  lot_size: 100                 # 场内 ETF 买入最小 100 份
+  commission_rate: 0.0003       # 佣金估算费率
+  min_commission: 5.0           # 单笔最低佣金（元）
+  price_max_age_hours: 72       # 覆盖周末；过期一律不换算份额
+  fee_note: "佣金估算，ETF 免印花税；经手费/过户费以券商实际收费为准"
+
+etf_review:
+  suspect_score_below: 0.50     # 首选分数低于此值 → 疑似错配
+  low_score_below: 0.65
+  thin_liquidity_cny: 10000000  # 日成交额低于 1000 万 → 流动性提示
+
+quality_display:
+  default_level: "MED"
+  high_note: "HIGH 提示直接影响 L1 状态判别与 L4 触发位可靠性：相关标的只有收盘价，ATR/ADX 为代理口径，不得据此直接下单"
+  policy: "分级只影响展示；数据仍按原口径参与计算，不静默剔除样本"
+  rules:
+    - {match: "仅提供收盘价", level: "HIGH", category: "ohlc_proxy", label: "仅收盘价口径（ATR/ADX 代理）"}
+    - {match: "日期断裂", level: "MED", category: "date_gap", label: "历史日期断裂"}
+    - {match: "跳空", level: "LOW", category: "gap_kept", label: "大幅跳空（真行情，已保留）"}
+
+attribution:
+  benchmark_code: "000300"
+  note: "sector/stage 未拆分（无独立基准与归因模型）；execution 为 total-beta 残差，含行业/择时/成本，不可单独解读为滑点"
+
+# ============================================================
 # 输出
 # ============================================================
 output:

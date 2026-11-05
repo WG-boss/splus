@@ -1105,13 +1105,19 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         hedge_need = round(clamp((p_de - cfg["risk"]["hedge_trigger_p_de"]) * 1.5, 0,
                                 cfg["risk"]["hedge_max"]), 3)
 
+    # ---- P2-③：软提示只算一次，供决策层分级与报告复用（避免两处口径漂移）----
+    quality_warnings_list = sorted({f"{v['name']}：{w}"
+                                    for c, v in per_index.items()
+                                    for w in (loaded.get(c, {}).get("quality_warnings") or [])})
+
     # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
     try:
         import decision_layer
         layer = decision_layer.apply(
             cfg, base_dir,
             common_as_of or (max(v["as_of"] for v in per_index.values()) if per_index else ""),
-            per_index, total_exposure, p_de, hedge_need, account_state, mapping)
+            per_index, total_exposure, p_de, hedge_need, account_state, mapping,
+            bucket_exposure, quality_warnings_list)
     except Exception as exc:
         layer = {"result_fields": {"decision_layer_error": f"{type(exc).__name__}: {exc}"},
                  "gate_results": {}}
@@ -1169,9 +1175,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         "kill_switches": switches,
         "data_gaps": missing,
         "data_excluded": excluded,
-        "quality_warnings": sorted({f"{v['name']}：{w}"
-                                    for c, v in per_index.items()
-                                    for w in (loaded.get(c, {}).get("quality_warnings") or [])}),
+        "quality_warnings": quality_warnings_list,
         "min_confidence_to_act": cfg["state"]["min_confidence_to_act"],
         "data_lag": lag_info,
         "as_of_rule": "统一取所有可交易标的都有数据的最近交易日；滞后标的已截断对齐",
@@ -1194,6 +1198,20 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         result["_paths"]["ledger"] = pred_path
     except Exception as exc:  # 元层故障不能阻塞主流程
         result["calibration"] = {"status": f"元层未运行：{exc}"}
+
+    # ---- P2-①②：结算进度分级 + 归因台账真正落盘（异常隔离，不污染元层结论）----
+    try:
+        import calibration_progress as cp_mod
+        import attribution as attr_mod
+        _ledger_dir = os.path.join(base_dir, cfg["data"]["ledger_dir"])
+        _bars_by_code = {c: o["bars"] for c, o in loaded.items()}
+        result["settlement_progress"] = cp_mod.build(_ledger_dir, _bars_by_code, cfg)
+        result["attribution_rebuild"] = attr_mod.rebuild(_ledger_dir, _bars_by_code, cfg)
+    except Exception as exc:
+        result["settlement_progress"] = {"tier": "unknown",
+                                         "label": f"结算进度模块异常：{exc}"}
+        result["attribution_rebuild"] = {"written": 0,
+                                         "reason": f"归因模块异常：{exc}"}
 
     # ---- 治理层：把配置里承诺的 premortem/redteam/归因落到实处 ----
     try:
@@ -1235,6 +1253,12 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         card["calibration_settled"] = settled
         card["calibration_label"] = (f"概率已校准（{settled} 条结算）" if settled >= need
                                      else f"{card['calibration_label']}：{settled}/{need} 条结算样本")
+        sp = result.get("settlement_progress") or {}
+        card["settlement_progress"] = sp.get("label", "—")
+        if settled < need and sp.get("next_remaining_days") is not None:
+            card["calibration_label"] += (
+                f"；最早一批还需约 {sp['next_remaining_days']} 个交易日"
+                f"（≈{sp.get('next_est_weeks')} 周）")
 
     # ---- 落盘（必须在所有层跑完之后，否则 governance/calibration 会写成 null）----
     if not as_of:

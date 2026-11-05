@@ -6,6 +6,8 @@ meta:
   etf_universe_count: 1374
   confirmed_count: 0
   policy: 候选一律 needs_review；仅 --confirm 后 status=confirmed 才展示可下单代码
+  review_version: 1.0.0
+  last_reviewed_at: '2026-11-05T11:09:54'
 instruments:
   000688:
     name: 科创50
@@ -51,6 +53,15 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '588150'
+      top_name: 科创50ETF南方
+      top_amount_cny: 34965607.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '399673':
     name: 创业板50
     bucket: core
@@ -95,6 +106,15 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159369'
+      top_name: 创业板50ETF易方达
+      top_amount_cny: 110627115.75
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   hkHSTECH:
     name: 恒生科技
     bucket: core
@@ -135,6 +155,18 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - score_low
+      - thin_liquidity
+      top_score: 0.6
+      top_code: '516500'
+      top_name: 生物科技ETF华夏
+      top_amount_cny: 3532949.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30590:
     name: 机器人
     bucket: theme
@@ -179,6 +211,16 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 1.0
+      top_code: '159048'
+      top_name: 机器人ETF大成
+      top_amount_cny: 19728843.67
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30184:
     name: 半导体
     bucket: ai_hw
@@ -223,6 +265,15 @@ instruments:
       score: 0.85
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159582'
+      top_name: 半导体ETF博时
+      top_amount_cny: 182494834.78
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '931152':
     name: 创新药
     bucket: pharma
@@ -267,6 +318,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 1.0
+      top_code: '517380'
+      top_name: 创新药ETF天弘
+      top_amount_cny: 173168226.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '932666':
     name: 高频PCB
     bucket: ai_hw
@@ -279,6 +340,16 @@ instruments:
     qdii: false
     candidates: []
     note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+    review:
+      risk: high
+      flags:
+      - no_candidate
+      top_score: null
+      top_code: null
+      top_name: ''
+      top_amount_cny: null
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931594':
     name: 商业航天
     bucket: theme
@@ -303,6 +374,17 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '159267'
+      top_name: 航天ETF华安
+      top_amount_cny: 62465881.1
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931743':
     name: 半导体材料设备
     bucket: ai_hw
@@ -347,6 +429,15 @@ instruments:
       score: 0.5556
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 0.7143
+      top_code: '560780'
+      top_name: 半导体设备ETF广发
+      top_amount_cny: 606460516.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '931723':
     name: 光模块CPO
     bucket: ai_hw
@@ -359,6 +450,16 @@ instruments:
     qdii: false
     candidates: []
     note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+    review:
+      risk: high
+      flags:
+      - no_candidate
+      top_score: null
+      top_code: null
+      top_name: ''
+      top_amount_cny: null
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '932580':
     name: 磁电存储
     bucket: ai_hw
@@ -371,6 +472,16 @@ instruments:
     qdii: false
     candidates: []
     note: 场内清单中未找到同名候选，需人工指定或走场外联接基金
+    review:
+      risk: high
+      flags:
+      - no_candidate
+      top_score: null
+      top_code: null
+      top_name: ''
+      top_amount_cny: null
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '000300':
     name: 沪深300
     bucket: ref
@@ -415,6 +526,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '515360'
+      top_name: 沪深300ETF方正富邦
+      top_amount_cny: 49063.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000905:
     name: 中证500
     bucket: ref
@@ -459,6 +580,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '515550'
+      top_name: 中证500ETF国联
+      top_amount_cny: 995562.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   usNDX:
     name: 纳斯达克100
     bucket: lead
@@ -503,6 +634,19 @@ instruments:
       score: 0.4615
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - top_candidate_conflict
+      - score_very_low
+      - thin_liquidity
+      top_score: 0.4615
+      top_code: '159808'
+      top_name: 创100ETF融通
+      top_amount_cny: 2840350.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   000009:
     name: 上证380
     bucket: watch
@@ -547,6 +691,16 @@ instruments:
       score: 0.6667
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '510290'
+      top_name: 上证380ETF南方
+      top_amount_cny: 2005448.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '000010':
     name: 上证180
     bucket: watch
@@ -591,6 +745,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '530680'
+      top_name: 上证180ETF兴业
+      top_amount_cny: 425604.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '000015':
     name: 红利指数
     bucket: watch
@@ -635,6 +799,15 @@ instruments:
       score: 0.75
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 0.9167
+      top_code: '159905'
+      top_name: 红利ETF工银
+      top_amount_cny: 33266045.5
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '000016':
     name: 上证50
     bucket: watch
@@ -679,6 +852,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '510680'
+      top_name: 上证50ETF万家
+      top_amount_cny: 2703283.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '000044':
     name: 上证中盘
     bucket: watch
@@ -715,6 +898,16 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '510130'
+      top_name: 上证中盘ETF易方达
+      top_amount_cny: 4759707.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000048:
     name: 责任指数
     bucket: watch
@@ -731,6 +924,16 @@ instruments:
       score: 0.9167
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '510090'
+      top_name: 责任ETF建信
+      top_amount_cny: 36331.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '000056':
     name: 上证国企
     bucket: watch
@@ -775,6 +978,15 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 0.75
+      top_code: '510210'
+      top_name: 上证指数ETF富国
+      top_amount_cny: 546872246.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   000068:
     name: 上证资源
     bucket: watch
@@ -811,6 +1023,16 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '510910'
+      top_name: 上证指数ETF南方
+      top_amount_cny: 29970419.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000069:
     name: 消费80
     bucket: watch
@@ -855,6 +1077,16 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.6
+      top_code: '515650'
+      top_name: 消费50ETF富国
+      top_amount_cny: 75170203.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '000510':
     name: 中证A500
     bucket: watch
@@ -899,6 +1131,16 @@ instruments:
       score: 0.9871
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 1.0
+      top_code: '560530'
+      top_name: 中证A500ETF摩根
+      top_amount_cny: 36241821.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   000685:
     name: 科创芯片
     bucket: watch
@@ -943,6 +1185,15 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '588290'
+      top_name: 科创芯片ETF华安
+      top_amount_cny: 260840700.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   000698:
     name: 科创100
     bucket: watch
@@ -987,6 +1238,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '589270'
+      top_name: 科创100ETF前海开源
+      top_amount_cny: 2117057.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000813:
     name: 细分化工
     bucket: watch
@@ -1031,6 +1292,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '159129'
+      top_name: 化工ETF嘉实
+      top_amount_cny: 11530388.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000852:
     name: 中证1000
     bucket: watch
@@ -1075,6 +1346,15 @@ instruments:
       score: 0.9871
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '512100'
+      top_name: 中证1000ETF南方
+      top_amount_cny: 3699203434.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   000922:
     name: 中证红利
     bucket: watch
@@ -1115,6 +1395,16 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 1.0
+      top_code: '515080'
+      top_name: 中证红利ETF招商
+      top_amount_cny: 326239023.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399001':
     name: 深证成指
     bucket: watch
@@ -1143,6 +1433,15 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159943'
+      top_name: 深证成指ETF大成
+      top_amount_cny: 42286514.7
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '399005':
     name: 中小100
     bucket: watch
@@ -1187,6 +1486,16 @@ instruments:
       score: 0.5714
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159902'
+      top_name: 中小100ETF华夏
+      top_amount_cny: 5113895.2
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399006':
     name: 创业板指
     bucket: watch
@@ -1231,6 +1540,16 @@ instruments:
       score: 0.6667
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7273
+      top_code: '159289'
+      top_name: 创业板综指ETF鹏华
+      top_amount_cny: 3944744.7
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399012':
     name: 创业300
     bucket: watch
@@ -1275,6 +1594,16 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7692
+      top_code: '159836'
+      top_name: 创业板300ETF天弘
+      top_amount_cny: 2069641.2
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399019':
     name: 创业200
     bucket: watch
@@ -1319,6 +1648,16 @@ instruments:
       score: 0.6667
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7692
+      top_code: '159571'
+      top_name: 创业板200ETF富国
+      top_amount_cny: 2602239.3
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399102':
     name: 创业板综
     bucket: watch
@@ -1363,6 +1702,16 @@ instruments:
       score: 0.93
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159288'
+      top_name: 创业板综ETF银华
+      top_amount_cny: 839903.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399264':
     name: 创业软件
     bucket: watch
@@ -1407,6 +1756,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7273
+      top_code: '158072'
+      top_name: 创业板软件ETF南方
+      top_amount_cny: 4067484.12
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399266':
     name: 创新能源
     bucket: watch
@@ -1451,6 +1810,15 @@ instruments:
       score: 0.6667
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '589960'
+      top_name: 科创新能源ETF易方达
+      top_amount_cny: 47577020.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '399275':
     name: 创医药
     bucket: watch
@@ -1495,6 +1863,16 @@ instruments:
       score: 0.4714
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '588860'
+      top_name: 科创医药ETF工银
+      top_amount_cny: 6049053.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399276':
     name: 创科技
     bucket: watch
@@ -1519,6 +1897,16 @@ instruments:
       score: 0.4714
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '159777'
+      top_name: 创科技ETF国联安
+      top_amount_cny: 3560001.5
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399291':
     name: 创精选88
     bucket: watch
@@ -1535,6 +1923,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159804'
+      top_name: 创中盘88ETF国寿
+      top_amount_cny: 655897.1
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399293':
     name: 创业大盘
     bucket: watch
@@ -1579,6 +1978,15 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159814'
+      top_name: 创业大盘ETF西部利得
+      top_amount_cny: 21779112.9
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '399295':
     name: 创价值
     bucket: watch
@@ -1623,6 +2031,16 @@ instruments:
       score: 0.4714
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '588910'
+      top_name: 科创价值ETF建信
+      top_amount_cny: 7218416.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399296':
     name: 创成长
     bucket: watch
@@ -1667,6 +2085,16 @@ instruments:
       score: 0.4455
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '589490'
+      top_name: 科创成长ETF华夏
+      top_amount_cny: 6282673.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399303':
     name: 国证2000
     bucket: watch
@@ -1711,6 +2139,16 @@ instruments:
       score: 0.7143
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159907'
+      top_name: 国证2000ETF广发
+      top_amount_cny: 8639314.7
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399324':
     name: 深证红利
     bucket: watch
@@ -1755,6 +2193,17 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.6
+      top_code: '515080'
+      top_name: 中证红利ETF招商
+      top_amount_cny: 326239023.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399326':
     name: 成长40
     bucket: watch
@@ -1775,6 +2224,17 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - score_very_low
+      - thin_liquidity
+      top_score: 0.4444
+      top_code: '159906'
+      top_name: 深成长ETF大成
+      top_amount_cny: 8335050.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399330':
     name: 深证100
     bucket: watch
@@ -1819,6 +2279,16 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159219'
+      top_name: 深证100ETF融通
+      top_amount_cny: 350386.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399348':
     name: 深证价值
     bucket: watch
@@ -1863,6 +2333,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.6667
+      top_code: '159913'
+      top_name: 深价值ETF交银
+      top_amount_cny: 9481.1
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399361':
     name: 在线消费
     bucket: watch
@@ -1907,6 +2387,16 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159728'
+      top_name: 在线消费ETF南方
+      top_amount_cny: 1682439.3
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399362':
     name: 民企100
     bucket: watch
@@ -1951,6 +2441,17 @@ instruments:
       score: 0.5455
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5714
+      top_code: '159106'
+      top_name: 民企300ETF前海开源
+      top_amount_cny: 435421.6
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399365':
     name: 国证粮食
     bucket: watch
@@ -1995,6 +2496,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '158065'
+      top_name: 粮食ETF招商
+      top_amount_cny: 10371781.24
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399372':
     name: 大盘成长
     bucket: watch
@@ -2039,6 +2550,16 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '158026'
+      top_name: 大盘成长ETF华夏
+      top_amount_cny: 766887.93
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399373':
     name: 大盘价值
     bucket: watch
@@ -2083,6 +2604,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159021'
+      top_name: 大盘价值ETF华夏
+      top_amount_cny: 1781617.77
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399378':
     name: ESG 300
     bucket: watch
@@ -2127,6 +2658,16 @@ instruments:
       score: 0.4615
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159653'
+      top_name: ESG300ETF国联安
+      top_amount_cny: 1299.6
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399389':
     name: 国证通信
     bucket: watch
@@ -2171,6 +2712,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '515880'
+      top_name: 通信ETF国泰
+      top_amount_cny: 3070042735.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399396':
     name: 国证食品
     bucket: watch
@@ -2215,6 +2767,16 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '159151'
+      top_name: 食品ETF华夏
+      top_amount_cny: 21375081.7
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399433':
     name: 国证交运
     bucket: watch
@@ -2235,6 +2797,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159662'
+      top_name: 交运ETF南方
+      top_amount_cny: 5166162.2
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399437':
     name: 证券龙头
     bucket: watch
@@ -2279,6 +2852,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '159993'
+      top_name: 证券ETF鹏华
+      top_amount_cny: 28775271.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399438':
     name: 绿色电力
     bucket: watch
@@ -2323,6 +2907,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159067'
+      top_name: 绿色电力ETF鹏华
+      top_amount_cny: 52078.8
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399439':
     name: 国证油气
     bucket: watch
@@ -2347,6 +2941,17 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '561760'
+      top_name: 油气ETF博时
+      top_amount_cny: 2188245.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399441':
     name: 生物医药
     bucket: watch
@@ -2391,6 +2996,15 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159839'
+      top_name: 生物医药ETF汇添富
+      top_amount_cny: 46781107.2
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '399550':
     name: 央视50
     bucket: watch
@@ -2435,6 +3049,16 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159965'
+      top_name: 央视50ETF国联
+      top_amount_cny: 678605.5
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399610':
     name: TMT50
     bucket: watch
@@ -2455,6 +3079,16 @@ instruments:
       score: 0.6
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159909'
+      top_name: TMT50ETF招商
+      top_amount_cny: 3601805.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399624':
     name: 中创400
     bucket: watch
@@ -2499,6 +3133,16 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159918'
+      top_name: 中创400ETF嘉实
+      top_amount_cny: 1568991.5
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399667':
     name: 创业成长
     bucket: watch
@@ -2543,6 +3187,16 @@ instruments:
       score: 0.5455
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7273
+      top_code: '158025'
+      top_name: 创业板成长ETF鹏华
+      top_amount_cny: 3156297.17
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399750':
     name: 深主板50
     bucket: watch
@@ -2587,6 +3241,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 0.7692
+      top_code: '159578'
+      top_name: 深证主板50ETF南方
+      top_amount_cny: 418575.5
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399975':
     name: 证券公司
     bucket: watch
@@ -2631,6 +3295,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '159993'
+      top_name: 证券ETF鹏华
+      top_amount_cny: 28775271.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399986':
     name: 中证银行
     bucket: watch
@@ -2675,6 +3350,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5455
+      top_code: '510530'
+      top_name: 中证500ETF工银
+      top_amount_cny: 7514924.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '399989':
     name: 中证医疗
     bucket: watch
@@ -2715,6 +3401,16 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '159828'
+      top_name: 医疗ETF国泰
+      top_amount_cny: 94867301.56
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '930708':
     name: 中证有色
     bucket: watch
@@ -2759,6 +3455,18 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159163'
+      top_name: 有色ETF泰康
+      top_amount_cny: 4405842.61
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '930709':
     name: 香港证券
     bucket: watch
@@ -2803,6 +3511,18 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '159993'
+      top_name: 证券ETF鹏华
+      top_amount_cny: 28775271.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '930955':
     name: 红利低波100
     bucket: watch
@@ -2847,6 +3567,15 @@ instruments:
       score: 0.6667
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159307'
+      top_name: 红利低波100ETF博时
+      top_amount_cny: 80108897.2
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '931071':
     name: 人工智能
     bucket: watch
@@ -2891,6 +3620,15 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '588760'
+      top_name: 科创人工智能ETF广发
+      top_amount_cny: 172250174.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '931079':
     name: 5G通信
     bucket: watch
@@ -2935,6 +3673,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '515880'
+      top_name: 通信ETF国泰
+      top_amount_cny: 3070042735.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931160':
     name: 通信设备
     bucket: watch
@@ -2975,6 +3724,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '515880'
+      top_name: 通信ETF国泰
+      top_amount_cny: 3070042735.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931238':
     name: SSH黄金股票
     bucket: watch
@@ -3011,6 +3771,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '517400'
+      top_name: 黄金股ETF国泰
+      top_amount_cny: 106029628.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '931573':
     name: 港股通科技
     bucket: watch
@@ -3043,6 +3813,18 @@ instruments:
       score: 0.4286
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '517350'
+      top_name: 沪港深科技ETF广发
+      top_amount_cny: 334676.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931637':
     name: 港股通互联网
     bucket: watch
@@ -3087,6 +3869,19 @@ instruments:
       score: 0.4286
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5455
+      top_code: '159550'
+      top_name: 互联网ETF东财
+      top_amount_cny: 4170736.3
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931643':
     name: 科创创业50
     bucket: watch
@@ -3131,6 +3926,16 @@ instruments:
       score: 0.6667
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '588350'
+      top_name: 科创创业50ETF鹏扬
+      top_amount_cny: 2605467.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '931719':
     name: CS电池
     bucket: watch
@@ -3175,6 +3980,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159077'
+      top_name: 电池ETF鑫元
+      top_amount_cny: 1428434.68
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '931994':
     name: 电网设备主题
     bucket: watch
@@ -3207,6 +4023,15 @@ instruments:
       score: 0.6154
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 0.6667
+      top_code: '561380'
+      top_name: 电网设备ETF国泰
+      top_amount_cny: 43689533.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '950125':
     name: 科创半导体材料设备
     bucket: watch
@@ -3251,6 +4076,15 @@ instruments:
       score: 0.625
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 0.7778
+      top_code: '589020'
+      top_name: 科创半导体设备ETF鹏华
+      top_amount_cny: 1286252336.0
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '950580':
     name: 上证580
     bucket: watch
@@ -3295,6 +4129,16 @@ instruments:
       score: 0.7273
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '530530'
+      top_name: 上证580ETF华夏
+      top_amount_cny: 498528.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '970070':
     name: 创业板人工智能
     bucket: watch
@@ -3339,6 +4183,15 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '159279'
+      top_name: 创业板人工智能ETF华安
+      top_amount_cny: 51383281.5
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '970081':
     name: 创业板电池
     bucket: watch
@@ -3383,6 +4236,15 @@ instruments:
       score: 0.6
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '158078'
+      top_name: 创业板电池ETF华宝
+      top_amount_cny: 18918138.4
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '970083':
     name: 创业板算力
     bucket: watch
@@ -3427,6 +4289,15 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '158063'
+      top_name: 创业板算力ETF南方
+      top_amount_cny: 21415197.6
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '970085':
     name: 创业板金融科技
     bucket: watch
@@ -3471,6 +4342,15 @@ instruments:
       score: 0.6154
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: low
+      flags: []
+      top_score: 1.0
+      top_code: '158058'
+      top_name: 创业板金融科技ETF华泰柏瑞
+      top_amount_cny: 21231439.66
+      reviewed_at: '2026-11-05'
+      note: 名称高度吻合，仍需人工核对跟踪指数
   '980001':
     name: 湾创100
     bucket: watch
@@ -3515,6 +4395,17 @@ instruments:
       score: 0.6667
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - thin_liquidity
+      top_score: 0.7273
+      top_code: '159808'
+      top_name: 创100ETF融通
+      top_amount_cny: 2840350.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980015':
     name: 疫苗生科
     bucket: watch
@@ -3547,6 +4438,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '562860'
+      top_name: 疫苗ETF嘉实
+      top_amount_cny: 7960215.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980016':
     name: 医疗健康
     bucket: watch
@@ -3591,6 +4493,16 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159760'
+      top_name: 医疗健康ETF泰康
+      top_amount_cny: 559312.3
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980017':
     name: 国证芯片
     bucket: watch
@@ -3635,6 +4547,17 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '516640'
+      top_name: 芯片ETF富国
+      top_amount_cny: 124041545.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980018':
     name: 卫星通信
     bucket: watch
@@ -3679,6 +4602,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '158036'
+      top_name: 卫星ETF华夏
+      top_amount_cny: 5540289.89
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980022':
     name: 机器人产业
     bucket: watch
@@ -3723,6 +4657,17 @@ instruments:
       score: 0.6
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.6
+      top_code: '159048'
+      top_name: 机器人ETF大成
+      top_amount_cny: 19728843.67
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980027':
     name: 国证储能电池
     bucket: watch
@@ -3759,6 +4704,16 @@ instruments:
       score: 0.6154
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 0.6667
+      top_code: '158008'
+      top_name: 储能电池ETF华夏
+      top_amount_cny: 10776968.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980028':
     name: 龙头家电
     bucket: watch
@@ -3803,6 +4758,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      top_score: 0.5
+      top_code: '560880'
+      top_name: 家电ETF广发
+      top_amount_cny: 10115710.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980030':
     name: 消费电子
     bucket: watch
@@ -3847,6 +4812,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159178'
+      top_name: 消费电子ETF汇添富
+      top_amount_cny: 6094385.8
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980032':
     name: 新能电池
     bucket: watch
@@ -3891,6 +4866,17 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.6
+      top_code: '158008'
+      top_name: 储能电池ETF华夏
+      top_amount_cny: 10776968.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980034':
     name: 工业软件
     bucket: watch
@@ -3935,6 +4921,16 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159108'
+      top_name: 工业软件ETF博时
+      top_amount_cny: 5326387.7
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980076':
     name: 通用航空
     bucket: watch
@@ -3979,6 +4975,16 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '563870'
+      top_name: 通用航空ETF鹏华
+      top_amount_cny: 1426162.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '980080':
     name: 成长100
     bucket: watch
@@ -4023,6 +5029,18 @@ instruments:
       score: 0.5455
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5455
+      top_code: '159808'
+      top_name: 创100ETF融通
+      top_amount_cny: 2840350.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980081':
     name: 价值100
     bucket: watch
@@ -4067,6 +5085,18 @@ instruments:
       score: 0.5455
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5455
+      top_code: '159808'
+      top_name: 创100ETF融通
+      top_amount_cny: 2840350.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980092':
     name: 自由现金流
     bucket: watch
@@ -4111,6 +5141,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159236'
+      top_name: 自由现金流ETF工银
+      top_amount_cny: 5060763.2
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '987008':
     name: 港股通科技
     bucket: watch
@@ -4143,6 +5183,18 @@ instruments:
       score: 0.4286
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '517350'
+      top_name: 沪港深科技ETF广发
+      top_amount_cny: 334676.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987016':
     name: 港股通红利低波
     bucket: watch
@@ -4187,6 +5239,16 @@ instruments:
       score: 0.6154
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159118'
+      top_name: 港股通红利低波ETF华夏
+      top_amount_cny: 6716639.9
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '987019':
     name: 港股通创新药（人民币）
     bucket: watch
@@ -4231,6 +5293,18 @@ instruments:
       score: 0.5455
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5455
+      top_code: '517380'
+      top_name: 创新药ETF天弘
+      top_amount_cny: 173168226.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987023':
     name: 港股通互联网（人民币）
     bucket: watch
@@ -4275,6 +5349,19 @@ instruments:
       score: 0.4286
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - top_candidate_conflict
+      - score_low
+      - thin_liquidity
+      top_score: 0.5455
+      top_code: '159550'
+      top_name: 互联网ETF东财
+      top_amount_cny: 4170736.3
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987024':
     name: 港股通消费
     bucket: watch
@@ -4311,6 +5398,17 @@ instruments:
       score: 0.4444
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - score_very_low
+      top_score: 0.4444
+      top_code: '510150'
+      top_name: 消费ETF招商
+      top_amount_cny: 34315482.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   CN5075:
     name: 国证信创
     bucket: watch
@@ -4355,6 +5453,17 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159537'
+      top_name: 信创ETF国泰
+      top_amount_cny: 4147309.57
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   CN5082:
     name: 国证航天
     bucket: watch
@@ -4375,6 +5484,17 @@ instruments:
       score: 0.5
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - score_low
+      top_score: 0.5
+      top_code: '159267'
+      top_name: 航天ETF华安
+      top_amount_cny: 62465881.1
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   CN5097:
     name: 消费服务
     bucket: watch
@@ -4419,6 +5539,16 @@ instruments:
       score: 0.4444
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '516600'
+      top_name: 消费服务ETF工银
+      top_amount_cny: 3944797.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   CN6051:
     name: 有色指数
     bucket: watch
@@ -4463,6 +5593,17 @@ instruments:
       score: 0.9167
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      - thin_liquidity
+      top_score: 0.9167
+      top_code: '159163'
+      top_name: 有色ETF泰康
+      top_amount_cny: 4405842.61
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30269:
     name: 红利低波
     bucket: watch
@@ -4507,6 +5648,16 @@ instruments:
       score: 1.0
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '520610'
+      top_name: 港股红利低波ETF银华
+      top_amount_cny: 2001019.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '930050':
     name: 中证A50
     bucket: watch
@@ -4551,6 +5702,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 1.0
+      top_code: '560530'
+      top_name: 中证A500ETF摩根
+      top_amount_cny: 36241821.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   000903:
     name: 中证A100
     bucket: watch
@@ -4595,6 +5756,16 @@ instruments:
       score: 0.7143
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159923'
+      top_name: 中证A100ETF大成
+      top_amount_cny: 2820926.5
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   000906:
     name: 中证800
     bucket: watch
@@ -4639,6 +5810,16 @@ instruments:
       score: 0.6667
       market: sz
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '515810'
+      top_name: 中证800ETF易方达
+      top_amount_cny: 6668186.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   '932000':
     name: 中证2000
     bucket: watch
@@ -4683,6 +5864,16 @@ instruments:
       score: 1.0
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: medium
+      flags:
+      - thin_liquidity
+      top_score: 1.0
+      top_code: '159535'
+      top_name: 中证2000ETF嘉实
+      top_amount_cny: 9361237.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选，需人工核对跟踪指数与流动性
   H30007:
     name: 芯片
     bucket: watch
@@ -4727,6 +5918,16 @@ instruments:
       score: 0.8214
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - top_candidate_conflict
+      top_score: 0.9167
+      top_code: '516640'
+      top_name: 芯片ETF富国
+      top_amount_cny: 124041545.0
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931239':
     name: 港股汽车
     bucket: watch
@@ -4751,3 +5952,15 @@ instruments:
       score: 0.5
       market: sh
     note: 自动名称匹配候选，未核实跟踪指数，禁止据此下单
+    review:
+      risk: high
+      flags:
+      - cross_market_suspect
+      - score_low
+      - thin_liquidity
+      top_score: 0.5
+      top_code: '159512'
+      top_name: 汽车ETF广发
+      top_amount_cny: 4252162.4
+      reviewed_at: '2026-11-05'
+      note: 自动候选疑似错配，必须人工核实后方可 --confirm

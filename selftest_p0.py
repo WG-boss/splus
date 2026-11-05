@@ -217,7 +217,10 @@ def t_engine():
     chk("HTML 含账户口径标签", "账户回撤（节流输入）" in h)
     chk("HTML 含未校准披露", "概率未校准" in h)
     chk("HTML 无未替换 None", "None" not in h)
-    chk("HTML 表数仍为 9", h.count("<table") == 9, str(h.count("<table")))
+    chk("HTML 表数为 10（P1 新增执行换算表）",
+        h.count("<table") == 10, str(h.count("<table")))
+    chk("P1 执行换算表带 fail-closed 提示", "五·补 执行换算" in h
+        and "预案" in h)
     md = run_cli.render(res)
     chk("MD 含今日行动卡", "## 今日行动卡" in md)
     chk("MD 含可执行敞口", "可执行敞口" in md)

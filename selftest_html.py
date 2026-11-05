@@ -46,8 +46,13 @@ def main():
     h = render_html.render_html(res)
     chk("输出以 <!DOCTYPE 开头", h.startswith("<!DOCTYPE"))
     chk("输出以 </html> 结尾", h.rstrip().endswith("</html>"))
-    chk("包含全部 9 张表（L1 主/观察池、传导主/观察、相关性、仓位、桶、执行、行为）",
-        h.count("<table") == 9, f"实际 {h.count('<table')}")
+    chk("包含全部 10 张表（原 9 张 + 执行换算）",
+        h.count("<table") == 10, f"实际 {h.count('<table')}")
+    chk("执行换算表含金额/整手份额/状态", "五·补 执行换算" in h
+        and "整手份额" in h and "可下单" in h)
+    chk("数据软提示分级 HIGH 置顶", "数据软提示分级" in h
+        and "仅收盘价口径" in h)
+    chk("结算进度与归因台账已披露", "结算进度" in h and "归因台账" in h)
     chk("表头排序脚本内置（除相关性矩阵外全部表可排序）",
         render_html.SORT_JS in h and h.count('<table class="mx">') == 1)
     chk("概率条形图数量 = 标的数（主表+观察池表）",
