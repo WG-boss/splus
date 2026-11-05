@@ -381,12 +381,19 @@ def render_html(res):
       '<span><i class="bd"></i>D 派发</span><span><i class="be"></i>E 下跌</span></div>')
     a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
       "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
-      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th></tr>")
+      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th><th>L2抑制</th></tr>")
     for _c, v in trade_rows:
         st = v["state"]
         _sd = st.get("state_start")
         _days = int(st.get("state_days", 0) or 0)
         pos = (v.get("sizing") or {}).get("final")
+        _l2 = v.get("l2_suppress")
+        if _l2:
+            _l2f = _l2.get("factor")
+            _l2detail = f"领涨20日 {_l2['leader_ret20'] * 100:.2f}% ｜ 状态权重 {_l2['before']:.2f}→{_l2['after']:.2f}"
+            _l2cell = f"<td class='num' data-v='{_l2f}' title='{_e(_l2detail)}'>×{_l2f:.2f}</td>"
+        else:
+            _l2cell = "<td class='mono'>—</td>"
         a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{v['close']:.1f}</td>"
           f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
@@ -397,7 +404,8 @@ def render_html(res):
           f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
-          f"<td class='num'><b>{pos * 100:.2f}%</b></td></tr>")
+          f"<td class='num'><b>{pos * 100:.2f}%</b></td>"
+          f"{_l2cell}</tr>")
     a("</table>")
 
     # 观察池折叠表
@@ -414,11 +422,18 @@ def render_html(res):
         a(_dist_bar(cnt))
         a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
           "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
-          "<th>概率分布</th><th>置信</th><th>角色</th></tr>")
+          "<th>概率分布</th><th>置信</th><th>角色</th><th>L2抑制</th></tr>")
         for _c, v in watch_rows:
             st = v["state"]
             _sd = st.get("state_start")
             _days = int(st.get("state_days", 0) or 0)
+            _l2 = v.get("l2_suppress")
+            if _l2:
+                _l2f = _l2.get("factor")
+                _l2detail = f"领涨20日 {_l2['leader_ret20'] * 100:.2f}% ｜ 状态权重 {_l2['before']:.2f}→{_l2['after']:.2f}"
+                _l2cell = f"<td class='num' data-v='{_l2f}' title='{_e(_l2detail)}'>×{_l2f:.2f}</td>"
+            else:
+                _l2cell = "<td class='mono'>—</td>"
             a(f"<tr><td>{_e(v['name'])}</td>"
               f"<td class='num'>{v['close']:.1f}</td>"
               f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
@@ -428,7 +443,8 @@ def render_html(res):
               f"<td class='num' data-v='{_days}'>{_days}</td>"
               f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
               f"<td class='num'>{st['confidence']:.2f}</td>"
-              f"<td class='note'>{_e(v.get('role', '—'))}</td></tr>")
+              f"<td class='note'>{_e(v.get('role', '—'))}</td>"
+          f"{_l2cell}</tr>")
         a("</table></div></details>")
 
     # ---- L2 ----

@@ -45,3 +45,5 @@ data/ledger/attribution.jsonl
 
 # 运行时：逐日主状态历史（用于 S++ L1 连续段回算，与 state/last_state.json 同类）
 state/state_dominant_history.jsonl
+# 运行时：上次运行的贝叶斯先验（persistence 用，与上者同类，不入库避免跨克隆污染幂等）
+state/last_state.json

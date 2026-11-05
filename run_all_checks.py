@@ -23,6 +23,7 @@ CHECKS = [
     ("HTML 渲染器自检", ["selftest_html.py"]),
     ("P0 账户/闸门/治理/ETF", ["selftest_p0.py"]),
     ("P1/P2 换算/进度/归因/分级", ["selftest_p12.py"]),
+    ("L1 主状态连续段回算", ["selftest_state_streak.py"]),
     ("ETF 映射覆盖校验", ["tools_etf_map.py", "--check"]),
     ("ETF 映射复核（含观察池）", ["tools_etf_review.py", "--check"]),
     ("生产运行", ["run.py"]),
