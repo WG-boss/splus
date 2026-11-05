@@ -554,6 +554,80 @@ def state_weighted_position(probs: Dict[str, float], weights: Dict[str, float]) 
     return sum(probs[k] * float(weights[k]) for k in ("A", "B", "C", "D", "E") if k in weights)
 
 
+# ---- 主状态连续段（起始日 / 持续交易日）----
+# 与 stock-pool 指数池页面同口径：按“逐日主状态”回算连续段。
+# S++ 五态模型无滞回状态机，st["dominant"] = max(probs) 即“理想态”，
+# 故直接对 dominant 序列计数，不受滞回污染。
+# 实现选择：落盘一份逐日主状态历史（JSONL），每次运行追加当日主状态，
+# 连续段从这份历史里回算 —— O(1)/次，与指数池从日级状态库回算等价；
+# 若某交易日 S++ 未运行，则该日缺行、连续段按已落盘行计数（日报场景下按日运行即完整）。
+
+def load_dominant_history(path: str) -> List[Tuple[str, Dict[str, str]]]:
+    """读取逐日主状态历史 JSONL -> [(date, {code: dominant})]，按日期升序。
+
+    每行形如 {"date": "2026-11-05", "d": {"000688": "E", ...}}。
+    坏行跳过，保证单次坏数据不影响整段回算。
+    """
+    out: List[Tuple[str, Dict[str, str]]] = []
+    if not os.path.exists(path):
+        return out
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                if isinstance(rec, dict) and "date" in rec and "d" in rec \
+                        and isinstance(rec["d"], dict):
+                    out.append((str(rec["date"]), rec["d"]))
+    except Exception:
+        return out
+    out.sort(key=lambda x: x[0])
+    return out
+
+
+def append_dominant_history(path: str, as_of: str,
+                            dominants_by_code: Dict[str, str],
+                            replace_same_date: bool = True) -> None:
+    """写入当日主状态；同日重跑则替换末行（幂等），否则追加。"""
+    hist = load_dominant_history(path)
+    if replace_same_date and hist and hist[-1][0] == as_of:
+        hist[-1] = (as_of, dict(dominants_by_code))
+    else:
+        hist.append((as_of, dict(dominants_by_code)))
+    d = os.path.dirname(path)
+    if d:
+        os.makedirs(d, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        for dt_, mp in hist:
+            fh.write(json.dumps({"date": dt_, "d": mp}, ensure_ascii=False) + "\n")
+
+
+def state_streak(history: List[Tuple[str, Dict[str, str]]], code: str,
+                 target: str) -> Tuple[Optional[str], int]:
+    """从逐日主状态历史回算 (起始日, 持续交易日)。
+
+    target 为当前主状态。从最新日期向历史回溯，连续相同主状态即计入，
+    遇不同主状态或该 code 缺行即截断。返回 (起始日|None, 连续天数)。
+    首日运行（仅 1 行）返回 (当日, 1)。
+    """
+    if not history:
+        return None, 0
+    days = 0
+    start: Optional[str] = None
+    for dt_, mp in reversed(history):
+        dom = mp.get(code)
+        if dom is None or dom != target:
+            break
+        days += 1
+        start = dt_
+    return start, days
+
+
 # ============================================================
 # L2 因果层 —— 跨市场传导链
 # ============================================================
@@ -913,6 +987,20 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             "state_weight": state_weighted_position(sp["probs"], cfg["state"]["weights"]),
         }
 
+    # ---- 主状态连续段（起始日 / 持续交易日）----
+    # 落盘逐日主状态历史，并从历史回算连续段（与 stock-pool 指数池同口径）。
+    # 模型无滞回状态机，st["dominant"] 即理想态，直接计数不受滞回污染。
+    if common_as_of:
+        _hist_dir = os.path.dirname(cfg["data"]["state_file"])
+        _hist_path = os.path.join(base_dir, _hist_dir, "state_dominant_history.jsonl")
+        _doms = {c: v["state"]["dominant"] for c, v in per_index.items()}
+        append_dominant_history(_hist_path, common_as_of, _doms)
+        _hist = load_dominant_history(_hist_path)
+        for c, v in per_index.items():
+            _sd, _days = state_streak(_hist, c, v["state"]["dominant"])
+            v["state"]["state_start"] = _sd
+            v["state"]["state_days"] = _days
+
     # ---- L2 传导链 + 相关性 ----
     rets = {c: log_returns(o["bars"]) for c, o in loaded.items()}
     corr = corr_matrix(rets, cfg["chain"]["corr_look"])
@@ -1151,6 +1239,8 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                     "dominant_name": STATE_NAMES[v["state"]["dominant"]],
                     "confidence": round(v["state"]["confidence"], 4),
                     "scores": {k: round(s, 3) for k, s in v["state"]["scores"].items()},
+                    "state_start": v["state"].get("state_start"),
+                    "state_days": int(v["state"].get("state_days", 0) or 0),
                 },
                 "state_weight": round(v["state_weight"], 4),
                 "tradeable": v["tradeable"],

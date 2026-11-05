@@ -380,15 +380,20 @@ def render_html(res):
       '<span><i class="bb"></i>B 突破</span><span><i class="bc"></i>C 通道</span>'
       '<span><i class="bd"></i>D 派发</span><span><i class="be"></i>E 下跌</span></div>')
     a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
-      "<th>主状态</th><th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th></tr>")
+      "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
+      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th></tr>")
     for _c, v in trade_rows:
         st = v["state"]
+        _sd = st.get("state_start")
+        _days = int(st.get("state_days", 0) or 0)
         pos = (v.get("sizing") or {}).get("final")
         a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{v['close']:.1f}</td>"
           f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
           f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
           f"<td data-v='{STATE_ORDER.index(st['dominant'])}'>{_e(st['dominant_name'])}</td>"
+          f"<td class='mono'>{_e(_sd) if _sd else '—'}</td>"
+          f"<td class='num' data-v='{_days}'>{_days}</td>"
           f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
@@ -408,14 +413,19 @@ def render_html(res):
           '参与五状态评分但无仓位、无执行计划。非 E 状态（A/B/C）= 潜在候选。</div>')
         a(_dist_bar(cnt))
         a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
-          "<th>主状态</th><th>概率分布</th><th>置信</th><th>角色</th></tr>")
+          "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
+          "<th>概率分布</th><th>置信</th><th>角色</th></tr>")
         for _c, v in watch_rows:
             st = v["state"]
+            _sd = st.get("state_start")
+            _days = int(st.get("state_days", 0) or 0)
             a(f"<tr><td>{_e(v['name'])}</td>"
               f"<td class='num'>{v['close']:.1f}</td>"
               f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
               f"<td class='num neg'>{_pct(v.get('dd_from_high'))}</td>"
               f"<td data-v='{STATE_ORDER.index(st['dominant'])}'>{_e(st['dominant_name'])}</td>"
+              f"<td class='mono'>{_e(_sd) if _sd else '—'}</td>"
+              f"<td class='num' data-v='{_days}'>{_days}</td>"
               f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
               f"<td class='num'>{st['confidence']:.2f}</td>"
               f"<td class='note'>{_e(v.get('role', '—'))}</td></tr>")
