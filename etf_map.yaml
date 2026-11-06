@@ -7,7 +7,7 @@ meta:
   confirmed_count: 52
   policy: 候选一律 needs_review；仅 --confirm 后 status=confirmed 才展示可下单代码
   review_version: 1.0.0
-  last_reviewed_at: '2026-11-06T22:27:52'
+  last_reviewed_at: '2026-11-06T22:58:34'
 instruments:
   000688:
     name: 科创50
@@ -120,8 +120,8 @@ instruments:
     bucket: core
     tradeable: true
     status: confirmed
-    etf_code: '513180'
-    etf_name: 恒生科技ETF华泰柏瑞
+    etf_code: '513130'
+    etf_name: 恒生科技指数ETF华夏
     verified: true
     market: sh
     qdii: false
@@ -154,7 +154,7 @@ instruments:
       name: 科技ETF易方达
       score: 0.4444
       market: sz
-    note: 人工确认于 2026-11-06；请自行核对基金跟踪指数与流动性
+    note: 用户确认于 2026-11-06（P4 SLA 闭环；513130 恒生科技指数ETF华夏，用户更正代码并确认；清单缓存 MK0023 刷新后可复核流动性）
     review:
       risk: high
       flags:
@@ -283,7 +283,7 @@ instruments:
     etf_name: 创新药ETF银华
     verified: true
     market: sz
-    note: 人工确认于 2026-11-06；请自行核对基金跟踪指数与流动性
+    note: 用户确认于 2026-11-06（P4 SLA 闭环；159992 银华，跟踪中证创新药产业指数 931152 的旗舰品种，多候选同分冲突已由用户消解确认）
     qdii: false
     candidates:
     - code: '517380'
