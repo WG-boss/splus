@@ -1,6 +1,6 @@
 # S++ 投研决策 · 2026-11-05
 
-> 生成 2026-11-06 00:01:23 ｜ 配置 v1.0.0
+> 生成 2026-11-06 10:55:58 ｜ 配置 v1.0.0
 
 ## 今日行动卡
 
@@ -741,7 +741,7 @@
 - 概率校准：样本不足（已结算 0 条 < 门槛 30），不建议据此调整参数
 - 前瞻窗口 20 交易日；Brier 阈值 0.28
 - 已结算样本 0 条；本次新结算 0 条
-- 预测台账：C:\Users\wlx21\.openclaw-windclaw\users\144682877-f9b66e0207e0\openclaw\workspace-agent\splus\data/ledger\predictions.jsonl
+- 预测台账：E:\Personal\Documents\openclaw\workspace-agent\splus\data/ledger\predictions.jsonl
 - 概率口径：概率未校准（结算样本不足）：0/30 条结算样本；最早一批还需约 9 个交易日（≈1.8 周）（样本不足（已结算 0 条 < 门槛 30），不建议据此调整参数）
 - 治理台账：日级汇总 2 条，本次开仓意向 0 个、通过 0 个
 - 市场闸门：今日禁止开新仓（顶层否决）
