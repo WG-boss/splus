@@ -353,6 +353,8 @@ def main():
     res = engine.run(cfg_path, BASE)
     out_dir = os.path.join(BASE, "data")
     os.makedirs(out_dir, exist_ok=True)
+    # B2 P3 生命周期评估已移入 engine.run（决策 JSON 落盘前），res["lifecycle"] 直接可用。
+
     md_path = os.path.join(out_dir, f"splus_report_{res['as_of'].replace('-', '')}.md")
 
     md = render(res)

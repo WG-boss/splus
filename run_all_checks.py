@@ -26,6 +26,7 @@ CHECKS = [
     ("L1 主状态连续段回算", ["selftest_state_streak.py"]),
     ("市场闸门 O2 即时态选项", ["selftest_market_context.py"]),
     ("B2 资格分引擎", ["selftest_eligibility.py"]),
+    ("B2 生命周期+状态调制", ["selftest_lifecycle.py"]),
     ("ETF 映射覆盖校验", ["tools_etf_map.py", "--check"]),
     ("ETF 映射复核（含观察池）", ["tools_etf_review.py", "--check"]),
     ("生产运行", ["run.py"]),

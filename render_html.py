@@ -508,6 +508,49 @@ def render_html(res):
           f"{_l2cell}{_elig_cell}</tr>")
         a("</table></div></details>")
 
+    # ---- B2 P3 生命周期与状态调制 ----
+    _mod = res.get("eligibility_modulation") or {}
+    _lc = res.get("lifecycle") or {}
+    a("<h2>一之二、B2 生命周期与状态调制</h2>")
+    if _mod.get("enabled"):
+        a(f'<div class="note">状态调制：{_e(_mod.get("note", "—"))}'
+          f'{" ｜ 异常：" + _e(_mod["error"]) if _mod.get("error") else ""}</div>')
+    elif _mod:
+        a('<div class="note">状态调制：未启用（eligibility.modulation.enabled=false）</div>')
+    if _lc.get("error"):
+        a(f'<div class="card warn">生命周期评估异常：{_e(_lc["error"])}</div>')
+    elif _lc:
+        _promos = _lc.get("promotions") or []
+        _demos = _lc.get("demotions") or []
+        _cool = _lc.get("cooldown_active") or []
+        if not (_promos or _demos or _cool):
+            a('<div class="note">生命周期：当前无晋升/降级事件'
+              '（晋升=资格 ≥80 连续 3 日；降级=资格 <60 连续 5 日；'
+              '降级后 10 交易日冷却。晋升/降级均为建议，人工执行 config。）</div>')
+        else:
+            a("<table><tr><th>类型</th><th>代码</th><th>连续天数</th>"
+              "<th>最新资格分</th><th>处置</th></tr>")
+            for _e0 in _promos:
+                a(f"<tr><td><span class='badge tg'>晋升建议</span></td>"
+                  f"<td class='mono'>{_e(_e0.get('code'))}</td>"
+                  f"<td class='num'>{_e0.get('days')}</td>"
+                  f"<td class='num'>{_e0.get('last_score', '—')}</td>"
+                  f"<td class='note'>人工执行：config tradeable→true（可否决）</td></tr>")
+            for _e0 in _demos:
+                a(f"<tr><td><span class='badge tr'>降级建议</span></td>"
+                  f"<td class='mono'>{_e(_e0.get('code'))}</td>"
+                  f"<td class='num'>{_e0.get('days')}</td>"
+                  f"<td class='num'>{_e0.get('last_score', '—')}</td>"
+                  f"<td class='note'>人工执行：config tradeable→false（FROZEN 仓位归零已兜底）</td></tr>")
+            for _e0 in _cool:
+                a(f"<tr><td><span class='badge tm'>冷却阻断</span></td>"
+                  f"<td class='mono'>{_e(_e0.get('code'))}</td>"
+                  f"<td class='num'>{_e0.get('days')}</td>"
+                  f"<td class='num'>{_e0.get('last_score', '—')}</td>"
+                  f"<td class='note'>剩余冷却 {_e(_e0.get('cooldown_remaining'))} 交易日"
+                  f"（降级于 {_e(_e0.get('downgraded_at'))}）</td></tr>")
+            a("</table>")
+
     # ---- L2 ----
     ch = res.get("chain") or {}
     a("<h2>二、跨市场传导链（L2）</h2>")

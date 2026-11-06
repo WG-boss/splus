@@ -1217,6 +1217,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     # 注入点：quality_warnings_list 之后、decision_layer.apply 之前——
     # FROZEN 归零后的 sizing 直接进入决策层执行链。
     _elig_cfg = (cfg.get("eligibility") or {})
+    result_modulation: Dict[str, Any] = {"enabled": False}
     if _elig_cfg.get("enabled", True):
         try:
             import eligibility as _elig
@@ -1268,6 +1269,37 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                       file=sys.stderr)
             else:
                 raise
+
+    # ---- B2 P3 状态调制乘数 M：E 态占比 → 全局仓位调制 ----
+    # 位于资格分层块之后、decision_layer.apply 之前——M 乘入 sizing.final
+    # 与 total_exposure，决策卡/执行金额换算全链生效。
+    _mod_cfg = (_elig_cfg.get("modulation") or {})
+    if _mod_cfg.get("enabled", True) and _elig_cfg.get("enabled", True):
+        try:
+            import lifecycle as _lc
+            _e_all = sum(1 for v in per_index.values()
+                         if (v.get("state") or {}).get("dominant") == "E")
+            _ratio = _e_all / max(1, len(per_index))
+            _M = _lc.modulation_multiplier(_ratio, _mod_cfg)
+            if _M < 1.0:
+                total_exposure *= _M
+                for _v in per_index.values():
+                    if _v.get("tradeable") and "sizing" in _v \
+                            and _v["sizing"].get("final", 0) > 0:
+                        _v["sizing"]["final"] *= _M
+                        _v["sizing"]["notes"]["modulation"] = (
+                            f"B2 状态调制 M={_M:.2f}（E 态占比 {_ratio:.0%}）")
+            result_modulation = {
+                "enabled": True, "e_ratio": round(_ratio, 4),
+                "multiplier": round(_M, 4),
+                "note": (f"E 态占比 {_ratio:.0%} → 全局仓位调制 M={_M:.2f}"
+                         if _M < 1.0 else f"E 态占比 {_ratio:.0%} → M=1.00（未收缩）"),
+            }
+        except Exception as _exc:
+            result_modulation = {"enabled": True, "error": repr(_exc)}
+            print(f"[warn] 状态调制计算失败: {_exc!r}", file=sys.stderr)
+    else:
+        result_modulation = {"enabled": False}
 
     # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
     try:
@@ -1328,6 +1360,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         "chain": chain,
         "buckets": bucket_exposure,
         "total_exposure": round(total_exposure, 4),
+        "eligibility_modulation": result_modulation,
         "total_exposure_pre_switch": round(total_pre_switch, 4),
         "switch_haircut_applied": applied,
         "switch_haircut": round(haircut, 3),
@@ -1423,6 +1456,28 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                 f"（≈{sp.get('next_est_weeks')} 周）")
 
     # ---- 落盘（必须在所有层跑完之后，否则 governance/calibration 会写成 null）----
+    # B2 P3 生命周期评估（晋升/降级建议 + 冷却；事件入台账）——必须在落盘前。
+    try:
+        import lifecycle as _lc
+        import eligibility as _elig_hist
+        _lc_cfg = (_elig_cfg.get("lifecycle") or {})
+        if _lc_cfg.get("enabled", True) and as_of:
+            _hist_rel = _elig_cfg.get("history_path",
+                                      "state/eligibility_history.jsonl")
+            _hist = os.path.join(base_dir, _hist_rel)
+            _rows_l = _elig_hist.load_history(_hist)
+            _tmap = {c: bool(v.get("tradeable"))
+                     for c, v in per_index.items()}
+            _lc_res = _lc.evaluate(_rows_l, _tmap, as_of, base_dir, _lc_cfg)
+            _lc.record_events(base_dir, as_of, _lc_res, _lc_cfg)
+            _lc.mark_demotions(base_dir, as_of, _lc_res, _lc_cfg)
+            result["lifecycle"] = _lc_res
+        else:
+            result["lifecycle"] = {"enabled": False}
+    except Exception as _exc:
+        result["lifecycle"] = {"error": repr(_exc)}
+        print(f"[warn] lifecycle 评估失败: {_exc!r}", file=sys.stderr)
+
     if not as_of:
         result["_error"] = "全部标的无有效数据，本次不落盘"
         return result

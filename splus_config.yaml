@@ -380,6 +380,18 @@ eligibility:
   hard_rules:
     state_fit_zero_frozen: true   # StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN，分数照实算（温度计价值保留）
   enforce_sizing_zero: true       # P2：FROZEN 且 tradeable → sizing.final=0（矩阵铁律落到仓位层；置 false 可整体回滚）
+  modulation:                     # P3 状态调制乘数 M：E 态占比 → 全局仓位收缩
+    enabled: true
+    start_ratio: 0.20             # E 态占比 ≤20% → M=1.0
+    slope: 1.25                   # 每超 10pp 线性衰减
+    floor: 0.50                   # 下限（11-05 E 占比 66% → M=0.5）
+  lifecycle:                      # P3 生命周期（2 条连续性规则 + 冷却；晋升/降级均为建议，人工执行）
+    enabled: true
+    promote: {min_tier_score: 80, consecutive_days: 3}
+    demote: {max_score: 60, consecutive_days: 5}
+    cooldown_days: 10
+    state_path: "state/eligibility_lifecycle.json"
+    events_path: "state/lifecycle_events.jsonl"
   investability:
     amount_full_yi: 5.0           # 当日成交额 ≥5 亿（元/亿）→ 满分；P4 升级为 20 日均口径
     amount_floor_yi: 0.3          # <0.3 亿 → 0 分（容量地板，etf_review.thin_liquidity_cny 同源）
