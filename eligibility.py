@@ -202,6 +202,27 @@ def tier_of(score: float, cfg: Optional[Dict[str, Any]] = None,
     return "FROZEN"
 
 
+# 审计缺口修复（2026-11-06 B2 全面验证）：策划案 §5.2 权限映射要求
+# REDUCED=仓位×0.5、OBSERVE=禁止任何开仓，P2 仅落地 FROZEN 归零——补齐。
+DEFAULT_TIER_PERMISSIONS = {"FULL": 1.0, "REDUCED": 0.5, "OBSERVE": 0.0,
+                            "FROZEN": 0.0}
+
+
+def tier_multiplier(tier: Optional[str],
+                    cfg: Optional[Dict[str, Any]] = None) -> float:
+    """档位 → 仓位乘数（策划案 §5.2；配置 eligibility.tier_permissions 可覆盖）。
+
+    REDUCED「仅限加仓与持有，禁新建首个仓位」的精确语义需要持仓状态账本，
+    当前体系为单日目标仓位口径，统一按 ×0.5 减半实现（简化已在案注说明）。
+    """
+    c = _cfg_merge(cfg) if cfg and "tier_permissions" not in cfg else (cfg or {})
+    perms = c.get("tier_permissions") or DEFAULT_TIER_PERMISSIONS
+    try:
+        return float(perms.get(tier or "FROZEN", 0.0))
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
                   quotes: Optional[Dict[str, Any]], amount: Optional[float],
                   cfg: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
@@ -248,9 +269,11 @@ def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
     score = 100.0 * (w["investability"] * inv_f + w["state_fit"] * sf
                      + w["data_quality"] * dq_f + w["map_ready"] * mr)
     score = round(max(0.0, min(100.0, score)), 1)
+    tier = tier_of(score, c, state_fit=sf)
     return {
         "score": score,
-        "tier": tier_of(score, c, state_fit=sf),
+        "tier": tier,
+        "tier_multiplier": tier_multiplier(tier, c),
         "family": fam or "unknown",
         "dominant": dominant,
         "factors": {"investability": round(inv_f, 4), "state_fit": round(sf, 4),

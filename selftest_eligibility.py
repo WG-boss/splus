@@ -119,6 +119,24 @@ def test_map_and_dq():
           E.data_quality_score(None, ["X：跳空"]) is None)
 
 
+def test_tier_multiplier():
+    print("[5b] 档位权限乘数（§5.2 审计补齐）")
+    check("FULL ×1.0", E.tier_multiplier("FULL") == 1.0)
+    check("REDUCED ×0.5（降杠杆）", E.tier_multiplier("REDUCED") == 0.5)
+    check("OBSERVE ×0（禁开仓）", E.tier_multiplier("OBSERVE") == 0.0)
+    check("FROZEN ×0", E.tier_multiplier("FROZEN") == 0.0)
+    check("None/未知档 → 0（fail-closed）", E.tier_multiplier(None) == 0.0)
+    check("配置覆盖生效",
+          E.tier_multiplier("OBSERVE", {"tier_permissions":
+                                        {"OBSERVE": 0.3}}) == 0.3)
+    check("compute_entry 输出 tier_multiplier",
+          "tier_multiplier" in E.compute_entry(
+              {"name": "X", "role": "进攻候选", "tradeable": True,
+               "state": {"dominant": "B"},
+               "instrument": {"status": "confirmed", "verified": True}},
+              [], {}, None))
+
+
 def test_fail_closed():
     print("[6] fail-closed")
     # 引擎级异常：quotes 结构损坏（dict 传入但 per_index 迭代器损坏场景用 compute_all 包裹）
@@ -243,6 +261,7 @@ def main() -> int:
     test_state_fit()
     test_hard_rule()
     test_map_and_dq()
+    test_tier_multiplier()
     test_fail_closed()
     test_history_roundtrip()
     test_real_snapshot()

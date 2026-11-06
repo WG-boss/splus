@@ -379,7 +379,12 @@ eligibility:
   tiers: {full: 80, reduced: 60, observe: 40}   # ≥80 FULL / ≥60 REDUCED / ≥40 OBSERVE / <40 FROZEN
   hard_rules:
     state_fit_zero_frozen: true   # StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN，分数照实算（温度计价值保留）
-  enforce_sizing_zero: true       # P2：FROZEN 且 tradeable → sizing.final=0（矩阵铁律落到仓位层；置 false 可整体回滚）
+  enforce_sizing_zero: true       # P2：档位权限乘数总开关（false = 全部 ×1.0 回滚到静态白名单形态）
+  tier_permissions:               # §5.2 权限映射（2026-11-06 审计补齐：REDUCED 降杠杆 / OBSERVE 禁开仓）
+    FULL: 1.0
+    REDUCED: 0.5
+    OBSERVE: 0.0
+    FROZEN: 0.0
   modulation:                     # P3 状态调制乘数 M：E 态占比 → 全局仓位收缩
     enabled: true
     start_ratio: 0.20             # E 态占比 ≤20% → M=1.0

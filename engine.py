@@ -1218,6 +1218,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     # FROZEN 归零后的 sizing 直接进入决策层执行链。
     _elig_cfg = (cfg.get("eligibility") or {})
     result_modulation: Dict[str, Any] = {"enabled": False}
+    _pre_finals: Dict[str, float] = {}   # 乘数前基线（fail-closed 时保持空 → 重同步跳过）
     if _elig_cfg.get("enabled", True):
         try:
             import eligibility as _elig
@@ -1231,15 +1232,28 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                     _quotes = {}  # 行情快照损坏 → 各标的 inv 保守 0（引擎内单标的隔离）
             _scores = _elig.compute_all(per_index, quality_warnings_list, _quotes,
                                         _elig_cfg)
+            # 审计修复（2026-11-06）：捕获乘数前基线，供桶敞口比例重同步
+            _pre_finals = {c: float(v.get("sizing", {}).get("final") or 0.0)
+                           for c, v in per_index.items() if v.get("tradeable")}
             for _c, _v in per_index.items():
                 _v["eligibility"] = _scores.get(_c)
                 if (_elig_cfg.get("enforce_sizing_zero", True)
                         and _v.get("tradeable") and "sizing" in _v
-                        and (_scores.get(_c) or {}).get("tier") == "FROZEN"):
-                    _v["sizing"]["final"] = 0.0
-                    _v["sizing"]["notes"]["eligibility"] = (
-                        "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，"
-                        "E 态/事件族 D 态等矩阵铁律）")
+                        and (_scores.get(_c) or {}).get("tier")):
+                    # 审计修复（2026-11-06）：按策划案 §5.2 全档位权限乘数——
+                    # FULL ×1.0 / REDUCED ×0.5（降杠杆）/ OBSERVE ×0（禁开仓）/
+                    # FROZEN ×0（冻结）。enforce_sizing_zero=false 可整体回滚。
+                    _tier = _scores[_c]["tier"]
+                    _mult = _scores[_c].get("tier_multiplier",
+                                            _elig.tier_multiplier(_tier, _elig_cfg))
+                    _old_final = float(_v["sizing"].get("final") or 0.0)
+                    _new_final = _old_final * _mult
+                    _v["sizing"]["final"] = _new_final
+                    if _mult < 1.0 and _old_final > 0:
+                        _v["sizing"]["notes"]["eligibility"] = (
+                            f"B2 档位权限 {_tier} ×{_mult:g} → "
+                            f"{_old_final * 100:.2f}%→{_new_final * 100:.2f}%"
+                            + ("（禁开仓归零）" if _mult == 0 else "（降杠杆）"))
             # 逐日 JSONL 落盘（同 as_of 幂等；失败不阻断主链路，仅告警）
             try:
                 _hist_rel = _elig_cfg.get("history_path",
@@ -1300,6 +1314,29 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             print(f"[warn] 状态调制计算失败: {_exc!r}", file=sys.stderr)
     else:
         result_modulation = {"enabled": False}
+
+    # ---- B2 审计修复（2026-11-06）：桶敞口/总敞口按档位乘数+调制后的
+    # sizing.final 比例重同步——haircut/theme 缩放因子保持，只传导资格收缩，
+    # 消除"11 只全归零但 total_exposure 仍 3.81%"的口径漂移。----
+    if _elig_cfg.get("enabled", True) and _elig_cfg.get("enforce_sizing_zero", True):
+        try:
+            for _b, _bv in bucket_exposure.items():
+                _codes_b = _bv.get("codes") or []
+                _pre_sum = sum(_pre_finals.get(c, 0.0) for c in _codes_b)
+                if _pre_sum <= 1e-9:
+                    continue  # 基线即零：资格层无收缩可传导
+                _post_sum = sum(float(per_index[c]["sizing"].get("final") or 0.0)
+                                for c in _codes_b)
+                _scale = _post_sum / _pre_sum
+                if _scale < 1.0:
+                    _bv["exposure"] = round(_bv["exposure"] * _scale, 4)
+                    if len(_codes_b) > 1:
+                        _bv["per_name"] = round(_bv["exposure"] / len(_codes_b), 4)
+                    _bv["cap_reason"] = (_bv.get("cap_reason", "") +
+                                         f"；B2 资格收缩 ×{_scale:.2f}").lstrip("；")
+            total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
+        except Exception as _exc:
+            print(f"[warn] 桶敞口重同步失败: {_exc!r}", file=sys.stderr)
 
     # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
     try:
