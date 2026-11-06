@@ -704,12 +704,24 @@ def render_html(res):
     return "\n".join(L)
 
 
+def _write_atomic(path, text):
+    """原子写盘：先写临时文件再 os.replace，避免并发读到半写文件。"""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        fh.write(text)
+    os.replace(tmp, path)
+
+
 def write_html(res, out_dir, as_of):
     os.makedirs(out_dir, exist_ok=True)
+    html = render_html(res)
     name = f"splus_report_{as_of.replace('-', '')}.html"
     path = os.path.join(out_dir, name)
-    with open(path, "w", encoding="utf-8") as fh:
-        fh.write(render_html(res))
+    _write_atomic(path, html)
+    # 固定名镜像（stock-pool 首页链接指向它）：与日期版同内容同步落盘，
+    # 消除「仅靠定时任务复制维护、复制失效则首页链接静默消失」的脆弱依赖。
+    fixed = os.path.join(out_dir, "splus_report.html")
+    _write_atomic(fixed, html)
     return path
 
 

@@ -5,6 +5,7 @@ __pycache__/
 
 # ---- 页面产物（可由 run.py 重新生成；决策 JSON/MD 入库以便追溯）----
 data/splus_report_*.html
+data/splus_report.html
 
 # ---- 优化中间产物（体积大且可重算）----
 data/sig_test.json
