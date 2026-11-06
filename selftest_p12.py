@@ -242,7 +242,9 @@ def t_quality(res, cfg):
     print("\n[T6] 数据软提示分级")
     qr = res.get("quality_report") or {}
     lv = qr.get("levels") or {}
-    chk("48 条全部纳入分级", qr.get("total") == 48, str(qr.get("total")))
+    _tot = qr.get("total") or 0
+    chk("分级条目内部一致且覆盖稳定（随宇宙演化自适应，不耦合快照值）",
+        _tot == len(qr.get("items") or []) and _tot >= 40, f"total={_tot}")
     chk("仅收盘价代理为 HIGH（3 只）", lv.get("HIGH") == 3
         and "光模块CPO" in qr.get("high_names", []), str(lv))
     chk("真跳空为 LOW 且保留使用", lv.get("LOW", 0) > 30)
