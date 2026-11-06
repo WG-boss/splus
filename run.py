@@ -370,6 +370,19 @@ def main():
         except Exception as exc:
             print(f"[warn] HTML 渲染失败（Markdown 已生成）：{exc}", file=sys.stderr)
 
+    # B2 仓位执行闭环交互看板（配置 output.dashboard_html 控制；默认开启；失败不阻断主流程）
+    dash_path = None
+    try:
+        c = engine.load_config(cfg_path)
+        if bool((c.get("output") or {}).get("dashboard_html", True)):
+            import tools_position_dashboard as _dash
+            dash_path = os.path.join(out_dir, "position_dashboard.html")
+            with open(dash_path, "w", encoding="utf-8") as fh:
+                fh.write(_dash.render_html(_dash.build_payload(res["_paths"]["decision"], c)))
+            print("DASH:", dash_path)
+    except Exception as exc:
+        print(f"[warn] 交互看板生成失败（不影响主流程）：{exc}", file=sys.stderr)
+
     print(md)
     print()
     print("---")
