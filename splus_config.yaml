@@ -379,6 +379,7 @@ eligibility:
   tiers: {full: 80, reduced: 60, observe: 40}   # ≥80 FULL / ≥60 REDUCED / ≥40 OBSERVE / <40 FROZEN
   hard_rules:
     state_fit_zero_frozen: true   # StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN，分数照实算（温度计价值保留）
+  enforce_sizing_zero: true       # P2：FROZEN 且 tradeable → sizing.final=0（矩阵铁律落到仓位层；置 false 可整体回滚）
   investability:
     amount_full_yi: 5.0           # 当日成交额 ≥5 亿（元/亿）→ 满分；P4 升级为 20 日均口径
     amount_floor_yi: 0.3          # <0.3 亿 → 0 分（容量地板，etf_review.thin_liquidity_cny 同源）

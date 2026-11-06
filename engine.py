@@ -19,6 +19,7 @@ S++ 投研管理系统 —— 指数级决策引擎
 from __future__ import annotations
 
 import os
+import sys
 import json
 import math
 import datetime
@@ -1084,6 +1085,9 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                 "reference_only": True,
             }
 
+    # ---- B2 资格分层（P2）注入点见 L5 后、decision_layer 前——
+    # 必须晚于 quality_warnings_list（1264 区），早于 decision_layer.apply（sizing 归零要进执行链）。
+
     # ---- L4 执行层：追价上限 + 失效位 ----
     for code, v in per_index.items():
         f = v["features"]
@@ -1117,6 +1121,16 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         if v["tradeable"]:
             buckets.setdefault(v["bucket"], []).append(code)
 
+    # bucket_max 双形态兼容（B2 P2）：标量=全桶统一（原行为）；dict=按桶系数
+    # （core/theme/ai_hw/pharma/watch 各档，缺省桶用 "default" 键，再缺省用最小值）。
+    bm_cfg = cfg["risk"]["bucket_max"]
+    if isinstance(bm_cfg, dict):
+        def _bm(b: str) -> float:
+            return float(bm_cfg.get(b, bm_cfg.get("default", min(bm_cfg.values()))))
+    else:
+        def _bm(b: str) -> float:
+            return float(bm_cfg)
+
     bucket_exposure: Dict[str, Any] = {}
     for b, codes in buckets.items():
         if len(codes) == 1:
@@ -1129,12 +1143,12 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             vols = [(c, per_index[c]["features"].get("ann_vol_20") or 0.35) for c in codes]
             # 保守：同桶按最高波动率计上限，等权分配
             vmax = max(v for _, v in vols)
-            cap = clamp(cfg["risk"]["vol_target"] / vmax, 0, cfg["risk"]["bucket_max"])
+            cap = clamp(cfg["risk"]["vol_target"] / vmax, 0, _bm(b))
             wmean = mean([per_index[c]["state_weight"] for c in codes]) or 0.0
             dd_c = dd_throttle(cfg, port_dd)
             c_corr = 1.0 if corr_mean is None or corr_mean <= cfg["risk"]["corr_threshold"] else \
                 max(0.3, 1.0 - (corr_mean - cfg["risk"]["corr_threshold"]) * cfg["risk"]["corr_penalty_k"])
-            exp_total = clamp(cap * dd_c * c_corr * wmean, 0, cfg["risk"]["bucket_max"])
+            exp_total = clamp(cap * dd_c * c_corr * wmean, 0, _bm(b))
             bucket_exposure[b] = {
                 "codes": codes,
                 "exposure": round(exp_total, 4),
@@ -1198,6 +1212,63 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                                     for c, v in per_index.items()
                                     for w in (loaded.get(c, {}).get("quality_warnings") or [])})
 
+    # ---- B2 资格分层（P2）：四因子资格分 + FROZEN 仓位归零投影 ----
+    # 策划案 docs/tradeable_universe_review_20261106.html；引擎模块 eligibility.py。
+    # 注入点：quality_warnings_list 之后、decision_layer.apply 之前——
+    # FROZEN 归零后的 sizing 直接进入决策层执行链。
+    _elig_cfg = (cfg.get("eligibility") or {})
+    if _elig_cfg.get("enabled", True):
+        try:
+            import eligibility as _elig
+            _qpath = os.path.join(base_dir, "data", "etf_quotes.json")
+            _quotes = {}
+            if os.path.exists(_qpath):
+                try:
+                    with open(_qpath, "r", encoding="utf-8") as _f:
+                        _quotes = (json.load(_f) or {}).get("quotes") or {}
+                except Exception:
+                    _quotes = {}  # 行情快照损坏 → 各标的 inv 保守 0（引擎内单标的隔离）
+            _scores = _elig.compute_all(per_index, quality_warnings_list, _quotes,
+                                        _elig_cfg)
+            for _c, _v in per_index.items():
+                _v["eligibility"] = _scores.get(_c)
+                if (_elig_cfg.get("enforce_sizing_zero", True)
+                        and _v.get("tradeable") and "sizing" in _v
+                        and (_scores.get(_c) or {}).get("tier") == "FROZEN"):
+                    _v["sizing"]["final"] = 0.0
+                    _v["sizing"]["notes"]["eligibility"] = (
+                        "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，"
+                        "E 态/事件族 D 态等矩阵铁律）")
+            # 逐日 JSONL 落盘（同 as_of 幂等；失败不阻断主链路，仅告警）
+            try:
+                _hist_rel = _elig_cfg.get("history_path",
+                                          "state/eligibility_history.jsonl")
+                _hist = os.path.join(base_dir, _hist_rel)
+                _asof_now = (common_as_of
+                             or (max(v["as_of"] for v in per_index.values())
+                                 if per_index else ""))
+                _elig.append_history(_hist, _asof_now, _scores)
+            except Exception as _exc:
+                print(f"[warn] eligibility 历史落盘失败: {_exc!r}", file=sys.stderr)
+        except Exception as _exc:
+            if _elig_cfg.get("fail_closed", True):
+                for _v in per_index.values():
+                    _v["eligibility"] = {
+                        "score": 0.0, "tier": "FROZEN", "family": "unknown",
+                        "dominant": None,
+                        "factors": {"investability": 0.0, "state_fit": 0.0,
+                                    "data_quality": 0.0, "map_ready": 0.0},
+                        "notes": [f"引擎级异常 fail-closed: {_exc!r}"],
+                    }
+                    if _v.get("tradeable") and "sizing" in _v:
+                        _v["sizing"]["final"] = 0.0
+                        _v["sizing"]["notes"]["eligibility"] = (
+                            "B2 引擎异常 fail-closed → 仓位归零")
+                print(f"[warn] eligibility 引擎异常 fail-closed: {_exc!r}",
+                      file=sys.stderr)
+            else:
+                raise
+
     # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
     try:
         import decision_layer
@@ -1247,6 +1318,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                 "sizing": v["sizing"],
                 "execution": v["execution"],
                 "l2_suppress": v.get("l2_suppress"),
+                "eligibility": v.get("eligibility"),
                 "instrument": v.get("instrument"),
                 "governance_gate": (layer.get("gate_results") or {}).get(c),
                 "open_allowed": bool(v.get("open_allowed")),

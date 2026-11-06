@@ -48,6 +48,12 @@ th{background:#e8f0e8;color:#3a5a40;font-weight:600;text-align:left;
 td{padding:8px 10px;border-bottom:1px solid #e0ece0;vertical-align:middle}
 tr:hover td{background:#eaf5ea}
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.badge{display:inline-block;padding:0 7px;border-radius:9px;font-size:11px;
+  font-weight:700;line-height:18px;vertical-align:middle;margin-left:4px}
+.badge.tg{background:#e3f2e8;color:#1e8449}
+.badge.tb{background:#e3edf8;color:#1a5fb4}
+.badge.tm{background:#eef1f4;color:#5a6b7f}
+.badge.tr{background:#fbe9e7;color:#c0392b}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:16px 18px;margin:14px 0}
 .dcard{background:var(--card);border:1px solid var(--line);
@@ -267,6 +273,16 @@ def render_html(res):
     n_sw = len(res.get("kill_switches") or [])
     a('<div class="banner">')
     a(f'<span><b>{len(trade_rows)}</b><div class="bl">可交易标的</div></span>')
+    # B2 资格分层统计（P2）：从 per_index 资格分汇总四档
+    _tiers = {"FULL": 0, "REDUCED": 0, "OBSERVE": 0, "FROZEN": 0}
+    for _c, _v in list(trade_rows) + list(watch_rows):
+        _eg = _v.get("eligibility")
+        if _eg:
+            _tiers[_eg.get("tier", "FROZEN")] = _tiers.get(_eg.get("tier", "FROZEN"), 0) + 1
+    a(f'<span><b class="{"neg" if _tiers["FROZEN"] > (len(trade_rows) + len(watch_rows)) * 0.6 else "pos"}">'
+      f'{_tiers["FULL"] + _tiers["REDUCED"]}</b>'
+      f'<div class="bl">资格可执行（FULL {_tiers["FULL"]} ｜ REDUCED {_tiers["REDUCED"]}）</div></span>')
+    a(f'<span><b>{_tiers["FROZEN"]}</b><div class="bl">资格冻结（OBSERVE {_tiers["OBSERVE"]}）</div></span>')
     a(f'<span><b>{len(watch_rows)}</b><div class="bl">观察池（折叠于下方各表）</div></span>')
     a(f'<span><b>{res.get("total_exposure", 0) * 100:.2f}%</b>'
       f'<div class="bl">总敞口（压缩前 '
@@ -381,7 +397,9 @@ def render_html(res):
       '<span><i class="bd"></i>D 派发</span><span><i class="be"></i>E 下跌</span></div>')
     a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
       "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
-      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th><th>L2抑制</th><th>开仓许可</th></tr>")
+      "<th>概率分布</th><th>置信</th><th>状态权重</th><th>仓位</th><th>L2抑制</th>"
+      "<th>资格分</th><th>开仓许可</th></tr>")
+    _TIER_CLS = {"FULL": "tg", "REDUCED": "tb", "OBSERVE": "tm", "FROZEN": "tr"}
     for _c, v in trade_rows:
         st = v["state"]
         _sd = st.get("state_start")
@@ -406,6 +424,21 @@ def render_html(res):
             _l2cell = f"<td class='num' data-v='{_l2f}' title='{_e(_l2detail)}'>×{_l2f:.2f}</td>"
         else:
             _l2cell = "<td class='mono'>—</td>"
+        _eg = v.get("eligibility")
+        if _eg:
+            _f = _eg.get("factors") or {}
+            _tip = (f"四因子: 可投资性 {_f.get('investability', 0):.2f} ｜ "
+                    f"状态契合 {_f.get('state_fit', 0):.2f} ｜ "
+                    f"数据质量 {_f.get('data_quality', 0):.2f} ｜ "
+                    f"映射就绪 {_f.get('map_ready', 0):.2f}")
+            if _eg.get("notes"):
+                _tip += " ｜ " + "；".join(_eg["notes"])
+            _ecls = _TIER_CLS.get(_eg.get("tier"), "tm")
+            _elig_cell = (f"<td class='num' data-v='{_eg.get('score', 0)}' "
+                          f"title='{_e(_tip)}'>{_eg.get('score', 0):.0f} "
+                          f"<span class='badge {_ecls}'>{_e(_eg.get('tier', ''))}</span></td>")
+        else:
+            _elig_cell = "<td class='mono' title='资格分未启用'>—</td>"
         a(f"<tr><td>{_e(v['name'])}</td>"
           f"<td class='num'>{v['close']:.1f}</td>"
           f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
@@ -417,7 +450,7 @@ def render_html(res):
           f"<td class='num'>{st['confidence']:.2f}</td>"
           f"<td class='num'>{v['state_weight']:.2f}</td>"
           f"<td class='num'><b>{pos * 100:.2f}%</b></td>"
-          f"{_l2cell}{_perm_cell}</tr>")
+          f"{_l2cell}{_elig_cell}{_perm_cell}</tr>")
     a("</table>")
 
     # 观察池折叠表
@@ -434,7 +467,7 @@ def render_html(res):
         a(_dist_bar(cnt))
         a("<table><tr><th>指数</th><th>收盘</th><th>年化波动</th><th>距52周高</th>"
           "<th>主状态</th><th>主状态起始日</th><th>持续交易日</th>"
-          "<th>概率分布</th><th>置信</th><th>角色</th><th>L2抑制</th></tr>")
+          "<th>概率分布</th><th>置信</th><th>角色</th><th>L2抑制</th><th>资格分</th></tr>")
         for _c, v in watch_rows:
             st = v["state"]
             _sd = st.get("state_start")
@@ -446,6 +479,22 @@ def render_html(res):
                 _l2cell = f"<td class='num' data-v='{_l2f}' title='{_e(_l2detail)}'>×{_l2f:.2f}</td>"
             else:
                 _l2cell = "<td class='mono'>—</td>"
+            _eg = v.get("eligibility")
+            if _eg:
+                _f = _eg.get("factors") or {}
+                _tip = (f"四因子: 可投资性 {_f.get('investability', 0):.2f} ｜ "
+                        f"状态契合 {_f.get('state_fit', 0):.2f} ｜ "
+                        f"数据质量 {_f.get('data_quality', 0):.2f} ｜ "
+                        f"映射就绪 {_f.get('map_ready', 0):.2f}")
+                if _eg.get("notes"):
+                    _tip += " ｜ " + "；".join(_eg["notes"])
+                _ecls = {"FULL": "tg", "REDUCED": "tb", "OBSERVE": "tm",
+                         "FROZEN": "tr"}.get(_eg.get("tier"), "tm")
+                _elig_cell = (f"<td class='num' data-v='{_eg.get('score', 0)}' "
+                              f"title='{_e(_tip)}'>{_eg.get('score', 0):.0f} "
+                              f"<span class='badge {_ecls}'>{_e(_eg.get('tier', ''))}</span></td>")
+            else:
+                _elig_cell = "<td class='mono'>—</td>"
             a(f"<tr><td>{_e(v['name'])}</td>"
               f"<td class='num'>{v['close']:.1f}</td>"
               f"<td class='num'>{_pp(v.get('ann_vol_20'))}</td>"
@@ -456,7 +505,7 @@ def render_html(res):
               f"<td data-v='{(st['probs'].get(st['dominant']) or 0):.4f}'>{_probbar(st['probs'])}</td>"
               f"<td class='num'>{st['confidence']:.2f}</td>"
               f"<td class='note'>{_e(v.get('role', '—'))}</td>"
-          f"{_l2cell}</tr>")
+          f"{_l2cell}{_elig_cell}</tr>")
         a("</table></div></details>")
 
     # ---- L2 ----
