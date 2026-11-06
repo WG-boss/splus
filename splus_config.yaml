@@ -367,3 +367,38 @@ attribution:
 output:
   report_html: true
   keep_days: 180
+
+# ============================================================
+# B2 资格分引擎（2026-11-06 SSSSS 策划 B2 改良版 · P1）
+# 四因子：investability 30 / state_fit 40 / data_quality 20 / map_ready 10
+# 灵魂保留自 B1 原案；实现落点全部贴合现有架构（bucket_max / role / 归因台账）
+# ============================================================
+eligibility:
+  enabled: true
+  weights: {investability: 0.30, state_fit: 0.40, data_quality: 0.20, map_ready: 0.10}
+  tiers: {full: 80, reduced: 60, observe: 40}   # ≥80 FULL / ≥60 REDUCED / ≥40 OBSERVE / <40 FROZEN
+  hard_rules:
+    state_fit_zero_frozen: true   # StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN，分数照实算（温度计价值保留）
+  investability:
+    amount_full_yi: 5.0           # 当日成交额 ≥5 亿（元/亿）→ 满分；P4 升级为 20 日均口径
+    amount_floor_yi: 0.3          # <0.3 亿 → 0 分（容量地板，etf_review.thin_liquidity_cny 同源）
+    premium_max_pct: 1.5          # |溢价率|>1.5% 线性扣分；快照暂无溢价源 → None 不罚（P4 接入）
+  role_families:                  # role → 角色族（B2：概念复用现有 role 字段，不新建簿册）
+    offense: [进攻候选, 上游映射, 固定跟踪]
+    event: [事件驱动, 左侧候选]
+    reference: [市场基准, 风格参照, 全球上游, 领先观察, 筛选源观察]
+  reference_tradeable_as_offense: true   # 参照族但现行 tradeable=true（如恒生科技）→ 按进攻族行计 StateFit
+  state_fit:                      # 5 态 × 3 角色族（初版先验；P4 用 10 年回放校准，每格需 ≥30 状态日样本）
+    offense:   {A: 0.5, B: 1.0, C: 1.0, D: 0.5, E: 0.0}
+    event:     {A: 0.8, B: 0.6, C: 0.3, D: 0.0, E: 0.0}
+    reference: {A: 0.0, B: 0.0, C: 0.0, D: 0.0, E: 0.0}
+  data_quality:
+    gap_penalty: 0.3              # 存在日期断裂类警告
+    warn_penalty: 0.6             # 存在其他警告（仅收盘价/跳空等）
+  map_ready:
+    confirmed_verified: 1.0
+    confirmed_unverified: 0.8
+    needs_review: 0.5
+    none: 0.0
+  history_path: "state/eligibility_history.jsonl"   # 逐日落盘（同 dominant history 模式），P3 连续性规则读取
+  fail_closed: true               # 引擎任何异常 → 全标的 FROZEN（与 market_context on_error=veto 同哲学）
