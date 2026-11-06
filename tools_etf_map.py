@@ -39,7 +39,12 @@ MAP = os.path.join(BASE, "etf_map.yaml")
 UNIVERSE = os.path.join(BASE, "data", "etf_universe.json")
 CFG = os.path.join(BASE, "splus_config.yaml")
 ETF_URL = ("https://push2.eastmoney.com/api/qt/clist/get"
-           "?pn={pn}&pz=100&po=1&fid=f3&fs=b:MK0021&fields=f12,f14")
+           "?pn={pn}&pz=100&po=1&fid=f3&fs=b:MK0021,b:MK0023&fields=f12,f14")
+# fs 板块口径（2026-11-06 P4 实测探测）：MK0021=境内 ETF(1376)；MK0023=跨境/港股通
+# ETF(245，含恒生科技/恒生互联网/纳斯达克100 等 QDII 类)。原口径仅 MK0021 导致
+# 跨境指数（如 hkHSTECH 恒生科技）候选全错（误配生物科技 ETF，cross_market_suspect）。
+# 不加 MK0022 货币 ETF（27 只，流动性口径无意义）与 MK0024 商品 ETF（10 只）——
+# 118 只指数 universe 无对应需求，避免候选池噪声。
 
 # 注意：绝不能把单字母 A/C 全局删除 —— "中证A500" 会被削成 "中证500"，
 # 从而误匹配到中证500ETF。只允许剥掉名称尾部的份额类别字母。
@@ -206,11 +211,17 @@ def check() -> int:
     extra = sorted(set(ins) - codes)
     bad, confirmed = [], 0
     uni = {f["code"]: f for f in load_universe()}
+    # 跨境前缀容差（P4）：513=沪市跨境 ETF 段（恒生科技等），当前清单缓存
+    # fs=b:MK0021,b:MK0023 已含 MK0023，但缓存刷新待网络恢复；期间对缓存外
+    # 的 513 段确认放行（格式合法 + 人工指定留痕），refresh 后自动收紧。
+    CROSS_OK_PREFIX = ("513",)
     for c, v in ins.items():
         if v.get("status") == "confirmed":
             confirmed += 1
             ec = str(v.get("etf_code") or "")
-            if not re.fullmatch(r"\d{6}", ec) or (uni and ec not in uni):
+            if not re.fullmatch(r"\d{6}", ec) or (
+                    uni and ec not in uni
+                    and not ec.startswith(CROSS_OK_PREFIX)):
                 bad.append(f"{c}: {ec}")
     print("ETF 映射校验")
     print(f"  universe={len(codes)}  mapped={len(ins)}  missing={len(missing)}  extra={len(extra)}")

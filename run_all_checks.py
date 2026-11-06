@@ -28,6 +28,7 @@ CHECKS = [
     ("B2 资格分引擎", ["selftest_eligibility.py"]),
     ("B2 生命周期+状态调制", ["selftest_lifecycle.py"]),
     ("ETF 映射覆盖校验", ["tools_etf_map.py", "--check"]),
+    ("B2-P4 映射 SLA（可执行标的 100% confirmed）", ["tools_map_sla.py"]),
     ("ETF 映射复核（含观察池）", ["tools_etf_review.py", "--check"]),
     ("生产运行", ["run.py"]),
 ]

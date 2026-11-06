@@ -51,3 +51,4 @@ state/last_state.json
 state/eligibility_history.jsonl
 state/eligibility_lifecycle.json
 state/lifecycle_events.jsonl
+state/matrix_calibration.json
