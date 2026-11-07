@@ -62,6 +62,9 @@ def replay_index(code: str, bars: List[Dict[str, Any]],
 def main() -> int:
     ap = argparse.ArgumentParser(description="StateFit 矩阵回放校准（只读）")
     ap.add_argument("--limit", type=int, default=0, help="只回放前 N 只（冒烟）")
+    ap.add_argument("--start", default="",
+                    help="统一样本窗口起点（如 2020-11-06）：预热仍用窗前历史，"
+                         "只统计窗内状态日，避免各指数基线取自不同区间")
     a = ap.parse_args()
 
     import yaml
@@ -83,6 +86,12 @@ def main() -> int:
             continue
         fam = E.role_family(u.get("role"), bool(u.get("tradeable")), None)
         recs = replay_index(u["code"], bars, st_cfg)
+        if a.start:
+            recs = [r for r in recs if str(r["date"]) >= a.start]
+            if len(recs) < 60:
+                rows.append({"code": u["code"], "name": u["name"],
+                             "error": f"窗内样本不足（{len(recs)}）"})
+                continue
         closes = [r["close"] for r in recs]
         for j, r in enumerate(recs):
             f5 = (closes[j + 5] / closes[j] - 1.0) if j + 5 < len(closes) else None

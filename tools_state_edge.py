@@ -65,6 +65,10 @@ def _p_sign(k: int, n: int) -> float:
 def main() -> int:
     ap = argparse.ArgumentParser(description="状态机实证检验（只读）")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--start", default="",
+                    help="统一样本窗口起点（如 2020-11-06）。缓存深度不一致时"
+                         "（老缓存 2016 起、新深拉 6 年整），不统一窗口会让各指数的"
+                         "基线均值取自不同区间，配对 edge 不可比。")
     a = ap.parse_args()
 
     import engine
@@ -78,6 +82,7 @@ def main() -> int:
     timeline: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
     arrival_days: Dict[str, Dict[str, Any]] = defaultdict(lambda: {"n": 0, "hit": 0})
     durations: List[int] = []
+    yearly: Dict[tuple, List[float]] = defaultdict(list)
     n_idx = 0
 
     for u in cfg["universe"]:
@@ -87,6 +92,11 @@ def main() -> int:
         if len(bars) <= WARMUP + 25:
             continue
         recs = replay(u["code"], bars, st_cfg)
+        # 统一窗口：预热用窗口前的历史（不浪费样本），但只统计窗口内的记录
+        if a.start:
+            recs = [r for r in recs if str(r["date"]) >= a.start]
+            if len(recs) < 60:
+                continue
         closes = [r["close"] for r in recs]
         base_f20 = []
         by_state: Dict[str, List[float]] = defaultdict(list)
@@ -106,6 +116,22 @@ def main() -> int:
             "state_n": {s: len(v) for s, v in by_state.items()},
             "state_edge": {s: (statistics.mean(v) - base if v else None) for s, v in by_state.items()},
         }
+        # 分年度稳健性：先算该指数「该年度」的基线，再看状态超额。
+        # 目的：检验状态结论是否只是被某一段行情（如 2022 单边熊）带出来的。
+        yr: Dict[str, Dict[str, List[float]]] = defaultdict(lambda: defaultdict(list))
+        for j, r in enumerate(recs):
+            f20 = r.get("f20")
+            if f20 is None:
+                continue
+            yr[str(r["date"])[:4]][r["dom"]].append(f20)
+        for y, d in yr.items():
+            ally = [x for v in d.values() for x in v]
+            if len(ally) < 40:
+                continue
+            ybase = statistics.mean(ally)
+            for s, v in d.items():
+                if len(v) >= 10:
+                    yearly[(y, s)].append(statistics.mean(v) - ybase)
         # 状态持续段
         run = 1
         for i in range(1, len(recs)):
@@ -176,6 +202,19 @@ def main() -> int:
         tot = sum(cnt.values()) or 1
         timeline_out[mth] = {s: round(cnt.get(s, 0) / tot, 3) for s in STATES}
 
+    # 分年度汇总：同一 (年, 状态) 跨指数的配对 edge 均值 + t
+    yearly_out: Dict[str, Dict[str, Any]] = {}
+    for (y, s), edges in sorted(yearly.items()):
+        if len(edges) < 8:
+            continue
+        m = statistics.mean(edges)
+        sd = statistics.pstdev(edges) if len(edges) > 1 else 0.0
+        t = m / (sd / math.sqrt(len(edges))) if sd > 0 else 0.0
+        yearly_out.setdefault(y, {})[s] = {
+            "n_index": len(edges), "edge_mean": round(m, 5),
+            "t_stat": round(t, 2),
+            "positive_share": round(sum(1 for e in edges if e > 0) / len(edges), 3)}
+
     out = {
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
         "method": "production-identical replay; per-index paired edge vs own baseline",
@@ -183,6 +222,7 @@ def main() -> int:
         "window": {"first": min((v for v in timeline), default=None),
                    "last": max((v for v in timeline), default=None)},
         "state_summary": summary,
+        "yearly": yearly_out,
         "arrival": arrival,
         "timeline": timeline_out,
         "avg_state_duration_days": round(statistics.mean(durations), 2) if durations else None,

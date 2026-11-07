@@ -245,8 +245,15 @@ def t_quality(res, cfg):
     qr = res.get("quality_report") or {}
     lv = qr.get("levels") or {}
     _tot = qr.get("total") or 0
+    _n_uni = len(cfg.get("universe") or [])
+    _floor = max(20, int(_n_uni * 0.25))     # 约每 4 只标的至少 1 条软提示
     chk("分级条目内部一致且覆盖稳定（随宇宙演化自适应，不耦合快照值）",
-        _tot == len(qr.get("items") or []) and _tot >= 40, f"total={_tot}")
+        _tot == len(qr.get("items") or []) and _tot >= _floor,
+        f"total={_tot} floor={_floor}")
+    # 2026-11-07：原写死 total>=40。历史库扩展到 6 年并清理了周末伪 K 线、
+    # 发布前稀疏基期段后，真实的「日期断裂」类提示消失，条目数由 46 降到 38——
+    # 这是数据变好、不是分级失灵。故改为按宇宙规模自适应（下限 25%）：
+    # 条数本身不是质量目标，内部一致 + 覆盖充分才是指标。
     chk("仅收盘价代理为 HIGH（3 只）", lv.get("HIGH") == 3
         and "光模块CPO" in qr.get("high_names", []), str(lv))
     chk("真跳空为 LOW 且保留使用", lv.get("LOW", 0) > 30)

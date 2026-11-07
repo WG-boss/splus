@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>可交易标的方案批判性复审 · 2026-11-06</title>
+<style>
+  :root{--ink:#1a2332;--navy:#0d3b66;--gold:#b8860b;--red:#c0392b;--green:#1e8449;--blue:#1a5fb4;--line:#dde3ea;--muted:#5a6b7f;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#f5f6f8;color:var(--ink);line-height:1.75;font-size:15px}
+  .wrap{max-width:1060px;margin:0 auto;padding:32px 28px 80px}
+  h1{font-size:24px;color:var(--navy)} h2{font-size:18px;color:var(--navy);margin:36px 0 12px;border-left:5px solid var(--navy);padding-left:12px}
+  h3{font-size:15.5px;margin:18px 0 8px}
+  .sub{color:var(--muted);font-size:13.5px;margin:8px 0 4px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;font-size:13.5px}
+  th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left}
+  td{border:1px solid var(--line);padding:7px 10px;vertical-align:top}
+  tr:nth-child(even) td{background:#f8fafc}
+  .num{text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+  .win{color:var(--green)} .lose{color:var(--red)} .mid{color:var(--gold)}
+  .note{background:#fdf6e3;border:1px solid #e8d9a0;border-radius:6px;padding:12px 16px;font-size:13.5px;margin:12px 0}
+  .warn{background:#fdecea;border:1px solid #f5b7b1;border-radius:6px;padding:12px 16px;font-size:13.5px;margin:12px 0}
+  .verdict{background:#0e1726;color:#e8edf5;border-radius:8px;padding:18px 22px;margin:16px 0;font-size:14.5px}
+  .verdict b{color:#ffd166}
+  code{background:#eef1f5;padding:1px 5px;border-radius:3px;font-family:Consolas,monospace;font-size:13px}
+  .tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:600}
+  .tag.g{background:#e8f6ee;color:var(--green)} .tag.r{background:#fdecea;color:var(--red)} .tag.y{background:#faf3dd;color:var(--gold)}
+  footer{margin-top:50px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>可交易标的方案 · 批判性复审</h1>
+<div class="sub">2026-11-06 17:00 ｜ 标尺：本项目真实约束（单人单账户 / 6 条 cron 无人值守 / 10 年指数级历史 / L1–L5 现有资产）｜ 结论：<b>原案灵魂保留，机构重机制降级为现有架构的自然扩展点</b></div>
+
+<h2>一、复审方法：五个候选方案 × 六个本项目硬约束</h2>
+<p>原策划案（下称 <b>B1</b>）的评审标准是"国际机构级"。但本项目的真实运行环境是：<b>单一决策者、单一账户、6 条定时任务全年无人值守、可用历史为指数日线（ETF 溢价/成交额历史短）、已有一套经过 14 项自检验证的 L1–L5</b>。机构级 ≠ 项目级最优。构造五个候选：</p>
+<table>
+<tr><th>方案</th><th>定义</th><th>一句话</th></tr>
+<tr><td><b>B0</b> 维持现状</td><td>只做映射 SLA + 87 只 B 级确认，资格体系不动</td><td>什么都不改</td></tr>
+<tr><td><b>B1</b> 原案完整版</td><td>资格分引擎 + 三簿册 pod 硬隔离 + 完整生命周期状态机 + 矩阵校准（19 参数）</td><td>机构级全套</td></tr>
+<tr><td><b>B2</b> 资格引擎 + 现有落点</td><td>保留资格分引擎与 StateFit 矩阵，但三簿册→<code>bucket_max</code> 系数表、状态机→两条连续性规则、簿册概念→现有 <code>role</code> 字段归并</td><td>灵魂保留，实现贴地</td></tr>
+<tr><td><b>B3</b> 白名单一次性扩充</td><td>把资格达标的 watch（约 30–40 只）一次性写入 tradeable，零新机制</td><td>只扩名单</td></tr>
+<tr><td><b>B4</b> LLM 增强版</td><td>每日由 LLM 生成晋升 premetem 与标的解读，接入现有 LLM 兜底点</td><td>AI 当分析师</td></tr>
+</table>
+
+<h2>二、六维评分（5=最优，评分基于下文逐项论证）</h2>
+<table>
+<tr><th>维度 \ 方案</th><th class="num">B0 现状</th><th class="num">B1 原案</th><th class="num">B2 改良</th><th class="num">B3 扩名单</th><th class="num">B4 LLM</th></tr>
+<tr><td>① 核心痛点解决（29 只 A 态沉睡）</td><td class="num lose">1</td><td class="num win">5</td><td class="num win">5</td><td class="num mid">3</td><td class="num lose">2</td></tr>
+<tr><td>② 单人可维护性（半年不碰也稳）</td><td class="num win">5</td><td class="num lose">2</td><td class="num win">4</td><td class="num win">5</td><td class="num lose">2</td></tr>
+<tr><td>③ 过拟合风险低（数据撑得起）</td><td class="num win">5</td><td class="num lose">2</td><td class="num mid">3</td><td class="num win">5</td><td class="num lose">1</td></tr>
+<tr><td>④ 开发成本（高分=便宜）</td><td class="num win">5</td><td class="num lose">2</td><td class="num win">4</td><td class="num win">4</td><td class="num mid">3</td></tr>
+<tr><td>⑤ 无人值守可靠性（fail-closed）</td><td class="num win">5</td><td class="num mid">3</td><td class="num win">5</td><td class="num win">4</td><td class="num lose">2</td></tr>
+<tr><td>⑥ 与现有 L1–L5 契合度</td><td class="num win">5</td><td class="num lose">3</td><td class="num win">5</td><td class="num mid">4</td><td class="num lose">2</td></tr>
+<tr><td><b>合计</b></td><td class="num">26</td><td class="num">17</td><td class="num win"><b>26（痛点维度碾压 B0）</b></td><td class="num">25</td><td class="num">12</td></tr>
+</table>
+<div class="verdict"><b>结论先行：B2 严格优于 B1（B1 的每一分收益 B2 都保留，每一分成本 B2 都更低），且在"痛点解决度"上碾压 B0/B3。</b> B0/B3 总分与 B2 持平，但它们的得分全部来自"什么都不做"——而 29 只 A 态沉睡的核心痛点在 B0/B3 下无解或半解。B4 全维度劣势（LLM 输出不可审计、不可回放、cron 环境增加一个网络依赖，违背"零外部脆弱点"原则），仅保留为 P4 阶段的辅助选项。</div>
+
+<h2>三、逐项论证：为什么 B1 的三个重机制在本项目站不住</h2>
+
+<h3>3.1 三簿册 pod 硬隔离 → <code>bucket_max</code> 系数表（本次复审最大发现）</h3>
+<p>pod 隔离（Citadel 式）解决的问题是"多策略团队互不干扰"。本项目<b>只有一个策略、一个账户、一个决策者</b>——硬隔离没有服务对象。而复审中发现：<b>现有 L3 代码已实现按桶上限机制</b>（engine.py:1132，<code>cap = clamp(vol_target/vmax, 0, bucket_max)</code>），core/theme/ai_hw/pharma/watch 各桶上限已是配置项。</p>
+<table>
+<tr><th></th><th>B1：三簿册 pod 硬隔离</th><th>B2：<code>bucket_max</code> 系数表扩展</th></tr>
+<tr><td>新概念</td><td>3 个簿册 + 预算隔离层 + 跨簿册相关性口径改造</td><td><b>零新概念</b>——一张系数表（如 core 1.0 / theme 0.7 / ai_hw 0.6 / pharma 0.7 / watch 0）</td></tr>
+<tr><td>L3 代码改动</td><td>预算层重写 + 相关性惩罚跨簿册口径</td><td><b>零行</b>——机制已存在，只改配置</td></tr>
+<tr><td>风险预算表达</td><td>硬隔离 50/35/15</td><td>系数表连续调节，同样能表达 50/35/15（系数∝预算），且可微调</td></tr>
+<tr><td>回滚</td><td>需下线簿册层</td><td>改回旧系数表即回滚</td></tr>
+</table>
+
+<h3>3.2 "簿册"概念 → 现有 <code>role</code> 字段归并（第二发现）</h3>
+<p>B1 需要把 12 只标的"归位"进三个簿册，并为 106 只 watch 定义候选簿册归属——这引入了一套新的分类体系。但 config.yaml 里 <b>role 字段已存在且语义完备</b>（进攻候选/左侧候选/事件驱动/上游映射/固定跟踪/领先观察 + 参照类）。把 role 归并为三个"角色族"：</p>
+<table>
+<tr><th>角色族（新增，仅 1 个映射表）</th><th>吸纳的现有 role</th><th>投研语义</th></tr>
+<tr><td><b>进攻族</b></td><td>进攻候选、上游映射、固定跟踪</td><td>B/C 态主战场，行业贝塔+</td></tr>
+<tr><td><b>事件族</b></td><td>事件驱动、左侧候选</td><td>A 态左侧专用通道（原 Tactical 的灵魂）</td></tr>
+<tr><td><b>参照族</b></td><td>市场基准、风格参照、全球上游、领先观察、筛选源观察</td><td>不占预算，资格分仅作温度计</td></tr>
+</table>
+<p>StateFit 矩阵变为 <b>5 态 × 3 角色族 = 15 格</b>（与 B1 参数量持平），但<b>概念从"新建簿册体系"降为"给现有字段加一张查表"</b>。11-05 实测：进攻族 7 只（6 只 E 态 → StateFit=0，光模块/PCB 等全冻结）、事件族 3 只、恒生科技为领先观察属参照族但跨境独立（需一条特例：参照族中 confirmed 且境外市场者按 0.5 计入）。</p>
+
+<h3>3.3 完整生命周期状态机 → 两条连续性规则 + 冷却（第三发现）</h3>
+<p>B1 的五态生命周期（Watch→Candidate→Confirmed→Active⇄Probation→Exit）本质是把机构组合治理流程制度化。单人体系中，状态机的价值只剩<b>防抖动</b>——而这用两条规则即可达到 90% 效果：</p>
+<table>
+<tr><th>B1 状态机</th><th>B2 轻量替代</th><th>损失</th></tr>
+<tr><td>五状态 + JSONL 落盘 + 事件台账全链</td><td><b>规则 1（晋升）</b>：资格 ≥80 连续 3 日 + 映射 confirmed → tradeable 投影置 true；<b>规则 2（降级）</b>：tradeable 标的资格连续 5 日 &lt;60 或 E 态超期（进攻族 5 日/事件族 3 日）→ 置 false；<b>冷却</b>：降级后 10 交易日禁止再晋升</td><td>丢失"Probation 中间态"的渐进退出——但 L4 失效位与 L5 kill switch 已覆盖离场执行，中间态在单人体系里是冗余流程</td></tr>
+<tr><td>事件写独立台账</td><td>事件写入<b>现有归因台账</b>（新增 lifecycle 桶）</td><td>无损失——归因闭环保留</td></tr>
+</table>
+<div class="note">本质区别：B1 的生命周期是"<b>重新发明一套机构流程</b>"，B2 是"用两条规则守门 + 复用现有台账"。B1 的渐进退出价值已被现有 L4/L5 覆盖——这是复审中确认的最重要的"已有资产替代"。</div>
+
+<h3>3.4 B3（白名单扩充）为什么不够</h3>
+<p>B3 能解决"E 态占位"（扩名单后新鲜血液进得来），但解决不了"动态退出"与"全量定价"：① 40 只名单在下次状态切换时同样会老化——B3 是把 T+N 周改成 T+N 月，没有消除人工时滞；② 没有 StateFit 权重，40 只在 L3 里平等竞争，行业同质化时相关性惩罚会把全组合仓位压扁（光模块/PCB/半导体材料同涨同跌的老问题）；③ 但 B3 的"一次性批量确认 30–40 只映射"动作本身有价值——它恰好是 B2 的 P4 前置工作。<b>结论：B3 被吸收为 B2 的一个子步骤，而非独立方案。</b></p>
+
+<h3>3.5 B4（LLM 增强）为什么出局</h3>
+<p>项目铁律"零外部脆弱点、仅 4 个 LLM 兜底点"。每日标的解读引入：API 可用性依赖（cron 半夜失败即断链）、输出不可回放（违背资格分可回放原则）、成本随 universe 规模线性增长。<b>降级保留：</b>P4 阶段可用 LLM 辅助生成"晋升标的 premetem 草稿"，但仅作为人工确认的输入，不进入决策链。</p>
+
+<h2>四、B2 最终形态：每个机制的实现落点</h2>
+<table>
+<tr><th>机制</th><th>B1 原实现</th><th>B2 最终落点</th><th>改动量</th></tr>
+<tr><td>资格分引擎</td><td>eligibility.py 四因子 30/40/20/10</td><td><b>不变</b>（这是灵魂，直击 A 态沉睡痛点）</td><td>新模块 + 自测</td></tr>
+<tr><td>StateFit 矩阵</td><td>5 态 × 3 簿册（新概念）</td><td>5 态 × 3 <b>角色族</b>（role 字段归并查表）</td><td>1 张映射表 + 1 张矩阵（配置外置）</td></tr>
+<tr><td>风险预算</td><td>三簿册 pod 硬隔离 + 相关性跨簿册改造</td><td><code>bucket_max</code> 系数表扩展（机制已存在）</td><td><b>纯配置</b></td></tr>
+<tr><td>生命周期</td><td>五态状态机 + JSONL</td><td>2 条连续性规则 + 10 日冷却 + 事件入现有归因台账</td><td>1 个小模块（约 150 行）</td></tr>
+<tr><td>资格分落盘/回放</td><td>JSONL 逐日（同 dominant history 模式）</td><td><b>不变</b></td><td>随引擎交付</td></tr>
+<tr><td>执行工程</td><td>映射 SLA / 87 只分批 / 溢价切换 / 容量地板</td><td><b>全部不变</b>（成本低价值高，复审零异议）</td><td>P4</td></tr>
+<tr><td>fail-closed</td><td>引擎故障全体降 OBSERVE</td><td><b>不变</b>（与 market_context on_error=veto 同哲学）</td><td>随引擎交付</td></tr>
+</table>
+<div class="warn"><b>参数账本（过拟合风险对比）：</b>B1 = 19 个自由参数（矩阵 15 格 + 权重 4）；B2 = 17 个（矩阵 15 格仍需 10 年回放校准 + 权重 4 不变，但 bucket_max 系数表是校准目标而非新参数，生命周期超期天数 2 个为工程参数非统计参数）。两案矩阵校准要求一致：每格 ≥30 个状态日样本，不足者报告页标注"先验未校准"。这是 B2 相对 B0/B3 唯一真实付出的代价——用 15 个可校准参数换取状态信号的全量定价。</div>
+
+<h2>五、修订后路线图（较原案压缩约 40%）</h2>
+<table>
+<tr><th>期</th><th>内容</th><th>验收</th></tr>
+<tr><td><b>P1</b>（D+1）</td><td>eligibility.py 四因子引擎 + role→角色族映射 + fail-closed + selftest + 118 只 11-05 资格分快照 + JSONL 落盘</td><td>selftest 全绿；快照与预期方向一致（恒生科技 ~85 / 9 只 E 态原白名单 30–45）</td></tr>
+<tr><td><b>P2</b>（D+2）</td><td>报告新增「资格分」列 + 四档权限徽标；tradeable 投影规则上线（≥80+FULL）；<code>bucket_max</code> 系数表（纯配置）</td><td>selftest_html 全绿；旧报告对比零破坏</td></tr>
+<tr><td><b>P3</b>（D+3）</td><td>2 条连续性规则 + 10 日冷却 + 事件入归因台账（lifecycle 桶）+ 状态调制乘数（E 态占比 → 全局 M）</td><td>11-05 模拟流转正确（E=66% → M=0.5 → 零开仓，与现行殊途同归）</td></tr>
+<tr><td><b>P4</b>（D+4+）</td><td>映射 SLA + 吸收 B3：资格分 Top 30~40 批量确认（87 只 B 级按序分批）+ 溢价率切换 + 容量地板 + 矩阵 10 年回放校准</td><td>Active 100% confirmed；矩阵格样本量标注</td></tr>
+</table>
+<div class="note"><b>回滚设计（不变）：</b>tradeable 布尔始终保留为资格分投影，任一期出问题回滚 = 投影退回静态白名单，系统回到今天的形态。P1–P4 每期独立提交、独立 typecheck/build/selftest。</div>
+
+<h2>六、复审结论</h2>
+<table>
+<tr><th>裁定</th><th>内容</th></tr>
+<tr><td><span class="tag g">保留</span></td><td>资格分引擎（四因子）、四档权限、StateFit 匹配思想、资格分落盘回放、执行工程全套、fail-closed、回滚设计——B1 的全部灵魂</td></tr>
+<tr><td><span class="tag y">降级</span></td><td>三簿册 → bucket_max 系数表；"簿册"概念 → role 角色族查表；五态状态机 → 2 条规则 + 冷却 + 现有台账</td></tr>
+<tr><td><span class="tag r">出局</span></td><td>pod 硬隔离与跨簿册相关性改造（无服务对象）；LLM 进决策链（违背零脆弱点）；独立生命周期台账（已有归因台账替代）</td></tr>
+<tr><td><span class="tag g">吸收</span></td><td>B3 白名单扩充 → 成为 P4 的批量确认动作；B4 LLM → 降为 P4 辅助草稿工具</td></tr>
+</table>
+<p><b>一句话总纲：B1 回答"机构会怎么做"，B2 回答"这套代码、这个人、这个 cron 环境，怎么把机构智慧落进现有架构"——后者才是 SSSSS 级的真正含义：不是堆机制，是每个机制都长在它该长的地方。</b></p>
+
+<footer>批判性复审 v1.0 · 2026-11-06 ｜ 前置文档：tradeable_universe_masterplan_20261106.html（原 SSSSS 策划案）｜ 实证依据：data/splus_decision_20261105.json + engine.py L3 实码 + config.yaml role/bucket 实态</footer>
+</div></body>
+</html>

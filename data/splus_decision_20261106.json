@@ -14,14 +14,14 @@
     "synthetic_demo": {
       "ok": true,
       "as_of": "2026-11-06",
-      "dd": -0.462498,
-      "mdd": -0.49332,
-      "nav_points": 306,
-      "note": "等权组合净值回撤（11 只，2025-07-22→2026-11-06）"
+      "dd": -0.491138,
+      "mdd": -0.51307,
+      "nav_points": 1409,
+      "note": "等权组合净值回撤（11 只，2020-11-11→2026-11-06）"
     },
     "synthetic_note": "假设组合等权净值，仅供参考，不参与账户级节流"
   },
-  "generated_at": "2026-11-06 22:58:55",
+  "generated_at": "2026-11-08 00:56:23",
   "config_version": "1.0.0",
   "per_index": {
     "000688": {
@@ -78,9 +78,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 54.9% = 27%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.95%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -108,18 +108,18 @@
         "after": 0.1082
       },
       "eligibility": {
-        "score": 12.0,
+        "score": 22.3,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0106,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
         ]
       },
@@ -191,7 +191,7 @@
           "top_code": "588150",
           "top_name": "科创50ETF南方",
           "top_amount_cny": 34965607.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -259,9 +259,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 49.7% = 30%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.49%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -289,18 +289,18 @@
         "after": 0.0825
       },
       "eligibility": {
-        "score": 12.0,
+        "score": 27.1,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "event",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.1715,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × event）→ FROZEN 硬闸"
         ]
       },
@@ -372,7 +372,7 @@
           "top_code": "159298",
           "top_name": "创业板50ETF大成",
           "top_amount_cny": 19098742.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -391,58 +391,58 @@
       "role": "领先观察",
       "bucket": "core",
       "as_of": "2026-11-06",
-      "close": 4071.89,
-      "ann_vol_20": 0.3841991283247821,
-      "dd_from_high": -0.3392438421606921,
-      "pos_in_52w": 0.1488455603643069,
-      "er20": 0.0009913968049079036,
+      "close": 4078.23,
+      "ann_vol_20": 0.38328570226785946,
+      "dd_from_high": -0.3382150339068588,
+      "pos_in_52w": 0.15142681491916268,
+      "er20": 0.0032407005258620644,
       "adx14": 33.79388224250568,
-      "above_ma200": -0.14622611526885743,
-      "ma200_slope": -0.03340337043068087,
-      "vol_z20": 0.23577587197486072,
+      "above_ma200": -0.14490245880250052,
+      "ma200_slope": -0.033396945752653395,
+      "vol_z20": 0.7904222070438889,
       "state": {
         "probs": {
-          "A": 0.408,
-          "B": 0.0652,
-          "C": 0.0652,
-          "D": 0.0652,
-          "E": 0.3965
+          "A": 0.4011,
+          "B": 0.0669,
+          "C": 0.0669,
+          "D": 0.0669,
+          "E": 0.3981
         },
         "dominant": "A",
         "dominant_name": "吸筹/筑底",
-        "confidence": 0.408,
+        "confidence": 0.4011,
         "scores": {
-          "A": 1.559,
+          "A": 1.522,
           "B": 0.0,
           "C": 0.0,
           "D": 0.0,
-          "E": 1.535
+          "E": 1.516
         },
         "state_start": "2026-11-05",
         "state_days": 2
       },
-      "state_weight": 0.1644,
+      "state_weight": 0.1657,
       "tradeable": true,
       "sizing": {
-        "cap_vol": 0.3904,
+        "cap_vol": 0.3914,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1644,
-        "final": 0.0321,
-        "raw_before_clamp": 0.0642,
+        "state_weight": 0.1657,
+        "final": 0.0,
+        "raw_before_clamp": 0.0648,
         "binding": "state",
         "decomposition": {
-          "vol": 0.3904,
+          "vol": 0.3914,
           "dd": 1.0,
           "corr": 1.0,
-          "state": 0.1644
+          "state": 0.1657
         },
         "notes": {
-          "vol": "vol目标 15% / 实际 38.4% = 39%",
+          "vol": "vol目标 15% / 实际 38.3% = 39%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
+          "eligibility": "B2 档位权限 OBSERVE ×0 → 6.48%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -456,8 +456,8 @@
           "above_ema20": true,
           "ema20_above_ema60": false,
           "er_rising": false,
-          "vol_expanding": false,
-          "score": 1,
+          "vol_expanding": true,
+          "score": 2,
           "active": false,
           "label": "下跌中继（不参与）"
         },
@@ -466,19 +466,20 @@
       "l2_suppress": {
         "leader_ret20": -0.1333,
         "factor": 0.5835,
-        "before": 0.2818,
-        "after": 0.1644
+        "before": 0.284,
+        "after": 0.1657
       },
       "eligibility": {
-        "score": 40.0,
+        "score": 42.0,
         "tier": "OBSERVE",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.5,
-          "data_quality": 1.0,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 1.0
         },
         "notes": [
           "amount 缺失 → investability 保守 0"
@@ -550,7 +551,7 @@
           "top_code": "516500",
           "top_name": "生物科技ETF华夏",
           "top_amount_cny": 3532949.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -577,7 +578,7 @@
       "adx14": 22.08265902435033,
       "above_ma200": -0.1518109359351001,
       "ma200_slope": -0.012784990143712927,
-      "vol_z20": -0.3216113711897532,
+      "vol_z20": -0.32161137118975325,
       "state": {
         "probs": {
           "A": 0.2731,
@@ -618,9 +619,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 48.0% = 31%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 4.73%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -648,15 +649,16 @@
         "after": 0.1516
       },
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "event",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -733,7 +735,7 @@
           "top_code": "159048",
           "top_name": "机器人ETF大成",
           "top_amount_cny": 19728843.67,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -760,7 +762,7 @@
       "adx14": 67.81671055909841,
       "above_ma200": -0.1924352004436597,
       "ma200_slope": 0.008180834345287824,
-      "vol_z20": 0.2682770312592708,
+      "vol_z20": 0.26827703125927077,
       "state": {
         "probs": {
           "A": 0.0871,
@@ -801,9 +803,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 62.3% = 24%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.70%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -831,18 +833,18 @@
         "after": 0.1123
       },
       "eligibility": {
-        "score": 12.0,
+        "score": 31.7,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.3245,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
         ]
       },
@@ -914,7 +916,7 @@
           "top_code": "159582",
           "top_name": "半导体ETF博时",
           "top_amount_cny": 182494834.78,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -934,14 +936,14 @@
       "bucket": "pharma",
       "as_of": "2026-11-06",
       "close": 1881.88,
-      "ann_vol_20": 0.32688717201193596,
+      "ann_vol_20": 0.3268857068273524,
       "dd_from_high": -0.12099060679804371,
       "pos_in_52w": 0.5431891930022578,
       "er20": 0.033809941671398086,
-      "adx14": 37.57718286172591,
-      "above_ma200": 0.004355321409260204,
-      "ma200_slope": -0.006670275138942472,
-      "vol_z20": -0.5790787861819172,
+      "adx14": 37.57364991721609,
+      "above_ma200": 0.004355723426132441,
+      "ma200_slope": -0.006670304121166537,
+      "vol_z20": -0.5790787103235315,
       "state": {
         "probs": {
           "A": 0.3245,
@@ -982,7 +984,7 @@
         "notes": {
           "vol": "vol目标 15% / 实际 32.7% = 46%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
           "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
         }
@@ -1012,19 +1014,18 @@
         "after": 0.2634
       },
       "eligibility": {
-        "score": 52.0,
-        "tier": "OBSERVE",
+        "score": 92.0,
+        "tier": "FULL",
+        "tier_multiplier": 1.0,
         "family": "event",
         "dominant": "A",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.8,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
-        "notes": [
-          "amount 缺失 → investability 保守 0"
-        ]
+        "notes": []
       },
       "instrument": {
         "index_code": "931152",
@@ -1096,7 +1097,7 @@
           "top_code": "517380",
           "top_name": "创新药ETF天弘",
           "top_amount_cny": 173168226.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -1123,7 +1124,7 @@
       "adx14": 61.61473232339701,
       "above_ma200": -0.35596676305495367,
       "ma200_slope": 0.0148950434739763,
-      "vol_z20": 0.06862293963336936,
+      "vol_z20": 0.06862293963336952,
       "state": {
         "probs": {
           "A": 0.0227,
@@ -1164,9 +1165,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 74.4% = 20%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 1.58%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -1196,6 +1197,7 @@
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
@@ -1230,7 +1232,7 @@
           "top_code": null,
           "top_name": "",
           "top_amount_cny": null,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -1257,7 +1259,7 @@
       "adx14": 41.44824456260762,
       "above_ma200": -0.29767185839718946,
       "ma200_slope": -0.023008812201863793,
-      "vol_z20": -0.32010335784125626,
+      "vol_z20": -0.32010335784125576,
       "state": {
         "probs": {
           "A": 0.2878,
@@ -1298,9 +1300,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 46.2% = 33%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 4.31%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -1328,15 +1330,16 @@
         "after": 0.1325
       },
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "event",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -1384,7 +1387,7 @@
           "top_code": "512620",
           "top_name": "农业ETF天弘",
           "top_amount_cny": 2867545.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -1404,14 +1407,14 @@
       "bucket": "ai_hw",
       "as_of": "2026-11-06",
       "close": 6989.55,
-      "ann_vol_20": 0.7598334495631267,
+      "ann_vol_20": 0.7598364430764644,
       "dd_from_high": -0.5012245404762007,
       "pos_in_52w": 0.25898382689609334,
-      "er20": 0.27293161857970877,
-      "adx14": 72.2743742069381,
-      "above_ma200": -0.1256904355226951,
-      "ma200_slope": 0.02512496762248917,
-      "vol_z20": 0.5016348418873978,
+      "er20": 0.2729305230539511,
+      "adx14": 72.27386577575695,
+      "above_ma200": -0.12569040271297593,
+      "ma200_slope": 0.025124962016391583,
+      "vol_z20": 0.5016345859992303,
       "state": {
         "probs": {
           "A": 0.1056,
@@ -1452,16 +1455,16 @@
         "notes": {
           "vol": "vol目标 15% / 实际 76.0% = 20%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.28%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
         "chase_atr_mult": 1.0,
-        "chase_cap_price": 11218.7,
+        "chase_cap_price": 11218.69,
         "trigger_price": 10757.45,
-        "fail_price": 5338.19,
+        "fail_price": 5338.2,
         "single_trade_risk_nav": 0.003,
         "note": "指数级标准口径",
         "rebound": {
@@ -1482,18 +1485,18 @@
         "after": 0.1153
       },
       "eligibility": {
-        "score": 12.0,
+        "score": 52.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
         ]
       },
@@ -1565,7 +1568,7 @@
           "top_code": "159327",
           "top_name": "半导体设备ETF万家",
           "top_amount_cny": 209567169.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -1592,7 +1595,7 @@
       "adx14": 64.24874442525096,
       "above_ma200": -0.347947303410025,
       "ma200_slope": 0.008612544550381074,
-      "vol_z20": -0.2928785098708672,
+      "vol_z20": -0.2928785098708683,
       "state": {
         "probs": {
           "A": 0.0278,
@@ -1633,9 +1636,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 61.2% = 25%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 1.94%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -1665,6 +1668,7 @@
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
@@ -1699,7 +1703,7 @@
           "top_code": null,
           "top_name": "",
           "top_amount_cny": null,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -1726,7 +1730,7 @@
       "adx14": 51.502661393155684,
       "above_ma200": -0.3036760688498783,
       "ma200_slope": 0.009812530889405258,
-      "vol_z20": 0.40624410986790105,
+      "vol_z20": 0.40624410986790177,
       "state": {
         "probs": {
           "A": 0.0376,
@@ -1767,9 +1771,9 @@
         "notes": {
           "vol": "vol目标 15% / 实际 70.2% = 21%",
           "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.49（阈值 0.70）→ 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 资格硬闸 FROZEN → 仓位归零（资格分低于禁开线，E 态/事件族 D 态等矩阵铁律）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.06%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -1799,6 +1803,7 @@
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
@@ -1833,7 +1838,7 @@
           "top_code": null,
           "top_name": "",
           "top_amount_cny": null,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -1917,18 +1922,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -2002,7 +2007,7 @@
           "top_code": "510380",
           "top_name": "沪深300ETF国寿",
           "top_amount_cny": 527278.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -2027,8 +2032,8 @@
       "pos_in_52w": 0.11872401745819483,
       "er20": 0.260297865562281,
       "adx14": 70.43492421945999,
-      "above_ma200": -0.17436449790993713,
-      "ma200_slope": -0.007784346150299992,
+      "above_ma200": -0.1743645082424793,
+      "ma200_slope": -0.007784346053639979,
       "vol_z20": -0.42182165329778687,
       "state": {
         "probs": {
@@ -2086,18 +2091,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -2171,7 +2176,7 @@
           "top_code": "515550",
           "top_name": "中证500ETF国联",
           "top_amount_cny": 995562.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -2255,15 +2260,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -2343,7 +2349,7 @@
           "top_code": "159808",
           "top_name": "创100ETF融通",
           "top_amount_cny": 2840350.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -2427,18 +2433,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -2512,7 +2518,7 @@
           "top_code": "510290",
           "top_name": "上证380ETF南方",
           "top_amount_cny": 2005448.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -2596,18 +2602,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -2681,7 +2687,7 @@
           "top_code": "530680",
           "top_name": "上证180ETF兴业",
           "top_amount_cny": 425604.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -2765,18 +2771,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.2,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0069,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（D 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -2848,7 +2854,7 @@
           "top_code": "159905",
           "top_name": "红利ETF工银",
           "top_amount_cny": 33266045.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -2932,18 +2938,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -3017,7 +3023,7 @@
           "top_code": "510680",
           "top_name": "上证50ETF万家",
           "top_amount_cny": 2703283.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -3042,8 +3048,8 @@
       "pos_in_52w": 0.11585530349478794,
       "er20": 0.3403068823386784,
       "adx14": 68.87117072983834,
-      "above_ma200": -0.09366376554978995,
-      "ma200_slope": -0.007396075630328625,
+      "above_ma200": -0.0936637754087355,
+      "ma200_slope": -0.0073960755504705045,
       "vol_z20": 0.17537733339882208,
       "state": {
         "probs": {
@@ -3101,18 +3107,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -3174,7 +3180,7 @@
           "top_code": "510130",
           "top_name": "上证中盘ETF易方达",
           "top_amount_cny": 4759707.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -3198,7 +3204,7 @@
       "dd_from_high": -0.1426889261042496,
       "pos_in_52w": 0.2188798166451794,
       "er20": 0.028750308921657627,
-      "adx14": 37.5005514517439,
+      "adx14": 37.49891107194969,
       "above_ma200": -0.045239998449676966,
       "ma200_slope": -0.0126080800607562,
       "vol_z20": 0.29121993097242815,
@@ -3258,18 +3264,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -3301,7 +3307,7 @@
           "top_code": "510090",
           "top_name": "责任ETF建信",
           "top_amount_cny": 36331.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -3385,18 +3391,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 60.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -3468,7 +3474,7 @@
           "top_code": "510760",
           "top_name": "上证指数ETF国泰",
           "top_amount_cny": 271969155.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -3552,15 +3558,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -3625,7 +3632,7 @@
           "top_code": "510910",
           "top_name": "上证指数ETF南方",
           "top_amount_cny": 29970419.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -3709,15 +3716,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -3794,7 +3802,7 @@
           "top_code": "515650",
           "top_name": "消费50ETF富国",
           "top_amount_cny": 75170203.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -3878,18 +3886,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -3963,7 +3971,7 @@
           "top_code": "563860",
           "top_name": "中证A500ETF海富通",
           "top_amount_cny": 3410383.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -4047,18 +4055,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 36.7,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.4912,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -4130,7 +4138,7 @@
           "top_code": "589190",
           "top_name": "科创芯片ETF华宝",
           "top_amount_cny": 36717720.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -4214,18 +4222,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 22.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -4297,7 +4305,7 @@
           "top_code": "588210",
           "top_name": "科创100ETF易方达",
           "top_amount_cny": 18311174.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -4324,7 +4332,7 @@
       "adx14": 54.999236242120084,
       "above_ma200": -0.1703628719876874,
       "ma200_slope": -0.011792843408998332,
-      "vol_z20": -0.9990111145284714,
+      "vol_z20": -0.9990112133890279,
       "state": {
         "probs": {
           "A": 0.3691,
@@ -4381,15 +4389,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -4466,7 +4475,7 @@
           "top_code": "159129",
           "top_name": "化工ETF嘉实",
           "top_amount_cny": 11530388.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -4550,18 +4559,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 60.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -4633,7 +4642,7 @@
           "top_code": "512100",
           "top_name": "中证1000ETF南方",
           "top_amount_cny": 3699203434.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -4660,7 +4669,7 @@
       "adx14": 9.102118799533136,
       "above_ma200": -0.011507580441059706,
       "ma200_slope": 0.001132825100312429,
-      "vol_z20": 0.3862167720868732,
+      "vol_z20": 0.3862168077949829,
       "state": {
         "probs": {
           "A": 0.1507,
@@ -4717,15 +4726,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -4796,7 +4806,7 @@
           "top_code": "515080",
           "top_name": "中证红利ETF招商",
           "top_amount_cny": 326239023.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -4880,18 +4890,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.8,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0261,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -4939,7 +4949,7 @@
           "top_code": "159943",
           "top_name": "深证成指ETF大成",
           "top_amount_cny": 42286514.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -5023,18 +5033,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -5108,7 +5118,7 @@
           "top_code": "159902",
           "top_name": "中小100ETF华夏",
           "top_amount_cny": 5113895.2,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -5192,15 +5202,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -5277,7 +5288,7 @@
           "top_code": "159289",
           "top_name": "创业板综指ETF鹏华",
           "top_amount_cny": 3944744.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -5361,15 +5372,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -5446,7 +5458,7 @@
           "top_code": "159836",
           "top_name": "创业板300ETF天弘",
           "top_amount_cny": 2069641.2,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -5530,15 +5542,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -5615,7 +5628,7 @@
           "top_code": "159571",
           "top_name": "创业板200ETF富国",
           "top_amount_cny": 2602239.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -5699,15 +5712,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -5784,7 +5798,7 @@
           "top_code": "159541",
           "top_name": "创业板综ETF万家",
           "top_amount_cny": 8350679.6,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -5868,15 +5882,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -5953,7 +5968,7 @@
           "top_code": "158072",
           "top_name": "创业板软件ETF南方",
           "top_amount_cny": 4067484.12,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -6037,18 +6052,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 23.1,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0374,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -6120,7 +6135,7 @@
           "top_code": "589960",
           "top_name": "科创新能源ETF易方达",
           "top_amount_cny": 47577020.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -6204,15 +6219,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -6287,7 +6303,7 @@
           "top_code": "588700",
           "top_name": "科创医药ETF嘉实",
           "top_amount_cny": 41611620.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -6371,15 +6387,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -6426,7 +6443,7 @@
           "top_code": "159777",
           "top_name": "创科技ETF国联安",
           "top_amount_cny": 3560001.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -6510,15 +6527,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -6554,7 +6572,7 @@
           "top_code": "159804",
           "top_name": "创中盘88ETF国寿",
           "top_amount_cny": 655897.1,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -6638,18 +6656,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 22.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -6721,7 +6739,7 @@
           "top_code": "159814",
           "top_name": "创业大盘ETF西部利得",
           "top_amount_cny": 21779112.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -6805,15 +6823,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -6890,7 +6909,7 @@
           "top_code": "588910",
           "top_name": "科创价值ETF建信",
           "top_amount_cny": 7218416.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -6974,15 +6993,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -7059,7 +7079,7 @@
           "top_code": "589490",
           "top_name": "科创成长ETF华夏",
           "top_amount_cny": 6282673.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -7143,18 +7163,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -7228,7 +7248,7 @@
           "top_code": "159907",
           "top_name": "国证2000ETF广发",
           "top_amount_cny": 8639314.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -7312,15 +7332,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -7398,7 +7419,7 @@
           "top_code": "515080",
           "top_name": "中证红利ETF招商",
           "top_amount_cny": 326239023.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -7482,15 +7503,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -7532,7 +7554,7 @@
           "top_code": "159906",
           "top_name": "深成长ETF大成",
           "top_amount_cny": 8335050.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -7616,18 +7638,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -7701,7 +7723,7 @@
           "top_code": "159576",
           "top_name": "深证100ETF广发",
           "top_amount_cny": 4620807.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -7785,15 +7807,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -7870,7 +7893,7 @@
           "top_code": "159913",
           "top_name": "深价值ETF交银",
           "top_amount_cny": 9481.1,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -7954,18 +7977,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -8039,7 +8062,7 @@
           "top_code": "159728",
           "top_name": "在线消费ETF南方",
           "top_amount_cny": 1682439.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8123,15 +8146,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -8209,7 +8233,7 @@
           "top_code": "159106",
           "top_name": "民企300ETF前海开源",
           "top_amount_cny": 435421.6,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8293,15 +8317,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -8379,7 +8404,7 @@
           "top_code": "158047",
           "top_name": "粮食ETF永赢",
           "top_amount_cny": 848010.55,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8463,18 +8488,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -8548,7 +8573,7 @@
           "top_code": "158026",
           "top_name": "大盘成长ETF华夏",
           "top_amount_cny": 766887.93,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8632,18 +8657,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（D 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -8717,7 +8742,7 @@
           "top_code": "159391",
           "top_name": "大盘价值ETF博时",
           "top_amount_cny": 2433748.1,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8801,18 +8826,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -8886,7 +8911,7 @@
           "top_code": "159653",
           "top_name": "ESG300ETF国联安",
           "top_amount_cny": 1299.6,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -8970,15 +8995,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -9056,7 +9082,7 @@
           "top_code": "515560",
           "top_name": "证券ETF建信",
           "top_amount_cny": 1500028.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -9140,15 +9166,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -9225,7 +9252,7 @@
           "top_code": "159151",
           "top_name": "食品ETF华夏",
           "top_amount_cny": 21375081.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -9309,15 +9336,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -9359,7 +9387,7 @@
           "top_code": "159662",
           "top_name": "交运ETF南方",
           "top_amount_cny": 5166162.2,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -9443,15 +9471,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -9529,7 +9558,7 @@
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
           "top_amount_cny": 28775271.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -9613,18 +9642,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（A 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -9698,7 +9727,7 @@
           "top_code": "159669",
           "top_name": "绿色电力ETF国泰",
           "top_amount_cny": 2051897.2,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -9782,15 +9811,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -9838,7 +9868,7 @@
           "top_code": "561760",
           "top_name": "油气ETF博时",
           "top_amount_cny": 2188245.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -9922,18 +9952,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 31.1,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0357,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（A 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -10005,7 +10035,7 @@
           "top_code": "159859",
           "top_name": "生物医药ETF天弘",
           "top_amount_cny": 142247621.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -10089,18 +10119,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -10174,7 +10204,7 @@
           "top_code": "159965",
           "top_name": "央视50ETF国联",
           "top_amount_cny": 678605.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -10258,18 +10288,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -10307,7 +10337,7 @@
           "top_code": "159909",
           "top_name": "TMT50ETF招商",
           "top_amount_cny": 3601805.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -10391,18 +10421,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -10476,7 +10506,7 @@
           "top_code": "159918",
           "top_name": "中创400ETF嘉实",
           "top_amount_cny": 1568991.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -10560,15 +10590,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -10645,7 +10676,7 @@
           "top_code": "158025",
           "top_name": "创业板成长ETF鹏华",
           "top_amount_cny": 3156297.17,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -10729,15 +10760,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -10814,7 +10846,7 @@
           "top_code": "159578",
           "top_name": "深证主板50ETF南方",
           "top_amount_cny": 418575.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -10898,15 +10930,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -10984,7 +11017,7 @@
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
           "top_amount_cny": 28775271.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -11068,15 +11101,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -11154,7 +11188,7 @@
           "top_code": "510530",
           "top_name": "中证500ETF工银",
           "top_amount_cny": 7514924.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -11238,15 +11272,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -11317,7 +11352,7 @@
           "top_code": "159828",
           "top_name": "医疗ETF国泰",
           "top_amount_cny": 94867301.56,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -11344,7 +11379,7 @@
       "adx14": 70.15836178378098,
       "above_ma200": -0.23680064582969917,
       "ma200_slope": -0.01605086520265342,
-      "vol_z20": -0.31421187615056295,
+      "vol_z20": -0.3142118761505632,
       "state": {
         "probs": {
           "A": 0.1683,
@@ -11401,15 +11436,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -11488,7 +11524,7 @@
           "top_code": "560290",
           "top_name": "有色ETF景顺",
           "top_amount_cny": 4163206.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -11515,7 +11551,7 @@
       "adx14": 58.829449428763574,
       "above_ma200": -0.11426798627282764,
       "ma200_slope": -0.021626165774198403,
-      "vol_z20": -0.24262930052890572,
+      "vol_z20": -0.24262930052890544,
       "state": {
         "probs": {
           "A": 0.2389,
@@ -11572,15 +11608,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -11659,7 +11696,7 @@
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
           "top_amount_cny": 28775271.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -11686,7 +11723,7 @@
       "adx14": 21.965989014642023,
       "above_ma200": 0.01450053813218699,
       "ma200_slope": -0.0029042895783464306,
-      "vol_z20": 0.4773510631154895,
+      "vol_z20": 0.47735106311548914,
       "state": {
         "probs": {
           "A": 0.1686,
@@ -11743,18 +11780,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 33.2,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.1066,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（D 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -11828,7 +11865,7 @@
           "top_code": "515480",
           "top_name": "红利低波100ETF南方",
           "top_amount_cny": 1269680.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -11855,7 +11892,7 @@
       "adx14": 74.49023566902011,
       "above_ma200": -0.22654966351004202,
       "ma200_slope": -0.002344593000547124,
-      "vol_z20": -0.28254548225888615,
+      "vol_z20": -0.28254548225888576,
       "state": {
         "probs": {
           "A": 0.0591,
@@ -11912,18 +11949,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 39.1,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.3027,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -11997,7 +12034,7 @@
           "top_code": "589410",
           "top_name": "科创人工智能ETF嘉实",
           "top_amount_cny": 6327534.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -12024,7 +12061,7 @@
       "adx14": 76.50178875398693,
       "above_ma200": -0.3463411164379342,
       "ma200_slope": 0.0010908827486850736,
-      "vol_z20": 0.18748754089811773,
+      "vol_z20": 0.18748754089811717,
       "state": {
         "probs": {
           "A": 0.025,
@@ -12081,15 +12118,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12167,7 +12205,7 @@
           "top_code": "159511",
           "top_name": "通信ETF南方",
           "top_amount_cny": 12130196.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -12194,7 +12232,7 @@
       "adx14": 74.4405380308547,
       "above_ma200": -0.3699673730443338,
       "ma200_slope": -0.002525117876684635,
-      "vol_z20": -0.4832370957058867,
+      "vol_z20": -0.4832370957058863,
       "state": {
         "probs": {
           "A": 0.0279,
@@ -12251,15 +12289,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12331,7 +12370,7 @@
           "top_code": "159511",
           "top_name": "通信ETF南方",
           "top_amount_cny": 12130196.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -12358,7 +12397,7 @@
       "adx14": 51.103414230747134,
       "above_ma200": -0.17728561486677952,
       "ma200_slope": -0.022472122190517307,
-      "vol_z20": 0.1708087400248892,
+      "vol_z20": 0.1708087400248893,
       "state": {
         "probs": {
           "A": 0.259,
@@ -12415,15 +12454,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12488,7 +12528,7 @@
           "top_code": "517400",
           "top_name": "黄金股ETF国泰",
           "top_amount_cny": 106029628.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -12515,7 +12555,7 @@
       "adx14": 45.1615787188465,
       "above_ma200": -0.13422720303300706,
       "ma200_slope": -0.027008507736460685,
-      "vol_z20": 0.8919714228297699,
+      "vol_z20": 0.8919714228297705,
       "state": {
         "probs": {
           "A": 0.3061,
@@ -12572,15 +12612,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12641,7 +12682,7 @@
           "top_code": "517350",
           "top_name": "沪港深科技ETF广发",
           "top_amount_cny": 334676.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -12725,15 +12766,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12813,7 +12855,7 @@
           "top_code": "159550",
           "top_name": "互联网ETF东财",
           "top_amount_cny": 4170736.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -12840,7 +12882,7 @@
       "adx14": 83.367406823403,
       "above_ma200": -0.3123923998755107,
       "ma200_slope": -0.011966678729290692,
-      "vol_z20": 1.2454563937415848,
+      "vol_z20": 1.2454563937415846,
       "state": {
         "probs": {
           "A": 0.0215,
@@ -12897,15 +12939,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -12982,7 +13025,7 @@
           "top_code": "588350",
           "top_name": "科创创业50ETF鹏扬",
           "top_amount_cny": 2605467.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -13009,7 +13052,7 @@
       "adx14": 42.42860783673716,
       "above_ma200": -0.246706475629057,
       "ma200_slope": -0.029856353507749622,
-      "vol_z20": 0.9871027176183901,
+      "vol_z20": 0.98710271761839,
       "state": {
         "probs": {
           "A": 0.3108,
@@ -13066,15 +13109,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -13152,7 +13196,7 @@
           "top_code": "159077",
           "top_name": "电池ETF鑫元",
           "top_amount_cny": 1428434.68,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -13179,7 +13223,7 @@
       "adx14": 54.80498176052317,
       "above_ma200": -0.21666871328078496,
       "ma200_slope": -0.002979587301086273,
-      "vol_z20": -0.47221059065948157,
+      "vol_z20": -0.47221059065948173,
       "state": {
         "probs": {
           "A": 0.2922,
@@ -13236,18 +13280,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.9,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0291,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -13301,7 +13345,7 @@
           "top_code": "561380",
           "top_name": "电网设备ETF国泰",
           "top_amount_cny": 43689533.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -13328,7 +13372,7 @@
       "adx14": 69.99580977817685,
       "above_ma200": -0.12581170911962825,
       "ma200_slope": 0.02925636949351884,
-      "vol_z20": 0.9394807805877794,
+      "vol_z20": 0.9394807805877791,
       "state": {
         "probs": {
           "A": 0.0597,
@@ -13385,18 +13429,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 52.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -13468,7 +13512,7 @@
           "top_code": "589020",
           "top_name": "科创半导体设备ETF鹏华",
           "top_amount_cny": 1286252336.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -13495,7 +13539,7 @@
       "adx14": 70.30153716751373,
       "above_ma200": -0.18719193802009648,
       "ma200_slope": -0.0068616740532135845,
-      "vol_z20": -0.7320874852292045,
+      "vol_z20": -0.7320874852292051,
       "state": {
         "probs": {
           "A": 0.0867,
@@ -13552,18 +13596,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -13637,7 +13681,7 @@
           "top_code": "530530",
           "top_name": "上证580ETF华夏",
           "top_amount_cny": 498528.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -13721,18 +13765,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 23.4,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.0455,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -13806,7 +13850,7 @@
           "top_code": "158031",
           "top_name": "创业板人工智能ETF易方达",
           "top_amount_cny": 7754568.89,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -13833,7 +13877,7 @@
       "adx14": 58.548233919515575,
       "above_ma200": -0.2666813574480775,
       "ma200_slope": -0.03278121650175614,
-      "vol_z20": 1.037518974119377,
+      "vol_z20": 1.0375189741193773,
       "state": {
         "probs": {
           "A": 0.2222,
@@ -13890,18 +13934,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 22.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 1.0,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -13973,7 +14017,7 @@
           "top_code": "158078",
           "top_name": "创业板电池ETF华宝",
           "top_amount_cny": 18918138.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -14000,7 +14044,7 @@
       "adx14": 75.54252677672643,
       "above_ma200": -0.276798257641499,
       "ma200_slope": 0.007663766226160051,
-      "vol_z20": 0.3799135417425385,
+      "vol_z20": 0.37991354174253833,
       "state": {
         "probs": {
           "A": 0.0374,
@@ -14057,18 +14101,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 22.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -14140,7 +14184,7 @@
           "top_code": "158055",
           "top_name": "创业板算力ETF国泰",
           "top_amount_cny": 77486427.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -14167,7 +14211,7 @@
       "adx14": 65.85827410458154,
       "above_ma200": -0.187120670702292,
       "ma200_slope": -0.035342847839965996,
-      "vol_z20": -0.12738517798796284,
+      "vol_z20": -0.12738517798796248,
       "state": {
         "probs": {
           "A": 0.2082,
@@ -14224,18 +14268,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 22.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 1.0,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -14309,7 +14353,7 @@
           "top_code": "158062",
           "top_name": "创业板金融科技ETF建信",
           "top_amount_cny": 7946690.39,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -14328,43 +14372,43 @@
       "role": "筛选源观察",
       "bucket": "watch",
       "as_of": "2026-11-06",
-      "close": 13057.97,
-      "ann_vol_20": 0.5984435330347111,
-      "dd_from_high": -0.4789352985235136,
-      "pos_in_52w": 0.49387814448580947,
-      "er20": 0.26826529754822764,
-      "adx14": 41.81301157395562,
-      "above_ma200": -0.16461083633780194,
-      "ma200_slope": 0.0027949920420569097,
-      "vol_z20": 0.42705083232370133,
+      "close": 1304.8308,
+      "ann_vol_20": 0.17128618764091286,
+      "dd_from_high": -0.17611096427217043,
+      "pos_in_52w": 0.16412957122962255,
+      "er20": 0.15489319164143667,
+      "adx14": 66.61441868119536,
+      "above_ma200": -0.0948100557451308,
+      "ma200_slope": -0.017097756154544452,
+      "vol_z20": -0.05891769353154977,
       "state": {
         "probs": {
-          "A": 0.1553,
-          "B": 0.0604,
-          "C": 0.0604,
-          "D": 0.0604,
-          "E": 0.6633
+          "A": 0.3715,
+          "B": 0.0563,
+          "C": 0.0563,
+          "D": 0.0563,
+          "E": 0.4595
         },
         "dominant": "E",
         "dominant_name": "下跌/衰退",
-        "confidence": 0.6633,
+        "confidence": 0.4595,
         "scores": {
-          "A": 0.802,
+          "A": 1.603,
           "B": 0.0,
           "C": 0.0,
           "D": 0.0,
-          "E": 2.036
+          "E": 1.784
         },
         "state_start": "2026-10-23",
         "state_days": 8
       },
-      "state_weight": 0.2351,
+      "state_weight": 0.2599,
       "tradeable": false,
       "sizing": {
         "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2351,
+        "state_weight": 0.2599,
         "final": 0.0,
         "notes": {
           "vol": "参照系，不计仓",
@@ -14375,9 +14419,9 @@
       },
       "execution": {
         "chase_atr_mult": 1.0,
-        "chase_cap_price": 19482.72,
-        "trigger_price": 19002.3,
-        "fail_price": 11443.59,
+        "chase_cap_price": 1471.35,
+        "trigger_price": 1449.28,
+        "fail_price": 1227.98,
         "single_trade_risk_nav": 0.003,
         "note": "参照系，不生成执行计划",
         "rebound": {
@@ -14393,15 +14437,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.6,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -14479,7 +14524,7 @@
           "top_code": "159808",
           "top_name": "创100ETF融通",
           "top_amount_cny": 2840350.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -14506,7 +14551,7 @@
       "adx14": 36.289302228007976,
       "above_ma200": -0.0380054798516718,
       "ma200_slope": -0.014239896430234045,
-      "vol_z20": -0.5831393296292059,
+      "vol_z20": -0.5831393296292058,
       "state": {
         "probs": {
           "A": 0.6706,
@@ -14563,15 +14608,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -14631,7 +14677,7 @@
           "top_code": "562860",
           "top_name": "疫苗ETF嘉实",
           "top_amount_cny": 7960215.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -14658,7 +14704,7 @@
       "adx14": 36.03208253186558,
       "above_ma200": 0.01547563644850447,
       "ma200_slope": -0.008443656796329635,
-      "vol_z20": -0.053589496885839236,
+      "vol_z20": -0.05358949688583951,
       "state": {
         "probs": {
           "A": 0.3575,
@@ -14715,18 +14761,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（A 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -14800,7 +14846,7 @@
           "top_code": "159760",
           "top_name": "医疗健康ETF泰康",
           "top_amount_cny": 559312.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -14827,7 +14873,7 @@
       "adx14": 75.53879933812927,
       "above_ma200": -0.2341097658246335,
       "ma200_slope": 0.0012846816134564065,
-      "vol_z20": 0.22015019143572565,
+      "vol_z20": 0.22015019143572537,
       "state": {
         "probs": {
           "A": 0.0627,
@@ -14884,15 +14930,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 1.0,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -14970,7 +15017,7 @@
           "top_code": "159599",
           "top_name": "芯片ETF东财",
           "top_amount_cny": 196919331.57,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -14997,7 +15044,7 @@
       "adx14": 41.34442617586523,
       "above_ma200": -0.2803795714476778,
       "ma200_slope": -0.019789061263984276,
-      "vol_z20": 0.13752067185289768,
+      "vol_z20": 0.13752067185289765,
       "state": {
         "probs": {
           "A": 0.1536,
@@ -15054,15 +15101,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -15140,7 +15188,7 @@
           "top_code": "158036",
           "top_name": "卫星ETF华夏",
           "top_amount_cny": 5540289.89,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -15167,7 +15215,7 @@
       "adx14": 24.89005318244559,
       "above_ma200": -0.09946816041628836,
       "ma200_slope": -0.017227610900964252,
-      "vol_z20": -0.11718071920813153,
+      "vol_z20": -0.11718071920813126,
       "state": {
         "probs": {
           "A": 0.3711,
@@ -15224,15 +15272,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -15310,7 +15359,7 @@
           "top_code": "159048",
           "top_name": "机器人ETF大成",
           "top_amount_cny": 19728843.67,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -15337,7 +15386,7 @@
       "adx14": 61.14101786263296,
       "above_ma200": -0.26123923401624927,
       "ma200_slope": -0.030075006008355,
-      "vol_z20": 1.7658834431092045,
+      "vol_z20": 1.765883443109205,
       "state": {
         "probs": {
           "A": 0.2418,
@@ -15394,15 +15443,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -15467,7 +15517,7 @@
           "top_code": "159052",
           "top_name": "储能电池ETF嘉实",
           "top_amount_cny": 12788564.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -15494,7 +15544,7 @@
       "adx14": 30.897697590152777,
       "above_ma200": -0.05242612720197337,
       "ma200_slope": -0.014068794161802067,
-      "vol_z20": 1.1393174690011856,
+      "vol_z20": 1.1393174690011854,
       "state": {
         "probs": {
           "A": 0.364,
@@ -15551,15 +15601,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -15637,7 +15688,7 @@
           "top_code": "515640",
           "top_name": "家电ETF华夏",
           "top_amount_cny": 34082.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -15664,7 +15715,7 @@
       "adx14": 61.6689070584672,
       "above_ma200": -0.24262619283117592,
       "ma200_slope": -0.003547016534176106,
-      "vol_z20": -0.6200167402267226,
+      "vol_z20": -0.620016740226723,
       "state": {
         "probs": {
           "A": 0.0814,
@@ -15721,18 +15772,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -15806,7 +15857,7 @@
           "top_code": "159178",
           "top_name": "消费电子ETF汇添富",
           "top_amount_cny": 6094385.8,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -15833,7 +15884,7 @@
       "adx14": 41.46776444753369,
       "above_ma200": -0.23923070991618844,
       "ma200_slope": -0.02762184825770697,
-      "vol_z20": 0.22620383391016077,
+      "vol_z20": 0.22620383391016086,
       "state": {
         "probs": {
           "A": 0.2795,
@@ -15890,15 +15941,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -15976,7 +16028,7 @@
           "top_code": "159052",
           "top_name": "储能电池ETF嘉实",
           "top_amount_cny": 12788564.4,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -16003,7 +16055,7 @@
       "adx14": 27.11284869623081,
       "above_ma200": -0.1592521657347825,
       "ma200_slope": -0.013844610198306961,
-      "vol_z20": -0.13619616082625624,
+      "vol_z20": -0.13619616082625582,
       "state": {
         "probs": {
           "A": 0.2564,
@@ -16060,18 +16112,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -16145,7 +16197,7 @@
           "top_code": "159108",
           "top_name": "工业软件ETF博时",
           "top_amount_cny": 5326387.7,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -16172,7 +16224,7 @@
       "adx14": 41.771493769678564,
       "above_ma200": -0.22274934231210264,
       "ma200_slope": -0.028025086636797036,
-      "vol_z20": -0.21951646700738964,
+      "vol_z20": -0.21951646700738925,
       "state": {
         "probs": {
           "A": 0.2915,
@@ -16229,18 +16281,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -16314,7 +16366,7 @@
           "top_code": "563870",
           "top_name": "通用航空ETF鹏华",
           "top_amount_cny": 1426162.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -16398,15 +16450,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -16485,7 +16538,7 @@
           "top_code": "159808",
           "top_name": "创100ETF融通",
           "top_amount_cny": 2840350.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -16512,7 +16565,7 @@
       "adx14": 19.098869418114628,
       "above_ma200": -0.02824495383014669,
       "ma200_slope": -3.461818036087916e-05,
-      "vol_z20": 0.5490015794147891,
+      "vol_z20": 0.5490015794147892,
       "state": {
         "probs": {
           "A": 0.2213,
@@ -16569,15 +16622,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -16656,7 +16710,7 @@
           "top_code": "159808",
           "top_name": "创100ETF融通",
           "top_amount_cny": 2840350.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -16683,7 +16737,7 @@
       "adx14": 18.938807333458435,
       "above_ma200": -0.07659105607878636,
       "ma200_slope": -0.005772045423863892,
-      "vol_z20": -0.06177182835625904,
+      "vol_z20": -0.06177182835625884,
       "state": {
         "probs": {
           "A": 0.5783,
@@ -16740,18 +16794,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 32.6,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
-          "investability": 0.0,
+          "investability": 0.086,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（A 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -16823,7 +16877,7 @@
           "top_code": "159232",
           "top_name": "自由现金流ETF南方",
           "top_amount_cny": 70401056.76,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -16850,7 +16904,7 @@
       "adx14": 25.61840482623867,
       "above_ma200": -0.10966666822241256,
       "ma200_slope": -0.03133878775026222,
-      "vol_z20": 0.9612281681298457,
+      "vol_z20": 0.9612281681298454,
       "state": {
         "probs": {
           "A": 0.3739,
@@ -16907,15 +16961,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -16976,7 +17031,7 @@
           "top_code": "517350",
           "top_name": "沪港深科技ETF广发",
           "top_amount_cny": 334676.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -17003,7 +17058,7 @@
       "adx14": 22.395439582510072,
       "above_ma200": 0.00044090247563621787,
       "ma200_slope": 0.0065341697421266165,
-      "vol_z20": -0.029251544697819872,
+      "vol_z20": -0.02925154469781946,
       "state": {
         "probs": {
           "A": 0.1567,
@@ -17060,18 +17115,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（D 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -17145,7 +17200,7 @@
           "top_code": "159118",
           "top_name": "港股通红利低波ETF华夏",
           "top_amount_cny": 6716639.9,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -17172,7 +17227,7 @@
       "adx14": 33.170853571377265,
       "above_ma200": -0.06623569079075498,
       "ma200_slope": -0.02092258197759489,
-      "vol_z20": -0.15596362110571468,
+      "vol_z20": -0.15596362110571452,
       "state": {
         "probs": {
           "A": 0.4824,
@@ -17229,15 +17284,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -17316,7 +17372,7 @@
           "top_code": "517380",
           "top_name": "创新药ETF天弘",
           "top_amount_cny": 173168226.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -17343,7 +17399,7 @@
       "adx14": 21.702280105013436,
       "above_ma200": -0.13216450664949708,
       "ma200_slope": -0.04319351263685489,
-      "vol_z20": 0.9704863992498922,
+      "vol_z20": 0.970486399249892,
       "state": {
         "probs": {
           "A": 0.4654,
@@ -17400,15 +17456,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 12.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -17488,7 +17545,7 @@
           "top_code": "159550",
           "top_name": "互联网ETF东财",
           "top_amount_cny": 4170736.3,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -17515,7 +17572,7 @@
       "adx14": 13.932466200776771,
       "above_ma200": -0.0651889389381749,
       "ma200_slope": -0.02165071542275787,
-      "vol_z20": 1.4992769050294494,
+      "vol_z20": 1.4992769050294497,
       "state": {
         "probs": {
           "A": 0.3598,
@@ -17572,15 +17629,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -17646,7 +17704,7 @@
           "top_code": "510150",
           "top_name": "消费ETF招商",
           "top_amount_cny": 34315482.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -17673,7 +17731,7 @@
       "adx14": 63.71079598570335,
       "above_ma200": -0.2358943799462967,
       "ma200_slope": -0.004528639784941335,
-      "vol_z20": -0.20908609257782923,
+      "vol_z20": -0.20908609257782954,
       "state": {
         "probs": {
           "A": 0.1049,
@@ -17730,15 +17788,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -17816,7 +17875,7 @@
           "top_code": "562570",
           "top_name": "信创ETF华夏",
           "top_amount_cny": 7713480.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -17843,7 +17902,7 @@
       "adx14": 33.73549595759729,
       "above_ma200": -0.19812808061940446,
       "ma200_slope": -0.02609424688070683,
-      "vol_z20": -0.6023159476919671,
+      "vol_z20": -0.602315947691967,
       "state": {
         "probs": {
           "A": 0.4411,
@@ -17900,15 +17959,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -17949,7 +18009,7 @@
           "top_code": "159267",
           "top_name": "航天ETF华安",
           "top_amount_cny": 62465881.1,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -17976,7 +18036,7 @@
       "adx14": 52.7990462555727,
       "above_ma200": -0.14590884287073524,
       "ma200_slope": -0.03586429611397479,
-      "vol_z20": -0.8465344475338681,
+      "vol_z20": -0.846534447533868,
       "state": {
         "probs": {
           "A": 0.7342,
@@ -18033,18 +18093,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "A",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（A 态 × reference）→ FROZEN 硬闸"
         ]
       },
@@ -18118,7 +18178,7 @@
           "top_code": "516600",
           "top_name": "消费服务ETF工银",
           "top_amount_cny": 3944797.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -18202,15 +18262,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -18288,7 +18349,7 @@
           "top_code": "560290",
           "top_name": "有色ETF景顺",
           "top_amount_cny": 4163206.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -18372,15 +18433,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "reference",
         "dominant": "D",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -18457,7 +18519,7 @@
           "top_code": "520610",
           "top_name": "港股红利低波ETF银华",
           "top_amount_cny": 2001019.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -18484,7 +18546,7 @@
       "adx14": 62.76594978876877,
       "above_ma200": -0.09283569500399413,
       "ma200_slope": -0.01041591213511206,
-      "vol_z20": -0.246823859294105,
+      "vol_z20": -0.24682385929410522,
       "state": {
         "probs": {
           "A": 0.2727,
@@ -18541,15 +18603,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -18626,7 +18689,7 @@
           "top_code": "560820",
           "top_name": "中证A50ETF新华",
           "top_amount_cny": 36579.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -18710,18 +18773,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
         ]
       },
@@ -18795,7 +18858,7 @@
           "top_code": "159923",
           "top_name": "中证A100ETF大成",
           "top_amount_cny": 2820926.5,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -18879,18 +18942,18 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 20.0,
+        "score": 30.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
-          "map_ready": 0.0
+          "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失 → investability 保守 0",
           "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
         ]
       },
@@ -18964,7 +19027,7 @@
           "top_code": "159800",
           "top_name": "中证800ETF鹏华",
           "top_amount_cny": 1920290.1,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
@@ -18991,7 +19054,7 @@
       "adx14": 73.69153367338139,
       "above_ma200": -0.17237367082501054,
       "ma200_slope": -0.010394036475644297,
-      "vol_z20": -0.620063737764704,
+      "vol_z20": -0.6200637377647035,
       "state": {
         "probs": {
           "A": 0.0895,
@@ -19048,15 +19111,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 25.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 1.0,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -19131,7 +19195,7 @@
           "top_code": "563300",
           "top_name": "中证2000ETF华泰柏瑞",
           "top_amount_cny": 523316044.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
@@ -19158,7 +19222,7 @@
       "adx14": 71.8984340706831,
       "above_ma200": -0.20935903608740225,
       "ma200_slope": 0.0038083665368695563,
-      "vol_z20": 0.11593211795856276,
+      "vol_z20": 0.11593211795856312,
       "state": {
         "probs": {
           "A": 0.0889,
@@ -19215,15 +19279,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -19300,7 +19365,7 @@
           "top_code": "159599",
           "top_name": "芯片ETF东财",
           "top_amount_cny": 196919331.57,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -19327,7 +19392,7 @@
       "adx14": 39.34606392079159,
       "above_ma200": -0.22378171662776192,
       "ma200_slope": -0.031232936770625108,
-      "vol_z20": 0.941872517593057,
+      "vol_z20": 0.9418725175930569,
       "state": {
         "probs": {
           "A": 0.352,
@@ -19384,15 +19449,16 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 6.0,
+        "score": 17.0,
         "tier": "FROZEN",
+        "tier_multiplier": 0.0,
         "family": "offense",
         "dominant": "E",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
-          "data_quality": 0.3,
-          "map_ready": 0.0
+          "data_quality": 0.6,
+          "map_ready": 0.5
         },
         "notes": [
           "amount 缺失 → investability 保守 0",
@@ -19440,7 +19506,7 @@
           "top_code": "516110",
           "top_name": "汽车ETF国泰",
           "top_amount_cny": 15808881.0,
-          "reviewed_at": "2026-11-06",
+          "reviewed_at": "2026-11-08",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
       },
@@ -19546,7 +19612,7 @@
         "970081": 0.607,
         "970083": 0.897,
         "970085": 0.705,
-        "980001": -0.217,
+        "980001": 0.748,
         "980015": 0.422,
         "980016": 0.42,
         "980017": 0.989,
@@ -19666,7 +19732,7 @@
         "970081": 0.718,
         "970083": 0.887,
         "970085": 0.715,
-        "980001": -0.213,
+        "980001": 0.834,
         "980015": 0.476,
         "980016": 0.423,
         "980017": 0.893,
@@ -19786,7 +19852,7 @@
         "970081": 0.563,
         "970083": 0.427,
         "970085": 0.486,
-        "980001": -0.134,
+        "980001": 0.762,
         "980015": 0.449,
         "980016": 0.452,
         "980017": 0.441,
@@ -19906,7 +19972,7 @@
         "970081": 0.642,
         "970083": 0.8,
         "970085": 0.668,
-        "980001": -0.191,
+        "980001": 0.768,
         "980015": 0.501,
         "980016": 0.503,
         "980017": 0.834,
@@ -20026,7 +20092,7 @@
         "970081": 0.601,
         "970083": 0.907,
         "970085": 0.654,
-        "980001": -0.169,
+        "980001": 0.719,
         "980015": 0.393,
         "980016": 0.383,
         "980017": 0.997,
@@ -20146,7 +20212,7 @@
         "970081": 0.431,
         "970083": 0.499,
         "970085": 0.446,
-        "980001": -0.122,
+        "980001": 0.602,
         "980015": 0.933,
         "980016": 0.973,
         "980017": 0.479,
@@ -20170,7 +20236,7 @@
         "CN5082": 0.337,
         "CN5097": 0.532,
         "CN6051": 0.329,
-        "H30269": -0.143,
+        "H30269": -0.142,
         "930050": 0.556,
         "000903": 0.551,
         "000906": 0.588,
@@ -20266,7 +20332,7 @@
         "970081": 0.414,
         "970083": 0.91,
         "970085": 0.501,
-        "980001": -0.137,
+        "980001": 0.588,
         "980015": 0.291,
         "980016": 0.221,
         "980017": 0.859,
@@ -20386,7 +20452,7 @@
         "970081": 0.51,
         "970083": 0.801,
         "970085": 0.595,
-        "980001": -0.109,
+        "980001": 0.62,
         "980015": 0.28,
         "980016": 0.299,
         "980017": 0.848,
@@ -20506,7 +20572,7 @@
         "970081": 0.599,
         "970083": 0.839,
         "970085": 0.584,
-        "980001": -0.129,
+        "980001": 0.633,
         "980015": 0.333,
         "980016": 0.337,
         "980017": 0.938,
@@ -20626,7 +20692,7 @@
         "970081": 0.465,
         "970083": 0.949,
         "970085": 0.579,
-        "980001": -0.3,
+        "980001": 0.655,
         "980015": 0.39,
         "980016": 0.31,
         "980017": 0.876,
@@ -20746,7 +20812,7 @@
         "970081": 0.528,
         "970083": 0.926,
         "970085": 0.615,
-        "980001": -0.174,
+        "980001": 0.683,
         "980015": 0.37,
         "980016": 0.337,
         "980017": 0.977,
@@ -20866,7 +20932,7 @@
         "970081": 0.76,
         "970083": 0.781,
         "970085": 0.74,
-        "980001": -0.236,
+        "980001": 0.905,
         "980015": 0.518,
         "980016": 0.5,
         "980017": 0.818,
@@ -20986,7 +21052,7 @@
         "970081": 0.704,
         "970083": 0.909,
         "970085": 0.737,
-        "980001": -0.211,
+        "980001": 0.844,
         "980015": 0.563,
         "980016": 0.535,
         "980017": 0.913,
@@ -21106,7 +21172,7 @@
         "970081": -0.095,
         "970083": 0.261,
         "970085": 0.244,
-        "980001": -0.118,
+        "980001": 0.12,
         "980015": 0.122,
         "980016": 0.089,
         "980017": 0.191,
@@ -21226,7 +21292,7 @@
         "970081": 0.716,
         "970083": 0.873,
         "970085": 0.757,
-        "980001": -0.226,
+        "980001": 0.855,
         "980015": 0.598,
         "980016": 0.574,
         "980017": 0.885,
@@ -21346,7 +21412,7 @@
         "970081": 0.73,
         "970083": 0.714,
         "970085": 0.728,
-        "980001": -0.193,
+        "980001": 0.886,
         "980015": 0.548,
         "980016": 0.57,
         "980017": 0.765,
@@ -21466,7 +21532,7 @@
         "970081": -0.096,
         "970083": -0.162,
         "970085": -0.077,
-        "980001": 0.085,
+        "980001": -0.023,
         "980015": -0.079,
         "980016": -0.143,
         "980017": -0.255,
@@ -21586,7 +21652,7 @@
         "970081": 0.65,
         "970083": 0.542,
         "970085": 0.715,
-        "980001": -0.219,
+        "980001": 0.801,
         "980015": 0.454,
         "980016": 0.521,
         "980017": 0.645,
@@ -21706,7 +21772,7 @@
         "970081": 0.708,
         "970083": 0.746,
         "970085": 0.659,
-        "980001": -0.198,
+        "980001": 0.859,
         "980015": 0.498,
         "980016": 0.466,
         "980017": 0.736,
@@ -21826,7 +21892,7 @@
         "970081": 0.558,
         "970083": 0.3,
         "970085": 0.493,
-        "980001": -0.295,
+        "980001": 0.698,
         "980015": 0.469,
         "980016": 0.48,
         "980017": 0.297,
@@ -21946,7 +22012,7 @@
         "970081": 0.448,
         "970083": 0.162,
         "970085": 0.438,
-        "980001": -0.106,
+        "980001": 0.503,
         "980015": 0.232,
         "980016": 0.233,
         "980017": 0.183,
@@ -22066,7 +22132,7 @@
         "970081": 0.529,
         "970083": 0.589,
         "970085": 0.476,
-        "980001": -0.123,
+        "980001": 0.636,
         "980015": 0.256,
         "980016": 0.17,
         "980017": 0.562,
@@ -22186,7 +22252,7 @@
         "970081": 0.493,
         "970083": 0.261,
         "970085": 0.439,
-        "980001": -0.182,
+        "980001": 0.593,
         "980015": 0.81,
         "980016": 0.932,
         "980017": 0.265,
@@ -22306,7 +22372,7 @@
         "970081": 0.761,
         "970083": 0.844,
         "970085": 0.745,
-        "980001": -0.232,
+        "980001": 0.903,
         "980015": 0.546,
         "980016": 0.524,
         "980017": 0.872,
@@ -22426,7 +22492,7 @@
         "970081": 0.583,
         "970083": 0.909,
         "970085": 0.656,
-        "980001": -0.192,
+        "980001": 0.718,
         "980015": 0.394,
         "980016": 0.383,
         "980017": 0.994,
@@ -22546,7 +22612,7 @@
         "970081": 0.633,
         "970083": 0.928,
         "970085": 0.659,
-        "980001": -0.207,
+        "980001": 0.761,
         "980015": 0.505,
         "980016": 0.489,
         "980017": 0.954,
@@ -22666,7 +22732,7 @@
         "970081": 0.664,
         "970083": 0.473,
         "970085": 0.479,
-        "980001": 0.0,
+        "980001": 0.704,
         "980015": 0.468,
         "980016": 0.421,
         "980017": 0.483,
@@ -22786,7 +22852,7 @@
         "970081": 0.69,
         "970083": 0.923,
         "970085": 0.741,
-        "980001": -0.218,
+        "980001": 0.831,
         "980015": 0.545,
         "980016": 0.52,
         "980017": 0.9,
@@ -22906,7 +22972,7 @@
         "970081": 0.059,
         "970083": -0.104,
         "970085": 0.045,
-        "980001": 0.05,
+        "980001": 0.134,
         "980015": 0.048,
         "980016": 0.0,
         "980017": -0.194,
@@ -23026,7 +23092,7 @@
         "970081": 0.755,
         "970083": 0.893,
         "970085": 0.736,
-        "980001": -0.22,
+        "980001": 0.885,
         "980015": 0.535,
         "980016": 0.496,
         "980017": 0.9,
@@ -23146,7 +23212,7 @@
         "970081": 0.756,
         "970083": 0.882,
         "970085": 0.732,
-        "980001": -0.215,
+        "980001": 0.887,
         "980015": 0.524,
         "980016": 0.496,
         "980017": 0.902,
@@ -23266,7 +23332,7 @@
         "970081": 0.729,
         "970083": 0.901,
         "970085": 0.718,
-        "980001": -0.217,
+        "980001": 0.849,
         "980015": 0.505,
         "980016": 0.461,
         "980017": 0.91,
@@ -23386,7 +23452,7 @@
         "970081": 0.724,
         "970083": 0.918,
         "970085": 0.738,
-        "980001": -0.22,
+        "980001": 0.853,
         "980015": 0.531,
         "980016": 0.49,
         "980017": 0.917,
@@ -23506,7 +23572,7 @@
         "970081": 0.661,
         "970083": 0.923,
         "970085": 0.762,
-        "980001": -0.216,
+        "980001": 0.817,
         "980015": 0.593,
         "980016": 0.564,
         "980017": 0.886,
@@ -23626,7 +23692,7 @@
         "970081": 0.717,
         "970083": 0.931,
         "970085": 0.736,
-        "980001": -0.21,
+        "980001": 0.853,
         "980015": 0.556,
         "980016": 0.518,
         "980017": 0.91,
@@ -23746,7 +23812,7 @@
         "970081": 0.595,
         "970083": 0.776,
         "970085": 0.869,
-        "980001": -0.163,
+        "980001": 0.744,
         "980015": 0.494,
         "980016": 0.478,
         "980017": 0.743,
@@ -23866,7 +23932,7 @@
         "970081": 0.948,
         "970083": 0.648,
         "970085": 0.638,
-        "980001": -0.135,
+        "980001": 0.861,
         "980015": 0.479,
         "980016": 0.496,
         "980017": 0.725,
@@ -23986,7 +24052,7 @@
         "970081": 0.416,
         "970083": 0.452,
         "970085": 0.429,
-        "980001": -0.149,
+        "980001": 0.614,
         "980015": 0.966,
         "980016": 0.93,
         "980017": 0.395,
@@ -24106,7 +24172,7 @@
         "970081": 0.748,
         "970083": 0.899,
         "970085": 0.731,
-        "980001": -0.222,
+        "980001": 0.852,
         "980015": 0.544,
         "980016": 0.51,
         "980017": 0.926,
@@ -24226,7 +24292,7 @@
         "970081": 0.673,
         "970083": 0.895,
         "970085": 0.805,
-        "980001": -0.204,
+        "980001": 0.832,
         "980015": 0.604,
         "980016": 0.57,
         "980017": 0.877,
@@ -24346,7 +24412,7 @@
         "970081": 0.709,
         "970083": 0.898,
         "970085": 0.723,
-        "980001": -0.217,
+        "980001": 0.835,
         "980015": 0.486,
         "980016": 0.435,
         "980017": 0.902,
@@ -24466,7 +24532,7 @@
         "970081": 0.805,
         "970083": 0.757,
         "970085": 0.751,
-        "980001": -0.238,
+        "980001": 0.906,
         "980015": 0.565,
         "980016": 0.559,
         "980017": 0.789,
@@ -24586,7 +24652,7 @@
         "970081": 0.63,
         "970083": 0.932,
         "970085": 0.615,
-        "980001": -0.195,
+        "980001": 0.759,
         "980015": 0.423,
         "980016": 0.369,
         "980017": 0.923,
@@ -24706,7 +24772,7 @@
         "970081": 0.671,
         "970083": 0.923,
         "970085": 0.728,
-        "980001": -0.194,
+        "980001": 0.819,
         "980015": 0.567,
         "980016": 0.537,
         "980017": 0.882,
@@ -24826,7 +24892,7 @@
         "970081": 0.731,
         "970083": 0.206,
         "970085": 0.43,
-        "980001": -0.121,
+        "980001": 0.724,
         "980015": 0.422,
         "980016": 0.468,
         "980017": 0.243,
@@ -24946,7 +25012,7 @@
         "970081": 0.665,
         "970083": 0.917,
         "970085": 0.62,
-        "980001": -0.197,
+        "980001": 0.774,
         "980015": 0.408,
         "980016": 0.338,
         "980017": 0.916,
@@ -25066,7 +25132,7 @@
         "970081": 0.758,
         "970083": 0.838,
         "970085": 0.713,
-        "980001": -0.227,
+        "980001": 0.89,
         "980015": 0.506,
         "980016": 0.458,
         "980017": 0.857,
@@ -25186,7 +25252,7 @@
         "970081": 0.669,
         "970083": 0.41,
         "970085": 0.574,
-        "980001": -0.139,
+        "980001": 0.795,
         "980015": 0.588,
         "980016": 0.601,
         "980017": 0.446,
@@ -25306,7 +25372,7 @@
         "970081": 0.588,
         "970083": 0.615,
         "970085": 0.812,
-        "980001": -0.23,
+        "980001": 0.733,
         "980015": 0.488,
         "980016": 0.5,
         "980017": 0.584,
@@ -25426,7 +25492,7 @@
         "970081": 0.779,
         "970083": 0.819,
         "970085": 0.735,
-        "980001": -0.255,
+        "980001": 0.901,
         "980015": 0.564,
         "980016": 0.531,
         "980017": 0.836,
@@ -25546,7 +25612,7 @@
         "970081": 0.228,
         "970083": 0.24,
         "970085": 0.42,
-        "980001": -0.096,
+        "980001": 0.357,
         "980015": 0.385,
         "980016": 0.369,
         "980017": 0.237,
@@ -25666,7 +25732,7 @@
         "970081": 0.747,
         "970083": 0.836,
         "970085": 0.72,
-        "980001": -0.2,
+        "980001": 0.889,
         "980015": 0.518,
         "980016": 0.487,
         "980017": 0.876,
@@ -25786,7 +25852,7 @@
         "970081": -0.193,
         "970083": -0.582,
         "970085": -0.251,
-        "980001": 0.008,
+        "980001": -0.231,
         "980015": -0.203,
         "980016": -0.154,
         "980017": -0.602,
@@ -25906,7 +25972,7 @@
         "970081": 0.79,
         "970083": 0.717,
         "970085": 0.731,
-        "980001": -0.233,
+        "980001": 0.922,
         "980015": 0.581,
         "980016": 0.56,
         "980017": 0.752,
@@ -26026,7 +26092,7 @@
         "970081": 0.477,
         "970083": 0.952,
         "970085": 0.607,
-        "980001": -0.281,
+        "980001": 0.667,
         "980015": 0.404,
         "980016": 0.315,
         "980017": 0.881,
@@ -26146,7 +26212,7 @@
         "970081": 0.271,
         "970083": -0.258,
         "970085": 0.202,
-        "980001": -0.09,
+        "980001": 0.24,
         "980015": 0.355,
         "980016": 0.432,
         "980017": -0.259,
@@ -26266,7 +26332,7 @@
         "970081": 0.249,
         "970083": -0.045,
         "970085": 0.178,
-        "980001": 0.117,
+        "980001": 0.244,
         "980015": 0.229,
         "980016": 0.229,
         "980017": -0.121,
@@ -26386,7 +26452,7 @@
         "970081": 0.516,
         "970083": 0.309,
         "970085": 0.771,
-        "980001": -0.246,
+        "980001": 0.59,
         "980015": 0.351,
         "980016": 0.348,
         "980017": 0.348,
@@ -26506,7 +26572,7 @@
         "970081": 0.098,
         "970083": -0.134,
         "970085": 0.132,
-        "980001": 0.29,
+        "980001": 0.09,
         "980015": 0.051,
         "980016": 0.056,
         "980017": -0.114,
@@ -26626,7 +26692,7 @@
         "970081": 0.034,
         "970083": 0.151,
         "970085": 0.132,
-        "980001": 0.212,
+        "980001": 0.108,
         "980015": 0.087,
         "980016": 0.055,
         "980017": 0.077,
@@ -26746,7 +26812,7 @@
         "970081": 0.435,
         "970083": 0.49,
         "970085": 0.408,
-        "980001": -0.091,
+        "980001": 0.583,
         "980015": 0.959,
         "980016": 0.949,
         "980017": 0.452,
@@ -26866,7 +26932,7 @@
         "970081": 0.493,
         "970083": 0.252,
         "970085": 0.496,
-        "980001": -0.275,
+        "980001": 0.618,
         "980015": 0.398,
         "980016": 0.497,
         "980017": 0.278,
@@ -26986,7 +27052,7 @@
         "970081": 0.588,
         "970083": 0.95,
         "970085": 0.67,
-        "980001": -0.22,
+        "980001": 0.767,
         "980015": 0.424,
         "980016": 0.377,
         "980017": 0.951,
@@ -27106,7 +27172,7 @@
         "970081": 0.711,
         "970083": 0.922,
         "970085": 0.731,
-        "980001": -0.199,
+        "980001": 0.841,
         "980015": 0.547,
         "980016": 0.522,
         "980017": 0.906,
@@ -27226,7 +27292,7 @@
         "970081": 0.664,
         "970083": 0.941,
         "970085": 0.682,
-        "980001": -0.226,
+        "980001": 0.799,
         "980015": 0.47,
         "980016": 0.422,
         "980017": 0.935,
@@ -27346,7 +27412,7 @@
         "970081": 0.769,
         "970083": 0.62,
         "970085": 0.652,
-        "980001": -0.181,
+        "980001": 0.907,
         "980015": 0.573,
         "980016": 0.587,
         "980017": 0.692,
@@ -27466,7 +27532,7 @@
         "970081": 0.515,
         "970083": 0.334,
         "970085": 0.796,
-        "980001": -0.231,
+        "980001": 0.587,
         "980015": 0.363,
         "980016": 0.352,
         "980017": 0.366,
@@ -27586,7 +27652,7 @@
         "970081": -0.324,
         "970083": -0.517,
         "970085": -0.389,
-        "980001": 0.023,
+        "980001": -0.39,
         "980015": -0.246,
         "980016": -0.206,
         "980017": -0.565,
@@ -27706,7 +27772,7 @@
         "970081": 0.434,
         "970083": 0.434,
         "970085": 0.405,
-        "980001": -0.138,
+        "980001": 0.601,
         "980015": 0.918,
         "980016": 0.955,
         "980017": 0.417,
@@ -27826,7 +27892,7 @@
         "970081": 0.685,
         "970083": 0.632,
         "970085": 0.535,
-        "980001": -0.167,
+        "980001": 0.721,
         "980015": 0.343,
         "980016": 0.266,
         "980017": 0.642,
@@ -27946,7 +28012,7 @@
         "970081": 0.543,
         "970083": 0.291,
         "970085": 0.594,
-        "980001": -0.155,
+        "980001": 0.642,
         "980015": 0.283,
         "980016": 0.254,
         "980017": 0.295,
@@ -28066,7 +28132,7 @@
         "970081": 0.02,
         "970083": -0.411,
         "970085": -0.045,
-        "980001": 0.07,
+        "980001": -0.024,
         "980015": 0.177,
         "980016": 0.22,
         "980017": -0.492,
@@ -28186,7 +28252,7 @@
         "970081": 0.594,
         "970083": 0.928,
         "970085": 0.709,
-        "980001": -0.205,
+        "980001": 0.787,
         "980015": 0.45,
         "980016": 0.414,
         "980017": 0.922,
@@ -28306,7 +28372,7 @@
         "970081": 0.491,
         "970083": 0.943,
         "970085": 0.594,
-        "980001": -0.237,
+        "980001": 0.687,
         "980015": 0.379,
         "980016": 0.302,
         "980017": 0.908,
@@ -28426,7 +28492,7 @@
         "970081": 0.47,
         "970083": 0.941,
         "970085": 0.586,
-        "980001": -0.251,
+        "980001": 0.665,
         "980015": 0.398,
         "980016": 0.309,
         "980017": 0.885,
@@ -28546,7 +28612,7 @@
         "970081": 0.542,
         "970083": 0.507,
         "970085": 0.376,
-        "980001": -0.207,
+        "980001": 0.595,
         "980015": 0.321,
         "980016": 0.239,
         "980017": 0.503,
@@ -28666,7 +28732,7 @@
         "970081": 0.597,
         "970083": 0.535,
         "970085": 0.542,
-        "980001": -0.199,
+        "980001": 0.809,
         "980015": 0.574,
         "980016": 0.574,
         "980017": 0.536,
@@ -28786,7 +28852,7 @@
         "970081": 0.459,
         "970083": 0.207,
         "970085": 0.353,
-        "980001": -0.035,
+        "980001": 0.612,
         "980015": 0.392,
         "980016": 0.439,
         "980017": 0.235,
@@ -28906,7 +28972,7 @@
         "970081": 0.654,
         "970083": 0.913,
         "970085": 0.679,
-        "980001": -0.211,
+        "980001": 0.791,
         "980015": 0.431,
         "980016": 0.401,
         "980017": 0.961,
@@ -29026,7 +29092,7 @@
         "970081": 0.987,
         "970083": 0.525,
         "970085": 0.573,
-        "980001": -0.06,
+        "980001": 0.808,
         "980015": 0.455,
         "980016": 0.46,
         "980017": 0.606,
@@ -29146,7 +29212,7 @@
         "970081": 0.69,
         "970083": 0.812,
         "970085": 0.638,
-        "980001": -0.178,
+        "980001": 0.786,
         "980015": 0.44,
         "980016": 0.374,
         "980017": 0.8,
@@ -29266,7 +29332,7 @@
         "970081": 0.594,
         "970083": 0.837,
         "970085": 0.594,
-        "980001": -0.131,
+        "980001": 0.626,
         "980015": 0.329,
         "980016": 0.328,
         "980017": 0.925,
@@ -29386,7 +29452,7 @@
         "970081": 0.66,
         "970083": 0.933,
         "970085": 0.698,
-        "980001": -0.212,
+        "980001": 0.804,
         "980015": 0.539,
         "980016": 0.512,
         "980017": 0.906,
@@ -29506,7 +29572,7 @@
         "970081": 0.531,
         "970083": 0.958,
         "970085": 0.683,
-        "980001": -0.24,
+        "980001": 0.726,
         "980015": 0.443,
         "980016": 0.383,
         "980017": 0.904,
@@ -29626,7 +29692,7 @@
         "970081": 1.0,
         "970083": 0.518,
         "970085": 0.54,
-        "980001": -0.059,
+        "980001": 0.783,
         "980015": 0.414,
         "980016": 0.414,
         "980017": 0.582,
@@ -29746,7 +29812,7 @@
         "970081": 0.518,
         "970083": 1.0,
         "970085": 0.623,
-        "980001": -0.241,
+        "980001": 0.695,
         "980015": 0.429,
         "980016": 0.381,
         "980017": 0.907,
@@ -29866,7 +29932,7 @@
         "970081": 0.54,
         "970083": 0.623,
         "970085": 1.0,
-        "980001": -0.136,
+        "980001": 0.668,
         "980015": 0.438,
         "980016": 0.403,
         "980017": 0.648,
@@ -29899,124 +29965,124 @@
         "931239": 0.48
       },
       "980001": {
-        "000688": -0.217,
-        "399673": -0.213,
-        "hkHSTECH": -0.134,
-        "H30590": -0.191,
-        "H30184": -0.169,
-        "931152": -0.122,
-        "932666": -0.137,
-        "931594": -0.109,
-        "931743": -0.129,
-        "931723": -0.3,
-        "932580": -0.174,
-        "000300": -0.236,
-        "000905": -0.211,
-        "usNDX": -0.118,
-        "000009": -0.226,
-        "000010": -0.193,
-        "000015": 0.085,
-        "000016": -0.219,
-        "000044": -0.198,
-        "000048": -0.295,
-        "000056": -0.106,
-        "000068": -0.123,
-        "000069": -0.182,
-        "000510": -0.232,
-        "000685": -0.192,
-        "000698": -0.207,
-        "000813": 0.0,
-        "000852": -0.218,
-        "000922": 0.05,
-        "399001": -0.22,
-        "399005": -0.215,
-        "399006": -0.217,
-        "399012": -0.22,
-        "399019": -0.216,
-        "399102": -0.21,
-        "399264": -0.163,
-        "399266": -0.135,
-        "399275": -0.149,
-        "399276": -0.222,
-        "399291": -0.204,
-        "399293": -0.217,
-        "399295": -0.238,
-        "399296": -0.195,
-        "399303": -0.194,
-        "399324": -0.121,
-        "399326": -0.197,
-        "399330": -0.227,
-        "399348": -0.139,
-        "399361": -0.23,
-        "399362": -0.255,
-        "399365": -0.096,
-        "399372": -0.2,
-        "399373": 0.008,
-        "399378": -0.233,
-        "399389": -0.281,
-        "399396": -0.09,
-        "399433": 0.117,
-        "399437": -0.246,
-        "399438": 0.29,
-        "399439": 0.212,
-        "399441": -0.091,
-        "399550": -0.275,
-        "399610": -0.22,
-        "399624": -0.199,
-        "399667": -0.226,
-        "399750": -0.181,
-        "399975": -0.231,
-        "399986": 0.023,
-        "399989": -0.138,
-        "930708": -0.167,
-        "930709": -0.155,
-        "930955": 0.07,
-        "931071": -0.205,
-        "931079": -0.237,
-        "931160": -0.251,
-        "931238": -0.207,
-        "931573": -0.199,
-        "931637": -0.035,
-        "931643": -0.211,
-        "931719": -0.06,
-        "931994": -0.178,
-        "950125": -0.131,
-        "950580": -0.212,
-        "970070": -0.24,
-        "970081": -0.059,
-        "970083": -0.241,
-        "970085": -0.136,
+        "000688": 0.748,
+        "399673": 0.834,
+        "hkHSTECH": 0.762,
+        "H30590": 0.768,
+        "H30184": 0.719,
+        "931152": 0.602,
+        "932666": 0.588,
+        "931594": 0.62,
+        "931743": 0.633,
+        "931723": 0.655,
+        "932580": 0.683,
+        "000300": 0.905,
+        "000905": 0.844,
+        "usNDX": 0.12,
+        "000009": 0.855,
+        "000010": 0.886,
+        "000015": -0.023,
+        "000016": 0.801,
+        "000044": 0.859,
+        "000048": 0.698,
+        "000056": 0.503,
+        "000068": 0.636,
+        "000069": 0.593,
+        "000510": 0.903,
+        "000685": 0.718,
+        "000698": 0.761,
+        "000813": 0.704,
+        "000852": 0.831,
+        "000922": 0.134,
+        "399001": 0.885,
+        "399005": 0.887,
+        "399006": 0.849,
+        "399012": 0.853,
+        "399019": 0.817,
+        "399102": 0.853,
+        "399264": 0.744,
+        "399266": 0.861,
+        "399275": 0.614,
+        "399276": 0.852,
+        "399291": 0.832,
+        "399293": 0.835,
+        "399295": 0.906,
+        "399296": 0.759,
+        "399303": 0.819,
+        "399324": 0.724,
+        "399326": 0.774,
+        "399330": 0.89,
+        "399348": 0.795,
+        "399361": 0.733,
+        "399362": 0.901,
+        "399365": 0.357,
+        "399372": 0.889,
+        "399373": -0.231,
+        "399378": 0.922,
+        "399389": 0.667,
+        "399396": 0.24,
+        "399433": 0.244,
+        "399437": 0.59,
+        "399438": 0.09,
+        "399439": 0.108,
+        "399441": 0.583,
+        "399550": 0.618,
+        "399610": 0.767,
+        "399624": 0.841,
+        "399667": 0.799,
+        "399750": 0.907,
+        "399975": 0.587,
+        "399986": -0.39,
+        "399989": 0.601,
+        "930708": 0.721,
+        "930709": 0.642,
+        "930955": -0.024,
+        "931071": 0.787,
+        "931079": 0.687,
+        "931160": 0.665,
+        "931238": 0.595,
+        "931573": 0.809,
+        "931637": 0.612,
+        "931643": 0.791,
+        "931719": 0.808,
+        "931994": 0.786,
+        "950125": 0.626,
+        "950580": 0.804,
+        "970070": 0.726,
+        "970081": 0.783,
+        "970083": 0.695,
+        "970085": 0.668,
         "980001": 1.0,
-        "980015": -0.05,
-        "980016": -0.115,
-        "980017": -0.193,
-        "980018": -0.087,
-        "980022": -0.168,
-        "980027": -0.111,
-        "980028": -0.114,
-        "980030": -0.229,
-        "980032": -0.082,
-        "980034": -0.148,
-        "980076": -0.116,
-        "980080": -0.25,
-        "980081": 0.024,
-        "980092": 0.059,
-        "987008": -0.135,
-        "987016": 0.188,
-        "987019": -0.159,
-        "987023": -0.102,
-        "987024": 0.161,
-        "CN5075": -0.172,
-        "CN5082": -0.123,
-        "CN5097": -0.167,
-        "CN6051": -0.137,
-        "H30269": 0.072,
-        "930050": -0.233,
-        "000903": -0.213,
-        "000906": -0.232,
-        "932000": -0.166,
-        "H30007": -0.167,
-        "931239": -0.093
+        "980015": 0.585,
+        "980016": 0.587,
+        "980017": 0.715,
+        "980018": 0.593,
+        "980022": 0.705,
+        "980027": 0.844,
+        "980028": 0.625,
+        "980030": 0.772,
+        "980032": 0.823,
+        "980034": 0.804,
+        "980076": 0.667,
+        "980080": 0.698,
+        "980081": 0.162,
+        "980092": 0.343,
+        "987008": 0.744,
+        "987016": 0.138,
+        "987019": 0.614,
+        "987023": 0.668,
+        "987024": 0.305,
+        "CN5075": 0.767,
+        "CN5082": 0.587,
+        "CN5097": 0.555,
+        "CN6051": 0.732,
+        "H30269": -0.204,
+        "930050": 0.873,
+        "000903": 0.902,
+        "000906": 0.901,
+        "932000": 0.786,
+        "H30007": 0.724,
+        "931239": 0.714
       },
       "980015": {
         "000688": 0.422,
@@ -30106,7 +30172,7 @@
         "970081": 0.414,
         "970083": 0.429,
         "970085": 0.438,
-        "980001": -0.05,
+        "980001": 0.585,
         "980015": 1.0,
         "980016": 0.912,
         "980017": 0.377,
@@ -30226,7 +30292,7 @@
         "970081": 0.414,
         "970083": 0.381,
         "970085": 0.403,
-        "980001": -0.115,
+        "980001": 0.587,
         "980015": 0.912,
         "980016": 1.0,
         "980017": 0.372,
@@ -30346,7 +30412,7 @@
         "970081": 0.582,
         "970083": 0.907,
         "970085": 0.648,
-        "980001": -0.193,
+        "980001": 0.715,
         "980015": 0.377,
         "980016": 0.372,
         "980017": 1.0,
@@ -30466,7 +30532,7 @@
         "970081": 0.472,
         "970083": 0.785,
         "970085": 0.599,
-        "980001": -0.087,
+        "980001": 0.593,
         "980015": 0.253,
         "980016": 0.281,
         "980017": 0.822,
@@ -30586,7 +30652,7 @@
         "970081": 0.607,
         "970083": 0.746,
         "970085": 0.612,
-        "980001": -0.168,
+        "980001": 0.705,
         "980015": 0.464,
         "980016": 0.48,
         "980017": 0.802,
@@ -30706,7 +30772,7 @@
         "970081": 0.914,
         "970083": 0.684,
         "970085": 0.658,
-        "980001": -0.111,
+        "980001": 0.844,
         "980015": 0.445,
         "980016": 0.443,
         "980017": 0.737,
@@ -30826,7 +30892,7 @@
         "970081": 0.579,
         "970083": 0.308,
         "970085": 0.44,
-        "980001": -0.114,
+        "980001": 0.625,
         "980015": 0.407,
         "980016": 0.463,
         "980017": 0.358,
@@ -30946,7 +31012,7 @@
         "970081": 0.597,
         "970083": 0.926,
         "970085": 0.639,
-        "980001": -0.229,
+        "980001": 0.772,
         "980015": 0.463,
         "980016": 0.432,
         "980017": 0.949,
@@ -31066,7 +31132,7 @@
         "970081": 0.964,
         "970083": 0.5,
         "970085": 0.557,
-        "980001": -0.082,
+        "980001": 0.823,
         "980015": 0.475,
         "980016": 0.466,
         "980017": 0.556,
@@ -31186,7 +31252,7 @@
         "970081": 0.666,
         "970083": 0.822,
         "970085": 0.789,
-        "980001": -0.148,
+        "980001": 0.804,
         "980015": 0.501,
         "980016": 0.492,
         "980017": 0.854,
@@ -31306,7 +31372,7 @@
         "970081": 0.488,
         "970083": 0.705,
         "970085": 0.704,
-        "980001": -0.116,
+        "980001": 0.667,
         "980015": 0.359,
         "980016": 0.351,
         "980017": 0.678,
@@ -31426,7 +31492,7 @@
         "970081": 0.529,
         "970083": 0.956,
         "970085": 0.601,
-        "980001": -0.25,
+        "980001": 0.698,
         "980015": 0.363,
         "980016": 0.322,
         "980017": 0.938,
@@ -31546,7 +31612,7 @@
         "970081": 0.208,
         "970083": -0.271,
         "970085": 0.055,
-        "980001": 0.024,
+        "980001": 0.162,
         "980015": 0.075,
         "980016": 0.082,
         "980017": -0.31,
@@ -31666,7 +31732,7 @@
         "970081": 0.283,
         "970083": -0.034,
         "970085": 0.275,
-        "980001": 0.059,
+        "980001": 0.343,
         "980015": 0.239,
         "980016": 0.219,
         "980017": -0.087,
@@ -31786,7 +31852,7 @@
         "970081": 0.543,
         "970083": 0.418,
         "970085": 0.449,
-        "980001": -0.135,
+        "980001": 0.744,
         "980015": 0.537,
         "980016": 0.553,
         "980017": 0.44,
@@ -31906,7 +31972,7 @@
         "970081": 0.085,
         "970083": -0.146,
         "970085": -0.089,
-        "980001": 0.188,
+        "980001": 0.138,
         "980015": 0.15,
         "980016": 0.14,
         "980017": -0.188,
@@ -32026,7 +32092,7 @@
         "970081": 0.412,
         "970083": 0.465,
         "970085": 0.376,
-        "980001": -0.159,
+        "980001": 0.614,
         "980015": 0.733,
         "980016": 0.771,
         "980017": 0.435,
@@ -32146,7 +32212,7 @@
         "970081": 0.498,
         "970083": 0.3,
         "970085": 0.451,
-        "980001": -0.102,
+        "980001": 0.668,
         "980015": 0.421,
         "980016": 0.454,
         "980017": 0.313,
@@ -32266,7 +32332,7 @@
         "970081": 0.398,
         "970083": -0.176,
         "970085": 0.1,
-        "980001": 0.161,
+        "980001": 0.305,
         "980015": 0.337,
         "980016": 0.315,
         "980017": -0.166,
@@ -32386,7 +32452,7 @@
         "970081": 0.605,
         "970083": 0.909,
         "970085": 0.706,
-        "980001": -0.172,
+        "980001": 0.767,
         "980015": 0.427,
         "980016": 0.408,
         "980017": 0.978,
@@ -32506,7 +32572,7 @@
         "970081": 0.4,
         "970083": 0.648,
         "970085": 0.595,
-        "980001": -0.123,
+        "980001": 0.587,
         "980015": 0.272,
         "980016": 0.288,
         "980017": 0.621,
@@ -32626,7 +32692,7 @@
         "970081": 0.4,
         "970083": 0.313,
         "970085": 0.638,
-        "980001": -0.167,
+        "980001": 0.555,
         "980015": 0.59,
         "980016": 0.56,
         "980017": 0.229,
@@ -32746,7 +32812,7 @@
         "970081": 0.724,
         "970083": 0.685,
         "970085": 0.538,
-        "980001": -0.137,
+        "980001": 0.732,
         "980015": 0.318,
         "980016": 0.261,
         "980017": 0.672,
@@ -32784,7 +32850,7 @@
         "hkHSTECH": -0.169,
         "H30590": -0.429,
         "H30184": -0.507,
-        "931152": -0.143,
+        "931152": -0.142,
         "932666": -0.434,
         "931594": -0.333,
         "931743": -0.462,
@@ -32866,7 +32932,7 @@
         "970081": -0.162,
         "970083": -0.458,
         "970085": -0.248,
-        "980001": 0.072,
+        "980001": -0.204,
         "980015": -0.094,
         "980016": -0.066,
         "980017": -0.523,
@@ -32986,7 +33052,7 @@
         "970081": 0.794,
         "970083": 0.511,
         "970085": 0.698,
-        "980001": -0.233,
+        "980001": 0.873,
         "980015": 0.543,
         "980016": 0.564,
         "980017": 0.582,
@@ -33106,7 +33172,7 @@
         "970081": 0.77,
         "970083": 0.737,
         "970085": 0.733,
-        "980001": -0.213,
+        "980001": 0.902,
         "980015": 0.522,
         "980016": 0.51,
         "980017": 0.8,
@@ -33226,7 +33292,7 @@
         "970081": 0.754,
         "970083": 0.851,
         "970085": 0.755,
-        "980001": -0.232,
+        "980001": 0.901,
         "980015": 0.548,
         "980016": 0.526,
         "980017": 0.874,
@@ -33346,7 +33412,7 @@
         "970081": 0.631,
         "970083": 0.903,
         "970085": 0.696,
-        "980001": -0.166,
+        "980001": 0.786,
         "980015": 0.568,
         "980016": 0.524,
         "980017": 0.837,
@@ -33466,7 +33532,7 @@
         "970081": 0.601,
         "970083": 0.903,
         "970085": 0.655,
-        "980001": -0.167,
+        "980001": 0.724,
         "980015": 0.391,
         "980016": 0.381,
         "980017": 0.998,
@@ -33586,7 +33652,7 @@
         "970081": 0.631,
         "970083": 0.396,
         "970085": 0.48,
-        "980001": -0.093,
+        "980001": 0.714,
         "980015": 0.531,
         "980016": 0.475,
         "980017": 0.37,
@@ -33619,7 +33685,7 @@
         "931239": 1.0
       }
     },
-    "mean_pairwise": 0.491,
+    "mean_pairwise": 0.504,
     "n_days": 52
   },
   "chain": {
@@ -34084,40 +34150,40 @@
         "name": "沪深300",
         "ok": true,
         "best_lag_days": 0,
-        "best_corr": 0.2559,
+        "best_corr": 0.2564,
         "n_overlap": 302,
         "curve": [
           {
             "lag": 23,
-            "corr": -0.0099
+            "corr": -0.0105
           },
           {
             "lag": 24,
-            "corr": 0.016
+            "corr": 0.0174
           },
           {
             "lag": 25,
-            "corr": 0.075
+            "corr": 0.071
           },
           {
             "lag": 26,
-            "corr": 0.0468
+            "corr": 0.0528
           },
           {
             "lag": 27,
-            "corr": 0.0113
+            "corr": 0.0119
           },
           {
             "lag": 28,
-            "corr": 0.0619
+            "corr": 0.0613
           },
           {
             "lag": 29,
-            "corr": -0.0827
+            "corr": -0.083
           },
           {
             "lag": 30,
-            "corr": -0.0282
+            "corr": -0.0296
           }
         ]
       },
@@ -37158,41 +37224,41 @@
       "980001": {
         "name": "湾创100",
         "ok": true,
-        "best_lag_days": 23,
-        "best_corr": 0.1267,
+        "best_lag_days": 1,
+        "best_corr": 0.2579,
         "n_overlap": 316,
         "curve": [
           {
             "lag": 23,
-            "corr": 0.1267
+            "corr": 0.0453
           },
           {
             "lag": 24,
-            "corr": -0.0225
+            "corr": -0.0505
           },
           {
             "lag": 25,
-            "corr": -0.0593
+            "corr": 0.0118
           },
           {
             "lag": 26,
-            "corr": -0.0755
+            "corr": 0.0214
           },
           {
             "lag": 27,
-            "corr": 0.047
+            "corr": -0.0121
           },
           {
             "lag": 28,
-            "corr": 0.0571
+            "corr": 0.1152
           },
           {
             "lag": 29,
-            "corr": 0.0042
+            "corr": -0.093
           },
           {
             "lag": 30,
-            "corr": 0.032
+            "corr": -0.0469
           }
         ]
       },
@@ -38448,21 +38514,22 @@
         "399673",
         "hkHSTECH"
       ],
-      "exposure": 0.0162,
-      "per_name": 0.0054,
+      "exposure": 0.0,
+      "per_name": 0.0,
       "note": "同桶合并计仓（最高vol 54.9%，3 只等权）",
-      "exposure_pre_switch": 0.0323
+      "exposure_pre_switch": 0.0324,
+      "cap_reason": "B2 资格收缩 ×0.00"
     },
     "theme": {
       "codes": [
         "H30590",
         "931594"
       ],
-      "exposure": 0.014,
-      "per_name": 0.007,
+      "exposure": 0.0,
+      "per_name": 0.0,
       "note": "同桶合并计仓（最高vol 48.0%，2 只等权）",
       "exposure_pre_switch": 0.0426,
-      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）"
+      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）；B2 资格收缩 ×0.00"
     },
     "ai_hw": {
       "codes": [
@@ -38472,37 +38539,38 @@
         "931723",
         "932580"
       ],
-      "exposure": 0.0062,
-      "per_name": 0.0012,
+      "exposure": 0.0,
+      "per_name": 0.0,
       "note": "同桶合并计仓（最高vol 76.0%，5 只等权）",
       "exposure_pre_switch": 0.019,
-      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）"
+      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）；B2 资格收缩 ×0.00"
     },
     "pharma": {
       "codes": [
         "931152"
       ],
-      "exposure": 0.0397,
+      "exposure": 0.0198,
+      "per_name": 0.0198,
       "note": "单标的，按单仓上限",
       "exposure_pre_switch": 0.1209,
-      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）"
+      "cap_reason": "E 阶段主题组硬上限 6%（组内合计 9.12% → 缩放 0.66）；B2 资格收缩 ×0.50"
     }
   },
-  "total_exposure": 0.0381,
+  "total_exposure": 0.0198,
   "eligibility_modulation": {
     "enabled": true,
     "e_ratio": 0.7881,
     "multiplier": 0.5,
     "note": "E 态占比 79% → 全局仓位调制 M=0.50"
   },
-  "total_exposure_pre_switch": 0.2148,
+  "total_exposure_pre_switch": 0.2149,
   "switch_haircut_applied": [
     "BROAD_E→0.50",
     "UPSTREAM_WEAK→0.80"
   ],
   "switch_haircut": 0.5,
-  "hedge_need": 0.113,
-  "hedge_note": "P(D)+P(E) 均值 0.68 → 模型建议对冲 11% beta；【个人不可直接执行】融券/期指对冲对个人通常不可执行；替代方案为降低敞口、持有现金或低相关宽基",
+  "hedge_need": 0.111,
+  "hedge_note": "P(D)+P(E) 均值 0.67 → 建议等效降低敞口约 11%（个人可执行替代：减仓、转现金或配置低相关宽基）；融券/期指对冲仅为模型参考口径，个人通常不可执行",
   "kill_switches": [
     {
       "id": "BROAD_E",
@@ -38520,10 +38588,6 @@
   "data_gaps": [],
   "data_excluded": [],
   "quality_warnings": [
-    "中证2000：存在 1 处 >15 天的日期断裂",
-    "中证A50：存在 1 处 >15 天的日期断裂",
-    "中证有色：存在 1 处 >15 天的日期断裂",
-    "中证有色：存在 1 处 >15% 跳空（真行情，已保留）",
     "光模块CPO：源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理",
     "创业200：存在 3 处 >15% 跳空（真行情，已保留）",
     "创业300：存在 2 处 >15% 跳空（真行情，已保留）",
@@ -38532,8 +38596,10 @@
     "创业板50：存在 2 处 >15% 跳空（真行情，已保留）",
     "创业板人工智能：存在 3 处 >15% 跳空（真行情，已保留）",
     "创业板指：存在 2 处 >15% 跳空（真行情，已保留）",
+    "创业板电池：存在 3 处 >15% 跳空（真行情，已保留）",
     "创业板算力：存在 3 处 >15% 跳空（真行情，已保留）",
     "创业板综：存在 2 处 >15% 跳空（真行情，已保留）",
+    "创业板金融科技：存在 2 处 >15% 跳空（真行情，已保留）",
     "创业软件：存在 3 处 >15% 跳空（真行情，已保留）",
     "创价值：存在 1 处 >15% 跳空（真行情，已保留）",
     "创医药：存在 1 处 >15% 跳空（真行情，已保留）",
@@ -38543,13 +38609,13 @@
     "创精选88：存在 3 处 >15% 跳空（真行情，已保留）",
     "半导体材料设备：存在 4 处 >15% 跳空（真行情，已保留）",
     "半导体：存在 2 处 >15% 跳空（真行情，已保留）",
-    "港股汽车：存在 1 处 >15 天的日期断裂",
+    "国证芯片：存在 2 处 >15% 跳空（真行情，已保留）",
+    "恒生科技：存在 2 处 >15% 跳空（真行情，已保留）",
     "港股汽车：存在 1 处 >15% 跳空（真行情，已保留）",
     "港股通互联网（人民币）：存在 2 处 >15% 跳空（真行情，已保留）",
     "港股通互联网：存在 2 处 >15% 跳空（真行情，已保留）",
     "港股通创新药（人民币）：存在 1 处 >15% 跳空（真行情，已保留）",
     "港股通科技：存在 2 处 >15% 跳空（真行情，已保留）",
-    "湾创100：存在 17 处 >15% 跳空（真行情，已保留）",
     "磁电存储：存在 1 处 >15% 跳空（真行情，已保留）",
     "磁电存储：源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理",
     "科创100：存在 2 处 >15% 跳空（真行情，已保留）",
@@ -38557,12 +38623,6 @@
     "科创创业50：存在 2 处 >15% 跳空（真行情，已保留）",
     "科创半导体材料设备：存在 8 处 >15% 跳空（真行情，已保留）",
     "科创芯片：存在 3 处 >15% 跳空（真行情，已保留）",
-    "红利低波100：存在 1 处 >15 天的日期断裂",
-    "红利低波：存在 1 处 >15 天的日期断裂",
-    "红利低波：存在 1 处 >15% 跳空（真行情，已保留）",
-    "细分化工：存在 1 处 >15 天的日期断裂",
-    "细分化工：存在 1 处 >15% 跳空（真行情，已保留）",
-    "芯片：存在 1 处 >15 天的日期断裂",
     "芯片：存在 2 处 >15% 跳空（真行情，已保留）",
     "香港证券：存在 3 处 >15% 跳空（真行情，已保留）",
     "高频PCB：源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理"
@@ -38595,7 +38655,7 @@
     "veto": true,
     "reasons": [
       "A股整体市场为「存量」，非「增量」",
-      "大盘闸门关闭（沪深300 收盘低于 EMA20）"
+      "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）"
     ],
     "regime": {
       "ok": true,
@@ -38606,11 +38666,11 @@
       "reason": ""
     },
     "gate": {
-      "ok": true,
+      "ok": false,
       "allow": false,
-      "status": "OK",
-      "as_of": "2026-11-06",
-      "reason": "",
+      "status": "STALE",
+      "as_of": "2026-11-07",
+      "reason": "大盘闸门状态未定稿（status=STALE）",
       "bench": "000300",
       "close": 4054.28,
       "ema": 4132.2796,
@@ -39600,14 +39660,14 @@
     "headline": "今日禁止开新仓",
     "reasons": [
       "A股整体市场为「存量」，非「增量」",
-      "大盘闸门关闭（沪深300 收盘低于 EMA20）"
+      "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）"
     ],
     "account_label": "演示口径（缺少 meta.updated_at / account.as_of，无法判定新鲜度），回撤节流停用",
     "account_configured": false,
-    "model_exposure": 0.0381,
+    "model_exposure": 0.0198,
     "actionable_exposure": 0.0,
     "allocation_cny": null,
-    "hedge": "P(D)+P(E) 均值 0.68 → 模型建议对冲 11% beta；【个人不可直接执行】融券/期指对冲对个人通常不可执行；替代方案为降低敞口、持有现金或低相关宽基",
+    "hedge": "P(D)+P(E) 均值 0.67 → 建议等效降低敞口约 11%（个人可执行替代：减仓、转现金或配置低相关宽基）；融券/期指对冲仅为模型参考口径，个人通常不可执行",
     "hedge_retail_actionable": false,
     "instrument_confirmed": 52,
     "instrument_tradeable": 11,
@@ -39616,7 +39676,7 @@
     "steps": [
       "今日不开新仓（顶层否决），已有持仓按各自失效位管理",
       "A股整体市场为「存量」，非「增量」",
-      "大盘闸门关闭（沪深300 收盘低于 EMA20）",
+      "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）",
       "账户真实净值未接入：本页仓位仅为模型建议，未做账户级回撤节流",
       "概率30条结算样本前不作胜率解读",
       "执行换算：今日闸门否决，下表仅为预案",
@@ -39640,6 +39700,7 @@
     "lot_size": 100,
     "commission_rate": 0.0003,
     "min_commission": 5.0,
+    "slippage_rate": 0.001,
     "quotes": {
       "ok": true,
       "count": 1373,
@@ -39652,7 +39713,7 @@
         "code": "000688",
         "name": "科创50",
         "bucket": "core",
-        "target_weight": 0.0054,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": "588150",
         "etf_name": "科创50ETF南方",
@@ -39662,6 +39723,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39675,7 +39737,7 @@
         "code": "399673",
         "name": "创业板50",
         "bucket": "core",
-        "target_weight": 0.0054,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": "159369",
         "etf_name": "创业板50ETF易方达",
@@ -39685,6 +39747,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39698,7 +39761,7 @@
         "code": "hkHSTECH",
         "name": "恒生科技",
         "bucket": "core",
-        "target_weight": 0.0054,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": "513130",
         "etf_name": "恒生科技指数ETF华夏",
@@ -39708,6 +39771,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39722,7 +39786,7 @@
         "code": "H30590",
         "name": "机器人",
         "bucket": "theme",
-        "target_weight": 0.007,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": null,
         "etf_name": null,
@@ -39732,6 +39796,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39747,7 +39812,7 @@
         "code": "H30184",
         "name": "半导体",
         "bucket": "ai_hw",
-        "target_weight": 0.0012,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": "159582",
         "etf_name": "半导体ETF博时",
@@ -39757,6 +39822,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39770,7 +39836,7 @@
         "code": "931152",
         "name": "创新药",
         "bucket": "pharma",
-        "target_weight": 0.0,
+        "target_weight": 0.0198,
         "target_cny": null,
         "etf_code": "159992",
         "etf_name": "创新药ETF银华",
@@ -39780,6 +39846,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39793,7 +39860,7 @@
         "code": "932666",
         "name": "高频PCB",
         "bucket": "ai_hw",
-        "target_weight": 0.0012,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": null,
         "etf_name": null,
@@ -39803,6 +39870,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39818,7 +39886,7 @@
         "code": "931594",
         "name": "商业航天",
         "bucket": "theme",
-        "target_weight": 0.007,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": null,
         "etf_name": null,
@@ -39828,6 +39896,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39843,7 +39912,7 @@
         "code": "931743",
         "name": "半导体材料设备",
         "bucket": "ai_hw",
-        "target_weight": 0.0012,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": "560780",
         "etf_name": "半导体设备ETF广发",
@@ -39853,6 +39922,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39866,7 +39936,7 @@
         "code": "931723",
         "name": "光模块CPO",
         "bucket": "ai_hw",
-        "target_weight": 0.0012,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": null,
         "etf_name": null,
@@ -39876,6 +39946,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39891,7 +39962,7 @@
         "code": "932580",
         "name": "磁电存储",
         "bucket": "ai_hw",
-        "target_weight": 0.0012,
+        "target_weight": 0.0,
         "target_cny": null,
         "etf_code": null,
         "etf_name": null,
@@ -39901,6 +39972,7 @@
         "lots": null,
         "actual_cny": null,
         "fee_cny": null,
+        "slippage_cny": null,
         "total_cny": null,
         "executable": false,
         "reasons": [
@@ -39919,21 +39991,22 @@
       "executable": 0,
       "target_total_cny": null,
       "actual_total_cny": null,
-      "fee_total_cny": null
+      "fee_total_cny": null,
+      "slippage_total_cny": null
     },
     "warnings": [
       "市场闸门顶层否决：今日不开新仓，下表仅为闸门通过后的预案",
       "账户真实净值未配置：不换算任何金额/份额",
       "A股整体市场为「存量」，非「增量」",
-      "大盘闸门关闭（沪深300 收盘低于 EMA20）"
+      "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）"
     ],
-    "disclaimer": "报价为快照，下单前须以券商实时价为准；场内 ETF 买入最小 100 份、T+1；QDII 需关注溢价与限购。佣金估算，ETF 免印花税；经手费/过户费以券商实际收费为准"
+    "disclaimer": "报价为快照，下单前须以券商实时价为准；场内 ETF 买入最小 100 份、T+1；QDII 需关注溢价与限购。佣金+滑点（0.10% 单边估算）合计为成本口径，实际以成交为准。佣金估算，ETF 免印花税；经手费/过户费以券商实际收费为准"
   },
   "quality_report": {
-    "total": 46,
+    "total": 38,
     "levels": {
       "HIGH": 3,
-      "MED": 8,
+      "MED": 0,
       "LOW": 35
     },
     "groups": {
@@ -39960,72 +40033,7 @@
           "label": "仅收盘价口径（ATR/ADX 代理）"
         }
       ],
-      "date_gap": [
-        {
-          "name": "中证2000",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "中证A50",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "中证有色",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "港股汽车",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "红利低波",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "红利低波100",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "细分化工",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        },
-        {
-          "name": "芯片",
-          "text": "存在 1 处 >15 天的日期断裂",
-          "level": "MED",
-          "category": "date_gap",
-          "label": "历史日期断裂"
-        }
-      ],
       "gap_kept": [
-        {
-          "name": "中证有色",
-          "text": "存在 1 处 >15% 跳空（真行情，已保留）",
-          "level": "LOW",
-          "category": "gap_kept",
-          "label": "大幅跳空（真行情，已保留）"
-        },
         {
           "name": "创业200",
           "text": "存在 3 处 >15% 跳空（真行情，已保留）",
@@ -40076,6 +40084,13 @@
           "label": "大幅跳空（真行情，已保留）"
         },
         {
+          "name": "创业板电池",
+          "text": "存在 3 处 >15% 跳空（真行情，已保留）",
+          "level": "LOW",
+          "category": "gap_kept",
+          "label": "大幅跳空（真行情，已保留）"
+        },
+        {
           "name": "创业板算力",
           "text": "存在 3 处 >15% 跳空（真行情，已保留）",
           "level": "LOW",
@@ -40084,6 +40099,13 @@
         },
         {
           "name": "创业板综",
+          "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+          "level": "LOW",
+          "category": "gap_kept",
+          "label": "大幅跳空（真行情，已保留）"
+        },
+        {
+          "name": "创业板金融科技",
           "text": "存在 2 处 >15% 跳空（真行情，已保留）",
           "level": "LOW",
           "category": "gap_kept",
@@ -40153,6 +40175,20 @@
           "label": "大幅跳空（真行情，已保留）"
         },
         {
+          "name": "国证芯片",
+          "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+          "level": "LOW",
+          "category": "gap_kept",
+          "label": "大幅跳空（真行情，已保留）"
+        },
+        {
+          "name": "恒生科技",
+          "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+          "level": "LOW",
+          "category": "gap_kept",
+          "label": "大幅跳空（真行情，已保留）"
+        },
+        {
           "name": "港股汽车",
           "text": "存在 1 处 >15% 跳空（真行情，已保留）",
           "level": "LOW",
@@ -40183,13 +40219,6 @@
         {
           "name": "港股通科技",
           "text": "存在 2 处 >15% 跳空（真行情，已保留）",
-          "level": "LOW",
-          "category": "gap_kept",
-          "label": "大幅跳空（真行情，已保留）"
-        },
-        {
-          "name": "湾创100",
-          "text": "存在 17 处 >15% 跳空（真行情，已保留）",
           "level": "LOW",
           "category": "gap_kept",
           "label": "大幅跳空（真行情，已保留）"
@@ -40237,20 +40266,6 @@
           "label": "大幅跳空（真行情，已保留）"
         },
         {
-          "name": "红利低波",
-          "text": "存在 1 处 >15% 跳空（真行情，已保留）",
-          "level": "LOW",
-          "category": "gap_kept",
-          "label": "大幅跳空（真行情，已保留）"
-        },
-        {
-          "name": "细分化工",
-          "text": "存在 1 处 >15% 跳空（真行情，已保留）",
-          "level": "LOW",
-          "category": "gap_kept",
-          "label": "大幅跳空（真行情，已保留）"
-        },
-        {
           "name": "芯片",
           "text": "存在 2 处 >15% 跳空（真行情，已保留）",
           "level": "LOW",
@@ -40287,69 +40302,6 @@
         "level": "HIGH",
         "category": "ohlc_proxy",
         "label": "仅收盘价口径（ATR/ADX 代理）"
-      },
-      {
-        "name": "中证2000",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "中证A50",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "中证有色",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "港股汽车",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "红利低波",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "红利低波100",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "细分化工",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "芯片",
-        "text": "存在 1 处 >15 天的日期断裂",
-        "level": "MED",
-        "category": "date_gap",
-        "label": "历史日期断裂"
-      },
-      {
-        "name": "中证有色",
-        "text": "存在 1 处 >15% 跳空（真行情，已保留）",
-        "level": "LOW",
-        "category": "gap_kept",
-        "label": "大幅跳空（真行情，已保留）"
       },
       {
         "name": "创业200",
@@ -40401,6 +40353,13 @@
         "label": "大幅跳空（真行情，已保留）"
       },
       {
+        "name": "创业板电池",
+        "text": "存在 3 处 >15% 跳空（真行情，已保留）",
+        "level": "LOW",
+        "category": "gap_kept",
+        "label": "大幅跳空（真行情，已保留）"
+      },
+      {
         "name": "创业板算力",
         "text": "存在 3 处 >15% 跳空（真行情，已保留）",
         "level": "LOW",
@@ -40409,6 +40368,13 @@
       },
       {
         "name": "创业板综",
+        "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+        "level": "LOW",
+        "category": "gap_kept",
+        "label": "大幅跳空（真行情，已保留）"
+      },
+      {
+        "name": "创业板金融科技",
         "text": "存在 2 处 >15% 跳空（真行情，已保留）",
         "level": "LOW",
         "category": "gap_kept",
@@ -40478,6 +40444,20 @@
         "label": "大幅跳空（真行情，已保留）"
       },
       {
+        "name": "国证芯片",
+        "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+        "level": "LOW",
+        "category": "gap_kept",
+        "label": "大幅跳空（真行情，已保留）"
+      },
+      {
+        "name": "恒生科技",
+        "text": "存在 2 处 >15% 跳空（真行情，已保留）",
+        "level": "LOW",
+        "category": "gap_kept",
+        "label": "大幅跳空（真行情，已保留）"
+      },
+      {
         "name": "港股汽车",
         "text": "存在 1 处 >15% 跳空（真行情，已保留）",
         "level": "LOW",
@@ -40508,13 +40488,6 @@
       {
         "name": "港股通科技",
         "text": "存在 2 处 >15% 跳空（真行情，已保留）",
-        "level": "LOW",
-        "category": "gap_kept",
-        "label": "大幅跳空（真行情，已保留）"
-      },
-      {
-        "name": "湾创100",
-        "text": "存在 17 处 >15% 跳空（真行情，已保留）",
         "level": "LOW",
         "category": "gap_kept",
         "label": "大幅跳空（真行情，已保留）"
@@ -40557,20 +40530,6 @@
       {
         "name": "科创芯片",
         "text": "存在 3 处 >15% 跳空（真行情，已保留）",
-        "level": "LOW",
-        "category": "gap_kept",
-        "label": "大幅跳空（真行情，已保留）"
-      },
-      {
-        "name": "红利低波",
-        "text": "存在 1 处 >15% 跳空（真行情，已保留）",
-        "level": "LOW",
-        "category": "gap_kept",
-        "label": "大幅跳空（真行情，已保留）"
-      },
-      {
-        "name": "细分化工",
-        "text": "存在 1 处 >15% 跳空（真行情，已保留）",
         "level": "LOW",
         "category": "gap_kept",
         "label": "大幅跳空（真行情，已保留）"
@@ -40692,7 +40651,7 @@
     "tier": "no_sample",
     "label": "尚无任何结算样本，概率一律标注未校准",
     "note": "按已有 bar 的交易日序列计算 elapsed；未来日历未知，周数为按每周 5 个交易日的粗略估算，不代表具体日期",
-    "trading_days_observed": 3331,
+    "trading_days_observed": 3327,
     "latest_bar_date": "2026-11-06"
   },
   "attribution_rebuild": {
