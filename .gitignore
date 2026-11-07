@@ -52,3 +52,9 @@ state/eligibility_history.jsonl
 state/eligibility_lifecycle.json
 state/lifecycle_events.jsonl
 state/matrix_calibration.json
+
+# ---- 2026-11-07 历史扩展：缓存快照体积大（31MB/次），只保留在本地 ----
+data/_cache_backup_20261107/
+data/_cache_backup_extend/
+# 每日重建的交互看板（可由 tools_position_dashboard.py 重算）
+data/position_dashboard.html

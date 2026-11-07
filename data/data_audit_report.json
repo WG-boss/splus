@@ -1,0 +1,3096 @@
+{
+  "as_of_audit": "2026-11-06",
+  "target_bars": 1452,
+  "cutoff": "2020-11-05",
+  "calendar_days": 2633,
+  "calendar_range": [
+    "2016-01-04",
+    "2026-11-06"
+  ],
+  "total_bars": 242853,
+  "status": {
+    "OK": 114,
+    "WARN": 4,
+    "FAIL": 0
+  },
+  "depth": {
+    "target_bars": 1452,
+    "cutoff": "2020-11-05",
+    "covers": 101,
+    "not_covered": [
+      {
+        "code": "usNDX",
+        "name": "纳斯达克100",
+        "bars": 325,
+        "first": "2025-07-24"
+      },
+      {
+        "code": "930708",
+        "name": "中证有色",
+        "bars": 1385,
+        "first": "2021-02-24"
+      },
+      {
+        "code": "930709",
+        "name": "香港证券",
+        "bars": 949,
+        "first": "2023-01-03"
+      },
+      {
+        "code": "931238",
+        "name": "SSH黄金股票",
+        "bars": 777,
+        "first": "2023-10-13"
+      },
+      {
+        "code": "931573",
+        "name": "港股通科技",
+        "bars": 1424,
+        "first": "2021-01-28"
+      },
+      {
+        "code": "931637",
+        "name": "港股通互联网",
+        "bars": 1295,
+        "first": "2021-08-09"
+      },
+      {
+        "code": "931643",
+        "name": "科创创业50",
+        "bars": 1308,
+        "first": "2021-06-17"
+      },
+      {
+        "code": "931719",
+        "name": "CS电池",
+        "bars": 1318,
+        "first": "2021-06-02"
+      },
+      {
+        "code": "931994",
+        "name": "电网设备主题",
+        "bars": 496,
+        "first": "2024-10-24"
+      },
+      {
+        "code": "970083",
+        "name": "创业板算力",
+        "bars": 930,
+        "first": "2023-01-03"
+      },
+      {
+        "code": "980080",
+        "name": "成长100",
+        "bars": 492,
+        "first": "2024-10-29"
+      },
+      {
+        "code": "980081",
+        "name": "价值100",
+        "bars": 492,
+        "first": "2024-10-29"
+      },
+      {
+        "code": "987008",
+        "name": "港股通科技",
+        "bars": 1394,
+        "first": "2021-03-08"
+      },
+      {
+        "code": "987016",
+        "name": "港股通红利低波",
+        "bars": 1221,
+        "first": "2021-11-18"
+      },
+      {
+        "code": "987019",
+        "name": "港股通创新药（人民币）",
+        "bars": 1221,
+        "first": "2021-11-18"
+      },
+      {
+        "code": "987023",
+        "name": "港股通互联网（人民币）",
+        "bars": 1221,
+        "first": "2021-11-18"
+      },
+      {
+        "code": "987024",
+        "name": "港股通消费",
+        "bars": 394,
+        "first": "2025-04-02"
+      }
+    ]
+  },
+  "cross_check": {
+    "931071": {
+      "name": "人工智能",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "970081": {
+      "name": "创业板电池",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399361": {
+      "name": "在线消费",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399433": {
+      "name": "国证交运",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "987016": {
+      "name": "港股通红利低波",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "H30184": {
+      "name": "半导体",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "000048": {
+      "name": "责任指数",
+      "checked": 15,
+      "mismatch": 0,
+      "sources": [
+        "中证官网",
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "980027": {
+      "name": "国证储能电池",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "931637": {
+      "name": "港股通互联网",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399291": {
+      "name": "创精选88",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399006": {
+      "name": "创业板指",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "000852": {
+      "name": "中证1000",
+      "checked": 15,
+      "mismatch": 0,
+      "sources": [
+        "中证官网",
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "980015": {
+      "name": "疫苗生科",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "931723": {
+      "name": "光模块CPO",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "930955": {
+      "name": "红利低波100",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "CN5082": {
+      "name": "国证航天",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "931743": {
+      "name": "半导体材料设备",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "H30269": {
+      "name": "红利低波",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "987024": {
+      "name": "港股通消费",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399372": {
+      "name": "大盘成长",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "987019": {
+      "name": "港股通创新药（人民币）",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399266": {
+      "name": "创新能源",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "000510": {
+      "name": "中证A500",
+      "checked": 15,
+      "mismatch": 0,
+      "sources": [
+        "中证官网",
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399296": {
+      "name": "创成长",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "000068": {
+      "name": "上证资源",
+      "checked": 15,
+      "mismatch": 0,
+      "sources": [
+        "中证官网",
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "930709": {
+      "name": "香港证券",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399005": {
+      "name": "中小100",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "980032": {
+      "name": "新能电池",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "980001": {
+      "name": "湾创100",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "000069": {
+      "name": "消费80",
+      "checked": 15,
+      "mismatch": 0,
+      "sources": [
+        "中证官网",
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399389": {
+      "name": "国证通信",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "931994": {
+      "name": "电网设备主题",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "970070": {
+      "name": "创业板人工智能",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "CN5097": {
+      "name": "消费服务",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "H30590": {
+      "name": "机器人",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "中证官网"
+      ],
+      "per_source": {
+        "中证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "980034": {
+      "name": "工业软件",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399750": {
+      "name": "深主板50",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "970085": {
+      "name": "创业板金融科技",
+      "checked": 5,
+      "mismatch": 0,
+      "sources": [
+        "国证官网"
+      ],
+      "per_source": {
+        "国证官网": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    },
+    "399975": {
+      "name": "证券公司",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.001
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.001,
+      "mismatch_detail": []
+    },
+    "399001": {
+      "name": "深证成指",
+      "checked": 10,
+      "mismatch": 0,
+      "sources": [
+        "新浪",
+        "腾讯"
+      ],
+      "per_source": {
+        "新浪": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        },
+        "腾讯": {
+          "checked": 5,
+          "mismatch": 0,
+          "worst_rel_pct": 0.0
+        }
+      },
+      "worst_rel_pct": 0.0,
+      "mismatch_detail": []
+    }
+  },
+  "fails": [],
+  "warns": [
+    {
+      "code": "usNDX",
+      "name": "纳斯达克100",
+      "why": "末根 2026-11-05 落后 asof"
+    },
+    {
+      "code": "980018",
+      "name": "卫星通信",
+      "why": "OHLC 舍入噪声 1 条（<0.1%，不影响特征）"
+    },
+    {
+      "code": "CN5097",
+      "name": "消费服务",
+      "why": "OHLC 舍入噪声 2 条（<0.1%，不影响特征）"
+    },
+    {
+      "code": "931239",
+      "name": "港股汽车",
+      "why": "零成交量占比 3.9%"
+    }
+  ],
+  "per_code": {
+    "000688": {
+      "name": "科创50",
+      "status": "OK",
+      "bars": 1659,
+      "first": "2019-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1659,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 59.44,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "399673": {
+      "name": "创业板50",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "hkHSTECH": {
+      "name": "恒生科技",
+      "status": "OK",
+      "bars": 1547,
+      "first": "2020-07-27",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1547,
+      "zero_vol_pct": 0.06,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "H30590": {
+      "name": "机器人",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.59,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "H30184": {
+      "name": "半导体",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 50.14,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931152": {
+      "name": "创新药",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 35.56,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "932666": {
+      "name": "高频PCB",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.97,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931594": {
+      "name": "商业航天",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.78,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931743": {
+      "name": "半导体材料设备",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 35.67,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931723": {
+      "name": "光模块CPO",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.97,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "932580": {
+      "name": "磁电存储",
+      "status": "OK",
+      "bars": 1454,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1454,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 48.13,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000300": {
+      "name": "沪深300",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.48,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000905": {
+      "name": "中证500",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.77,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "usNDX": {
+      "name": "纳斯达克100",
+      "status": "WARN",
+      "bars": 325,
+      "first": "2025-07-24",
+      "last": "2026-11-05",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [
+        "末根 2026-11-05 落后 asof"
+      ],
+      "n": 325,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "000009": {
+      "name": "上证380",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 13.98,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000010": {
+      "name": "上证180",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.24,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000015": {
+      "name": "红利指数",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 7.79,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000016": {
+      "name": "上证50",
+      "status": "OK",
+      "bars": 1455,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1455,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 20.87,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000044": {
+      "name": "上证中盘",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.43,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000048": {
+      "name": "责任指数",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.25,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000056": {
+      "name": "上证国企",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.92,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000068": {
+      "name": "上证资源",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 9.56,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000069": {
+      "name": "消费80",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 28.54,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000510": {
+      "name": "中证A500",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.02,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000685": {
+      "name": "科创芯片",
+      "status": "OK",
+      "bars": 1662,
+      "first": "2019-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1662,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 72.0,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000698": {
+      "name": "科创100",
+      "status": "OK",
+      "bars": 1662,
+      "first": "2019-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1662,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 51.84,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000813": {
+      "name": "细分化工",
+      "status": "OK",
+      "bars": 2341,
+      "first": "2017-03-22",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2341,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.57,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 61.9
+    },
+    "000852": {
+      "name": "中证1000",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.07,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000922": {
+      "name": "中证红利",
+      "status": "OK",
+      "bars": 2636,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2636,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 9.42,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 83.5
+    },
+    "399001": {
+      "name": "深证成指",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 6.12,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399005": {
+      "name": "中小100",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 17.11,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399006": {
+      "name": "创业板指",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 5.28,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399012": {
+      "name": "创业300",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.29,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399019": {
+      "name": "创业200",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 13.47,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 72.6
+    },
+    "399102": {
+      "name": "创业板综",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.07,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399264": {
+      "name": "创业软件",
+      "status": "OK",
+      "bars": 2145,
+      "first": "2018-01-02",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2145,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.39,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 53.8
+    },
+    "399266": {
+      "name": "创新能源",
+      "status": "OK",
+      "bars": 2145,
+      "first": "2018-01-02",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2145,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 28.18,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 53.8
+    },
+    "399275": {
+      "name": "创医药",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.97,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399276": {
+      "name": "创科技",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.81,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399291": {
+      "name": "创精选88",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 14.07,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399293": {
+      "name": "创业大盘",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.79,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399295": {
+      "name": "创价值",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.61,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399296": {
+      "name": "创成长",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.61,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399303": {
+      "name": "国证2000",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.02,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399324": {
+      "name": "深证红利",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.41,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399326": {
+      "name": "成长40",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.71,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399330": {
+      "name": "深证100",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.13,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399348": {
+      "name": "深证价值",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 10.88,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399361": {
+      "name": "在线消费",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.51,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399362": {
+      "name": "民企100",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.26,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399365": {
+      "name": "国证粮食",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 20.94,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399372": {
+      "name": "大盘成长",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "399373": {
+      "name": "大盘价值",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "399378": {
+      "name": "ESG 300",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "399389": {
+      "name": "国证通信",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 14.85,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399396": {
+      "name": "国证食品",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 30.98,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399433": {
+      "name": "国证交运",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 7.57,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399437": {
+      "name": "证券龙头",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.87,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399438": {
+      "name": "绿色电力",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 5.89,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399439": {
+      "name": "国证油气",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 6.2,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399441": {
+      "name": "生物医药",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 25.92,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399550": {
+      "name": "央视50",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.71,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399610": {
+      "name": "TMT50",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 14.24,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399624": {
+      "name": "中创400",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.52,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399667": {
+      "name": "创业成长",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 16.61,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 44.9
+    },
+    "399750": {
+      "name": "深主板50",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 17.71,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 72.6
+    },
+    "399975": {
+      "name": "证券公司",
+      "status": "OK",
+      "bars": 2634,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2634,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.24,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 26.5
+    },
+    "399986": {
+      "name": "中证银行",
+      "status": "OK",
+      "bars": 2634,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2634,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 7.64,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 45.0
+    },
+    "399989": {
+      "name": "中证医疗",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "930708": {
+      "name": "中证有色",
+      "status": "OK",
+      "bars": 1385,
+      "first": "2021-02-24",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 1385,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 14.32,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "930709": {
+      "name": "香港证券",
+      "status": "OK",
+      "bars": 949,
+      "first": "2023-01-03",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 949,
+      "zero_vol_pct": 0.42,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.76,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 99.6
+    },
+    "930955": {
+      "name": "红利低波100",
+      "status": "OK",
+      "bars": 1648,
+      "first": "2020-01-20",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1648,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 8.19,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931071": {
+      "name": "人工智能",
+      "status": "OK",
+      "bars": 1723,
+      "first": "2019-09-26",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1723,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 31.87,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931079": {
+      "name": "5G通信",
+      "status": "OK",
+      "bars": 1750,
+      "first": "2019-08-19",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1750,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 28.38,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931160": {
+      "name": "通信设备",
+      "status": "OK",
+      "bars": 1801,
+      "first": "2019-06-06",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1801,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 20.24,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931238": {
+      "name": "SSH黄金股票",
+      "status": "OK",
+      "bars": 777,
+      "first": "2023-10-13",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 777,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 12.88,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931573": {
+      "name": "港股通科技",
+      "status": "OK",
+      "bars": 1424,
+      "first": "2021-01-28",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 1424,
+      "zero_vol_pct": 0.35,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 35.11,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 99.6
+    },
+    "931637": {
+      "name": "港股通互联网",
+      "status": "OK",
+      "bars": 1295,
+      "first": "2021-08-09",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 1295,
+      "zero_vol_pct": 0.39,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 24.39,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 99.6
+    },
+    "931643": {
+      "name": "科创创业50",
+      "status": "OK",
+      "bars": 1308,
+      "first": "2021-06-17",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 1308,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 71.98,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931719": {
+      "name": "CS电池",
+      "status": "OK",
+      "bars": 1318,
+      "first": "2021-06-02",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 1318,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 39.45,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931994": {
+      "name": "电网设备主题",
+      "status": "OK",
+      "bars": 496,
+      "first": "2024-10-24",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 496,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.84,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "950125": {
+      "name": "科创半导体材料设备",
+      "status": "OK",
+      "bars": 1659,
+      "first": "2020-01-02",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1659,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 64.47,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "950580": {
+      "name": "上证580",
+      "status": "OK",
+      "bars": 1903,
+      "first": "2019-01-02",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1903,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 9.41,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "970070": {
+      "name": "创业板人工智能",
+      "status": "OK",
+      "bars": 1902,
+      "first": "2019-01-02",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1902,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.16,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "970081": {
+      "name": "创业板电池",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 43.76,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "970083": {
+      "name": "创业板算力",
+      "status": "OK",
+      "bars": 930,
+      "first": "2023-01-03",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 930,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 35.26,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "970085": {
+      "name": "创业板金融科技",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 17.9,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980001": {
+      "name": "湾创100",
+      "status": "OK",
+      "bars": 1922,
+      "first": "2019-04-09",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1922,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 27.83,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980015": {
+      "name": "疫苗生科",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 31.99,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980016": {
+      "name": "医疗健康",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 40.89,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980017": {
+      "name": "国证芯片",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 58.06,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980018": {
+      "name": "卫星通信",
+      "status": "WARN",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [
+        "OHLC 舍入噪声 1 条（<0.1%，不影响特征）"
+      ],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 1,
+      "implied_price_med": 19.87,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980022": {
+      "name": "机器人产业",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 17.29,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980027": {
+      "name": "国证储能电池",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.86,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980028": {
+      "name": "龙头家电",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.23,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980030": {
+      "name": "消费电子",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.49,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980032": {
+      "name": "新能电池",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 28.06,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980034": {
+      "name": "工业软件",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.06,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980076": {
+      "name": "通用航空",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.45,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980080": {
+      "name": "成长100",
+      "status": "OK",
+      "bars": 492,
+      "first": "2024-10-29",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 492,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 46.67,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980081": {
+      "name": "价值100",
+      "status": "OK",
+      "bars": 492,
+      "first": "2024-10-29",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 492,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 10.09,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "980092": {
+      "name": "自由现金流",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 9.94,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "987008": {
+      "name": "港股通科技",
+      "status": "OK",
+      "bars": 1394,
+      "first": "2021-03-08",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 5,
+      "issues": [],
+      "n": 1394,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 38.52,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "987016": {
+      "name": "港股通红利低波",
+      "status": "OK",
+      "bars": 1221,
+      "first": "2021-11-18",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 4,
+      "issues": [],
+      "n": 1221,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 7.17,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "987019": {
+      "name": "港股通创新药（人民币）",
+      "status": "OK",
+      "bars": 1221,
+      "first": "2021-11-18",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 4,
+      "issues": [],
+      "n": 1221,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 15.86,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "987023": {
+      "name": "港股通互联网（人民币）",
+      "status": "OK",
+      "bars": 1221,
+      "first": "2021-11-18",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 4,
+      "issues": [],
+      "n": 1221,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 33.03,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "987024": {
+      "name": "港股通消费",
+      "status": "OK",
+      "bars": 394,
+      "first": "2025-04-02",
+      "last": "2026-11-06",
+      "covers_6y": false,
+      "gaps": 0,
+      "issues": [],
+      "n": 394,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 25.09,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "CN5075": {
+      "name": "国证信创",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 18.78,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "CN5082": {
+      "name": "国证航天",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 19.41,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "CN5097": {
+      "name": "消费服务",
+      "status": "WARN",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [
+        "OHLC 舍入噪声 2 条（<0.1%，不影响特征）"
+      ],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 2,
+      "implied_price_med": 13.76,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "CN6051": {
+      "name": "有色指数",
+      "status": "OK",
+      "bars": 2633,
+      "first": "2016-01-04",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2633,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 13.13,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "H30269": {
+      "name": "红利低波",
+      "status": "OK",
+      "bars": 2062,
+      "first": "2018-05-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2062,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 8.51,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "930050": {
+      "name": "中证A50",
+      "status": "OK",
+      "bars": 2879,
+      "first": "2014-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2879,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 21.45,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "000903": {
+      "name": "中证A100",
+      "status": "OK",
+      "bars": 1452,
+      "first": "2020-11-11",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 1452,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": null,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 0.0
+    },
+    "000906": {
+      "name": "中证800",
+      "status": "OK",
+      "bars": 3165,
+      "first": "2013-11-05",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 3165,
+      "zero_vol_pct": 0.03,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.79,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 54.2
+    },
+    "932000": {
+      "name": "中证2000",
+      "status": "OK",
+      "bars": 3124,
+      "first": "2013-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 3124,
+      "zero_vol_pct": 0.0,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 11.08,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "H30007": {
+      "name": "芯片",
+      "status": "OK",
+      "bars": 2635,
+      "first": "2015-12-31",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [],
+      "n": 2635,
+      "zero_vol_pct": 0.04,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 43.48,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 100.0
+    },
+    "931239": {
+      "name": "港股汽车",
+      "status": "WARN",
+      "bars": 2521,
+      "first": "2016-12-30",
+      "last": "2026-11-06",
+      "covers_6y": true,
+      "gaps": 0,
+      "issues": [
+        "零成交量占比 3.9%"
+      ],
+      "n": 2521,
+      "zero_vol_pct": 3.89,
+      "dup": 0,
+      "round_noise": 0,
+      "implied_price_med": 17.23,
+      "bad_unit_bars": 0,
+      "jumps": 0,
+      "amount_coverage_pct": 96.1
+    }
+  }
+}

@@ -112,14 +112,24 @@ def load_bars(cache_dir: str, code: str) -> List[Dict[str, Any]]:
         c = _f(r.get("close"))
         if c is None or c <= 0:
             continue
+        vol = _f(r.get("vol")) or 0.0
+        amt = _f(r.get("amount")) or 0.0
+        # 量纲护栏（2026-11-07）：缓存里混过两套口径——东财/腾讯 = 手 + 元，
+        # 中证官网源与 sse_cni 兜底 = 股 + 亿元（vol×1e6 于万手、amount 直接用亿）。
+        # amount/vol 在「手+元」下约为 100×每股均价（1e2~1e4 量级），
+        # 在「股+亿元」下约为 1e-7 量级，两者相差 9 个数量级，判据无歧义。
+        # 统一到「手 + 元」，否则 vol_z20/er20 在接缝处会跳变 100 倍。
+        if amt > 0 and vol > 0 and (amt / vol) < 1e-3:
+            vol = vol / 100.0
+            amt = amt * 1e8
         bars.append({
             "date": str(r.get("date")),
             "open": _f(r.get("open")) or c,
             "high": _f(r.get("high")) or c,
             "low": _f(r.get("low")) or c,
             "close": c,
-            "vol": _f(r.get("vol")) or 0.0,
-            "amount": _f(r.get("amount")) or 0.0,
+            "vol": vol,
+            "amount": amt,
         })
     bars.sort(key=lambda x: x["date"])
     return bars
