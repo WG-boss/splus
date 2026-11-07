@@ -201,7 +201,7 @@ def t_engine():
     chk("治理日级台账已写", (res.get("governance") or {}).get("daily_records", 0) >= 1)
     chk("未校准标签存在", "未校准" in
         (res.get("decision_card") or {}).get("calibration_label", ""))
-    chk("对冲明确个人不可执行", "个人不可直接执行" in res.get("hedge_note", ""))
+    chk("对冲明确个人不可执行", "个人通常不可执行" in res.get("hedge_note", ""))
 
     # 幂等：同日重跑不重复追加日级台账
     gp = os.path.join(BASE, "data", "ledger", "governance.jsonl")

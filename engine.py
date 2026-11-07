@@ -1137,6 +1137,9 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             bucket_exposure[b] = {
                 "codes": codes,
                 "exposure": per_index[codes[0]]["sizing"]["final"],
+                # 单成员桶同样给出 per_name（修复 2026-11-07：此前缺失导致
+                # execution_plan 取 per_name=0 → 单标的预案被静默丢仓）
+                "per_name": per_index[codes[0]]["sizing"]["final"],
                 "note": "单标的，按单仓上限",
             }
         else:
@@ -1194,8 +1197,8 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             v["cap_reason"] = (f"E 阶段主题组硬上限 {theme_cap:.0%}"
                                f"（组内合计 {theme_sum:.2%} → 缩放 {theme_scale:.2f}）")
         v["exposure"] = round(capped, 4)
-        if len(v.get("codes", [])) > 1:
-            v["per_name"] = round(capped / len(v["codes"]), 4)
+        # per_name 对单成员桶同样成立（修复 2026-11-07，见桶初始化注释）
+        v["per_name"] = round(capped / len(v.get("codes", []) or [1]), 4)
 
     total_pre_switch = total_exposure
     total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
@@ -1216,6 +1219,18 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     # 策划案 docs/tradeable_universe_review_20261106.html；引擎模块 eligibility.py。
     # 注入点：quality_warnings_list 之后、decision_layer.apply 之前——
     # FROZEN 归零后的 sizing 直接进入决策层执行链。
+    # P0-1a 修复（2026-11-07）：ETF 映射 attach 提前到资格计算之前。
+    #   原先 attach 在 decision_layer.apply 内才执行，资格计算时 v["instrument"]
+    #   恒为空 → map_ready 恒 0，且 investability 因 etf_code 反查不到 amount 也恒 0
+    #   （一个时序 bug 同时杀死两个因子，FULL 档数学不可达）。attach 幂等（原地
+    #   覆盖），decision_layer 内的二次调用无害；mapping 加载失败 → instrument
+    #   status=unmapped → map_ready=0，保持 fail-closed 语义。
+    try:
+        import etf_map as _etf_map_pre
+        _etf_map_pre.attach(per_index, mapping)
+    except Exception as _exc:
+        print(f"[warn] etf_map attach 提前注入失败（map_ready/investability 将保守取 0）: {_exc!r}",
+              file=sys.stderr)
     _elig_cfg = (cfg.get("eligibility") or {})
     result_modulation: Dict[str, Any] = {"enabled": False}
     _pre_finals: Dict[str, float] = {}   # 乘数前基线（fail-closed 时保持空 → 重同步跳过）
@@ -1330,8 +1345,8 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                 _scale = _post_sum / _pre_sum
                 if _scale < 1.0:
                     _bv["exposure"] = round(_bv["exposure"] * _scale, 4)
-                    if len(_codes_b) > 1:
-                        _bv["per_name"] = round(_bv["exposure"] / len(_codes_b), 4)
+                    # 单成员桶同样维护 per_name（修复 2026-11-07）
+                    _bv["per_name"] = round(_bv["exposure"] / len(_codes_b), 4)
                     _bv["cap_reason"] = (_bv.get("cap_reason", "") +
                                          f"；B2 资格收缩 ×{_scale:.2f}").lstrip("；")
             total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
@@ -1402,7 +1417,8 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         "switch_haircut_applied": applied,
         "switch_haircut": round(haircut, 3),
         "hedge_need": hedge_need,
-        "hedge_note": f"P(D)+P(E) 均值 {p_de:.2f} → 建议对冲 {hedge_need:.0%} beta" if hedge_need
+        "hedge_note": f"P(D)+P(E) 均值 {p_de:.2f} → 建议等效降低敞口约 {hedge_need:.0%}（减仓/现金/低相关宽基）"
+                      if hedge_need
                       else f"P(D)+P(E) 均值 {p_de:.2f} → 暂不需要系统性对冲",
         "kill_switches": switches,
         "data_gaps": missing,

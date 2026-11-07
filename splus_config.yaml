@@ -321,7 +321,7 @@ etf_map:
 
 hedge:
   retail_actionable: false     # beta 对冲对个人不可直接执行
-  retail_note: "融券/期指对冲对个人通常不可执行；替代方案为降低敞口、持有现金或低相关宽基"
+  retail_note: "个人可执行替代：减仓、转现金或配置低相关宽基"
 
 calibration_display:
   min_settled: 30
@@ -340,6 +340,7 @@ execution_plan:
   lot_size: 100                 # 场内 ETF 买入最小 100 份
   commission_rate: 0.0003       # 佣金估算费率
   min_commission: 5.0           # 单笔最低佣金（元）
+  slippage_rate: 0.001          # 滑点估算（单边千 1；宽基/高流动性 ETF 的保守拍定值，可按品种调整）
   price_max_age_hours: 72       # 覆盖周末；过期一律不换算份额
   fee_note: "佣金估算，ETF 免印花税；经手费/过户费以券商实际收费为准"
 

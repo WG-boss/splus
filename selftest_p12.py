@@ -96,7 +96,9 @@ def t_execution(cfg):
             f"shares={r['shares']} price={r['price']}")
         chk("实际金额 = 份额 × 现价", r["actual_cny"] == 10000.0, str(r["actual_cny"]))
         chk("费用取 max(费率, 最低佣金)", r["fee_cny"] == 5.0, str(r["fee_cny"]))
-        chk("合计含费用", r["total_cny"] == 10005.0, str(r["total_cny"]))
+        # P1 成本模型补强（2026-11-07）：滑点单边计提默认 0.001 → 10.0
+        chk("滑点单边计提", r["slippage_cny"] == 10.0, str(r["slippage_cny"]))
+        chk("合计含费用与滑点", r["total_cny"] == 10015.0, str(r["total_cny"]))
 
         kw2 = _ctx(cfg, tmp, price=1.30)
         r2 = ep.build(**kw2)["rows"][0]

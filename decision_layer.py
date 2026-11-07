@@ -28,10 +28,10 @@ import quality as quality_mod
 def _hedge_text(cfg: Dict[str, Any], p_de: float, hedge_need: float) -> str:
     retail = (cfg.get("hedge") or {}).get(
         "retail_note",
-        "融券/期指对冲对个人通常不可执行；替代方案为降低敞口、持有现金或低相关宽基")
+        "个人可执行替代：减仓、转现金或配置低相关宽基")
     if hedge_need:
-        return (f"P(D)+P(E) 均值 {p_de:.2f} → 模型建议对冲 {hedge_need:.0%} beta；"
-                f"【个人不可直接执行】{retail}")
+        return (f"P(D)+P(E) 均值 {p_de:.2f} → 建议等效降低敞口约 {hedge_need:.0%}"
+                f"（{retail}）；融券/期指对冲仅为模型参考口径，个人通常不可执行")
     return f"P(D)+P(E) 均值 {p_de:.2f} → 暂不需要系统性对冲"
 
 

@@ -41,6 +41,7 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
     lot = int(ec.get("lot_size") or 100)
     rate = _f(ec.get("commission_rate"), 0.0003)
     min_fee = _f(ec.get("min_commission"), 5.0)
+    slip = _f(ec.get("slippage_rate"), 0.001)
     fee_note = str(ec.get("fee_note") or "佣金估算，以券商实际收费为准")
 
     veto = bool(market.get("veto"))
@@ -62,6 +63,7 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
         "lot_size": lot,
         "commission_rate": rate,
         "min_commission": min_fee,
+        "slippage_rate": slip,
         "quotes": {"ok": bool(snapshot.get("ok")),
                    "count": snapshot.get("count", 0),
                    "fetched_at": snapshot.get("fetched_at"),
@@ -69,7 +71,8 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
                    "reason": snapshot.get("reason", "")},
         "rows": [], "summary": {}, "warnings": [],
         "disclaimer": "报价为快照，下单前须以券商实时价为准；"
-                      "场内 ETF 买入最小 100 份、T+1；QDII 需关注溢价与限购。" + fee_note,
+                      "场内 ETF 买入最小 100 份、T+1；QDII 需关注溢价与限购。"
+                      f"佣金+滑点（{slip:.2%} 单边估算）合计为成本口径，实际以成交为准。" + fee_note,
     }
 
     if capital_ok:
@@ -123,11 +126,14 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
         shares = None
         actual = None
         fee = None
+        slip_cny = None
         if capital_ok and confirmed and price and target_cny and target_cny > 0:
             lots = int(math.floor(target_cny / (price * lot)))
             shares = lots * lot
             actual = round(shares * price, 2)
             fee = round(max(actual * rate, min_fee), 2) if shares > 0 else 0.0
+            # 滑点估算（P1 成本模型补强 2026-11-07）：按 slippage_rate 单边计提
+            slip_cny = round(actual * slip, 2) if shares > 0 else 0.0
             if shares <= 0:
                 reasons.append("金额不足 1 手")
 
@@ -151,7 +157,9 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
             "lots": (shares // lot) if shares else None,
             "actual_cny": actual,
             "fee_cny": fee,
-            "total_cny": round(actual + fee, 2) if actual is not None and fee is not None else None,
+            "slippage_cny": slip_cny,
+            "total_cny": round(actual + fee + (slip_cny or 0.0), 2)
+                         if actual is not None and fee is not None else None,
             "executable": executable,
             "reasons": reasons,
             "quote_reason": quote.get("reason") or "",
@@ -165,6 +173,7 @@ def build(cfg: Dict[str, Any], base_dir: str, account_state: Dict[str, Any],
         "target_total_cny": round(sum(r["target_cny"] or 0 for r in rows), 2) if capital_ok else None,
         "actual_total_cny": round(sum(r["actual_cny"] or 0 for r in rows), 2) if capital_ok else None,
         "fee_total_cny": round(sum(r["fee_cny"] or 0 for r in rows), 2) if capital_ok else None,
+        "slippage_total_cny": round(sum(r["slippage_cny"] or 0 for r in rows), 2) if capital_ok else None,
     }
 
     if veto:

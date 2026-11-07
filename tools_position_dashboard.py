@@ -146,6 +146,7 @@ def build_payload(dec_path: str, cfg: dict) -> dict:
             "lot_size": ep.get("lot_size") or 100,
             "commission_rate": ep.get("commission_rate") or 0.0003,
             "min_commission": ep.get("min_commission") or 5.0,
+            "slippage_rate": ep.get("slippage_rate") if ep.get("slippage_rate") is not None else 0.001,
             "tier_permissions": (el_cfg.get("tier_permissions")
                                  or {"FULL": 1.0, "REDUCED": 0.5, "OBSERVE": 0.0, "FROZEN": 0.0}),
             "tiers_thresholds": el_cfg.get("tiers") or {"full": 80, "reduced": 60, "observe": 40},
@@ -406,18 +407,20 @@ function render(){
   document.getElementById('tbody').innerHTML=rows.map((r,i)=>rowHtml(r,i)).join('')||'<tr><td colspan="15" class="mut">无匹配行</td></tr>';
 
   /* KPI 汇总 */
-  let sumT=0,sumA=0,sumF=0,execN=0,cash=0;
+  let sumT=0,sumA=0,sumF=0,sumS=0,execN=0,cash=0;
+  const slipR=DATA.defaults.slippage_rate??0.001;
   for(const r of DATA.rows){
     const px=priceOf(r),tc=r.target_weight*st.capital;sumT+=tc;
     const sh=(px>0&&tc>0)?Math.floor(tc/px/st.lot)*st.lot:0;
     sumA+=sh*px;sumF+=sh*px>0?Math.max(sh*px*st.comm,st.mincomm):0;
+    sumS+=sh*px*slipR;
     if(r.executable)execN++;
   }
   cash=st.capital-sumA;
   document.getElementById('summaryKpi').innerHTML=
     `<span class="kpi"><div class="k">目标敞口合计</div><div class="v">${fmtW(st.capital?sumT/st.capital:0)}</div></span>
      <span class="kpi"><div class="k">计划投入 ¥</div><div class="v">${fmtCny(sumA)}</div></span>
-     <span class="kpi"><div class="k">预计佣金 ¥</div><div class="v">${fmtCny(sumF)}</div></span>
+     <span class="kpi"><div class="k">佣金+滑点 ¥</div><div class="v">${fmtCny(sumF+sumS)}</div></span>
      <span class="kpi"><div class="k">剩余现金 ¥</div><div class="v">${fmtCny(cash)}</div></span>
      <span class="kpi"><div class="k">预案可执行标的</div><div class="v">${execN} / ${DATA.rows.length}</div></span>`;
   document.getElementById('rowNote').textContent=`（${rows.length}/${DATA.rows.length} 行显示）`;
