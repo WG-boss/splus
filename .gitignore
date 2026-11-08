@@ -58,3 +58,6 @@ data/_cache_backup_20261107/
 data/_cache_backup_extend/
 # 每日重建的交互看板（可由 tools_position_dashboard.py 重算）
 data/position_dashboard.html
+
+# ---- 一次性审计基线（保留但不再变动）----
+*.bak

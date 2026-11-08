@@ -1,0 +1,6647 @@
+{
+ "generated_at": "2026-11-08 16:40:28",
+ "cache_dir": "..\\stock-pool\\_cache",
+ "thresholds": {
+  "coverage_fail": 0.9,
+  "coverage_warn": 0.98,
+  "max_gap_fail": 60,
+  "max_gap_warn": 5,
+  "stale_fail": 5,
+  "stale_warn": 1,
+  "ohlc_bad_rate_fail": 0.01,
+  "ret_outlier": 0.15,
+  "ret_outlier_fail": 5,
+  "event_min_codes": 5,
+  "sector_min_codes": 2,
+  "sector_ret": 0.1,
+  "unit_ratio_min": 0.001,
+  "unit_break_lo": 0.2,
+  "unit_break_hi": 5.0,
+  "min_bars_warn": 240,
+  "min_bars_fail": 120
+ },
+ "calendar": {
+  "cn_days": 3163,
+  "cn_range": [
+   "2013-11-05",
+   "2026-11-06"
+  ],
+  "cn_weekend_share": 0.0,
+  "hk_days": 1547,
+  "us_days": 325,
+  "active_by_year": {
+   "2013": 2,
+   "2014": 3,
+   "2015": 4,
+   "2016": 61,
+   "2017": 62,
+   "2018": 65,
+   "2019": 74,
+   "2020": 100,
+   "2021": 103,
+   "2022": 103,
+   "2023": 105,
+   "2024": 108,
+   "2025": 108,
+   "2026": 108
+  },
+  "market_events": {
+   "2024-10-08": 28,
+   "2024-09-30": 25,
+   "2025-04-07": 15,
+   "2022-03-16": 5
+  }
+ },
+ "summary": {
+  "n_universe": 118,
+  "n_ok": 67,
+  "n_warn": 51,
+  "n_fail": 0,
+  "n_missing": 0,
+  "total_bars": 242853,
+  "calendar_cn_days": 3163,
+  "calendar_cn_range": [
+   "2013-11-05",
+   "2026-11-06"
+  ],
+  "coverage_p10": 1.0,
+  "coverage_p50": 1.0,
+  "coverage_p90": 1.0,
+  "coverage_min": 0.9687,
+  "earliest": "2013-11-05",
+  "latest": "2026-11-06",
+  "units": {
+   "LOT_YUAN": 110,
+   "NO_VOL": 8
+  },
+  "fail_kinds": {},
+  "fail_codes": [],
+  "warn_codes": [
+   {
+    "code": "399673",
+    "name": "创业板50",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "hkHSTECH",
+    "name": "恒生科技",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "usNDX",
+    "name": "纳斯达克100",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "000813",
+    "name": "细分化工",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "000922",
+    "name": "中证红利",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399001",
+    "name": "深证成指",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399005",
+    "name": "中小100",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399006",
+    "name": "创业板指",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399012",
+    "name": "创业300",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399019",
+    "name": "创业200",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399102",
+    "name": "创业板综",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399264",
+    "name": "创业软件",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399266",
+    "name": "创新能源",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399275",
+    "name": "创医药",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399276",
+    "name": "创科技",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399291",
+    "name": "创精选88",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399293",
+    "name": "创业大盘",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399295",
+    "name": "创价值",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399296",
+    "name": "创成长",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399303",
+    "name": "国证2000",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399324",
+    "name": "深证红利",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399326",
+    "name": "成长40",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399330",
+    "name": "深证100",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399348",
+    "name": "深证价值",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399361",
+    "name": "在线消费",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399362",
+    "name": "民企100",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399365",
+    "name": "国证粮食",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399372",
+    "name": "大盘成长",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399373",
+    "name": "大盘价值",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399378",
+    "name": "ESG 300",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399389",
+    "name": "国证通信",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399396",
+    "name": "国证食品",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399433",
+    "name": "国证交运",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399437",
+    "name": "证券龙头",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399438",
+    "name": "绿色电力",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399439",
+    "name": "国证油气",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399441",
+    "name": "生物医药",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399550",
+    "name": "央视50",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399610",
+    "name": "TMT50",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399624",
+    "name": "中创400",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399667",
+    "name": "创业成长",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399750",
+    "name": "深主板50",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399975",
+    "name": "证券公司",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399986",
+    "name": "中证银行",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "399989",
+    "name": "中证医疗",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "930709",
+    "name": "香港证券",
+    "issues": [
+     "ret_jump"
+    ]
+   },
+   {
+    "code": "980018",
+    "name": "卫星通信",
+    "issues": [
+     "ohlc_logic"
+    ]
+   },
+   {
+    "code": "CN5097",
+    "name": "消费服务",
+    "issues": [
+     "ohlc_logic"
+    ]
+   },
+   {
+    "code": "000903",
+    "name": "中证A100",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "000906",
+    "name": "中证800",
+    "issues": [
+     "field_missing"
+    ]
+   },
+   {
+    "code": "931239",
+    "name": "港股汽车",
+    "issues": [
+     "field_missing",
+     "field_missing"
+    ]
+   }
+  ]
+ },
+ "readiness": {
+  "L0": {
+   "n": 0,
+   "codes": []
+  },
+  "L1": {
+   "n": 8,
+   "codes": [
+    "usNDX",
+    "930709",
+    "931238",
+    "931994",
+    "970083",
+    "980080",
+    "980081",
+    "987024"
+   ]
+  },
+  "L2": {
+   "n": 8,
+   "codes": [
+    "930708",
+    "931637",
+    "931643",
+    "931719",
+    "987008",
+    "987016",
+    "987019",
+    "987023"
+   ]
+  },
+  "L3": {
+   "n": 102,
+   "codes": [
+    "000688",
+    "399673",
+    "hkHSTECH",
+    "H30590",
+    "H30184",
+    "931152",
+    "932666",
+    "931594",
+    "931743",
+    "931723",
+    "932580",
+    "000300"
+   ]
+  }
+ },
+ "fields": {
+  "present": [
+   "amount",
+   "close",
+   "date",
+   "high",
+   "low",
+   "open",
+   "vol"
+  ],
+  "missing_upgrade": [
+   "adj_factor",
+   "constituent_change",
+   "constituent_count",
+   "dividend_yield",
+   "etf_nav",
+   "etf_premium",
+   "free_float_mcap",
+   "index_nav",
+   "pb",
+   "pe_ttm",
+   "risk_free",
+   "top10_weight",
+   "turnover_rate"
+  ]
+ },
+ "fields_detail": {
+  "turnover_rate": [
+   "换手率",
+   "拥挤度/流动性因子，state_fit 与 stock-pool 筛选的核心缺失项"
+  ],
+  "free_float_mcap": [
+   "自由流通市值",
+   "容量约束：ETF 跟踪容量与冲击成本估算"
+  ],
+  "pe_ttm": [
+   "估值 PE-TTM",
+   "估值分位择时；缺失导致所有信号只能纯价格驱动"
+  ],
+  "pb": [
+   "市净率",
+   "与 PE 交叉验证，避免单因子失真"
+  ],
+  "dividend_yield": [
+   "股息率",
+   "红利类指数的收益来源分解，当前无法归因"
+  ],
+  "constituent_count": [
+   "成分股数量",
+   "集中度风险；决定单票冲击成本"
+  ],
+  "top10_weight": [
+   "前十大权重合计",
+   "集中度；theme 桶尤需"
+  ],
+  "index_nav": [
+   "指数全收益/净收益版本",
+   "分红再投资口径；价格指数低估长期收益 2-3%/年"
+  ],
+  "etf_nav": [
+   "ETF 单位净值",
+   "折溢价与跟踪误差，映射质量评估"
+  ],
+  "etf_premium": [
+   "ETF 折溢价率",
+   "执行层最优 ETF 选择的直接依据"
+  ],
+  "risk_free": [
+   "无风险利率",
+   "夏普/超额收益基准，当前用常数替代"
+  ],
+  "constituent_change": [
+   "成分股调整记录",
+   "幸存者偏差审计；指数化回测的隐性偏差源"
+  ],
+  "adj_factor": [
+   "复权因子",
+   "仅 ETF/个股需要；指数不适用"
+  ]
+ },
+ "per_code": [
+  {
+   "code": "000688",
+   "name": "科创50",
+   "bucket": "core",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1659,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-12-31",
+   "last": "2026-11-06",
+   "expected": 1659,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-09-30",
+     0.1788
+    ],
+    [
+     "2024-10-08",
+     0.1738
+    ]
+   ],
+   "amt_vol_ratio": 5944.314961834942,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 5342.97,
+    "2021": 7794.1,
+    "2022": 6394.45,
+    "2023": 5533.04,
+    "2024": 4325.25,
+    "2025": 5671.7,
+    "2026": 9253.67
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "399673",
+   "name": "创业板50",
+   "bucket": "core",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1856
+    ],
+    [
+     "2024-09-30",
+     0.1555
+    ]
+   ],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "hkHSTECH",
+   "name": "恒生科技",
+   "bucket": "core",
+   "tradeable": true,
+   "market": "HK",
+   "bars": 1547,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-07-27",
+   "last": "2026-11-06",
+   "coverage": null,
+   "max_gap": null,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0006,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2022-03-16",
+     0.222
+    ],
+    [
+     "2025-04-07",
+     -0.1716
+    ]
+   ],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "status": "WARN"
+  },
+  {
+   "code": "H30590",
+   "name": "机器人",
+   "bucket": "theme",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1858.774129720315,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1793.43,
+    "2021": 1979.79,
+    "2022": 1562.04,
+    "2023": 1775.32,
+    "2024": 1567.25,
+    "2025": 2323.56,
+    "2026": 3521.7
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "H30184",
+   "name": "半导体",
+   "bucket": "ai_hw",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1661
+    ],
+    [
+     "2024-09-30",
+     0.1563
+    ]
+   ],
+   "amt_vol_ratio": 5013.131149596856,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 3918.87,
+    "2021": 4719.12,
+    "2022": 4816.94,
+    "2023": 4547.99,
+    "2024": 3874.52,
+    "2025": 6031.62,
+    "2026": 9398.39
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931152",
+   "name": "创新药",
+   "bucket": "pharma",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 3554.9592118561914,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 4774.99,
+    "2021": 4910.69,
+    "2022": 3766.21,
+    "2023": 3249.05,
+    "2024": 2721.84,
+    "2025": 3228.05,
+    "2026": 3711.64
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "932666",
+   "name": "高频PCB",
+   "bucket": "ai_hw",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1996.5407322892831,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 2102.54,
+    "2021": 1944.79,
+    "2022": 1634.96,
+    "2023": 1983.67,
+    "2024": 1765.72,
+    "2025": 2883.02,
+    "2026": 6319.15
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931594",
+   "name": "商业航天",
+   "bucket": "theme",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1677.1499667421513,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1601.21,
+    "2021": 1412.49,
+    "2022": 1305.09,
+    "2023": 1682.62,
+    "2024": 1726.23,
+    "2025": 2554.54,
+    "2026": 4152.88
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931743",
+   "name": "半导体材料设备",
+   "bucket": "ai_hw",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "sector_event",
+     "detail": "2 次极端收益属板块级共因（同日 >=2 只标的 |收益|>10%），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 2,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1636
+    ],
+    [
+     "2026-07-21",
+     0.1546
+    ],
+    [
+     "2024-09-30",
+     0.1532
+    ],
+    [
+     "2026-11-04",
+     0.15
+    ]
+   ],
+   "amt_vol_ratio": 3562.6173464882845,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 2773.13,
+    "2021": 3770.62,
+    "2022": 4050.55,
+    "2023": 2821.01,
+    "2024": 2076.51,
+    "2025": 3770.21,
+    "2026": 8469.01
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931723",
+   "name": "光模块CPO",
+   "bucket": "ai_hw",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1995.6717256674538,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1501.64,
+    "2021": 1371.0,
+    "2022": 1244.29,
+    "2023": 1998.89,
+    "2024": 2157.76,
+    "2025": 3182.24,
+    "2026": 7232.59
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "932580",
+   "name": "磁电存储",
+   "bucket": "ai_hw",
+   "tradeable": true,
+   "market": "CN",
+   "bars": 1454,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1563
+    ]
+   ],
+   "amt_vol_ratio": 4810.764960115061,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 4736.44,
+    "2021": 4951.37,
+    "2022": 4547.1,
+    "2023": 4364.79,
+    "2024": 3960.81,
+    "2025": 5559.76,
+    "2026": 12213.21
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000300",
+   "name": "沪深300",
+   "bucket": "ref",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1947.9671130469678,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1891.82,
+    "2021": 2079.58,
+    "2022": 1957.1,
+    "2023": 1765.83,
+    "2024": 1595.26,
+    "2025": 2017.57,
+    "2026": 2688.29
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000905",
+   "name": "中证500",
+   "bucket": "ref",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1177.3331139070956,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1069.26,
+    "2021": 1132.85,
+    "2022": 1062.79,
+    "2023": 1168.75,
+    "2024": 1106.04,
+    "2025": 1442.81,
+    "2026": 2149.0
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "usNDX",
+   "name": "纳斯达克100",
+   "bucket": "lead",
+   "tradeable": false,
+   "market": "US",
+   "bars": 325,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2025-07-24",
+   "last": "2026-11-05",
+   "coverage": null,
+   "max_gap": null,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "status": "WARN"
+  },
+  {
+   "code": "000009",
+   "name": "上证380",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1398.2265678738402,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1214.37,
+    "2021": 1330.87,
+    "2022": 1363.6,
+    "2023": 1393.86,
+    "2024": 1275.66,
+    "2025": 1590.57,
+    "2026": 1997.1
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000010",
+   "name": "上证180",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1623.7679165306386,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1696.97,
+    "2021": 1782.7,
+    "2022": 1577.53,
+    "2023": 1481.46,
+    "2024": 1463.64,
+    "2025": 1691.25,
+    "2026": 2271.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000015",
+   "name": "红利指数",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 779.2337555858704,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 858.35,
+    "2021": 797.19,
+    "2022": 758.15,
+    "2023": 656.49,
+    "2024": 717.54,
+    "2025": 809.07,
+    "2026": 956.74
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000016",
+   "name": "上证50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1455,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2087.0765591791205,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 2094.0,
+    "2021": 2834.88,
+    "2022": 2069.73,
+    "2023": 1691.52,
+    "2024": 1679.71,
+    "2025": 2051.89,
+    "2026": 3057.57
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000044",
+   "name": "上证中盘",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1243.1554855060456,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 983.71,
+    "2017": 1016.53,
+    "2018": 1079.46,
+    "2019": 1103.79,
+    "2020": 1262.51,
+    "2021": 1326.29,
+    "2022": 1300.26,
+    "2023": 1341.96,
+    "2024": 1305.26,
+    "2025": 1461.95,
+    "2026": 1801.05
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000048",
+   "name": "责任指数",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1525.1399607742,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1180.94,
+    "2017": 1421.94,
+    "2018": 1574.67,
+    "2019": 1475.32,
+    "2020": 1615.06,
+    "2021": 1789.29,
+    "2022": 1515.56,
+    "2023": 1397.3,
+    "2024": 1416.36,
+    "2025": 1787.45,
+    "2026": 2261.44
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000056",
+   "name": "上证国企",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1191.819443550536,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 924.45,
+    "2017": 1021.44,
+    "2018": 998.34,
+    "2019": 1118.23,
+    "2020": 1273.16,
+    "2021": 1430.98,
+    "2022": 1188.49,
+    "2023": 1179.33,
+    "2024": 1247.56,
+    "2025": 1462.6,
+    "2026": 1941.1
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000068",
+   "name": "上证资源",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 956.4237185258687,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 865.14,
+    "2017": 942.19,
+    "2018": 901.52,
+    "2019": 793.08,
+    "2020": 776.77,
+    "2021": 1075.57,
+    "2022": 999.39,
+    "2023": 952.94,
+    "2024": 990.59,
+    "2025": 1315.01,
+    "2026": 1976.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000069",
+   "name": "消费80",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2854.4689906469357,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1310.06,
+    "2017": 1587.26,
+    "2018": 2186.13,
+    "2019": 2296.46,
+    "2020": 3109.52,
+    "2021": 4585.16,
+    "2022": 4302.01,
+    "2023": 3896.97,
+    "2024": 2945.1,
+    "2025": 3093.66,
+    "2026": 3576.65
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000510",
+   "name": "中证A500",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1501.7571317671036,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1207.04,
+    "2017": 1214.58,
+    "2018": 1213.95,
+    "2019": 1226.95,
+    "2020": 1532.34,
+    "2021": 1800.77,
+    "2022": 1704.11,
+    "2023": 1651.02,
+    "2024": 1457.06,
+    "2025": 1839.38,
+    "2026": 2726.91
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000685",
+   "name": "科创芯片",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1662,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "sector_event",
+     "detail": "1 次极端收益属板块级共因（同日 >=2 只标的 |收益|>10%），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-12-31",
+   "last": "2026-11-06",
+   "expected": 1659,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 1,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1987
+    ],
+    [
+     "2024-09-30",
+     0.1902
+    ],
+    [
+     "2020-02-03",
+     -0.1855
+    ]
+   ],
+   "amt_vol_ratio": 7199.319975615558,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 7995.06,
+    "2021": 7177.37,
+    "2022": 5940.01,
+    "2023": 6637.22,
+    "2024": 5380.59,
+    "2025": 8762.28,
+    "2026": 15017.02
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000698",
+   "name": "科创100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1662,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-12-31",
+   "last": "2026-11-06",
+   "expected": 1659,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-09-30",
+     0.1697
+    ],
+    [
+     "2024-10-08",
+     0.1624
+    ]
+   ],
+   "amt_vol_ratio": 5183.4571226180215,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 5599.32,
+    "2021": 6151.24,
+    "2022": 5366.76,
+    "2023": 4656.22,
+    "2024": 3279.6,
+    "2025": 4385.81,
+    "2026": 7009.49
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000813",
+   "name": "细分化工",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2341,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "38.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2017-03-22",
+   "last": "2026-11-06",
+   "expected": 2338,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.381,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1856.7153851594408,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1685.76,
+    "2021": 2210.73,
+    "2022": 2057.6,
+    "2023": 1760.91,
+    "2024": 1500.51,
+    "2025": 1649.79,
+    "2026": 2324.36
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "000852",
+   "name": "中证1000",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1206.921545244467,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1383.38,
+    "2017": 1195.5,
+    "2018": 934.65,
+    "2019": 925.25,
+    "2020": 1116.43,
+    "2021": 1352.38,
+    "2022": 1238.49,
+    "2023": 1222.25,
+    "2024": 1009.48,
+    "2025": 1434.94,
+    "2026": 1796.71
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000922",
+   "name": "中证红利",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2636,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "16.5% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.165,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 942.0562903075316,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 934.3,
+    "2017": 1174.36,
+    "2018": 1176.68,
+    "2019": 924.69,
+    "2020": 1074.96,
+    "2021": 1035.74,
+    "2022": 820.02,
+    "2023": 784.51,
+    "2024": 841.38,
+    "2025": 892.0,
+    "2026": 1079.76
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399001",
+   "name": "深证成指",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 612.4940075550464,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 682.97,
+    "2017": 663.1,
+    "2018": 559.79,
+    "2019": 512.67,
+    "2020": 630.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399005",
+   "name": "中小100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1710.799354507278,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1762.34,
+    "2017": 1785.49,
+    "2018": 1575.63,
+    "2019": 1444.78,
+    "2020": 1986.1
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399006",
+   "name": "创业板指",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1725
+    ],
+    [
+     "2024-09-30",
+     0.1536
+    ]
+   ],
+   "amt_vol_ratio": 527.558914286433,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 723.83,
+    "2017": 561.05,
+    "2018": 458.25,
+    "2019": 400.03,
+    "2020": 533.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399012",
+   "name": "创业300",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1695
+    ],
+    [
+     "2024-09-30",
+     0.1564
+    ]
+   ],
+   "amt_vol_ratio": 1529.4022216963533,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1935.18,
+    "2017": 1552.24,
+    "2018": 1267.19,
+    "2019": 1293.03,
+    "2020": 1679.37
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399019",
+   "name": "创业200",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "27.4% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.2738,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2025-04-07",
+     -0.1708
+    ],
+    [
+     "2024-09-30",
+     0.1647
+    ],
+    [
+     "2024-10-08",
+     0.1621
+    ]
+   ],
+   "amt_vol_ratio": 1347.213996081826,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1830.42,
+    "2017": 1494.88,
+    "2018": 975.27,
+    "2019": 977.85,
+    "2020": 1163.27,
+    "2021": 1474.07,
+    "2022": 1365.03,
+    "2023": 1474.99
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399102",
+   "name": "创业板综",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1584
+    ],
+    [
+     "2024-09-30",
+     0.1524
+    ]
+   ],
+   "amt_vol_ratio": 1607.0161907866548,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2268.02,
+    "2017": 1856.5,
+    "2018": 1411.74,
+    "2019": 1220.59,
+    "2020": 1489.41
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399264",
+   "name": "创业软件",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2145,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "46.2% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2018-01-02",
+   "last": "2026-11-06",
+   "expected": 2145,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.462,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1939
+    ],
+    [
+     "2024-09-30",
+     0.1858
+    ],
+    [
+     "2025-04-07",
+     -0.1643
+    ]
+   ],
+   "amt_vol_ratio": 1938.4920634920634,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2018": 1425.47,
+    "2019": 1552.78,
+    "2020": 2075.62,
+    "2021": 2788.8,
+    "2022": 2242.69
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399266",
+   "name": "创新能源",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2145,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "46.2% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2018-01-02",
+   "last": "2026-11-06",
+   "expected": 2145,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.462,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1817
+    ],
+    [
+     "2024-09-30",
+     0.1605
+    ],
+    [
+     "2025-04-07",
+     -0.1511
+    ]
+   ],
+   "amt_vol_ratio": 2816.6491693941825,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2018": 1657.02,
+    "2019": 2108.65,
+    "2020": 3034.48,
+    "2021": 5156.14,
+    "2022": 5485.6
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399275",
+   "name": "创医药",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-09-30",
+     0.1612
+    ]
+   ],
+   "amt_vol_ratio": 1897.3937848467822,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1983.94,
+    "2017": 1595.66,
+    "2018": 1967.45,
+    "2019": 1804.7,
+    "2020": 2767.11
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399276",
+   "name": "创科技",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1794
+    ],
+    [
+     "2024-09-30",
+     0.1625
+    ]
+   ],
+   "amt_vol_ratio": 1980.967089872584,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2396.74,
+    "2017": 1874.64,
+    "2018": 1720.36,
+    "2019": 1809.18,
+    "2020": 2831.69
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399291",
+   "name": "创精选88",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-09-30",
+     0.1667
+    ],
+    [
+     "2024-10-08",
+     0.1643
+    ],
+    [
+     "2025-04-07",
+     -0.163
+    ]
+   ],
+   "amt_vol_ratio": 1407.3147962312028,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1954.95,
+    "2017": 1474.12,
+    "2018": 1116.18,
+    "2019": 1188.57,
+    "2020": 1495.69
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399293",
+   "name": "创业大盘",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1793
+    ],
+    [
+     "2024-09-30",
+     0.159
+    ]
+   ],
+   "amt_vol_ratio": 1878.5002373042241,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2006.24,
+    "2017": 1657.25,
+    "2018": 1615.38,
+    "2019": 1966.75,
+    "2020": 3067.67
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399295",
+   "name": "创价值",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1597
+    ]
+   ],
+   "amt_vol_ratio": 1860.5438114574624,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2222.38,
+    "2017": 1752.52,
+    "2018": 1533.66,
+    "2019": 1626.52,
+    "2020": 2964.87
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399296",
+   "name": "创成长",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1661
+    ]
+   ],
+   "amt_vol_ratio": 2160.9566280303266,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2619.64,
+    "2017": 1940.94,
+    "2018": 1840.15,
+    "2019": 2138.95,
+    "2020": 4199.33
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399303",
+   "name": "国证2000",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1101.7551607505939,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1451.67,
+    "2017": 1230.65,
+    "2018": 985.63,
+    "2019": 914.32,
+    "2020": 1022.87
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399324",
+   "name": "深证红利",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1641.4874872363218,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1214.38,
+    "2017": 1568.14,
+    "2018": 1834.12,
+    "2019": 1811.39,
+    "2020": 1830.86
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399326",
+   "name": "成长40",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1670.58880790145,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2011.38,
+    "2017": 1625.59,
+    "2018": 1323.19,
+    "2019": 1482.65,
+    "2020": 2579.06
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399330",
+   "name": "深证100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1512.594396773542,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1429.66,
+    "2017": 1416.89,
+    "2018": 1469.01,
+    "2019": 1572.54,
+    "2020": 2069.07
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399348",
+   "name": "深证价值",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1088.0888680090152,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1032.11,
+    "2017": 1117.17,
+    "2018": 1203.14,
+    "2019": 1074.74,
+    "2020": 1026.34
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399361",
+   "name": "在线消费",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1151.1582986841552,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1171.11,
+    "2017": 1140.08,
+    "2018": 1190.8,
+    "2019": 956.74,
+    "2020": 1351.73
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399362",
+   "name": "民企100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1625.9412278485197,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1426.5,
+    "2017": 1535.21,
+    "2018": 1486.0,
+    "2019": 1802.62,
+    "2020": 2601.1
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399365",
+   "name": "国证粮食",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2093.9316872146464,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1368.04,
+    "2017": 1785.97,
+    "2018": 2239.17,
+    "2019": 2790.99,
+    "2020": 2880.87
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399372",
+   "name": "大盘成长",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399373",
+   "name": "大盘价值",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399378",
+   "name": "ESG 300",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399389",
+   "name": "国证通信",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1485.2808133170272,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1597.02,
+    "2017": 1474.09,
+    "2018": 1201.46,
+    "2019": 1422.75,
+    "2020": 1662.27
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399396",
+   "name": "国证食品",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 3097.9209124320523,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1619.03,
+    "2017": 2226.46,
+    "2018": 3212.24,
+    "2019": 3612.47,
+    "2020": 4223.02
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399433",
+   "name": "国证交运",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 756.5603436834534,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 752.82,
+    "2017": 821.81,
+    "2018": 753.66,
+    "2019": 703.03,
+    "2020": 722.26
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399437",
+   "name": "证券龙头",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1287.4219267774258,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1372.59,
+    "2017": 1283.75,
+    "2018": 952.14,
+    "2019": 1176.84,
+    "2020": 1456.71
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399438",
+   "name": "绿色电力",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 588.8178425470397,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 651.86,
+    "2017": 717.93,
+    "2018": 549.59,
+    "2019": 553.1,
+    "2020": 531.56
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399439",
+   "name": "国证油气",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 620.4402986671231,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 693.05,
+    "2017": 716.69,
+    "2018": 612.82,
+    "2019": 507.8,
+    "2020": 429.0
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399441",
+   "name": "生物医药",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2591.857180297946,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2608.34,
+    "2017": 2222.45,
+    "2018": 2664.55,
+    "2019": 2468.06,
+    "2020": 3890.07
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399550",
+   "name": "央视50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2171.0641334227944,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1591.09,
+    "2017": 2039.24,
+    "2018": 2197.28,
+    "2019": 2385.69,
+    "2020": 3109.14
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399610",
+   "name": "TMT50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1424.3016182893227,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1662.16,
+    "2017": 1400.0,
+    "2018": 1173.42,
+    "2019": 1198.37,
+    "2020": 1820.26
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399624",
+   "name": "中创400",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1251.810634444894,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1604.62,
+    "2017": 1337.25,
+    "2018": 1042.49,
+    "2019": 996.42,
+    "2020": 1215.37
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399667",
+   "name": "创业成长",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.1% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5515,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1806
+    ],
+    [
+     "2024-09-30",
+     0.163
+    ]
+   ],
+   "amt_vol_ratio": 1660.6388939844092,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2169.1,
+    "2017": 1610.55,
+    "2018": 1436.92,
+    "2019": 1508.73,
+    "2020": 2272.58
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399750",
+   "name": "深主板50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "27.4% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.2738,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1771.205357142857,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1236.1,
+    "2017": 1389.7,
+    "2018": 1535.99,
+    "2019": 1602.33,
+    "2020": 1899.23,
+    "2021": 2607.53,
+    "2022": 2248.76,
+    "2023": 2109.23
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399975",
+   "name": "证券公司",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2634,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "73.5% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.7354,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1124.4274321671958,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2018": 918.43,
+    "2019": 1090.95,
+    "2020": 1246.82
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399986",
+   "name": "中证银行",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2634,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "55.0% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.5501,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 764.2849929725683,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 705.25,
+    "2017": 779.19,
+    "2018": 741.51,
+    "2019": 801.55,
+    "2020": 801.58
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "399989",
+   "name": "中证医疗",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "930708",
+   "name": "中证有色",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1385,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-02-24",
+   "last": "2026-11-06",
+   "expected": 1383,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1431.95764209591,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 1421.02,
+    "2022": 1556.83,
+    "2023": 1320.19,
+    "2024": 1130.9,
+    "2025": 1460.26,
+    "2026": 2244.5
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "930709",
+   "name": "香港证券",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 949,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "ret_jump",
+     "detail": "1 次孤立单日 |收益|>15%（需人工确认）"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 25 日（2.69%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2023-01-03",
+   "last": "2026-11-06",
+   "expected": 930,
+   "missing": 25,
+   "coverage": 0.9731,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2023-04-07",
+    "2023-04-10",
+    "2023-05-26",
+    "2023-10-23",
+    "2023-12-25",
+    "2023-12-26",
+    "2024-03-29",
+    "2024-04-01",
+    "2024-05-15",
+    "2024-07-01"
+   ],
+   "calendar_mismatch_days": 25,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0042,
+   "zero_amt_rate": 0.0042,
+   "ret_outliers": 1,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [
+    [
+     "2024-10-02",
+     0.2858
+    ]
+   ],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     -0.2561
+    ],
+    [
+     "2025-04-07",
+     -0.1643
+    ]
+   ],
+   "amt_vol_ratio": 1276.2566210492027,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2023": 1355.63,
+    "2024": 1109.15,
+    "2025": 1223.56,
+    "2026": 1456.67
+   },
+   "unit_breaks": [],
+   "status": "WARN"
+  },
+  {
+   "code": "930955",
+   "name": "红利低波100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1648,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-01-20",
+   "last": "2026-11-06",
+   "expected": 1646,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 818.7384660289533,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 814.11,
+    "2021": 821.96,
+    "2022": 746.15,
+    "2023": 658.34,
+    "2024": 773.47,
+    "2025": 954.2,
+    "2026": 1015.28
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931071",
+   "name": "人工智能",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1723,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-09-26",
+   "last": "2026-11-06",
+   "expected": 1722,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 3187.3271437329227,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 1972.79,
+    "2020": 2567.36,
+    "2021": 3420.19,
+    "2022": 2814.95,
+    "2023": 3295.74,
+    "2024": 3064.35,
+    "2025": 4170.64,
+    "2026": 8211.94
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931079",
+   "name": "5G通信",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1750,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-08-19",
+   "last": "2026-11-06",
+   "expected": 1749,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2837.621333178104,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 1910.38,
+    "2020": 3068.46,
+    "2021": 2947.51,
+    "2022": 2364.76,
+    "2023": 2554.52,
+    "2024": 2633.26,
+    "2025": 3583.5,
+    "2026": 7786.18
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931160",
+   "name": "通信设备",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1801,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-06-06",
+   "last": "2026-11-06",
+   "expected": 1800,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2024.3246004186071,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 1606.81,
+    "2020": 1772.73,
+    "2021": 1617.7,
+    "2022": 1672.55,
+    "2023": 2209.19,
+    "2024": 2542.71,
+    "2025": 3561.75,
+    "2026": 8195.04
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931238",
+   "name": "SSH黄金股票",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 777,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2023-10-13",
+   "last": "2026-11-06",
+   "expected": 744,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1288.4066064436313,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2023": 937.99,
+    "2024": 1063.94,
+    "2025": 1385.37,
+    "2026": 1995.51
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931573",
+   "name": "港股通科技",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1424,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 38 日（2.72%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-01-28",
+   "last": "2026-11-06",
+   "expected": 1397,
+   "missing": 38,
+   "coverage": 0.9728,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-04-02",
+    "2021-04-06",
+    "2021-05-19",
+    "2021-07-01",
+    "2021-09-22",
+    "2021-10-14",
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18",
+    "2022-05-09"
+   ],
+   "calendar_mismatch_days": 38,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0035,
+   "zero_amt_rate": 0.0035,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2022-03-16",
+     0.1824
+    ],
+    [
+     "2025-04-07",
+     -0.182
+    ]
+   ],
+   "amt_vol_ratio": 3511.215944005545,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 5104.01,
+    "2022": 3906.49,
+    "2023": 2868.3,
+    "2024": 2194.03,
+    "2025": 3514.72,
+    "2026": 3785.95
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "931637",
+   "name": "港股通互联网",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1295,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 34 日（2.68%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-08-09",
+   "last": "2026-11-06",
+   "expected": 1270,
+   "missing": 34,
+   "coverage": 0.9732,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-09-22",
+    "2021-10-14",
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18",
+    "2022-05-09",
+    "2022-07-01",
+    "2022-12-26",
+    "2022-12-27",
+    "2023-04-07"
+   ],
+   "calendar_mismatch_days": 34,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0039,
+   "zero_amt_rate": 0.0039,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2022-03-16",
+     0.2349
+    ],
+    [
+     "2025-04-07",
+     -0.1662
+    ]
+   ],
+   "amt_vol_ratio": 2438.7043486000466,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 4121.15,
+    "2022": 2831.81,
+    "2023": 1353.4,
+    "2024": 1905.99,
+    "2025": 2891.03,
+    "2026": 2664.98
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "931643",
+   "name": "科创创业50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1308,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-06-17",
+   "last": "2026-11-06",
+   "expected": 1307,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1775
+    ],
+    [
+     "2024-09-30",
+     0.1618
+    ]
+   ],
+   "amt_vol_ratio": 7198.601990163133,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 9440.52,
+    "2022": 7148.08,
+    "2023": 6265.13,
+    "2024": 5309.94,
+    "2025": 7598.32,
+    "2026": 13707.92
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931719",
+   "name": "CS电池",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1318,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-06-02",
+   "last": "2026-11-06",
+   "expected": 1317,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 3943.7526515675677,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 3903.34,
+    "2022": 4490.12,
+    "2023": 4022.55,
+    "2024": 2785.53,
+    "2025": 3195.21,
+    "2026": 4620.54
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931994",
+   "name": "电网设备主题",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 496,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2024-10-24",
+   "last": "2026-11-06",
+   "expected": 495,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1586.6899215421688,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2024": 1198.86,
+    "2025": 1314.17,
+    "2026": 2261.61
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "950125",
+   "name": "科创半导体材料设备",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1659,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "sector_event",
+     "detail": "6 次极端收益属板块级共因（同日 >=2 只标的 |收益|>10%），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-01-02",
+   "last": "2026-11-06",
+   "expected": 1658,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 6,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1941
+    ],
+    [
+     "2020-02-03",
+     -0.1868
+    ],
+    [
+     "2024-09-30",
+     0.1828
+    ],
+    [
+     "2026-11-04",
+     0.1686
+    ],
+    [
+     "2026-07-21",
+     0.1663
+    ]
+   ],
+   "amt_vol_ratio": 6446.553566508276,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 12266.16,
+    "2021": 6358.41,
+    "2022": 5556.17,
+    "2023": 6372.88,
+    "2024": 5044.83,
+    "2025": 6530.25,
+    "2026": 9124.67
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "950580",
+   "name": "上证580",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1903,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-01-02",
+   "last": "2026-11-06",
+   "expected": 1902,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 940.796659298421,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 823.67,
+    "2020": 865.73,
+    "2021": 967.0,
+    "2022": 933.55,
+    "2023": 960.17,
+    "2024": 853.78,
+    "2025": 1220.09,
+    "2026": 1715.81
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "970070",
+   "name": "创业板人工智能",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1902,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-01-02",
+   "last": "2026-11-06",
+   "expected": 1902,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1893
+    ],
+    [
+     "2024-09-30",
+     0.1753
+    ],
+    [
+     "2025-04-07",
+     -0.1741
+    ]
+   ],
+   "amt_vol_ratio": 2114.2472197483503,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 1554.25,
+    "2020": 1944.89,
+    "2021": 2040.72,
+    "2022": 1534.04,
+    "2023": 2304.47,
+    "2024": 2428.56,
+    "2025": 3270.44,
+    "2026": 6436.32
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "970081",
+   "name": "创业板电池",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1782
+    ],
+    [
+     "2024-09-30",
+     0.168
+    ],
+    [
+     "2025-04-07",
+     -0.1659
+    ]
+   ],
+   "amt_vol_ratio": 4376.792856854268,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 3257.47,
+    "2021": 4905.81,
+    "2022": 5684.92,
+    "2023": 4065.68,
+    "2024": 2404.23,
+    "2025": 2849.07,
+    "2026": 5621.54
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "970083",
+   "name": "创业板算力",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 930,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2023-01-03",
+   "last": "2026-11-06",
+   "expected": 930,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 3,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.183
+    ],
+    [
+     "2025-04-07",
+     -0.1808
+    ],
+    [
+     "2024-09-30",
+     0.1704
+    ]
+   ],
+   "amt_vol_ratio": 3523.3735608267443,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2023": 2838.12,
+    "2024": 3105.89,
+    "2025": 4697.75,
+    "2026": 10912.95
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "970085",
+   "name": "创业板金融科技",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1996
+    ],
+    [
+     "2024-09-30",
+     0.1979
+    ]
+   ],
+   "amt_vol_ratio": 1790.701669707208,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 2000.9,
+    "2021": 1911.16,
+    "2022": 1524.52,
+    "2023": 1621.09,
+    "2024": 1293.41,
+    "2025": 2415.18,
+    "2026": 2133.35
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980001",
+   "name": "湾创100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1922,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2019-04-09",
+   "last": "2026-11-06",
+   "expected": 1839,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2782.968789409163,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2019": 2271.89,
+    "2020": 2868.66,
+    "2021": 3159.51,
+    "2022": 2770.16,
+    "2023": 2457.2,
+    "2024": 2202.81,
+    "2025": 3094.48,
+    "2026": 3996.93
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980015",
+   "name": "疫苗生科",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 3198.8970588235293,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2093.52,
+    "2017": 1973.68,
+    "2018": 2488.18,
+    "2019": 2233.5,
+    "2020": 3867.35,
+    "2021": 5868.66,
+    "2022": 3957.55,
+    "2023": 3587.96,
+    "2024": 3008.5,
+    "2025": 3395.99,
+    "2026": 3796.92
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980016",
+   "name": "医疗健康",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 4089.462449058801,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 5623.87,
+    "2021": 6299.98,
+    "2022": 4139.84,
+    "2023": 3467.41,
+    "2024": 2973.11,
+    "2025": 3711.54,
+    "2026": 4453.12
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980017",
+   "name": "国证芯片",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1571
+    ],
+    [
+     "2024-09-30",
+     0.1502
+    ]
+   ],
+   "amt_vol_ratio": 5807.830585759382,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 4283.44,
+    "2021": 5197.58,
+    "2022": 5185.22,
+    "2023": 5541.29,
+    "2024": 4806.38,
+    "2025": 7762.73,
+    "2026": 11363.59
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980018",
+   "name": "卫星通信",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "ohlc_logic",
+     "detail": "OHLC 逻辑违规 1 条（舍入级）"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 1,
+   "ohlc_bad_rate": 0.00038,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1987.4208842812095,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1615.66,
+    "2017": 1559.13,
+    "2018": 1315.21,
+    "2019": 1547.12,
+    "2020": 2052.07,
+    "2021": 2332.84,
+    "2022": 2104.82,
+    "2023": 2098.26,
+    "2024": 2201.45,
+    "2025": 2670.04,
+    "2026": 3997.03
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "980022",
+   "name": "机器人产业",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1729.211754937591,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1608.39,
+    "2017": 1858.18,
+    "2018": 1504.06,
+    "2019": 1199.4,
+    "2020": 1456.34,
+    "2021": 1911.4,
+    "2022": 1572.82,
+    "2023": 1854.86,
+    "2024": 1754.06,
+    "2025": 2786.07,
+    "2026": 3356.72
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980027",
+   "name": "国证储能电池",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2186.419301029334,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1922.99,
+    "2017": 1445.16,
+    "2018": 1088.78,
+    "2019": 1021.54,
+    "2020": 1590.31,
+    "2021": 2808.4,
+    "2022": 2765.67,
+    "2023": 2902.47,
+    "2024": 2316.79,
+    "2025": 2872.52,
+    "2026": 5074.3
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980028",
+   "name": "龙头家电",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2122.640345465762,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1149.87,
+    "2017": 1530.84,
+    "2018": 1592.15,
+    "2019": 1047.94,
+    "2020": 1828.61,
+    "2021": 2446.4,
+    "2022": 2395.45,
+    "2023": 2494.85,
+    "2024": 2547.09,
+    "2025": 2773.16,
+    "2026": 3126.72
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980030",
+   "name": "消费电子",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1548.8689394905718,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1298.95,
+    "2017": 995.21,
+    "2018": 888.8,
+    "2019": 885.91,
+    "2020": 1581.79,
+    "2021": 1963.91,
+    "2022": 1915.96,
+    "2023": 1637.33,
+    "2024": 1536.97,
+    "2025": 2560.38,
+    "2026": 3563.97
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980032",
+   "name": "新能电池",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2806.0658449098496,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2149.05,
+    "2017": 1796.26,
+    "2018": 1591.39,
+    "2019": 1333.49,
+    "2020": 1938.6,
+    "2021": 3937.21,
+    "2022": 5401.26,
+    "2023": 5015.71,
+    "2024": 3026.12,
+    "2025": 3704.38,
+    "2026": 4964.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980034",
+   "name": "工业软件",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1806.0158189480976,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1970.15,
+    "2017": 1815.8,
+    "2018": 1610.06,
+    "2019": 1423.03,
+    "2020": 1732.06,
+    "2021": 2031.78,
+    "2022": 1610.71,
+    "2023": 1799.48,
+    "2024": 1561.08,
+    "2025": 2135.55,
+    "2026": 3456.36
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980076",
+   "name": "通用航空",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1845.2995867768595,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2050.51,
+    "2017": 1745.63,
+    "2018": 1297.62,
+    "2019": 1305.46,
+    "2020": 1663.68,
+    "2021": 2127.53,
+    "2022": 1881.38,
+    "2023": 1741.07,
+    "2024": 1443.79,
+    "2025": 2149.52,
+    "2026": 2801.51
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980080",
+   "name": "成长100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 492,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2024-10-29",
+   "last": "2026-11-06",
+   "expected": 492,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 4671.135879364038,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2024": 2416.13,
+    "2025": 4000.13,
+    "2026": 5733.66
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980081",
+   "name": "价值100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 492,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2024-10-29",
+   "last": "2026-11-06",
+   "expected": 492,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1009.1184489548622,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2024": 873.56,
+    "2025": 978.56,
+    "2026": 1123.98
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "980092",
+   "name": "自由现金流",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 993.8316980408449,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 906.05,
+    "2017": 1115.99,
+    "2018": 1137.11,
+    "2019": 887.08,
+    "2020": 1059.56,
+    "2021": 905.04,
+    "2022": 854.95,
+    "2023": 904.1,
+    "2024": 1010.53,
+    "2025": 1134.83,
+    "2026": 1323.71
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "987008",
+   "name": "港股通科技",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1394,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 43 日（3.13%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-03-08",
+   "last": "2026-11-06",
+   "expected": 1375,
+   "missing": 43,
+   "coverage": 0.9687,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-04-02",
+    "2021-04-06",
+    "2021-05-19",
+    "2021-07-01",
+    "2021-09-22",
+    "2021-10-13",
+    "2021-10-14",
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18"
+   ],
+   "calendar_mismatch_days": 43,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2022-03-16",
+     0.1906
+    ],
+    [
+     "2025-04-07",
+     -0.1769
+    ]
+   ],
+   "amt_vol_ratio": 3850.244045075238,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 7049.75,
+    "2022": 3893.62,
+    "2023": 3350.41,
+    "2024": 1945.54,
+    "2025": 4238.33,
+    "2026": 4338.4
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "987016",
+   "name": "港股通红利低波",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1221,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 36 日（2.99%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-11-18",
+   "last": "2026-11-06",
+   "expected": 1204,
+   "missing": 36,
+   "coverage": 0.9701,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18",
+    "2022-05-09",
+    "2022-07-01",
+    "2022-12-26",
+    "2022-12-27",
+    "2023-04-07",
+    "2023-04-10",
+    "2023-05-26"
+   ],
+   "calendar_mismatch_days": 36,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 716.7637504716156,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 683.9,
+    "2022": 658.22,
+    "2023": 587.99,
+    "2024": 694.81,
+    "2025": 826.2,
+    "2026": 1218.73
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "987019",
+   "name": "港股通创新药（人民币）",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1221,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 36 日（2.99%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-11-18",
+   "last": "2026-11-06",
+   "expected": 1204,
+   "missing": 36,
+   "coverage": 0.9701,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18",
+    "2022-05-09",
+    "2022-07-01",
+    "2022-12-26",
+    "2022-12-27",
+    "2023-04-07",
+    "2023-04-10",
+    "2023-05-26"
+   ],
+   "calendar_mismatch_days": 36,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2025-04-07",
+     -0.2042
+    ]
+   ],
+   "amt_vol_ratio": 1585.6168092710927,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 2316.39,
+    "2022": 1690.74,
+    "2023": 1533.63,
+    "2024": 1144.38,
+    "2025": 1598.49,
+    "2026": 1883.73
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "987023",
+   "name": "港股通互联网（人民币）",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 1221,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    },
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 36 日（2.99%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2021-11-18",
+   "last": "2026-11-06",
+   "expected": 1204,
+   "missing": 36,
+   "coverage": 0.9701,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2021-12-27",
+    "2022-04-15",
+    "2022-04-18",
+    "2022-05-09",
+    "2022-07-01",
+    "2022-12-26",
+    "2022-12-27",
+    "2023-04-07",
+    "2023-04-10",
+    "2023-05-26"
+   ],
+   "calendar_mismatch_days": 36,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2025-04-07",
+     -0.165
+    ],
+    [
+     "2022-03-16",
+     0.1545
+    ]
+   ],
+   "amt_vol_ratio": 3303.002443263394,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2021": 3281.66,
+    "2022": 4072.15,
+    "2023": 3692.69,
+    "2024": 3553.48,
+    "2025": 2844.22,
+    "2026": 2243.05
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "987024",
+   "name": "港股通消费",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN_HK",
+   "bars": 394,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "calendar_mismatch",
+     "detail": "港股通交易日比 A 股少 11 日（2.84%，两边休市不重叠），做跨市场对齐时需前值填充"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2025-04-02",
+   "last": "2026-11-06",
+   "expected": 388,
+   "missing": 11,
+   "coverage": 0.9716,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2025-04-18",
+    "2025-04-21",
+    "2025-07-01",
+    "2025-10-29",
+    "2025-12-25",
+    "2025-12-26",
+    "2026-04-03",
+    "2026-04-07",
+    "2026-05-25",
+    "2026-07-01"
+   ],
+   "calendar_mismatch_days": 11,
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2506.9927877077453,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2025": 2767.16,
+    "2026": 2251.2
+   },
+   "unit_breaks": [],
+   "status": "OK"
+  },
+  {
+   "code": "CN5075",
+   "name": "国证信创",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1877.5382108549172,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2305.39,
+    "2017": 1827.15,
+    "2018": 1375.19,
+    "2019": 1362.09,
+    "2020": 1564.99,
+    "2021": 1468.27,
+    "2022": 1206.85,
+    "2023": 3143.75,
+    "2024": 3216.87,
+    "2025": 4362.71,
+    "2026": 7685.83
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "CN5082",
+   "name": "国证航天",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1940.6941735623261,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2206.88,
+    "2017": 1759.2,
+    "2018": 1355.51,
+    "2019": 1296.62,
+    "2020": 1541.79,
+    "2021": 2300.49,
+    "2022": 2116.37,
+    "2023": 1923.71,
+    "2024": 1618.16,
+    "2025": 2159.36,
+    "2026": 2849.13
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "CN5097",
+   "name": "消费服务",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "ohlc_logic",
+     "detail": "OHLC 逻辑违规 2 条（舍入级）"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 2,
+   "ohlc_bad_rate": 0.00076,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1375.625591776004,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1592.37,
+    "2017": 1499.19,
+    "2018": 1482.33,
+    "2019": 1299.02,
+    "2020": 1563.03,
+    "2021": 1973.4,
+    "2022": 1166.76,
+    "2023": 1304.09,
+    "2024": 972.54,
+    "2025": 1160.7,
+    "2026": 1187.62
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "CN6051",
+   "name": "有色指数",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2633,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2016-01-04",
+   "last": "2026-11-06",
+   "expected": 2633,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1312.518514129984,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 1253.9,
+    "2017": 1528.32,
+    "2018": 1194.47,
+    "2019": 892.25,
+    "2020": 1144.96,
+    "2021": 1742.92,
+    "2022": 1692.16,
+    "2023": 1371.76,
+    "2024": 928.56,
+    "2025": 1171.96,
+    "2026": 1963.18
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "H30269",
+   "name": "红利低波",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2062,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2018-05-11",
+   "last": "2026-11-06",
+   "expected": 2061,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 850.9639173730778,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2018": 1859.66,
+    "2019": 869.37,
+    "2020": 944.73,
+    "2021": 800.13,
+    "2022": 758.64,
+    "2023": 688.44,
+    "2024": 691.57,
+    "2025": 923.04,
+    "2026": 1085.03
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "930050",
+   "name": "中证A50",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2879,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2014-12-31",
+   "last": "2026-11-06",
+   "expected": 2878,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 2145.1847917696605,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2015": 1497.34,
+    "2016": 1164.08,
+    "2017": 1303.59,
+    "2018": 1557.76,
+    "2019": 1676.78,
+    "2020": 1990.44,
+    "2021": 3259.77,
+    "2022": 3036.08,
+    "2023": 2583.3,
+    "2024": 2293.99,
+    "2025": 2783.93,
+    "2026": 3449.49
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "000903",
+   "name": "中证A100",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 1452,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
+    },
+    {
+     "level": "INFO",
+     "kind": "unit",
+     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2020-11-11",
+   "last": "2026-11-06",
+   "expected": 1452,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 1.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 0.0,
+   "unit": "NO_VOL",
+   "unit_years": {},
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "000906",
+   "name": "中证800",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 3165,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "45.8% 的交易日成交额为 0"
+    }
+   ],
+   "fails": 0,
+   "warns": 1,
+   "first": "2013-11-05",
+   "last": "2026-11-06",
+   "expected": 3163,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0003,
+   "zero_amt_rate": 0.4578,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1178.9514368785033,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2013": 954.82,
+    "2014": 930.83,
+    "2015": 1378.47,
+    "2016": 1151.96,
+    "2017": 1191.78,
+    "2018": 1174.24,
+    "2019": 1139.16,
+    "2020": 1333.37
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  },
+  {
+   "code": "932000",
+   "name": "中证2000",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 3124,
+   "issues": [],
+   "fails": 0,
+   "warns": 0,
+   "first": "2013-12-31",
+   "last": "2026-11-06",
+   "expected": 3123,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0,
+   "zero_amt_rate": 0.0,
+   "ret_outliers": 0,
+   "ret_event_hits": 0,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [],
+   "amt_vol_ratio": 1108.3350662614273,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2014": 1061.21,
+    "2015": 1551.79,
+    "2016": 1610.76,
+    "2017": 1404.16,
+    "2018": 1185.61,
+    "2019": 983.31,
+    "2020": 1014.53,
+    "2021": 1050.19,
+    "2022": 976.09,
+    "2023": 1110.56,
+    "2024": 911.39,
+    "2025": 1214.04,
+    "2026": 1444.68
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "H30007",
+   "name": "芯片",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2635,
+   "issues": [
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 0,
+   "first": "2015-12-31",
+   "last": "2026-11-06",
+   "expected": 2634,
+   "missing": 0,
+   "coverage": 1.0,
+   "max_gap": 0,
+   "gaps_gt5": 0,
+   "missing_dates_head": [],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0004,
+   "zero_amt_rate": 0.0004,
+   "ret_outliers": 0,
+   "ret_event_hits": 2,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2024-10-08",
+     0.1602
+    ],
+    [
+     "2024-09-30",
+     0.1528
+    ]
+   ],
+   "amt_vol_ratio": 4347.495226440619,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2016": 2171.24,
+    "2017": 2067.98,
+    "2018": 2557.85,
+    "2019": 2101.86,
+    "2020": 4076.87,
+    "2021": 5351.27,
+    "2022": 4858.49,
+    "2023": 5291.76,
+    "2024": 4766.99,
+    "2025": 7584.37,
+    "2026": 10077.45
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "OK"
+  },
+  {
+   "code": "931239",
+   "name": "港股汽车",
+   "bucket": "watch",
+   "tradeable": false,
+   "market": "CN",
+   "bars": 2521,
+   "issues": [
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "3.9% 的交易日成交量为 0"
+    },
+    {
+     "level": "WARN",
+     "kind": "field_missing",
+     "detail": "3.9% 的交易日成交额为 0"
+    },
+    {
+     "level": "INFO",
+     "kind": "market_event",
+     "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
+    }
+   ],
+   "fails": 0,
+   "warns": 2,
+   "first": "2016-12-30",
+   "last": "2026-11-06",
+   "expected": 2390,
+   "missing": 23,
+   "coverage": 0.9904,
+   "max_gap": 2,
+   "gaps_gt5": 0,
+   "missing_dates_head": [
+    "2023-05-26",
+    "2023-10-23",
+    "2023-12-25",
+    "2023-12-26",
+    "2024-03-29",
+    "2024-04-01",
+    "2024-05-15",
+    "2024-07-01",
+    "2024-09-18",
+    "2024-10-11"
+   ],
+   "dup": 0,
+   "ohlc_bad": 0,
+   "ohlc_bad_rate": 0.0,
+   "zero_vol_rate": 0.0389,
+   "zero_amt_rate": 0.0389,
+   "ret_outliers": 0,
+   "ret_event_hits": 1,
+   "ret_sector_hits": 0,
+   "ret_outlier_top": [],
+   "ret_event_top": [
+    [
+     "2025-04-07",
+     -0.1785
+    ]
+   ],
+   "amt_vol_ratio": 1722.9482752625836,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2017": 1222.52,
+    "2018": 1420.12,
+    "2019": 1197.42,
+    "2020": 1480.58,
+    "2021": 2410.46,
+    "2022": 2004.0,
+    "2023": 1968.38,
+    "2024": 1502.18,
+    "2025": 2069.63,
+    "2026": 2149.09
+   },
+   "unit_breaks": [],
+   "stale_days": 0,
+   "status": "WARN"
+  }
+ ],
+ "elapsed_s": 3.29
+}
