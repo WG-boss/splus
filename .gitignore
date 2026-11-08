@@ -66,3 +66,4 @@ data/position_dashboard.html
 data/_tmp/
 data/_cache_backup_amount/
 state/state_panel.jsonl
+state/pool_panel.jsonl

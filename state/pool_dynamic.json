@@ -1,0 +1,318 @@
+{
+ "as_of": "2026-11-06",
+ "days": 1333,
+ "fixed_tradeable": 11,
+ "pass_capacity": 116,
+ "rules": [
+  {
+   "rule": "R0 固定 11 只（现状）",
+   "days": 1333,
+   "avg_size": 11.0,
+   "excess_20d_pct": 0.896,
+   "t": 2.04,
+   "p": 0.041,
+   "turnover_daily_pct": 0.22,
+   "turnover_annual_x": 0.5,
+   "top10_single_state_pct": 7.4,
+   "ic_w": 0.0053,
+   "ic_t": 0.14,
+   "hhi": 0.323,
+   "bucket_mix": {
+    "ai_hw": 45.6,
+    "core": 27.1,
+    "theme": 18.2,
+    "pharma": 9.1
+   },
+   "w_spread_ratio": 2.727
+  },
+  {
+   "rule": "R1 五态评分 3 日均 前10",
+   "days": 1331,
+   "avg_size": 10.0,
+   "excess_20d_pct": 0.477,
+   "t": 0.9,
+   "p": 0.367,
+   "turnover_daily_pct": 12.05,
+   "turnover_annual_x": 29.4,
+   "top10_single_state_pct": 36.4,
+   "ic_w": 0.0061,
+   "ic_t": 0.17,
+   "hhi": 0.79,
+   "bucket_mix": {
+    "watch": 86.9,
+    "ai_hw": 8.5,
+    "theme": 1.9,
+    "core": 1.7,
+    "lead": 0.5,
+    "ref": 0.3
+   },
+   "w_spread_ratio": 1.966
+  },
+  {
+   "rule": "R1b 五态评分 1 日前10",
+   "days": 1333,
+   "avg_size": 10.0,
+   "excess_20d_pct": 0.499,
+   "t": 0.93,
+   "p": 0.35,
+   "turnover_daily_pct": 17.96,
+   "turnover_annual_x": 43.8,
+   "top10_single_state_pct": 37.1,
+   "ic_w": 0.0053,
+   "ic_t": 0.14,
+   "hhi": 0.789,
+   "bucket_mix": {
+    "watch": 86.8,
+    "ai_hw": 8.5,
+    "theme": 2.0,
+    "core": 1.7,
+    "lead": 0.5,
+    "ref": 0.3
+   },
+   "w_spread_ratio": 1.771
+  },
+  {
+   "rule": "R2 相对强弱 3 日均 前10",
+   "days": 1331,
+   "avg_size": 10.0,
+   "excess_20d_pct": 0.911,
+   "t": 1.65,
+   "p": 0.098,
+   "turnover_daily_pct": 13.23,
+   "turnover_annual_x": 32.3,
+   "top10_single_state_pct": 14.2,
+   "ic_w": 0.0061,
+   "ic_t": 0.17,
+   "hhi": 0.743,
+   "bucket_mix": {
+    "watch": 83.2,
+    "ai_hw": 11.5,
+    "theme": 2.1,
+    "core": 1.8,
+    "pharma": 1.2,
+    "lead": 0.1
+   },
+   "w_spread_ratio": 2.803
+  },
+  {
+   "rule": "R3 漏斗(闸门+RS+缓冲+相关)",
+   "days": 1331,
+   "avg_size": 8.3,
+   "excess_20d_pct": 0.807,
+   "t": 1.74,
+   "p": 0.082,
+   "turnover_daily_pct": 10.95,
+   "turnover_annual_x": 26.7,
+   "top10_single_state_pct": 14.0,
+   "ic_w": 0.0061,
+   "ic_t": 0.17,
+   "hhi": 0.785,
+   "bucket_mix": {
+    "watch": 86.0,
+    "ai_hw": 10.1,
+    "theme": 2.3,
+    "pharma": 1.2,
+    "core": 0.3
+   },
+   "w_spread_ratio": 2.802
+  },
+  {
+   "rule": "R4 R3 + 剔除 E 态",
+   "days": 1331,
+   "avg_size": 8.5,
+   "excess_20d_pct": 0.869,
+   "t": 1.85,
+   "p": 0.064,
+   "turnover_daily_pct": 11.37,
+   "turnover_annual_x": 27.7,
+   "top10_single_state_pct": 19.9,
+   "ic_w": 0.0061,
+   "ic_t": 0.17,
+   "hhi": 0.785,
+   "bucket_mix": {
+    "watch": 86.1,
+    "ai_hw": 10.2,
+    "theme": 2.1,
+    "pharma": 1.1,
+    "core": 0.4
+   },
+   "w_spread_ratio": 2.691
+  },
+  {
+   "rule": "R5 R3 ∩ 映射就绪宇宙",
+   "days": 1331,
+   "avg_size": 8.3,
+   "excess_20d_pct": 0.36,
+   "t": 0.9,
+   "p": 0.366,
+   "turnover_daily_pct": 7.83,
+   "turnover_annual_x": 19.1,
+   "top10_single_state_pct": 9.0,
+   "ic_w": 0.0061,
+   "ic_t": 0.17,
+   "hhi": 0.869,
+   "bucket_mix": {
+    "watch": 92.4,
+    "core": 2.7,
+    "ai_hw": 2.4,
+    "pharma": 2.1,
+    "ref": 0.5
+   },
+   "w_spread_ratio": 2.826
+  },
+  {
+   "rule": "R6 R3 宽缓冲(出30/平滑5)",
+   "days": 1329,
+   "avg_size": 9.8,
+   "excess_20d_pct": 0.61,
+   "t": 1.36,
+   "p": 0.175,
+   "turnover_daily_pct": 6.04,
+   "turnover_annual_x": 14.7,
+   "top10_single_state_pct": 9.9,
+   "ic_w": 0.0066,
+   "ic_t": 0.18,
+   "hhi": 0.782,
+   "bucket_mix": {
+    "watch": 86.3,
+    "ai_hw": 9.6,
+    "theme": 2.4,
+    "pharma": 1.3,
+    "core": 0.4
+   },
+   "w_spread_ratio": 2.981
+  }
+ ],
+ "nav": [
+  {
+   "rule": "R0 固定 11 只（现状）",
+   "ann_pct": 9.4,
+   "alpha_ann_pct": 10.05,
+   "alpha_t": 1.68,
+   "vol_pct": 29.8,
+   "sharpe": 0.32,
+   "mdd_pct": -46.73,
+   "turnover_annual_x": 0.5,
+   "final_nav": 1.6328,
+   "days": 1332
+  },
+  {
+   "rule": "R1 五态评分 3 日均 前10",
+   "ann_pct": 12.24,
+   "alpha_ann_pct": 12.61,
+   "alpha_t": 1.39,
+   "vol_pct": 29.37,
+   "sharpe": 0.42,
+   "mdd_pct": -50.56,
+   "turnover_annual_x": 29.4,
+   "final_nav": 1.8767,
+   "days": 1330
+  },
+  {
+   "rule": "R1b 五态评分 1 日前10",
+   "ann_pct": 8.69,
+   "alpha_ann_pct": 9.16,
+   "alpha_t": 1.04,
+   "vol_pct": 29.2,
+   "sharpe": 0.3,
+   "mdd_pct": -50.34,
+   "turnover_annual_x": 43.8,
+   "final_nav": 1.5757,
+   "days": 1332
+  },
+  {
+   "rule": "R2 相对强弱 3 日均 前10",
+   "ann_pct": 12.42,
+   "alpha_ann_pct": 13.34,
+   "alpha_t": 1.49,
+   "vol_pct": 31.05,
+   "sharpe": 0.4,
+   "mdd_pct": -45.34,
+   "turnover_annual_x": 32.3,
+   "final_nav": 1.8931,
+   "days": 1330
+  },
+  {
+   "rule": "R3 漏斗(闸门+RS+缓冲+相关)",
+   "ann_pct": 13.32,
+   "alpha_ann_pct": 13.47,
+   "alpha_t": 1.59,
+   "vol_pct": 28.75,
+   "sharpe": 0.46,
+   "mdd_pct": -45.46,
+   "turnover_annual_x": 26.7,
+   "final_nav": 1.9771,
+   "days": 1330
+  },
+  {
+   "rule": "R4 R3 + 剔除 E 态",
+   "ann_pct": 12.32,
+   "alpha_ann_pct": 12.43,
+   "alpha_t": 1.42,
+   "vol_pct": 28.65,
+   "sharpe": 0.43,
+   "mdd_pct": -46.51,
+   "turnover_annual_x": 27.7,
+   "final_nav": 1.8834,
+   "days": 1330
+  },
+  {
+   "rule": "R5 R3 ∩ 映射就绪宇宙",
+   "ann_pct": 8.87,
+   "alpha_ann_pct": 8.14,
+   "alpha_t": 1.26,
+   "vol_pct": 25.9,
+   "sharpe": 0.34,
+   "mdd_pct": -43.17,
+   "turnover_annual_x": 19.1,
+   "final_nav": 1.5892,
+   "days": 1330
+  },
+  {
+   "rule": "R6 R3 宽缓冲(出30/平滑5)",
+   "ann_pct": 13.87,
+   "alpha_ann_pct": 14.18,
+   "alpha_t": 1.77,
+   "vol_pct": 27.37,
+   "sharpe": 0.51,
+   "mdd_pct": -47.81,
+   "turnover_annual_x": 14.7,
+   "final_nav": 2.0274,
+   "days": 1328
+  }
+ ],
+ "universe_nav": {
+  "rule": "118 只等权（基准）",
+  "ann_pct": 1.47,
+  "vol_pct": 21.78,
+  "sharpe": 0.07,
+  "mdd_pct": -42.28,
+  "turnover_annual_x": 0.0,
+  "final_nav": 1.0831,
+  "days": 1332
+ },
+ "diag": {
+  "overlap_r1_r2_pct": 40.0,
+  "r1_single_state_days": 484,
+  "r1_single_state_pct": 36.3,
+  "r1_tradeable_median": 1,
+  "r1_state_mix": {
+   "A": 14.5,
+   "B": 10.1,
+   "C": 55.2,
+   "D": 16.6,
+   "E": 3.6
+  },
+  "mapping_confirmed": 52,
+  "tradeable_unmapped_or_unverified": [
+   "H30590",
+   "932666",
+   "931594",
+   "931723",
+   "932580"
+  ],
+  "capacity_0_3yi": 18,
+  "capacity_1yi": 9,
+  "capacity_5yi": 5
+ }
+}
