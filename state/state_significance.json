@@ -1,0 +1,523 @@
+{
+ "generated_at": "2026-11-08T17:51:22",
+ "method": "time-dimension inference on daily cross-sectional mean excess; Newey-West(lag=40) + stationary bootstrap(block=80, B=4000) + disjoint subsample + year-block bootstrap",
+ "panel": {
+  "codes": 118,
+  "rows": 158784,
+  "days": 1547,
+  "first": "2020-11-06",
+  "last": "2026-11-06",
+  "min_members": 5,
+  "market_days_kept": 1436,
+  "market_days_dropped": 111,
+  "thin_threshold": 35
+ },
+ "calibration": {
+  "method": "Monte Carlo on AR(1) daily returns rolled over 20 days (null true)",
+  "reps": 200,
+  "false_positive_rate": {
+   "naive_t": 0.67,
+   "nw_lag20": 0.115,
+   "nw_lag40": 0.085,
+   "boot_block40": 0.083,
+   "boot_block80": 0.067
+  },
+  "note": "默认 lag=40 / block=80；判定取三法最保守（max p），宁漏报不虚报",
+  "used": {
+   "lag": 40,
+   "block": 80,
+   "boot": 4000
+  }
+ },
+ "corr_adjust_factor": 8.3,
+ "n_eff_index": 1.64,
+ "states": {
+  "A": {
+   "n_days": 1429,
+   "mean_edge": -0.005779,
+   "naive_t": -3.25,
+   "nw_t": -0.79,
+   "nw_se": 0.007321,
+   "nw_lag": 40,
+   "nw_p": 0.4299,
+   "disjoint": {
+    "n_offset": 20,
+    "t_mean": -0.73,
+    "t_median": -0.72,
+    "positive_share": 0.0,
+    "mean_of_means": -0.005771
+   },
+   "boot": {
+    "p": 0.4397,
+    "ci": [
+     -0.019826,
+     0.009289
+    ],
+    "b": 4000,
+    "block": 80
+   },
+   "year_boot": {
+    "p": 0.924,
+    "ci": [
+     -0.012556,
+     0.014287
+    ],
+    "years": 6,
+    "obs": 0.00061
+   },
+   "mde_80": 0.020498,
+   "n_eff_time": 71.5,
+   "block_sd": 0.046251,
+   "year_view": {
+    "2020": {
+     "n": 40,
+     "edge": 0.00418,
+     "positive": true
+    },
+    "2021": {
+     "n": 243,
+     "edge": -0.005199,
+     "positive": false
+    },
+    "2022": {
+     "n": 242,
+     "edge": -0.018112,
+     "positive": false
+    },
+    "2023": {
+     "n": 242,
+     "edge": -0.01998,
+     "positive": false
+    },
+    "2024": {
+     "n": 238,
+     "edge": 0.018292,
+     "positive": true
+    },
+    "2025": {
+     "n": 241,
+     "edge": 0.02448,
+     "positive": true
+    },
+    "2026": {
+     "n": 183,
+     "edge": -0.044787,
+     "positive": false
+    }
+   },
+   "positive_full_years": "3/6",
+   "avg_members": 45.4,
+   "p_effective": 0.924,
+   "verdict": "方向为负但不显著"
+  },
+  "B": {
+   "n_days": 296,
+   "mean_edge": 0.00638,
+   "naive_t": 1.42,
+   "nw_t": 0.52,
+   "nw_se": 0.01223,
+   "nw_lag": 40,
+   "nw_p": 0.6019,
+   "disjoint": {
+    "n_offset": 0,
+    "t_mean": null,
+    "positive_share": null
+   },
+   "boot": {
+    "p": 0.5677,
+    "ci": [
+     -0.015808,
+     0.029059
+    ],
+    "b": 4000,
+    "block": 80
+   },
+   "year_boot": {
+    "p": 0.9327,
+    "ci": [
+     -0.027662,
+     0.022981
+    ],
+    "years": 6,
+    "obs": -0.001372
+   },
+   "mde_80": 0.034244,
+   "n_eff_time": 14.8,
+   "block_sd": 0.030897,
+   "year_view": {
+    "2021": {
+     "n": 70,
+     "edge": 0.013845,
+     "positive": true
+    },
+    "2023": {
+     "n": 46,
+     "edge": -0.026939,
+     "positive": false
+    },
+    "2024": {
+     "n": 58,
+     "edge": 0.024411,
+     "positive": true
+    },
+    "2025": {
+     "n": 62,
+     "edge": 0.038666,
+     "positive": true
+    }
+   },
+   "positive_full_years": "2/3",
+   "avg_members": 14.0,
+   "p_effective": 0.9327,
+   "verdict": "方向为正但不显著"
+  },
+  "C": {
+   "n_days": 884,
+   "mean_edge": 0.003675,
+   "naive_t": 1.44,
+   "nw_t": 0.39,
+   "nw_se": 0.009499,
+   "nw_lag": 40,
+   "nw_p": 0.6988,
+   "disjoint": {
+    "n_offset": 20,
+    "t_mean": 0.31,
+    "t_median": 0.39,
+    "positive_share": 0.8,
+    "mean_of_means": 0.003694
+   },
+   "boot": {
+    "p": 0.6655,
+    "ci": [
+     -0.012627,
+     0.020823
+    ],
+    "b": 4000,
+    "block": 80
+   },
+   "year_boot": {
+    "p": 0.8618,
+    "ci": [
+     -0.035536,
+     0.02986
+    ],
+    "years": 6,
+    "obs": -0.002838
+   },
+   "mde_80": 0.026598,
+   "n_eff_time": 44.2,
+   "block_sd": 0.046755,
+   "year_view": {
+    "2020": {
+     "n": 40,
+     "edge": 0.058797,
+     "positive": true
+    },
+    "2021": {
+     "n": 230,
+     "edge": -0.004047,
+     "positive": false
+    },
+    "2023": {
+     "n": 126,
+     "edge": -0.012851,
+     "positive": false
+    },
+    "2024": {
+     "n": 79,
+     "edge": -0.023362,
+     "positive": false
+    },
+    "2025": {
+     "n": 244,
+     "edge": 0.034829,
+     "positive": true
+    },
+    "2026": {
+     "n": 147,
+     "edge": -0.013188,
+     "positive": false
+    }
+   },
+   "positive_full_years": "2/5",
+   "avg_members": 29.8,
+   "p_effective": 0.8618,
+   "verdict": "方向为正但不显著"
+  },
+  "D": {
+   "n_days": 1065,
+   "mean_edge": -0.007577,
+   "naive_t": -5.13,
+   "nw_t": -1.37,
+   "nw_se": 0.005541,
+   "nw_lag": 40,
+   "nw_p": 0.1715,
+   "disjoint": {
+    "n_offset": 20,
+    "t_mean": -1.16,
+    "t_median": -1.19,
+    "positive_share": 0.0,
+    "mean_of_means": -0.00756
+   },
+   "boot": {
+    "p": 0.1795,
+    "ci": [
+     -0.018202,
+     0.003661
+    ],
+    "b": 4000,
+    "block": 80
+   },
+   "year_boot": {
+    "p": 0.7635,
+    "ci": [
+     -0.028653,
+     0.022182
+    ],
+    "years": 6,
+    "obs": -0.004801
+   },
+   "mde_80": 0.015516,
+   "n_eff_time": 53.2,
+   "block_sd": 0.029728,
+   "year_view": {
+    "2020": {
+     "n": 40,
+     "edge": 0.047681,
+     "positive": true
+    },
+    "2021": {
+     "n": 237,
+     "edge": -0.012174,
+     "positive": false
+    },
+    "2022": {
+     "n": 72,
+     "edge": -0.054364,
+     "positive": false
+    },
+    "2023": {
+     "n": 168,
+     "edge": -0.014853,
+     "positive": false
+    },
+    "2024": {
+     "n": 168,
+     "edge": -0.013726,
+     "positive": false
+    },
+    "2025": {
+     "n": 201,
+     "edge": 0.018629,
+     "positive": true
+    },
+    "2026": {
+     "n": 179,
+     "edge": -0.011843,
+     "positive": false
+    }
+   },
+   "positive_full_years": "2/6",
+   "avg_members": 22.6,
+   "p_effective": 0.7635,
+   "verdict": "方向为负但不显著"
+  },
+  "E": {
+   "n_days": 913,
+   "mean_edge": -0.00221,
+   "naive_t": -1.01,
+   "nw_t": -0.26,
+   "nw_se": 0.008631,
+   "nw_lag": 40,
+   "nw_p": 0.7979,
+   "disjoint": {
+    "n_offset": 20,
+    "t_mean": -0.24,
+    "t_median": -0.26,
+    "positive_share": 0.2,
+    "mean_of_means": -0.002198
+   },
+   "boot": {
+    "p": 0.7768,
+    "ci": [
+     -0.015668,
+     0.013332
+    ],
+    "b": 4000,
+    "block": 80
+   },
+   "year_boot": {
+    "p": 0.312,
+    "ci": [
+     -0.007142,
+     0.030772
+    ],
+    "years": 6,
+    "obs": 0.010349
+   },
+   "mde_80": 0.024168,
+   "n_eff_time": 45.6,
+   "block_sd": 0.039108,
+   "year_view": {
+    "2021": {
+     "n": 132,
+     "edge": 0.004482,
+     "positive": true
+    },
+    "2022": {
+     "n": 233,
+     "edge": -0.01111,
+     "positive": false
+    },
+    "2023": {
+     "n": 196,
+     "edge": -0.019225,
+     "positive": false
+    },
+    "2024": {
+     "n": 161,
+     "edge": 0.019983,
+     "positive": true
+    },
+    "2026": {
+     "n": 144,
+     "edge": -0.010313,
+     "positive": false
+    }
+   },
+   "positive_full_years": "2/4",
+   "avg_members": 36.5,
+   "p_effective": 0.7979,
+   "verdict": "方向为负但不显著"
+  }
+ },
+ "cross_section": {
+  "A": {
+   "cross_t": -3.36,
+   "n_index": 116,
+   "edge_mean": -0.00442,
+   "corr_adjusted_t": -0.4,
+   "n_eff_index": 1.64
+  },
+  "B": {
+   "cross_t": 4.24,
+   "n_index": 118,
+   "edge_mean": 0.014,
+   "corr_adjusted_t": 0.51,
+   "n_eff_index": 1.64
+  },
+  "C": {
+   "cross_t": 4.7,
+   "n_index": 118,
+   "edge_mean": 0.00782,
+   "corr_adjusted_t": 0.57,
+   "n_eff_index": 1.64
+  },
+  "D": {
+   "cross_t": -4.57,
+   "n_index": 118,
+   "edge_mean": -0.0118,
+   "corr_adjusted_t": -0.55,
+   "n_eff_index": 1.64
+  },
+  "E": {
+   "cross_t": 3.9,
+   "n_index": 118,
+   "edge_mean": 0.00629,
+   "corr_adjusted_t": 0.47,
+   "n_eff_index": 1.64
+  }
+ },
+ "pair_tests": [
+  {
+   "pair": "A-B",
+   "n_days": 290,
+   "mean_diff": -0.013966,
+   "nw_t": -1.86,
+   "p": 0.0629,
+   "significant": false,
+   "p_value_raw": 0.06288380407031599
+  },
+  {
+   "pair": "A-C",
+   "n_days": 879,
+   "mean_diff": -0.008247,
+   "nw_t": -1.24,
+   "p": 0.2133,
+   "significant": false,
+   "p_value_raw": 0.21327799409060072
+  },
+  {
+   "pair": "A-D",
+   "n_days": 1062,
+   "mean_diff": -0.005147,
+   "nw_t": -1.27,
+   "p": 0.2034,
+   "significant": false,
+   "p_value_raw": 0.20335370027553695
+  },
+  {
+   "pair": "A-E",
+   "n_days": 913,
+   "mean_diff": -0.006242,
+   "nw_t": -1.21,
+   "p": 0.2271,
+   "significant": false,
+   "p_value_raw": 0.22712050821762247
+  },
+  {
+   "pair": "B-C",
+   "n_days": 226,
+   "mean_diff": 0.000497,
+   "nw_t": 0.09,
+   "p": 0.9262,
+   "significant": false,
+   "p_value_raw": 0.9261898296950999
+  },
+  {
+   "pair": "B-D",
+   "n_days": 253,
+   "mean_diff": 0.018088,
+   "nw_t": 2.26,
+   "p": 0.0238,
+   "significant": true,
+   "p_value_raw": 0.02384366267712011
+  },
+  {
+   "pair": "B-E",
+   "n_days": 128,
+   "mean_diff": -0.004234,
+   "nw_t": -0.46,
+   "p": 0.6479,
+   "significant": false,
+   "p_value_raw": 0.6479249213261629
+  },
+  {
+   "pair": "C-D",
+   "n_days": 809,
+   "mean_diff": 0.006147,
+   "nw_t": 0.95,
+   "p": 0.3399,
+   "significant": false,
+   "p_value_raw": 0.33987985168650103
+  },
+  {
+   "pair": "C-E",
+   "n_days": 405,
+   "mean_diff": -0.00708,
+   "nw_t": -0.48,
+   "p": 0.6328,
+   "significant": false,
+   "p_value_raw": 0.6328476838740222
+  },
+  {
+   "pair": "D-E",
+   "n_days": 590,
+   "mean_diff": 0.000666,
+   "nw_t": 0.09,
+   "p": 0.9259,
+   "significant": false,
+   "p_value_raw": 0.9258859242513624
+  }
+ ]
+}

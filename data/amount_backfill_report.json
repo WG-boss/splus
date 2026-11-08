@@ -1,0 +1,1548 @@
+{
+ "generated_at": "2026-11-08T17:33:51",
+ "applied": true,
+ "codes_scanned": 158,
+ "codes_patched": 55,
+ "rows_filled": 65067,
+ "residual_missing_codes": 6,
+ "residual_rows": 114,
+ "overseas_unfixable": [
+  "hkHSTECH(1547/1547)",
+  "usNDX(325/325)",
+  "100_AS51(552/552)",
+  "100_BVSP(552/552)",
+  "100_FCHI(552/552)",
+  "100_GDAXI(552/552)",
+  "100_IBEX(552/552)",
+  "100_JKSE(552/552)",
+  "100_KLSE(552/552)",
+  "100_KS11(552/552)",
+  "100_MIB(552/552)",
+  "100_MXX(552/552)",
+  "100_N225(552/552)",
+  "100_NZ50(552/552)",
+  "100_PSI(552/552)",
+  "100_RTS(552/552)",
+  "100_SENSEX(552/552)",
+  "100_SET(552/552)",
+  "100_STI(552/552)",
+  "100_TSX(552/552)",
+  "100_VNINDEX(552/552)",
+  "hkHSC(321/321)",
+  "hkHSCEI(321/321)",
+  "hkHSF(321/321)",
+  "hkHSI(321/321)",
+  "hkHSP(321/321)",
+  "hkHSU(321/321)",
+  "ukUKX(320/320)",
+  "us_DJI(325/325)",
+  "us_INX(325/325)",
+  "us_IXIC(325/325)"
+ ],
+ "by_status": {
+  "OK": 66,
+  "PATCHED": 55,
+  "OVERSEAS_NO_AMOUNT": 32,
+  "NO_OVERLAP_DATES": 5
+ },
+ "rows": [
+  {
+   "code": "000688",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1659
+  },
+  {
+   "code": "399673",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "hkHSTECH",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 1547,
+   "n_bars": 1547,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "H30590",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "H30184",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "931152",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "932666",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "931594",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "931743",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "931723",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "932580",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1454
+  },
+  {
+   "code": "000300",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "000905",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "usNDX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 325,
+   "n_bars": 325,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "000009",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "000010",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "000015",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "000016",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1455
+  },
+  {
+   "code": "000044",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000048",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000056",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000068",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000069",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000510",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000685",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1662
+  },
+  {
+   "code": "000698",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1662
+  },
+  {
+   "code": "000813",
+   "n_bars": 2341,
+   "missing": 892,
+   "missing_first": "2017-03-22",
+   "missing_last": "2020-11-18",
+   "filled": 892,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000852",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2636
+  },
+  {
+   "code": "000922",
+   "n_bars": 2636,
+   "missing": 435,
+   "missing_first": "2019-01-31",
+   "missing_last": "2020-11-18",
+   "filled": 435,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399001",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399005",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399006",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399012",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399019",
+   "n_bars": 2633,
+   "missing": 721,
+   "missing_first": "2023-11-15",
+   "missing_last": "2026-11-06",
+   "filled": 721,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399102",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399264",
+   "n_bars": 2145,
+   "missing": 991,
+   "missing_first": "2022-09-30",
+   "missing_last": "2026-11-06",
+   "filled": 991,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399266",
+   "n_bars": 2145,
+   "missing": 991,
+   "missing_first": "2022-09-30",
+   "missing_last": "2026-11-06",
+   "filled": 991,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399275",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399276",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399291",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399293",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399295",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399296",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399303",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399324",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399326",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399330",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399348",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399361",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399362",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399365",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399372",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399373",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399378",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399389",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399396",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399433",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399437",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399438",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399439",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399441",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399550",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399610",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399624",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399667",
+   "n_bars": 2633,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399750",
+   "n_bars": 2633,
+   "missing": 721,
+   "missing_first": "2023-11-15",
+   "missing_last": "2026-11-06",
+   "filled": 721,
+   "rejected_band": 0,
+   "src": "cni",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399975",
+   "n_bars": 2634,
+   "missing": 1937,
+   "missing_first": "2016-01-04",
+   "missing_last": "2026-11-06",
+   "filled": 1937,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399986",
+   "n_bars": 2634,
+   "missing": 1449,
+   "missing_first": "2020-11-16",
+   "missing_last": "2026-11-06",
+   "filled": 1449,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "399989",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "930708",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1385
+  },
+  {
+   "code": "930709",
+   "n_bars": 949,
+   "missing": 4,
+   "missing_first": "2023-07-17",
+   "missing_last": "2024-09-06",
+   "filled": 0,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "NO_OVERLAP_DATES",
+   "note": "源数据日期与缓存日期不重叠"
+  },
+  {
+   "code": "930955",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1648
+  },
+  {
+   "code": "931071",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1723
+  },
+  {
+   "code": "931079",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1750
+  },
+  {
+   "code": "931160",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1801
+  },
+  {
+   "code": "931238",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 777
+  },
+  {
+   "code": "931573",
+   "n_bars": 1424,
+   "missing": 5,
+   "missing_first": "2021-10-13",
+   "missing_last": "2024-09-06",
+   "filled": 0,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "NO_OVERLAP_DATES",
+   "note": "源数据日期与缓存日期不重叠"
+  },
+  {
+   "code": "931637",
+   "n_bars": 1295,
+   "missing": 5,
+   "missing_first": "2021-10-13",
+   "missing_last": "2024-09-06",
+   "filled": 0,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "NO_OVERLAP_DATES",
+   "note": "源数据日期与缓存日期不重叠"
+  },
+  {
+   "code": "931643",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1308
+  },
+  {
+   "code": "931719",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1318
+  },
+  {
+   "code": "931994",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 496
+  },
+  {
+   "code": "950125",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1659
+  },
+  {
+   "code": "950580",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1903
+  },
+  {
+   "code": "970070",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1902
+  },
+  {
+   "code": "970081",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1452
+  },
+  {
+   "code": "970083",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 930
+  },
+  {
+   "code": "970085",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1452
+  },
+  {
+   "code": "980001",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1922
+  },
+  {
+   "code": "980015",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980016",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1452
+  },
+  {
+   "code": "980017",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1452
+  },
+  {
+   "code": "980018",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980022",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980027",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980028",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980030",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980032",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980034",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980076",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "980080",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 492
+  },
+  {
+   "code": "980081",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 492
+  },
+  {
+   "code": "980092",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "987008",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1394
+  },
+  {
+   "code": "987016",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1221
+  },
+  {
+   "code": "987019",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1221
+  },
+  {
+   "code": "987023",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 1221
+  },
+  {
+   "code": "987024",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 394
+  },
+  {
+   "code": "CN5075",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "CN5082",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "CN5097",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "CN6051",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2633
+  },
+  {
+   "code": "H30269",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2062
+  },
+  {
+   "code": "930050",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 2879
+  },
+  {
+   "code": "000903",
+   "n_bars": 1452,
+   "missing": 1452,
+   "missing_first": "2020-11-11",
+   "missing_last": "2026-11-06",
+   "filled": 1452,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": null,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000906",
+   "n_bars": 3165,
+   "missing": 1449,
+   "missing_first": "2018-06-18",
+   "missing_last": "2026-11-06",
+   "filled": 1448,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "932000",
+   "status": "OK",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 3124
+  },
+  {
+   "code": "H30007",
+   "n_bars": 2635,
+   "missing": 1,
+   "missing_first": "2020-03-20",
+   "missing_last": "2020-03-20",
+   "filled": 0,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "NO_OVERLAP_DATES",
+   "note": "源数据日期与缓存日期不重叠"
+  },
+  {
+   "code": "931239",
+   "n_bars": 2521,
+   "missing": 98,
+   "missing_first": "2016-12-30",
+   "missing_last": "2024-09-06",
+   "filled": 0,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "NO_OVERLAP_DATES",
+   "note": "源数据日期与缓存日期不重叠"
+  },
+  {
+   "code": "000986",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000987",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000988",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000989",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000990",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000991",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000992",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000993",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000994",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "000995",
+   "n_bars": 554,
+   "missing": 321,
+   "missing_first": "2025-07-11",
+   "missing_last": "2026-11-06",
+   "filled": 321,
+   "rejected_band": 0,
+   "src": "csi",
+   "overlap_ratio": 1.0,
+   "status": "PATCHED",
+   "note": ""
+  },
+  {
+   "code": "100_AS51",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_BVSP",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_FCHI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_GDAXI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_IBEX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_JKSE",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_KLSE",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_KS11",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_MIB",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_MXX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_N225",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_NZ50",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_PSI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_RTS",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_SENSEX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_SET",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_STI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_TSX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_TWII",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 0,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "100_VNINDEX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 552,
+   "n_bars": 552,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSC",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSCEI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSF",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSP",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "hkHSU",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 321,
+   "n_bars": 321,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "ukUKX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 320,
+   "n_bars": 320,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "us_DJI",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 325,
+   "n_bars": 325,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "us_INX",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 325,
+   "n_bars": 325,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  },
+  {
+   "code": "us_IXIC",
+   "status": "OVERSEAS_NO_AMOUNT",
+   "filled": 0,
+   "missing": 325,
+   "n_bars": 325,
+   "note": "境外指数：腾讯/新浪日线接口不含成交额"
+  }
+ ]
+}

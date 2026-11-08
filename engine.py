@@ -30,6 +30,17 @@ try:
 except ImportError:  # pragma: no cover
     yaml = None
 
+# 量纲契约（data_contract.py）：把「手/股」「元/亿元」的换算从隐式护栏升级为显式契约。
+# 导入失败不阻断引擎（降级为内置护栏目），但会记入 DATA_CONTRACT_OK 供自检读取。
+try:
+    if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import data_contract as _dc
+    DATA_CONTRACT_OK = True
+except Exception:  # pragma: no cover
+    _dc = None
+    DATA_CONTRACT_OK = False
+
 
 # ============================================================
 # 基础数值工具
@@ -114,12 +125,14 @@ def load_bars(cache_dir: str, code: str) -> List[Dict[str, Any]]:
             continue
         vol = _f(r.get("vol")) or 0.0
         amt = _f(r.get("amount")) or 0.0
-        # 量纲护栏（2026-11-07）：缓存里混过两套口径——东财/腾讯 = 手 + 元，
-        # 中证官网源与 sse_cni 兜底 = 股 + 亿元（vol×1e6 于万手、amount 直接用亿）。
-        # amount/vol 在「手+元」下约为 100×每股均价（1e2~1e4 量级），
-        # 在「股+亿元」下约为 1e-7 量级，两者相差 9 个数量级，判据无歧义。
-        # 统一到「手 + 元」，否则 vol_z20/er20 在接缝处会跳变 100 倍。
-        if amt > 0 and vol > 0 and (amt / vol) < 1e-3:
+        # 量纲归一（2026-11-07 首版 / 2026-11-08 契约化）：
+        # 缓存里混过两套口径——东财/腾讯 = 手 + 元，中证/国证官网与 sse_cni 兜底
+        # = 股 + 亿元。amount/vol 在两套口径下相差 9 个数量级，判据无歧义。
+        # 换算表与判据统一收敛到 data_contract.py（唯一真源），本处只调用不重复实现。
+        if _dc is not None:
+            cb = _dc.canonical_bar({"vol": vol, "amount": amt})
+            vol, amt = cb["vol"], cb["amount"]
+        elif amt > 0 and vol > 0 and (amt / vol) < 1e-3:   # 契约不可用时的降级护栏目
             vol = vol / 100.0
             amt = amt * 1e8
         bars.append({

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三项 P0 修复与实证复核</title><style>
+:root{--bg:#f5f7fa;--panel:#fff;--line:#e3e8ef;--tx:#1f2937;--tx2:#6b7280;
+--green:#0e9f6e;--green-bg:#def7ec;--blue:#1c64f2;--blue-bg:#e1effe;
+--amber:#c27803;--amber-bg:#fdf6b2;--red:#e02424;--red-bg:#fde8e8;
+--gray:#6b7280;--gray-bg:#e5e7eb;--mono:"JetBrains Mono",Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14.5px/1.85 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--tx);padding:26px 18px}
+.wrap{max-width:980px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:38px 44px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+h1{font-size:25px;margin:0 0 16px;letter-spacing:-.3px}
+h2{font-size:18px;margin:30px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#111827}
+p{margin:9px 0}
+strong{font-weight:700;color:#0b1220}
+em{font-style:normal;background:var(--amber-bg);padding:0 3px;border-radius:3px}
+code{font-family:var(--mono);font-size:12.5px;background:#f3f4f6;padding:1px 5px;border-radius:4px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13px;display:block;overflow-x:auto}
+th{background:#f9fafb;color:var(--tx2);font-size:11.5px;font-weight:600;text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:hover td{background:#f8fafc}
+ul,ol{margin:10px 0 10px 22px}
+li{margin:5px 0}
+blockquote{border-left:3px solid var(--blue);background:var(--blue-bg);padding:10px 14px;margin:14px 0;border-radius:0 6px 6px 0;color:#1e3a8a;font-size:13.5px}
+hr{border:none;border-top:1px dashed var(--line);margin:24px 0}
+.foot{color:var(--tx2);font-size:12px;margin-top:26px;text-align:center}
+@media(max-width:720px){.wrap{padding:22px 18px}}
+</style></head>
+<body><div class="wrap"><h1>三项 P0 修复与实证复核</h1>
+<p>日期：2026-11-08　　分支：master　　基线提交：8db585b</p>
+<h2>结论先行</h2>
+<p>三项 P0 都已完成，但<strong>结论比预期悲观</strong>：修完数据之后，状态机的统计证据仍然撑不住&quot;升级策略&quot;这个动作。</p>
+<table><thead><tr><th>P0</th><th>内容</th><th>结果</th><th>是否改变结论</th></tr></thead><tbody>
+<tr><td>P0-1</td><td>时间维度显著性检验</td><td>五个状态在时间维度<strong>全部不显著</strong>（\</td><td>t\</td><td>≤ 1.4）；跨指数 t 值虚高约 10 倍；E 态符号翻转</td><td><strong>改变</strong>：状态机排序从&quot;证据&quot;降级为&quot;假设&quot;，且需撤回上一轮的矩阵重排建议</td></tr>
+<tr><td>P0-2</td><td>回补 amount</td><td>55 只 / 65,067 行，覆盖率 30.75% → 0.82%，跨源比值全部 = 1.000000</td><td>不改（amount 目前不进信号）</td></tr>
+<tr><td>P0-3</td><td>量纲契约化</td><td>28 项断言全通过；发现&quot;年度中位数探测器&quot;看不见短断点</td><td>不改（属预防性）</td></tr>
+</tbody></table>
+<p>一句话：<strong>数据层现在可信了，但策略层的证据强度并没有因此变强——它原本就没有那么强。</strong></p>
+<hr>
+<h2>一、P0-1：时间维度显著性检验</h2>
+<h3>1.1 为什么必须换维度（这不是方法论洁癖，是数量级问题）</h3>
+<p><code>tools_state_edge.py</code> 的 t 值是在横截面上算的：118 只指数的逐只配对 edge 求均值，除以跨指数标准误。它隐含&quot;118 只 = 118 个独立观测&quot;。实测平均两两相关 0.605、n_eff = 1.64，这个假设错得离谱。</p>
+<p>但&quot;除以 8.3&quot;只是权宜修正。真正的错误在<strong>重叠窗口</strong>：每只指数的 fwd20 序列相邻两天共享 19 天收益，日频序列的自相关约 0.95。任何直接对日频序列算 t 的做法都会把标准误低估 √20 ≈ 4.5 倍。</p>
+<p>我用蒙特卡洛把这件事量化了。数据生成方式刻意复刻真实结构：AR(1) 日收益（φ=0.3）滚动 20 日取均值，零假设为真（均值 = 0），名义 5%：</p>
+<table><thead><tr><th>统计量</th><th>实际误判率</th><th>判断</th></tr></thead><tbody>
+<tr><td>朴素 t（忽略重叠）</td><td><strong>0.670</strong></td><td>完全不可用：五次里三次&quot;显著&quot;</td></tr>
+<tr><td>Newey-West lag=20（= 重叠期）</td><td>0.115</td><td>仍高估 2.3 倍</td></tr>
+<tr><td>Newey-West lag=40（= 2× 重叠）</td><td>0.085</td><td>采用</td></tr>
+<tr><td>Newey-West lag=60</td><td>0.065</td><td></td></tr>
+<tr><td>stationary bootstrap，块长 40</td><td>0.083</td><td></td></tr>
+<tr><td>stationary bootstrap，块长 80</td><td><strong>0.067</strong></td><td>采用</td></tr>
+</tbody></table>
+<p>这张表的作用不是选参数，而是确定<strong>结论的置信下限</strong>：既然连校准过的检验在名义 5% 下都有 6.5–8.5% 的误判率，那么任何 p 值落在 0.05–0.10 之间的结果都不能当成&quot;接近显著&quot;，只能当成&quot;没有证据&quot;。</p>
+<p>因此判定规则定为<strong>三法取最保守</strong>（<code>p_effective = max(p_NW, p_boot, p_year)</code>），宁漏报不虚报。</p>
+<h3>1.2 方法</h3>
+<p>把&quot;某状态日的横截面平均超额&quot;看成一条日频序列：</p>
+<p>``<code> edge_t(s) = mean_i [ fwd20(i,t) − base_i ]      其中 base_i = 指数 i 全期 fwd20 均值 </code>``</p>
+<p>这条序列的自相关只来自 fwd20 重叠，不再掺入横截面相关性——这正是它成立的前提。四层递进：</p>
+<ul>
+<li><strong>L1 朴素 t</strong>：仅作对照，展示污染程度</li>
+<li><strong>L2 Newey-West</strong>：Bartlett 核，lag = 40</li>
+<li><strong>L3 不重叠子样本</strong>：按 offset 0…19 各抽 1/20，得到 20 个近似独立的 t</li>
+<li><strong>L4 block bootstrap</strong>：stationary bootstrap（块长 80）+ <strong>年度整块重抽</strong>（7 年整块，检验&quot;是否只靠某一年&quot;）</li>
+</ul>
+<p>另加两件诊断：<code>n_eff = T/20</code>（真正的独立样本量）、状态两两差异检验（同日配对 HAC，回答&quot;C 真的优于 E 吗&quot;）。</p>
+<p>一个必须处理的细节：面板含 12 只境外标的，它们在本地交易日有数据而 A 股休市。若不过滤，这些&quot;只有境外标的&quot;的日子会以 5–12 个成员混进日均值，用境外的基线污染 A 股的状态超额。因此交易日门槛设为&quot;当日有 ≥30% 标的&quot;，并记录被剔除的天数。</p>
+<h3>1.3 结果</h3>
+<p>样本：118 只 / 158,784 个（标的, 交易日）观测 / 1,547 个交易日（2020-11-06 ~ 2026-11-06）。 剔除 111 天（1,547 → 1,436）：其中 <strong>91 天是&quot;A 股休市但港/美开市&quot;</strong>（元旦、春节、清明、五一、端午、中秋、国庆——这些日子只有 1–13 只境外或港股通标的能算 fwd20），另外 20 天是尾部没有前向数据。剔除名单本身就是过滤器正确的证据：它精确命中了法定节假日。</p>
+<table><thead><tr><th>状态</th><th>天数</th><th>超额均值</th><th>朴素 t</th><th><strong>NW t</strong></th><th>boot p</th><th>年度 p</th><th>95% CI（boot）</th><th>MDE(80%)</th><th>结论</th></tr></thead><tbody>
+<tr><td>A</td><td>1429</td><td>−0.578%</td><td>−3.2</td><td><strong>−0.8</strong></td><td>0.440</td><td>0.924</td><td>[−1.98%, +0.93%]</td><td>2.05%</td><td>不显著</td></tr>
+<tr><td>B</td><td>296</td><td>+0.638%</td><td>+1.4</td><td><strong>+0.5</strong></td><td>0.568</td><td>0.933</td><td>[−1.58%, +2.91%]</td><td>3.42%</td><td>不显著</td></tr>
+<tr><td>C</td><td>884</td><td>+0.367%</td><td>+1.4</td><td><strong>+0.4</strong></td><td>0.665</td><td>0.862</td><td>[−1.26%, +2.08%]</td><td>2.66%</td><td>不显著</td></tr>
+<tr><td>D</td><td>1065</td><td>−0.758%</td><td>−5.1</td><td><strong>−1.4</strong></td><td>0.179</td><td>0.763</td><td>[−1.82%, +0.37%]</td><td>1.55%</td><td>不显著（方向最一致）</td></tr>
+<tr><td>E</td><td>913</td><td>−0.221%</td><td>−1.0</td><td><strong>−0.3</strong></td><td>0.777</td><td>0.312</td><td>[−1.57%, +1.33%]</td><td>2.42%</td><td>不显著</td></tr>
+</tbody></table>
+<p><strong>发现一：跨指数 t 与时间维度 t 差 10–12 倍，而且有一个状态符号翻转。</strong></p>
+<table><thead><tr><th>状态</th><th>跨指数 t（旧口径）</th><th>相关性修正后</th><th><strong>时间维度 t</strong></th></tr></thead><tbody>
+<tr><td>A</td><td>−3.4</td><td>−0.40</td><td>−0.8</td></tr>
+<tr><td>B</td><td>+4.2</td><td>+0.51</td><td>+0.5</td></tr>
+<tr><td>C</td><td>+4.7</td><td>+0.57</td><td>+0.4</td></tr>
+<tr><td>D</td><td>−4.6</td><td>−0.55</td><td>−1.4</td></tr>
+<tr><td>E</td><td>+3.9</td><td>+0.47</td><td><strong>−0.3</strong></td></tr>
+</tbody></table>
+<p>C 从 4.7 掉到 0.4（差 11.8 倍）。这个倍数比 √(n/n_eff) = 8.3 还大，因为跨指数 t 同时受两个污染源叠加：横截面相关（×8.3）与<strong>时间上的 fwd20 重叠</strong>（跨指数配对并未消除它）。</p>
+<p>E 态更值得注意：横截面口径说它 +3.9（显著正），时间维度说 −0.3（微弱负）。<strong>符号翻转的意思是——E 态的&quot;正超额&quot;是少数指数在特定阶段贡献的，一旦按日等权、再按时间聚合，方向就没了。</strong> 上一轮&quot;E 年内最稳&quot;的结论，其证据基础正是这个会翻转的量。</p>
+<p><strong>发现二：十个两两比较里最大的那个，过不了多重比较。</strong></p>
+<table><thead><tr><th>配对</th><th>差值</th><th>t</th><th>p</th><th>判定</th></tr></thead><tbody>
+<tr><td>B−D</td><td>+1.809%</td><td>+2.26</td><td>0.024</td><td>名义显著，Bonferroni 阈值 0.005 → <strong>不成立</strong></td></tr>
+<tr><td>A−B</td><td>−1.397%</td><td>−1.86</td><td>0.063</td><td>不显著</td></tr>
+<tr><td>A−D</td><td>−0.515%</td><td>−1.27</td><td>0.203</td><td>不显著</td></tr>
+<tr><td>…其余 7 项</td><td>—</td><td>\</td><td>t\</td><td>≤ 1.24</td><td>≥ 0.213</td><td>不显著</td></tr>
+</tbody></table>
+<p>十个比较，Bonferroni 阈值 0.005。B−D 的 p=0.024 若单独看是&quot;发现&quot;，放进十次比较里就是<strong>预期中的最大值</strong>（若全无效应，十次比较出现一个 p&lt;0.024 的概率约 22%）。这正是我上一轮批评矩阵倒挂时该警惕、却没有警惕的错误。</p>
+<p><strong>发现三：绝对收益排序与超额排序几乎无关。</strong></p>
+<table><thead><tr><th>状态</th><th>绝对 fwd20 均值</th><th>相对自身基线的超额</th><th>时间维度 t</th><th>P(fwd20 &lt; −10%)</th></tr></thead><tbody>
+<tr><td>C</td><td><strong>+3.568%</strong></td><td>+0.367%</td><td>+0.4</td><td>9.9%</td></tr>
+<tr><td>B</td><td>+3.474%</td><td>+0.638%</td><td>+0.5</td><td>12.5%</td></tr>
+<tr><td>E</td><td>+1.273%</td><td><strong>−0.221%</strong></td><td>−0.3</td><td>13.5%</td></tr>
+<tr><td>A</td><td>+0.252%</td><td>−0.578%</td><td>−0.8</td><td>10.1%</td></tr>
+<tr><td>D</td><td><strong>−1.001%</strong></td><td>−0.758%</td><td>−1.4</td><td><strong>16.8%</strong></td></tr>
+</tbody></table>
+<p>C 态的绝对收益 +3.57%/20 日，看起来极好。但相对每只指数自身的基线，只剩 +0.37%（≈ 噪声）。</p>
+<p><strong>这说明 C 的高收益几乎全部是&quot;它更多地出现在上涨期&quot;，而不是&quot;在同等行情下它选得更好&quot;。</strong> 前者是择时/构成效应，后者才是状态机声称的能力。把这两件事混在一起，就会得到上一轮那个&quot;三口径排序冲突&quot;的困惑——现在冲突解释清楚了：绝对口径测的是 beta 暴露，超额口径测的才是 alpha，而 alpha 没有通过检验。</p>
+<h3>1.4 这对策略意味着什么</h3>
+<p><strong>（1）状态机可靠的部分是&quot;避险&quot;，不是&quot;选优&quot;。</strong></p>
+<p>五个状态里，只有 D 态在时间维度上方向与横截面一致、且 |t| 最大（−1.4），配合它的绝对收益 −1.00% 与最高的左尾概率 16.8%，构成一条方向自洽的证据链：D 态确实对应较差的后续 20 日。其余四个状态的超额都无法与零区分。</p>
+<p>现在的仓位矩阵给 C 最高权限（依据是那个 4.7 的虚 t）。<strong>这不是&quot;证据不足&quot;，这是把噪声当信号。</strong></p>
+<p><strong>（2）我必须撤回上一轮的矩阵重排建议。</strong></p>
+<p>上一轮我建议：<code>offense|E 0→0.3、|A 0.5→0.25、|D 0.5→0.1；event|A 0.8→0.2、|B 0.6→0.9、|C 0.3→0.5</code>，理由是&quot;加权 fwd20 offense +1.475%→+1.965%&quot;。</p>
+<p>那些数字是用<strong>同一个跨指数口径的 fwd20 均值</strong>算出来的。既然该口径的 t 值虚高约 10 倍，那么&quot;重排后提升 0.49pp&quot;完全落在噪声范围内，<strong>该建议不成立，不应执行</strong>。当时我留了一句&quot;未擅改生产配置&quot;，现在看是对的，但理由要换成：不是&quot;等用户确认&quot;，而是&quot;证据不足以支持任何重排&quot;。</p>
+<p><strong>（3）分辨率下限要说清楚，否则会误读成&quot;证明无效&quot;。</strong></p>
+<p>MDE（80% 功效）为 1.55%–3.42%/20 日。也就是说：</p>
+<ul>
+<li>若 C 的真实超额是 +2.7%/20 日以上，六年数据<strong>应该</strong>能发现，没发现 → 真实规模大概率低于此；</li>
+<li>若真实超额是 +0.5%/20 日（生产点估计的量级），<strong>六年数据根本分辨不出来</strong>——CI 宽度是点估计的 4 倍。</li>
+</ul>
+<p>所以正确表述是&quot;<strong>未发现证据</strong>&quot;，不是&quot;<strong>证明无效</strong>&quot;。这两者的差别决定了下一步该做什么：</p>
+<ul>
+<li>若要做&quot;选优&quot;（哪个状态更好），必须提高信噪比或换维度——延长样本受主题池前视偏差限制，更现实的是<strong>改到横截面维度</strong>（同一时点比较标的相对强弱，样本从 72 个独立窗口变成 118×N）；</li>
+<li>若要做&quot;避险&quot;（D 态减仓），现有证据已足够支撑一个保守版本的实现。</li>
+</ul>
+<hr>
+<h2>二、P0-2：成交额回补</h2>
+<h3>2.1 缺失的真正形态：不是&quot;缺字段&quot;，是一次深拉的副作用</h3>
+<p>上一轮审计把 <code>amount</code> 缺失描述为&quot;41 只标的整段缺失、399xxx 缺失率 55%&quot;。回补前重新看缺失分布，形态非常整齐：</p>
+<p>``<code> 399001  n=2633  缺 1452 行   2020-11-11 ~ 2026-11-06 399006  n=2633  缺 1452 行   2020-11-11 ~ 2026-11-06 ... 000903  n=1452  缺 1452 行   2020-11-11 ~ 2026-11-06 </code>``</p>
+<p><strong>缺失起点全部是 2020-11-11</strong>——正好是&quot;历史扩展到 6 年&quot;那天从腾讯深拉的 1452 根 K 线的起点。腾讯日线接口不返回成交额，于是老数据（有 amount）与新数据（无 amount）拼成一条前半段有、后半段没有的序列。</p>
+<p>这解释了为什么缺失率是 55.15% 这种奇怪数字：1452/2633 = 55.15%。<strong>它不是一个数据源缺字段，而是一次数据维护动作的连带损伤。</strong> 这类缺失尤其危险，因为它在时间上是&quot;整段&quot;的——任何依赖 amount 的因子会在某一天之后静默归零，而人会把&quot;后半段没信号&quot;解释成市场风格切换。</p>
+<h3>2.2 回补口径与三道校验</h3>
+<table><thead><tr><th>代码归属</th><th>主源</th><th>成交额单位</th></tr></thead><tbody>
+<tr><td>399 / 970 / 980 / 987 / CN 系</td><td>国证官网 hq.cnindex.com.cn</td><td>亿元</td></tr>
+<tr><td>000 / H / 93x / 95x</td><td>中证官网 csindex</td><td>亿元</td></tr>
+<tr><td>境外（hk / us / 100_ / uk）</td><td>—</td><td>接口均无成交额，不可回补</td></tr>
+</tbody></table>
+<p>三道校验，缺一不可：</p>
+<ol>
+<li><strong>单位</strong>：源值 × 1e8 转元；</li>
+<li><strong>横截面合理性</strong>：<code>amount / vol</code> 必须落在 [1e2, 5e4] 元/手（= 每股均价 1–500 元）。这条门槛的上界一开始设成 1e4，结果误杀了 399296 等 146 行——那些指数成分股以百元股为主，隐含均价约 120 元/股。<strong>这个区间是&quot;单位自洽性&quot;判据，不是估值判据</strong>，上界放到 5e4 后误杀归零，而错误口径会偏 5 个数量级，判别力毫发无损；</li>
+<li><strong>跨源一致性</strong>：若缓存里已有非缺失段，用重叠日期的 <code>amount</code> 比值确认单位。<strong>54 只标的的重叠期比值中位数全部等于 1.000000</strong>——这是对换算表最直接的验证，比任何文档都硬。</li>
+</ol>
+<h3>2.3 结果</h3>
+<table><thead><tr><th>前缀</th><th>标的数</th><th>回补前缺失率</th><th>回补后缺失率</th></tr></thead><tbody>
+<tr><td>399</td><td>41</td><td>57.02%</td><td><strong>0.000%</strong></td></tr>
+<tr><td>000</td><td>20</td><td>15.73%</td><td><strong>0.002%</strong></td></tr>
+<tr><td>931</td><td>14</td><td>0.53%</td><td>0.53%</td></tr>
+<tr><td>930</td><td>4</td><td>0.06%</td><td>0.06%</td></tr>
+<tr><td>hkH / usN</td><td>2</td><td>100%</td><td>100%（接口限制）</td></tr>
+</tbody></table>
+<p>宇宙整体：<strong>30.75% → 0.818%</strong>（242,853 行中仅剩 1,986 行，全部是境外标的与源数据确实缺那几天）。</p>
+<p>回补写入 55 只 / 65,067 行。写入前后对 118 只标的做了<strong>特征指纹比对</strong>（vol_z20 / vol_contract / down_vol_ratio / vol_ma20 / er20 / atr_pct_rank / dd_pos 的哈希）：<strong>118/118 完全一致</strong>。这证明回补是纯增量操作，没有扰动生产链。</p>
+<h3>2.4 为什么只补 amount，不补 vol</h3>
+<p>这是本次最重要的一个&quot;不做什么&quot;的决定。</p>
+<p>同一个指数、同一天（2026-11-06，399006 创业板指），两个源的成交量：</p>
+<p>``<code> 国证官网   3,456,500,000 （股）  → 折 34,565,000 手 腾讯缓存     181,680,656 （手） </code>``</p>
+<p>差 5.3 倍。配上成交额 1,951 亿元反推每股均价：用腾讯的成交量得 10.7 元/股（合理），用国证官网的得 56 元/股（不合理）。结论不是&quot;谁对谁错&quot;，而是<strong>&quot;指数成交量&quot;本身没有统一定义</strong>——是否含全部成分股、是否含大宗交易、是否双重计算，各源各行其是。</p>
+<p>所以：<strong>用新源的 vol 去覆盖旧源，会在接缝处制造一个比原问题更隐蔽的断层</strong>（原问题是&quot;缺字段&quot;，新问题会是&quot;两个都对但不可比&quot;）。只补 amount，风险可控。</p>
+<h3>2.5 一个诚实的说明：amount 现在还不进信号</h3>
+<p>我检查了 <code>compute_features</code> 与 <code>state.scoring</code> 的全部量能项：<code>vol_z20</code>、<code>vol_contract</code>、<code>down_vol_ratio</code> 都是<strong>同一序列内的比值或 z 值</strong>，对整体缩放不变（下面 P0-3 有实证断言）。<code>amount</code> 在整条生产链里只被 <code>eligibility.investability_score</code> 使用，而那里取的是 <strong>ETF 当日成交额</strong>（<code>etf_quotes.json</code>），不是指数 amount。</p>
+<p>也就是说：<strong>这次回补当前对信号零影响</strong>。它的价值在两处——一是让广度类/参与度类因子（后续 stock-pool 与政策主题轮动都要用）在数据上成为可能；二是消除了&quot;半程缺失导致因子静默归零&quot;这一类定时炸弹。</p>
+<hr>
+<h2>三、P0-3：量纲契约化</h2>
+<h3>3.1 从&quot;护栏&quot;到&quot;契约&quot;</h3>
+<p>原来的做法是 <code>engine.load_bars</code> 里一行 if：<code>if amt/vol &lt; 1e-3: vol/=100; amt*=1e8</code>。它能用，但有三个问题：判据散落在代码里、新数据源接入无人把关、源定义差异（vol 语义）完全不在视野内。</p>
+<p>现在收敛到 <code>data_contract.py</code>：</p>
+<ul>
+<li><strong>规范形</strong>：<code>vol</code> = 手，<code>amount</code> = 元</li>
+<li><strong>源换算表</strong>：<code>em / tencent / sina / csindex / cnindex / sse_cni</code> 六个源各自的乘数，新源必须登记，否则拒绝</li>
+<li><strong>可验证性</strong>：<code>infer_units()</code> 用比值反推口径；<code>ratio_plausible()</code> 给出写前校验</li>
+<li><strong>溯源清单</strong>：<code>data/units_manifest.json</code> 逐只记录主导口径、比值中位数、隐含每股均价、混口径占比，供回归比对（<code>data_contract.py --check</code> 发现漂移即退出码 1）</li>
+</ul>
+<p><code>engine.load_bars</code> 改为调用契约，保留一行降级护栏目以防导入失败。<strong>行为等价性已实测</strong>：随机抽 12 只标的，重构前后 <code>vol/amount/close</code> 逐根相等。</p>
+<h3>3.2 不变量：为什么跨标的量纲不一致不影响信号</h3>
+<p>这是契约里最有价值的一条，而且不是推断，是断言。</p>
+<p><code>selftest_contract.py</code> 的 T4：把整条序列的 vol 乘以 100，重算特征：</p>
+<p>``<code> 000300  vol_z20        0.131632 vs 0.131632     PASS 000300  vol_contract   1.245508 vs 1.245508     PASS 000300  down_vol_ratio 0.880432 vs 0.880432     PASS 000300  vol_ma20       缩放后恰好 ×100          PASS（故不可跨标的比较） </code>``</p>
+<p>三只标的全部通过，共 28 项断言全绿。</p>
+<p>推论（重要）：<strong>跨标的的量纲不一致对信号无害，同一序列内部的断点才是致命的。</strong> 这解释了为什么 11-07 那次 100 倍断点修复对 6 年实证几乎没有影响（5 个状态 edge 差异 ≤0.004pp）——断点只影响约 60 个交易日，而 z-score 在断点两侧各自标准化，很快&quot;自愈&quot;。这不是数据健康，是架构侥幸。</p>
+<h3>3.3 探测器的分辨率极限</h3>
+<p>T5 暴露了一个此前没意识到的边界：</p>
+<ul>
+<li>注入 <strong>30 日</strong> ×100 断点 → <code>vol_z20</code> 从 0.13 跳到 1.02（特征确实被破坏），但 <code>tools_fix_units.scan_series</code> <strong>一处都没报</strong></li>
+<li>注入 <strong>150 日</strong> ×100 断点 → 探测器正常定位到年份并给出 ×0.01 因子</li>
+</ul>
+<p>原因很直白：探测器按<strong>年度中位数</strong>聚类，持续不到半年的断点撼动不了年度中位数。这是方法的固有分辨率，不是 bug。已写入自测输出，并在 <code>tools_fix_units.py</code> 的注释里标明。</p>
+<p>正确的补法是<strong>成交额锚点做日级判定</strong>——有 amount 的行可以逐日验证 <code>amt/vol</code> 是否连续；这正好是 P0-2 回补后新获得的能力（回补前 399 系有 1452 行无 amount，日级锚点在那里是失效的）。两件事在这里闭环了。</p>
+<hr>
+<h2>四、还剩什么（诚实清单）</h2>
+<ol>
+<li><strong>&quot;选优&quot;这条路在时间维度上走不通，必须换维度</strong>。MDE 1.55–3.42%/20 日意味着六年数据只能排除大效应。要继续做状态排序，唯一可行的方向是<strong>横截面维度</strong>（同一时点比较 118 只的相对强弱，独立样本从 72 个窗口变成 118×N），而不是继续加长历史——加长历史会撞上第 2 条。</li>
+<li><strong>主题池前视偏差无法用补数据解决</strong>。118 只是 2026 年选定的主题，回测 2016–2020 等于&quot;知道答案后回去找证据&quot;，结论不可外推。唯一解法是构造 point-in-time 宇宙（当时可交易、当时在册），成本远高于本次三项修复。</li>
+<li><strong>仓位矩阵目前没有任何统计基础</strong>。C 的最高权限建立在虚 t 上；我上一轮给的矩阵重排建议已撤回。在拿到可用的证据前，矩阵应维持现状（保守语义），而不是重排。</li>
+<li><strong>境外 2 只仍无成交额</strong>。腾讯/新浪日线接口不提供，东财 secid 对港股指数的覆盖不稳定。影响面小（watch 桶），但要在清单里长期挂着。</li>
+<li><strong>vol 定义差异未解决，只是被隔离</strong>。契约记录了&quot;跨源不可比&quot;，但没有统一口径；若后续要做广度因子（涨跌家数、参与度），必须固定单一源。</li>
+<li><strong>量能断点探测器有分辨率盲区</strong>（&lt;半年 的断点看不见）。补法是成交额锚点日级判定，而它依赖 amount 完整——这正好是 P0-2 完成后才具备的前提。</li>
+</ol>
+<hr>
+<h2>附：一个被自己发现的工具 bug（值得记一笔）</h2>
+<p>第一版 <code>--dump-panel</code> 把面板落盘写在了聚合<strong>之前</strong>，而 f20 是在聚合里才算的。结果面板里 15.8 万行 f20 全为空。如果直接拿它跑显著性检验，工具会老老实实输出&quot;五个状态全部样本不足&quot;，看起来像个&quot;结论&quot;，实际上是空数据。</p>
+<p>两个后果值得记住：</p>
+<ol>
+<li><strong>&quot;工具没报错&quot;不等于&quot;数据是对的&quot;</strong>。这次的症状是静默空集，任何检查 <code>if not base_f20: continue</code> 的代码都会安静跳过。</li>
+<li><strong>可复现性要能被证伪</strong>。修法不是&quot;重跑一遍看看&quot;，而是加 <code>--fill-panel</code>：从行情缓存按同一口径补 f20，然后要求它<strong>逐位复现</strong>原 <code>state_edge.json</code>（A −0.4420% / B +1.4000% / C +0.7820% / D −1.1800% / E +0.6290%，t 值全同）。复现成功才证明面板可用。</li>
+</ol>
+<p>顺带得到一个实用收益：面板可复用后，<code>tools_state_edge.py --from-panel</code> 从 <strong>60 分钟降到 9.6 秒</strong>，<code>tools_state_tail.py --from-panel</code> 从数分钟降到 2 秒。所有后续检验（显著性、尾部、矩阵校准）都应基于同一份面板，既快又保证口径一致。</p>
+<hr>
+<h2>五、产物与复跑</h2>
+<p>新增：</p>
+<table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody>
+<tr><td><code>tools_state_significance.py</code></td><td>时间维度显著性（HAC + bootstrap + 年度重抽 + 两两差异）</td></tr>
+<tr><td><code>tools_backfill_amount.py</code></td><td>amount 回补（三道校验，<code>--check</code> 可挂 CI）</td></tr>
+<tr><td><code>data_contract.py</code></td><td>量纲契约 + 溯源清单</td></tr>
+<tr><td><code>selftest_contract.py</code></td><td>28 项契约断言（含不变量与探测器分辨率）</td></tr>
+</tbody></table>
+<p>改动：<code>tools_state_edge.py</code>（两阶段重构 + <code>--dump-panel</code> / <code>--from-panel</code> / <code>--fill-panel</code>）、<code>tools_state_tail.py</code>（支持 <code>--from-panel</code>）、<code>engine.py</code>（load_bars 走契约，保留降级护栏目）。</p>
+<p>回归：仓库内 13 个 <code>selftest_*.py</code> 全部通过（p0 46/46、p12 52/52、eligibility 63/63、html 28/28、lifecycle 21/21、market_context 12/12、state_streak 18/18 等），<code>load_bars</code> 重构前后随机抽 12 只标的逐根相等，<code>state_edge</code> 重构前后 5 个状态的 edge 与 t 值完全一致。</p>
+<p>一处运维注意：行情缓存（<code>stock-pool/_cache</code>）<strong>不在版本库里</strong>（被 stock-pool 的 <code>.gitignore</code> 排除），所以回补结果只存在于本机。换机器或重建缓存后必须重跑 <code>tools_backfill_amount.py --apply</code>；<code>--check</code> 的退出码可直接判定&quot;是否已回补&quot;。</p>
+<p>复跑顺序（回放要 60 分钟，面板可复用后后续全部秒级）：</p>
+<p>```bash</p>
+<h1>首次（或数据有更新时）：回放 + 落盘面板</h1>
+<p>python tools_state_edge.py --start 2020-11-06 --dump-panel state/state_panel.jsonl</p>
+<h1>面板缺 f20 时修复（不重跑回放，会顺带校验能否复现 state_edge.json）</h1>
+<p>python tools_state_edge.py --fill-panel state/state_panel.jsonl</p>
+<h1>日常：全部读面板</h1>
+<p>python tools_state_significance.py                                   # 12 秒 python tools_state_tail.py --from-panel state/state_panel.jsonl       # 2 秒</p>
+<h1>数据层体检</h1>
+<p>python data_contract.py &amp;&amp; python selftest_contract.py python tools_backfill_amount.py --check        # 残留缺失则退出码 1 python tools_db_scorecard.py                   # 完整性/准确性/度量统一 ```</p>
+<div class="foot">由 tools_md2html.py 生成 · 源文件 docs/DATA_P0_REMEDIATION_20261108.md</div>
+</div></body></html>

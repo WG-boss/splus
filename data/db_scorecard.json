@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08 16:40:28",
+ "generated_at": "2026-11-08 17:34:35",
  "cache_dir": "..\\stock-pool\\_cache",
  "thresholds": {
   "coverage_fail": 0.9,
@@ -54,8 +54,8 @@
  },
  "summary": {
   "n_universe": 118,
-  "n_ok": 67,
-  "n_warn": 51,
+  "n_ok": 112,
+  "n_warn": 6,
   "n_fail": 0,
   "n_missing": 0,
   "total_bars": 242853,
@@ -71,19 +71,12 @@
   "earliest": "2013-11-05",
   "latest": "2026-11-06",
   "units": {
-   "LOT_YUAN": 110,
-   "NO_VOL": 8
+   "LOT_YUAN": 116,
+   "NO_VOL": 2
   },
   "fail_kinds": {},
   "fail_codes": [],
   "warn_codes": [
-   {
-    "code": "399673",
-    "name": "创业板50",
-    "issues": [
-     "field_missing"
-    ]
-   },
    {
     "code": "hkHSTECH",
     "name": "恒生科技",
@@ -94,300 +87,6 @@
    {
     "code": "usNDX",
     "name": "纳斯达克100",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "000813",
-    "name": "细分化工",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "000922",
-    "name": "中证红利",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399001",
-    "name": "深证成指",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399005",
-    "name": "中小100",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399006",
-    "name": "创业板指",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399012",
-    "name": "创业300",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399019",
-    "name": "创业200",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399102",
-    "name": "创业板综",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399264",
-    "name": "创业软件",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399266",
-    "name": "创新能源",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399275",
-    "name": "创医药",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399276",
-    "name": "创科技",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399291",
-    "name": "创精选88",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399293",
-    "name": "创业大盘",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399295",
-    "name": "创价值",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399296",
-    "name": "创成长",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399303",
-    "name": "国证2000",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399324",
-    "name": "深证红利",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399326",
-    "name": "成长40",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399330",
-    "name": "深证100",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399348",
-    "name": "深证价值",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399361",
-    "name": "在线消费",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399362",
-    "name": "民企100",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399365",
-    "name": "国证粮食",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399372",
-    "name": "大盘成长",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399373",
-    "name": "大盘价值",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399378",
-    "name": "ESG 300",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399389",
-    "name": "国证通信",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399396",
-    "name": "国证食品",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399433",
-    "name": "国证交运",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399437",
-    "name": "证券龙头",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399438",
-    "name": "绿色电力",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399439",
-    "name": "国证油气",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399441",
-    "name": "生物医药",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399550",
-    "name": "央视50",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399610",
-    "name": "TMT50",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399624",
-    "name": "中创400",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399667",
-    "name": "创业成长",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399750",
-    "name": "深主板50",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399975",
-    "name": "证券公司",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399986",
-    "name": "中证银行",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "399989",
-    "name": "中证医疗",
     "issues": [
      "field_missing"
     ]
@@ -411,20 +110,6 @@
     "name": "消费服务",
     "issues": [
      "ohlc_logic"
-    ]
-   },
-   {
-    "code": "000903",
-    "name": "中证A100",
-    "issues": [
-     "field_missing"
-    ]
-   },
-   {
-    "code": "000906",
-    "name": "中证800",
-    "issues": [
-     "field_missing"
     ]
    },
    {
@@ -634,23 +319,13 @@
    "bars": 1452,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -663,7 +338,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -678,12 +353,20 @@
      0.1555
     ]
    ],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 4427.740315097592,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 3834.93,
+    "2021": 4670.85,
+    "2022": 4498.95,
+    "2023": 4169.65,
+    "2024": 3811.87,
+    "2025": 4549.95,
+    "2026": 8065.59
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "hkHSTECH",
@@ -1851,15 +1534,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2341,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "38.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2017-03-22",
    "last": "2026-11-06",
    "expected": 2338,
@@ -1872,16 +1549,19 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.381,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1856.7153851594408,
+   "amt_vol_ratio": 1569.305242702127,
    "unit": "LOT_YUAN",
    "unit_years": {
-    "2020": 1685.76,
+    "2017": 1375.85,
+    "2018": 1205.56,
+    "2019": 933.87,
+    "2020": 1179.65,
     "2021": 2210.73,
     "2022": 2057.6,
     "2023": 1760.91,
@@ -1891,7 +1571,7 @@
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "000852",
@@ -1947,15 +1627,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2636,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "16.5% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -1968,20 +1642,20 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.165,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 942.0562903075316,
+   "amt_vol_ratio": 999.800063945995,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 934.3,
     "2017": 1174.36,
     "2018": 1176.68,
-    "2019": 924.69,
-    "2020": 1074.96,
+    "2019": 1101.76,
+    "2020": 1101.07,
     "2021": 1035.74,
     "2022": 820.02,
     "2023": 784.51,
@@ -1991,7 +1665,7 @@
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399001",
@@ -2000,15 +1674,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2021,24 +1689,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 612.4940075550464,
+   "amt_vol_ratio": 600.309553814458,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 682.97,
     "2017": 663.1,
     "2018": 559.79,
     "2019": 512.67,
-    "2020": 630.13
+    "2020": 648.82,
+    "2021": 733.15,
+    "2022": 537.43,
+    "2023": 509.62,
+    "2024": 452.54,
+    "2025": 561.06,
+    "2026": 939.15
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399005",
@@ -2047,15 +1721,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2068,24 +1736,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1710.799354507278,
+   "amt_vol_ratio": 1940.6816311414318,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1762.34,
     "2017": 1785.49,
     "2018": 1575.63,
     "2019": 1444.78,
-    "2020": 1986.1
+    "2020": 2056.27,
+    "2021": 2569.94,
+    "2022": 2473.54,
+    "2023": 2142.9,
+    "2024": 1651.43,
+    "2025": 2169.39,
+    "2026": 3078.87
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399006",
@@ -2096,18 +1770,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2120,7 +1789,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -2135,18 +1804,24 @@
      0.1536
     ]
    ],
-   "amt_vol_ratio": 527.558914286433,
+   "amt_vol_ratio": 533.1315643362659,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 723.83,
     "2017": 561.05,
     "2018": 458.25,
     "2019": 400.03,
-    "2020": 533.13
+    "2020": 544.34,
+    "2021": 675.56,
+    "2022": 560.43,
+    "2023": 400.19,
+    "2024": 374.06,
+    "2025": 531.62,
+    "2026": 1203.26
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399012",
@@ -2157,18 +1832,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2181,7 +1851,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -2196,18 +1866,24 @@
      0.1564
     ]
    ],
-   "amt_vol_ratio": 1529.4022216963533,
+   "amt_vol_ratio": 2036.9852632410211,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1935.18,
     "2017": 1552.24,
     "2018": 1267.19,
     "2019": 1293.03,
-    "2020": 1679.37
+    "2020": 1733.92,
+    "2021": 2520.37,
+    "2022": 2341.36,
+    "2023": 2118.88,
+    "2024": 1980.72,
+    "2025": 2546.15,
+    "2026": 4317.74
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399019",
@@ -2218,18 +1894,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "27.4% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2242,7 +1913,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.2738,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 3,
    "ret_sector_hits": 0,
@@ -2261,7 +1932,7 @@
      0.1621
     ]
    ],
-   "amt_vol_ratio": 1347.213996081826,
+   "amt_vol_ratio": 1406.8725964520531,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1830.42,
@@ -2271,11 +1942,14 @@
     "2020": 1163.27,
     "2021": 1474.07,
     "2022": 1365.03,
-    "2023": 1474.99
+    "2023": 1456.55,
+    "2024": 1251.39,
+    "2025": 1808.15,
+    "2026": 2340.76
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399102",
@@ -2286,18 +1960,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2310,7 +1979,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -2325,18 +1994,24 @@
      0.1524
     ]
    ],
-   "amt_vol_ratio": 1607.0161907866548,
+   "amt_vol_ratio": 1735.0945882023236,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2268.02,
     "2017": 1856.5,
     "2018": 1411.74,
     "2019": 1220.59,
-    "2020": 1489.41
+    "2020": 1541.8,
+    "2021": 1856.27,
+    "2022": 1723.33,
+    "2023": 1689.86,
+    "2024": 1426.39,
+    "2025": 1937.75,
+    "2026": 2858.38
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399264",
@@ -2347,18 +2022,13 @@
    "bars": 2145,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "46.2% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2018-01-02",
    "last": "2026-11-06",
    "expected": 2145,
@@ -2371,7 +2041,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.462,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 3,
    "ret_sector_hits": 0,
@@ -2390,18 +2060,22 @@
      -0.1643
     ]
    ],
-   "amt_vol_ratio": 1938.4920634920634,
+   "amt_vol_ratio": 2159.169817143739,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2018": 1425.47,
     "2019": 1552.78,
     "2020": 2075.62,
     "2021": 2788.8,
-    "2022": 2242.69
+    "2022": 2186.71,
+    "2023": 2242.52,
+    "2024": 2095.1,
+    "2025": 2580.43,
+    "2026": 2606.51
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399266",
@@ -2412,18 +2086,13 @@
    "bars": 2145,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "46.2% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2018-01-02",
    "last": "2026-11-06",
    "expected": 2145,
@@ -2436,7 +2105,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.462,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 3,
    "ret_sector_hits": 0,
@@ -2455,18 +2124,22 @@
      -0.1511
     ]
    ],
-   "amt_vol_ratio": 2816.6491693941825,
+   "amt_vol_ratio": 3534.5199539042146,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2018": 1657.02,
     "2019": 2108.65,
     "2020": 3034.48,
     "2021": 5156.14,
-    "2022": 5485.6
+    "2022": 5427.51,
+    "2023": 4076.62,
+    "2024": 2980.29,
+    "2025": 3572.97,
+    "2026": 5623.32
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399275",
@@ -2477,18 +2150,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2501,7 +2169,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 1,
    "ret_sector_hits": 0,
@@ -2512,18 +2180,24 @@
      0.1612
     ]
    ],
-   "amt_vol_ratio": 1897.3937848467822,
+   "amt_vol_ratio": 2234.4084098244703,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1983.94,
     "2017": 1595.66,
     "2018": 1967.45,
     "2019": 1804.7,
-    "2020": 2767.11
+    "2020": 2979.81,
+    "2021": 4478.93,
+    "2022": 2528.28,
+    "2023": 2795.51,
+    "2024": 2218.08,
+    "2025": 2221.19,
+    "2026": 2317.39
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399276",
@@ -2534,18 +2208,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2558,7 +2227,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -2573,18 +2242,24 @@
      0.1625
     ]
    ],
-   "amt_vol_ratio": 1980.967089872584,
+   "amt_vol_ratio": 3268.1621241367407,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2396.74,
     "2017": 1874.64,
     "2018": 1720.36,
     "2019": 1809.18,
-    "2020": 2831.69
+    "2020": 3076.0,
+    "2021": 4866.92,
+    "2022": 4275.93,
+    "2023": 3402.71,
+    "2024": 3307.8,
+    "2025": 4804.78,
+    "2026": 8469.42
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399291",
@@ -2595,18 +2270,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "3 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2619,7 +2289,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 3,
    "ret_sector_hits": 0,
@@ -2638,18 +2308,24 @@
      -0.163
     ]
    ],
-   "amt_vol_ratio": 1407.3147962312028,
+   "amt_vol_ratio": 1586.7772337403683,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1954.95,
     "2017": 1474.12,
     "2018": 1116.18,
     "2019": 1188.57,
-    "2020": 1495.69
+    "2020": 1523.4,
+    "2021": 1785.73,
+    "2022": 1581.19,
+    "2023": 1759.96,
+    "2024": 1367.31,
+    "2025": 1958.23,
+    "2026": 2598.21
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399293",
@@ -2660,18 +2336,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2684,7 +2355,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -2699,18 +2370,24 @@
      0.159
     ]
    ],
-   "amt_vol_ratio": 1878.5002373042241,
+   "amt_vol_ratio": 4152.251714217678,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2006.24,
     "2017": 1657.25,
     "2018": 1615.38,
     "2019": 1966.75,
-    "2020": 3067.67
+    "2020": 3350.95,
+    "2021": 6742.86,
+    "2022": 5834.59,
+    "2023": 4913.6,
+    "2024": 4222.25,
+    "2025": 5155.03,
+    "2026": 9278.09
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399295",
@@ -2721,18 +2398,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2745,7 +2417,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 1,
    "ret_sector_hits": 0,
@@ -2756,18 +2428,24 @@
      0.1597
     ]
    ],
-   "amt_vol_ratio": 1860.5438114574624,
+   "amt_vol_ratio": 3162.9603528059342,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2222.38,
     "2017": 1752.52,
     "2018": 1533.66,
     "2019": 1626.52,
-    "2020": 2964.87
+    "2020": 3244.53,
+    "2021": 4327.58,
+    "2022": 4416.55,
+    "2023": 3381.88,
+    "2024": 3418.98,
+    "2025": 3638.98,
+    "2026": 7673.41
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399296",
@@ -2778,18 +2456,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "1 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2802,7 +2475,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 1,
    "ret_sector_hits": 0,
@@ -2813,18 +2486,24 @@
      0.1661
     ]
    ],
-   "amt_vol_ratio": 2160.9566280303266,
+   "amt_vol_ratio": 3702.5889472456897,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2619.64,
     "2017": 1940.94,
     "2018": 1840.15,
     "2019": 2138.95,
-    "2020": 4199.33
+    "2020": 4484.24,
+    "2021": 6622.6,
+    "2022": 5188.81,
+    "2023": 3815.71,
+    "2024": 3682.19,
+    "2025": 4116.05,
+    "2026": 10585.08
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399303",
@@ -2833,15 +2512,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2854,24 +2527,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1101.7551607505939,
+   "amt_vol_ratio": 1112.3528157067378,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1451.67,
     "2017": 1230.65,
     "2018": 985.63,
     "2019": 914.32,
-    "2020": 1022.87
+    "2020": 1016.25,
+    "2021": 1106.97,
+    "2022": 1014.28,
+    "2023": 1107.55,
+    "2024": 995.54,
+    "2025": 1393.41,
+    "2026": 1709.41
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399324",
@@ -2880,15 +2559,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2901,24 +2574,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1641.4874872363218,
+   "amt_vol_ratio": 1728.0640524710122,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1214.38,
     "2017": 1568.14,
     "2018": 1834.12,
     "2019": 1811.39,
-    "2020": 1830.86
+    "2020": 1945.54,
+    "2021": 2285.85,
+    "2022": 1628.49,
+    "2023": 1125.44,
+    "2024": 1107.48,
+    "2025": 2075.36,
+    "2026": 2456.34
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399326",
@@ -2927,15 +2606,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2948,24 +2621,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1670.58880790145,
+   "amt_vol_ratio": 2649.470722916569,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2011.38,
     "2017": 1625.59,
     "2018": 1323.19,
     "2019": 1482.65,
-    "2020": 2579.06
+    "2020": 3055.03,
+    "2021": 3791.7,
+    "2022": 3365.03,
+    "2023": 2708.79,
+    "2024": 2910.61,
+    "2025": 3584.45,
+    "2026": 9695.71
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399330",
@@ -2974,15 +2653,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -2995,24 +2668,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1512.594396773542,
+   "amt_vol_ratio": 2314.7724593741004,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1429.66,
     "2017": 1416.89,
     "2018": 1469.01,
     "2019": 1572.54,
-    "2020": 2069.07
+    "2020": 2245.03,
+    "2021": 3295.25,
+    "2022": 3129.6,
+    "2023": 2585.83,
+    "2024": 2129.07,
+    "2025": 2890.09,
+    "2026": 3893.15
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399348",
@@ -3021,15 +2700,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3042,24 +2715,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1088.0888680090152,
+   "amt_vol_ratio": 1132.535036697425,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1032.11,
     "2017": 1117.17,
     "2018": 1203.14,
     "2019": 1074.74,
-    "2020": 1026.34
+    "2020": 1035.21,
+    "2021": 1149.41,
+    "2022": 1052.87,
+    "2023": 1187.11,
+    "2024": 1100.45,
+    "2025": 1286.89,
+    "2026": 1405.8
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399361",
@@ -3068,15 +2747,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3089,24 +2762,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1151.1582986841552,
+   "amt_vol_ratio": 1190.798550668575,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1171.11,
     "2017": 1140.08,
     "2018": 1190.8,
     "2019": 956.74,
-    "2020": 1351.73
+    "2020": 1365.25,
+    "2021": 1255.93,
+    "2022": 1018.42,
+    "2023": 1227.47,
+    "2024": 1047.6,
+    "2025": 1342.32,
+    "2026": 1487.95
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399362",
@@ -3115,15 +2794,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3136,24 +2809,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1625.9412278485197,
+   "amt_vol_ratio": 3122.5029338511777,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1426.5,
     "2017": 1535.21,
     "2018": 1486.0,
     "2019": 1802.62,
-    "2020": 2601.1
+    "2020": 3131.54,
+    "2021": 4482.71,
+    "2022": 4179.89,
+    "2023": 3519.05,
+    "2024": 2893.06,
+    "2025": 3701.11,
+    "2026": 5838.95
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399365",
@@ -3162,15 +2841,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3183,24 +2856,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 2093.9316872146464,
+   "amt_vol_ratio": 1549.680647353723,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1368.04,
     "2017": 1785.97,
     "2018": 2239.17,
     "2019": 2790.99,
-    "2020": 2880.87
+    "2020": 3063.21,
+    "2021": 4879.48,
+    "2022": 3415.55,
+    "2023": 1134.67,
+    "2024": 1105.98,
+    "2025": 1098.71,
+    "2026": 1288.83
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399372",
@@ -3209,20 +2888,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 1452,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -3235,18 +2903,26 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 3646.500909375051,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 3098.37,
+    "2021": 4697.09,
+    "2022": 4171.15,
+    "2023": 3006.07,
+    "2024": 2429.28,
+    "2025": 3353.91,
+    "2026": 5533.34
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399373",
@@ -3255,20 +2931,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 1452,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -3281,18 +2946,26 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 1064.2480922411135,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1203.54,
+    "2021": 1156.03,
+    "2022": 924.63,
+    "2023": 901.68,
+    "2024": 1036.68,
+    "2025": 1113.28,
+    "2026": 1173.0
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399378",
@@ -3301,20 +2974,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 1452,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -3327,18 +2989,26 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 2049.0614748530766,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 2226.25,
+    "2021": 2387.18,
+    "2022": 2033.57,
+    "2023": 1860.1,
+    "2024": 1644.88,
+    "2025": 2031.23,
+    "2026": 2757.62
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399389",
@@ -3347,15 +3017,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3368,24 +3032,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1485.2808133170272,
+   "amt_vol_ratio": 1577.7884959263274,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1597.02,
     "2017": 1474.09,
     "2018": 1201.46,
     "2019": 1422.75,
-    "2020": 1662.27
+    "2020": 1661.11,
+    "2021": 1394.01,
+    "2022": 1143.8,
+    "2023": 1743.07,
+    "2024": 2004.53,
+    "2025": 2751.05,
+    "2026": 5901.13
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399396",
@@ -3394,15 +3064,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3415,24 +3079,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 3097.9209124320523,
+   "amt_vol_ratio": 4071.1389554872294,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1619.03,
     "2017": 2226.46,
     "2018": 3212.24,
     "2019": 3612.47,
-    "2020": 4223.02
+    "2020": 4503.57,
+    "2021": 7168.51,
+    "2022": 5805.93,
+    "2023": 5732.74,
+    "2024": 4495.3,
+    "2025": 4233.22,
+    "2026": 3250.44
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399433",
@@ -3441,15 +3111,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3462,24 +3126,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 756.5603436834534,
+   "amt_vol_ratio": 737.264394981078,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 752.82,
     "2017": 821.81,
     "2018": 753.66,
     "2019": 703.03,
-    "2020": 722.26
+    "2020": 723.73,
+    "2021": 988.48,
+    "2022": 781.69,
+    "2023": 688.82,
+    "2024": 721.9,
+    "2025": 686.65,
+    "2026": 661.52
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399437",
@@ -3488,15 +3158,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3509,24 +3173,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1287.4219267774258,
+   "amt_vol_ratio": 1312.690691633105,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1372.59,
     "2017": 1283.75,
     "2018": 952.14,
     "2019": 1176.84,
-    "2020": 1456.71
+    "2020": 1482.1,
+    "2021": 1482.78,
+    "2022": 1280.76,
+    "2023": 1198.23,
+    "2024": 1130.17,
+    "2025": 1474.18,
+    "2026": 1367.01
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399438",
@@ -3535,15 +3205,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3556,24 +3220,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 588.8178425470397,
+   "amt_vol_ratio": 685.743834230585,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 651.86,
     "2017": 717.93,
     "2018": 549.59,
     "2019": 553.1,
-    "2020": 531.56
+    "2020": 529.9,
+    "2021": 635.95,
+    "2022": 745.81,
+    "2023": 705.12,
+    "2024": 763.58,
+    "2025": 776.68,
+    "2026": 803.39
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399439",
@@ -3582,15 +3252,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3603,24 +3267,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 620.4402986671231,
+   "amt_vol_ratio": 659.5909619230107,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 693.05,
     "2017": 716.69,
     "2018": 612.82,
     "2019": 507.8,
-    "2020": 429.0
+    "2020": 427.58,
+    "2021": 434.15,
+    "2022": 544.71,
+    "2023": 692.55,
+    "2024": 726.92,
+    "2025": 718.04,
+    "2026": 1033.09
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399441",
@@ -3629,15 +3299,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3650,24 +3314,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 2591.857180297946,
+   "amt_vol_ratio": 3233.3536501235994,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2608.34,
     "2017": 2222.45,
     "2018": 2664.55,
     "2019": 2468.06,
-    "2020": 3890.07
+    "2020": 4269.87,
+    "2021": 6776.24,
+    "2022": 5206.81,
+    "2023": 4120.25,
+    "2024": 3047.88,
+    "2025": 3189.05,
+    "2026": 3697.29
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399550",
@@ -3676,15 +3346,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3697,24 +3361,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 2171.0641334227944,
+   "amt_vol_ratio": 2366.041764327073,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1591.09,
     "2017": 2039.24,
     "2018": 2197.28,
     "2019": 2385.69,
-    "2020": 3109.14
+    "2020": 3139.16,
+    "2021": 3422.35,
+    "2022": 2620.73,
+    "2023": 2299.91,
+    "2024": 2020.83,
+    "2025": 2261.71,
+    "2026": 3023.28
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399610",
@@ -3723,15 +3393,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3744,24 +3408,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1424.3016182893227,
+   "amt_vol_ratio": 1897.0763478923402,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1662.16,
     "2017": 1400.0,
     "2018": 1173.42,
     "2019": 1198.37,
-    "2020": 1820.26
+    "2020": 1835.89,
+    "2021": 2189.59,
+    "2022": 2113.75,
+    "2023": 2225.36,
+    "2024": 2014.33,
+    "2025": 3276.1,
+    "2026": 4729.29
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399624",
@@ -3770,15 +3440,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3791,24 +3455,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1251.810634444894,
+   "amt_vol_ratio": 1383.0558518480018,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1604.62,
     "2017": 1337.25,
     "2018": 1042.49,
     "2019": 996.42,
-    "2020": 1215.37
+    "2020": 1242.63,
+    "2021": 1523.48,
+    "2022": 1445.95,
+    "2023": 1390.69,
+    "2024": 1235.46,
+    "2025": 1624.94,
+    "2026": 2268.23
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399667",
@@ -3819,18 +3489,13 @@
    "bars": 2633,
    "issues": [
     {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.1% 的交易日成交额为 0"
-    },
-    {
      "level": "INFO",
      "kind": "market_event",
      "detail": "2 次极端收益属全市场共因（同日 >=5 只标的同步），非数据缺陷"
     }
    ],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3843,7 +3508,7 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5515,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 2,
    "ret_sector_hits": 0,
@@ -3858,18 +3523,24 @@
      0.163
     ]
    ],
-   "amt_vol_ratio": 1660.6388939844092,
+   "amt_vol_ratio": 3396.6298354233154,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 2169.1,
     "2017": 1610.55,
     "2018": 1436.92,
     "2019": 1508.73,
-    "2020": 2272.58
+    "2020": 2552.54,
+    "2021": 4738.45,
+    "2022": 4575.28,
+    "2023": 4163.61,
+    "2024": 3298.0,
+    "2025": 4338.02,
+    "2026": 9070.99
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399750",
@@ -3878,15 +3549,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2633,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "27.4% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3899,13 +3564,13 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.2738,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1771.205357142857,
+   "amt_vol_ratio": 1781.3080743102562,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 1236.1,
@@ -3915,11 +3580,14 @@
     "2020": 1899.23,
     "2021": 2607.53,
     "2022": 2248.76,
-    "2023": 2109.23
+    "2023": 2064.71,
+    "2024": 1609.25,
+    "2025": 1946.9,
+    "2026": 1807.01
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399975",
@@ -3928,15 +3596,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2634,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "73.5% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3949,22 +3611,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.7354,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1124.4274321671958,
+   "amt_vol_ratio": 1167.3199985907986,
    "unit": "LOT_YUAN",
    "unit_years": {
+    "2016": 1368.5,
+    "2017": 1258.24,
     "2018": 918.43,
     "2019": 1090.95,
-    "2020": 1246.82
+    "2020": 1274.53,
+    "2021": 1330.15,
+    "2022": 1068.87,
+    "2023": 977.2,
+    "2024": 889.81,
+    "2025": 1185.89,
+    "2026": 1145.99
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399986",
@@ -3973,15 +3643,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 2634,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "55.0% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2016-01-04",
    "last": "2026-11-06",
    "expected": 2633,
@@ -3994,24 +3658,30 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 0.5501,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 764.2849929725683,
+   "amt_vol_ratio": 748.98860323323,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2016": 705.25,
     "2017": 779.19,
     "2018": 741.51,
     "2019": 801.55,
-    "2020": 801.58
+    "2020": 801.14,
+    "2021": 857.03,
+    "2022": 729.39,
+    "2023": 596.91,
+    "2024": 649.52,
+    "2025": 751.65,
+    "2026": 771.26
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "399989",
@@ -4020,20 +3690,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 1452,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -4046,18 +3705,26 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 3705.060025127229,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 4075.32,
+    "2021": 5306.86,
+    "2022": 4676.03,
+    "2023": 3602.08,
+    "2024": 2685.89,
+    "2025": 2816.59,
+    "2026": 3523.58
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "930708",
@@ -6364,20 +6031,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 1452,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "成交额字段全空（当前引擎未使用；做流动性/冲击成本时必须补齐）"
-    },
-    {
-     "level": "INFO",
-     "kind": "unit",
-     "detail": "无成交额可校验量纲（amount 缺失），由 field_missing 单独记账"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2020-11-11",
    "last": "2026-11-06",
    "expected": 1452,
@@ -6390,18 +6046,26 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0,
-   "zero_amt_rate": 1.0,
+   "zero_amt_rate": 0.0,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 0.0,
-   "unit": "NO_VOL",
-   "unit_years": {},
+   "amt_vol_ratio": 2243.40189636715,
+   "unit": "LOT_YUAN",
+   "unit_years": {
+    "2020": 1919.35,
+    "2021": 2400.76,
+    "2022": 2209.73,
+    "2023": 2024.79,
+    "2024": 1830.31,
+    "2025": 2372.06,
+    "2026": 3192.31
+   },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "000906",
@@ -6410,15 +6074,9 @@
    "tradeable": false,
    "market": "CN",
    "bars": 3165,
-   "issues": [
-    {
-     "level": "WARN",
-     "kind": "field_missing",
-     "detail": "45.8% 的交易日成交额为 0"
-    }
-   ],
+   "issues": [],
    "fails": 0,
-   "warns": 1,
+   "warns": 0,
    "first": "2013-11-05",
    "last": "2026-11-06",
    "expected": 3163,
@@ -6431,13 +6089,13 @@
    "ohlc_bad": 0,
    "ohlc_bad_rate": 0.0,
    "zero_vol_rate": 0.0003,
-   "zero_amt_rate": 0.4578,
+   "zero_amt_rate": 0.0003,
    "ret_outliers": 0,
    "ret_event_hits": 0,
    "ret_sector_hits": 0,
    "ret_outlier_top": [],
    "ret_event_top": [],
-   "amt_vol_ratio": 1178.9514368785033,
+   "amt_vol_ratio": 1334.8918444188425,
    "unit": "LOT_YUAN",
    "unit_years": {
     "2013": 954.82,
@@ -6447,11 +6105,17 @@
     "2017": 1191.78,
     "2018": 1174.24,
     "2019": 1139.16,
-    "2020": 1333.37
+    "2020": 1346.72,
+    "2021": 1585.78,
+    "2022": 1497.87,
+    "2023": 1475.83,
+    "2024": 1373.16,
+    "2025": 1715.13,
+    "2026": 2463.26
    },
    "unit_breaks": [],
    "stale_days": 0,
-   "status": "WARN"
+   "status": "OK"
   },
   {
    "code": "932000",
@@ -6643,5 +6307,5 @@
    "status": "WARN"
   }
  ],
- "elapsed_s": 3.29
+ "elapsed_s": 3.89
 }

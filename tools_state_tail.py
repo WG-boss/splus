@@ -59,6 +59,8 @@ def main() -> int:
     ap.add_argument("--horizon", type=int, default=20)
     ap.add_argument("--tradeable-only", action="store_true", default=True)
     ap.add_argument("--all", dest="tradeable_only", action="store_false")
+    ap.add_argument("--from-panel", default="",
+                    help="复用 tools_state_edge.py --dump-panel 生成的面板（秒级，仅支持 horizon=20）")
     a = ap.parse_args()
 
     import engine
@@ -66,29 +68,45 @@ def main() -> int:
     cache_dir = os.path.join(BASE, cfg["data"]["cache_dir"])
     st_cfg = cfg["state"]
     H = a.horizon
+    if a.from_panel and H != 20:
+        print("[tail] --from-panel 仅支持 horizon=20（面板只存了 20 日前向收益）")
+        return 2
 
     pool = [u for u in cfg["universe"]
             if u.get("enabled", True) and (u.get("tradeable") or not a.tradeable_only)]
-    print("[tail] 标的=%d  horizon=%dd  start=%s" % (len(pool), H, a.start or "-"))
+    print("[tail] 标的=%d  horizon=%dd  start=%s  src=%s"
+          % (len(pool), H, a.start or "-", "panel" if a.from_panel else "replay"))
 
     by_state: Dict[str, List[float]] = defaultdict(list)
     per_idx = {}
+    panel = None
+    if a.from_panel:
+        from tools_state_edge import load_panel
+        panel = load_panel(a.from_panel)
     for u in pool:
-        bars = engine.load_bars(cache_dir, u["code"])
-        if len(bars) <= WARMUP + H + 5:
-            continue
-        recs = replay(bars, st_cfg)
-        closes = [r["close"] for r in recs]
-        got = defaultdict(list)
-        for j, r in enumerate(recs):
-            if j + H >= len(closes):
+        got: Dict[str, List[float]] = defaultdict(list)
+        if panel is not None:
+            for r in panel.get(u["code"], []):
+                if r.get("f20") is None:
+                    continue
+                if a.start and r["date"] < a.start:
+                    continue
+                got[r["dom"]].append(float(r["f20"]))
+        else:
+            bars = engine.load_bars(cache_dir, u["code"])
+            if len(bars) <= WARMUP + H + 5:
                 continue
-            d = str(r["date"])
-            if a.start and d < a.start:
-                continue
-            fwd = closes[j + H] / closes[j] - 1.0
-            by_state[r["dom"]].append(fwd)
-            got[r["dom"]].append(fwd)
+            recs = replay(bars, st_cfg)
+            closes = [r["close"] for r in recs]
+            for j, r in enumerate(recs):
+                if j + H >= len(closes):
+                    continue
+                d = str(r["date"])
+                if a.start and d < a.start:
+                    continue
+                got[r["dom"]].append(closes[j + H] / closes[j] - 1.0)
+        for s, v in got.items():
+            by_state[s].extend(v)
         per_idx[u["code"]] = {"name": u["name"], "n": {s: len(v) for s, v in got.items()}}
         print("  %-9s %-14s %s" % (u["code"], u["name"],
                                    {s: len(v) for s, v in sorted(got.items())}), flush=True)

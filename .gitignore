@@ -61,3 +61,8 @@ data/position_dashboard.html
 
 # ---- 一次性审计基线（保留但不再变动）----
 *.bak
+
+# ---- 2026-11-08 回补/契约：派生数据与临时目录 ----
+data/_tmp/
+data/_cache_backup_amount/
+state/state_panel.jsonl
