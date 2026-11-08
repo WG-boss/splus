@@ -1,0 +1,26 @@
+{
+ "method": "MC: common factor + 3 sector factors + idio; sticky Markov states independent of returns; overlapping fwd20",
+ "reps": 200,
+ "days": 680,
+ "assets": 118,
+ "lag": 40,
+ "size_at_5pct": {
+  "A": 0.075,
+  "C": 0.1,
+  "B": 0.09,
+  "any_of_three": 0.225
+ },
+ "size_at_5pct_rule": {
+  "A": 0.075,
+  "C": 0.095,
+  "B": 0.09,
+  "any_of_three": 0.225
+ },
+ "power": {
+  "beta_0.05_sd": 0.18,
+  "beta_0.05_sd_rule": 0.18,
+  "beta_0.10_sd": 0.24,
+  "beta_0.10_sd_rule": 0.24
+ },
+ "note": "size 目标 ≤0.08（沿用上一轮 6.5–8.5% 的标准）；size_at_5pct 是 NW(40) 单分量，size_at_5pct_rule 是实际判定用的 p_eff=max(NW, boot) 规则；power 为名义 5% 双侧的检出率"
+}

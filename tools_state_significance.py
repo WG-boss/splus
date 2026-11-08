@@ -173,14 +173,34 @@ def stationary_bootstrap(xs: List[float], block: int, b: int, seed: int,
     return {"p": round(p, 4), "ci": [round(lo, 6), round(hi, 6)], "b": b, "block": block}
 
 
+def p_year_for_rule(yb: Dict[str, Any], min_blocks: int = 6) -> Optional[float]:
+    """年度重抽的 p 值只有在块数足够时才允许进入判定。
+
+    5 个年度块重抽时，重抽分布的离散度被年度均值本身的方差支配，p 会稳定接近 1
+    （实测 A 态 0.96）。这时它不是"效应为零"的证据，而是"这个检验没有检出力"。
+    把零功效分量放进 p_eff = max(...) 会让规则退化成永远不显著，因此设前置条件：
+    整年块 < 6 时只披露、不判定。
+    """
+    if (yb.get("years") or 0) < min_blocks:
+        return None
+    return yb.get("p")
+
+
 def year_block_bootstrap(xs_by_year: Dict[str, List[float]], b: int, seed: int) -> Dict[str, Any]:
-    """按【整年】重抽（年度内自相关结构完整保留），检验结论是否依赖特定年份。"""
+    """按【整年】重抽（年度内自相关结构完整保留），检验结论是否依赖特定年份。
+
+    完整年度的判据是"观测数 ≥ 200"，而不是简单地砍掉最后一年。
+    面板起点是 2020-11-06，2020 只有约 40 个交易日；若把它当成一个完整年度，
+    这 40 天会在 7 个年度里占 1/7 的重抽权重（A 态的 −4.20% 正是这样被放大的）。
+    两端（首个不完整年度、当年）都必须排除。
+    """
     years = sorted(xs_by_year)
     if len(years) < 4:
         return {"p": None, "ci": None}
     rng = random.Random(seed)
-    obs = mean([mean(xs_by_year[y]) for y in (years[:-1] or years)])  # 完整年度
-    full_years = years[:-1] if len(years) > 4 else years           # 剔除不完整年
+    full_years = [y for y in years if len(xs_by_year[y]) >= 200]
+    if len(full_years) < 4:                 # 门槛过严时退回旧口径（砍末年末）
+        full_years = years[:-1] if len(years) > 4 else years
     if not full_years:
         full_years = years
     obs = mean([mean(xs_by_year[y]) for y in full_years])
@@ -194,7 +214,8 @@ def year_block_bootstrap(xs_by_year: Dict[str, List[float]], b: int, seed: int) 
     lo = stats_[int(0.025 * len(stats_))]
     hi = stats_[min(len(stats_) - 1, int(0.975 * len(stats_)))]
     return {"p": round(p, 4), "ci": [round(lo, 6), round(hi, 6)],
-            "years": len(full_years), "obs": round(obs, 6)}
+            "years": len(full_years), "obs": round(obs, 6),
+            "year_labels": full_years}
 
 
 # ------------------------------------------------------------------ 面板
@@ -306,7 +327,8 @@ def analyse(series: Dict[str, Any], lag: int, block: int, boot: int,
         p_nw = round(math.erfc(abs(t_nw) / math.sqrt(2)), 4)
 
     # 判定：以 HAC p 为准（最保守），block bootstrap 与年度重抽作为一致性佐证
-    p_eff = max([p for p in (p_nw, bs.get("p"), yboot.get("p")) if p is not None] or [1.0])
+    p_year_rule = p_year_for_rule(yboot)
+    p_eff = max([p for p in (p_nw, bs.get("p"), p_year_rule) if p is not None] or [1.0])
     if p_eff < 0.05 and m > 0:
         verdict = "显著正向"
     elif p_eff < 0.05 and m < 0:
@@ -329,6 +351,7 @@ def analyse(series: Dict[str, Any], lag: int, block: int, boot: int,
         "disjoint": dj,
         "boot": bs,
         "year_boot": yboot,
+        "year_boot_in_rule": p_year_rule is not None,
         "mde_80": (round(2.8 * se, 6) if se == se else None),   # 80% 功效下可检出的最小 edge
         "n_eff_time": round(n / FWD, 1),   # 独立 20 日窗口个数（真正的有效样本量）
         "block_sd": round(blk_sd, 6),

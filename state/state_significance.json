@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T17:51:22",
+ "generated_at": "2026-11-08T22:02:38",
  "method": "time-dimension inference on daily cross-sectional mean excess; Newey-West(lag=40) + stationary bootstrap(block=80, B=4000) + disjoint subsample + year-block bootstrap",
  "panel": {
   "codes": 118,
@@ -57,14 +57,22 @@
     "block": 80
    },
    "year_boot": {
-    "p": 0.924,
+    "p": 0.9635,
     "ci": [
-     -0.012556,
-     0.014287
+     -0.016277,
+     0.016069
     ],
-    "years": 6,
-    "obs": 0.00061
+    "years": 5,
+    "obs": -0.000104,
+    "year_labels": [
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
    },
+   "year_boot_in_rule": false,
    "mde_80": 0.020498,
    "n_eff_time": 71.5,
    "block_sd": 0.046251,
@@ -107,7 +115,7 @@
    },
    "positive_full_years": "3/6",
    "avg_members": 45.4,
-   "p_effective": 0.924,
+   "p_effective": 0.4397,
    "verdict": "方向为负但不显著"
   },
   "B": {
@@ -139,8 +147,17 @@
      0.022981
     ],
     "years": 6,
-    "obs": -0.001372
+    "obs": -0.001372,
+    "year_labels": [
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
    },
+   "year_boot_in_rule": true,
    "mde_80": 0.034244,
    "n_eff_time": 14.8,
    "block_sd": 0.030897,
@@ -202,8 +219,17 @@
      0.02986
     ],
     "years": 6,
-    "obs": -0.002838
+    "obs": -0.002838,
+    "year_labels": [
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
    },
+   "year_boot_in_rule": true,
    "mde_80": 0.026598,
    "n_eff_time": 44.2,
    "block_sd": 0.046755,
@@ -275,8 +301,17 @@
      0.022182
     ],
     "years": 6,
-    "obs": -0.004801
+    "obs": -0.004801,
+    "year_labels": [
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
    },
+   "year_boot_in_rule": true,
    "mde_80": 0.015516,
    "n_eff_time": 53.2,
    "block_sd": 0.029728,
@@ -353,8 +388,17 @@
      0.030772
     ],
     "years": 6,
-    "obs": 0.010349
+    "obs": 0.010349,
+    "year_labels": [
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
    },
+   "year_boot_in_rule": true,
    "mde_80": 0.024168,
    "n_eff_time": 45.6,
    "block_sd": 0.039108,
