@@ -283,7 +283,7 @@ T5 暴露了一个此前没意识到的边界：
 | 文件 | 作用 |
 |---|---|
 | `tools_state_significance.py` | 时间维度显著性（HAC + bootstrap + 年度重抽 + 两两差异） |
-| `tools_backfill_amount.py` | amount 回补（三道校验，`--check` 可挂 CI） |
+| `tools_backfill_amount.py` | amount 回补（三道校验；`--check` 只对「整段残留」报错，零散空洞仅披露） |
 | `data_contract.py` | 量纲契约 + 溯源清单 |
 | `selftest_contract.py` | 28 项契约断言（含不变量与探测器分辨率） |
 
@@ -308,6 +308,6 @@ python tools_state_tail.py --from-panel state/state_panel.jsonl       # 2 秒
 
 # 数据层体检
 python data_contract.py && python selftest_contract.py
-python tools_backfill_amount.py --check        # 残留缺失则退出码 1
+python tools_backfill_amount.py --check        # 单只残留 ≥120 行（整段未修复）才退出码 1
 python tools_db_scorecard.py                   # 完整性/准确性/度量统一
 ```

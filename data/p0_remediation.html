@@ -208,7 +208,7 @@ hr{border:none;border-top:1px dashed var(--line);margin:24px 0}
 <p>新增：</p>
 <table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody>
 <tr><td><code>tools_state_significance.py</code></td><td>时间维度显著性（HAC + bootstrap + 年度重抽 + 两两差异）</td></tr>
-<tr><td><code>tools_backfill_amount.py</code></td><td>amount 回补（三道校验，<code>--check</code> 可挂 CI）</td></tr>
+<tr><td><code>tools_backfill_amount.py</code></td><td>amount 回补（三道校验；<code>--check</code> 只对「整段残留」报错，零散空洞仅披露）</td></tr>
 <tr><td><code>data_contract.py</code></td><td>量纲契约 + 溯源清单</td></tr>
 <tr><td><code>selftest_contract.py</code></td><td>28 项契约断言（含不变量与探测器分辨率）</td></tr>
 </tbody></table>
@@ -224,6 +224,6 @@ hr{border:none;border-top:1px dashed var(--line);margin:24px 0}
 <h1>日常：全部读面板</h1>
 <p>python tools_state_significance.py                                   # 12 秒 python tools_state_tail.py --from-panel state/state_panel.jsonl       # 2 秒</p>
 <h1>数据层体检</h1>
-<p>python data_contract.py &amp;&amp; python selftest_contract.py python tools_backfill_amount.py --check        # 残留缺失则退出码 1 python tools_db_scorecard.py                   # 完整性/准确性/度量统一 ```</p>
+<p>python data_contract.py &amp;&amp; python selftest_contract.py python tools_backfill_amount.py --check        # 单只残留 ≥120 行（整段未修复）才退出码 1 python tools_db_scorecard.py                   # 完整性/准确性/度量统一 ```</p>
 <div class="foot">由 tools_md2html.py 生成 · 源文件 docs/DATA_P0_REMEDIATION_20261108.md</div>
 </div></body></html>

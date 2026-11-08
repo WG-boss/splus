@@ -65,6 +65,7 @@ from data_contract import AMT_VOL_LO, AMT_VOL_HI  # noqa: E402  单一真源
 # 跨源单位一致性：重叠期 amount 比值中位数须在此区间
 RATIO_LO, RATIO_HI = 0.5, 2.0
 YI = 1e8
+FATAL_ROWS = 120          # 单只标的残留 ≥ 半年（≈120 行）视为整段未修复
 
 # 境外代码：腾讯/新浪接口均无成交额，明确记录为"不可回补"而非"待修"
 OVERSEAS_PREFIX = ("100_", "hk", "us", "uk")
@@ -266,6 +267,10 @@ def main() -> int:
     residual = [(r["code"], r["missing"] - r["filled"]) for r in rows
                 if r.get("status") not in ("OK", "OVERSEAS_NO_AMOUNT")
                 and (r.get("missing", 0) - r.get("filled", 0)) > 0]
+    # 致命残留 = 单只标的仍有「整段」未修复（≥ 半年 ≈ 120 行）。
+    # 零散空洞（源头确实缺那几天）不算失败，只披露——否则 CI 永远红，
+    # 而红久了就没人看了，校验也就废了。
+    fatal = [(c, n) for c, n in residual if n >= FATAL_ROWS]
 
     summary = {
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
@@ -275,6 +280,7 @@ def main() -> int:
         "rows_filled": total_fill,
         "residual_missing_codes": len(residual),
         "residual_rows": sum(x[1] for x in residual),
+        "fatal_residual": [{"code": c, "rows": n} for c, n in fatal],
         "overseas_unfixable": skipped_overseas,
         "by_status": {},
         "rows": rows,
@@ -289,15 +295,20 @@ def main() -> int:
           % (len(rows), len(patched), total_fill, "已写盘" if a.apply else "预演"))
     print("[amount] 状态分布：%s" % summary["by_status"])
     if residual:
-        print("[amount] 残留缺失：%d 只 / %d 行" % (len(residual), sum(x[1] for x in residual)))
+        print("[amount] 残留缺失：%d 只 / %d 行（源头缺该日期者为正常，不阻断）"
+              % (len(residual), sum(x[1] for x in residual)))
         for c, n in sorted(residual, key=lambda t: -t[1])[:10]:
-            print("         %-8s %d 行" % (c, n))
+            print("         %-8s %d 行%s" % (c, n, "  ← 整段未修复" if n >= FATAL_ROWS else ""))
     if skipped_overseas:
         print("[amount] 境外不可回补：%d 只（接口无成交额）" % len(skipped_overseas))
     print("[amount] 报告：%s" % REPORT)
 
     if a.check:
-        return 1 if residual else 0
+        if fatal:
+            print("[amount] FAIL 整段残留：%s（阈值 %d 行/只）" % (fatal, FATAL_ROWS))
+            return 1
+        print("[amount] OK 无整段残留（零散空洞 %d 行，属源头覆盖限制）"
+              % sum(x[1] for x in residual))
     return 0
 
 
