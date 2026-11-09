@@ -154,8 +154,18 @@ universe:
 state:
   persistence: 0.55      # 先验粘性（越大越不轻易切换状态，抗噪）
   temperature: 0.85      # 似然温度（越大越平缓，越保守）
-  min_confidence_to_act: 0.65   # 低于此置信度只能持有/观察，不得开新仓
+  min_confidence_to_act: 0.65   # 低于此置信度只能持有/观察，不得开新仓；评级输出 NA
   uniform_prior: 0.20           # 无历史先验时的均匀先验（五状态各 1/5）
+  # ---- 分态先验粘性（2026-11-09 新增，默认关闭）----
+  # 面板实测自持率（state/state_transition.json，186,778 次转移）：
+  #   A 0.945 / B 0.619 / C 0.903 / D 0.909 / E 0.934，等效期望持续 18.1/2.6/10.4/11.0/15.3 日
+  # 生产标量 0.55 的等效自持率只有 0.640，把 A/E 当成比实际易翻转得多。
+  # 但改成 per_state 等于**换一台状态机**：横截面检验、显著性检验、R0–R6
+  # 池规则对比全部是在 scalar 口径下做的，换参数必须重跑全部检验。
+  # 因此这里只备好参数，默认 scalar；要切请连同全部回归一起切。
+  persistence_mode: "scalar"     # scalar | per_state
+  persistence_by_state: {A: 0.945, B: 0.619, C: 0.903, D: 0.909, E: 0.934}
+  transition_file: "state/state_transition.json"   # 经验转移矩阵（只读查表）
   # 五状态：A 吸筹 / B 突破 / C 通道 / D 派发 / E 下跌
 
 
@@ -379,7 +389,13 @@ eligibility:
   weights: {investability: 0.30, state_fit: 0.40, data_quality: 0.20, map_ready: 0.10}
   tiers: {full: 80, reduced: 60, observe: 40}   # ≥80 FULL / ≥60 REDUCED / ≥40 OBSERVE / <40 FROZEN
   hard_rules:
-    state_fit_zero_frozen: true   # StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN，分数照实算（温度计价值保留）
+    # StateFit=0（E 态全族 / D 态事件族）怎么处理：
+    #   "frozen"     → 强制 FROZEN（tier ×0 = 清仓）。旧行为，语义过强。
+    #   "permission" → 不强制 tier，只禁新增（permission.add=False），允许按分档持有。
+    # 依据：剔除 E 态的规则年化反而低 0.8pp（POOL_DYNAMIC §4.3⑤），
+    #       证据只支持「禁新增」，不支持「强制清仓」。分数照实算（温度计价值保留）。
+    state_fit_gate: "permission"
+    state_fit_zero_frozen: true   # 兼容旧键：state_fit_gate 缺省时才读它
   enforce_sizing_zero: true       # P2：档位权限乘数总开关（false = 全部 ×1.0 回滚到静态白名单形态）
   tier_permissions:               # §5.2 权限映射（2026-11-06 审计补齐：REDUCED 降杠杆 / OBSERVE 禁开仓）
     FULL: 1.0
@@ -408,9 +424,15 @@ eligibility:
     reference: [市场基准, 风格参照, 全球上游, 领先观察, 筛选源观察]
   reference_tradeable_as_offense: true   # 参照族但现行 tradeable=true（如恒生科技）→ 按进攻族行计 StateFit
   state_fit:                      # 5 态 × 3 角色族（初版先验；P4 用 10 年回放校准，每格需 ≥30 状态日样本）
+    # 2026-11-09 修正：reference 行原为全 0，与 eligibility.py 的 DEFAULTS
+    # （0.5/0.8/0.6/0.2/0.0）和 selftest 断言都不一致——配置覆盖了代码默认值，
+    # 导致 107 只 watch 标的 StateFit 恒 0、永远 FROZEN，动态池从 watch 里
+    # 选出来的名字会被瞬间归零。现按模块文档的口径恢复：
+    #   A/B/C 给分使其可到 OBSERVE/FULL（watch 池晋升通道），D 0.2 → OBSERVE，
+    #   E 仍为 0 → FROZEN 硬闸（执行许可另由 tier × 现行 tradeable 决定）。
     offense:   {A: 0.5, B: 1.0, C: 1.0, D: 0.5, E: 0.0}
     event:     {A: 0.8, B: 0.6, C: 0.3, D: 0.0, E: 0.0}
-    reference: {A: 0.0, B: 0.0, C: 0.0, D: 0.0, E: 0.0}
+    reference: {A: 0.5, B: 0.8, C: 0.6, D: 0.2, E: 0.0}
   data_quality:
     gap_penalty: 0.3              # 存在日期断裂类警告
     warn_penalty: 0.6             # 存在其他警告（仅收盘价/跳空等）
@@ -421,3 +443,52 @@ eligibility:
     none: 0.0
   history_path: "state/eligibility_history.jsonl"   # 逐日落盘（同 dominant history 模式），P3 连续性规则读取
   fail_closed: true               # 引擎任何异常 → 全标的 FROZEN（与 market_context on_error=veto 同哲学）
+
+# ============================================================
+# 动态可交易池（2026-11-09 · R6 宽缓冲）
+# 研究结论见 docs/POOL_DYNAMIC_20261109.md §4：
+#   R6 是唯一「降成本 + 提收益 + 提显著性」三向同向的规则
+#   （年化 13.87% / Sharpe 0.51 / 年换手 14.7x / 日频超额 t 1.77）
+# mode: fixed（保留配置静态白名单）| shadow（只算不用）| dynamic（池即权限）
+# 回滚：mode 改 fixed 即恢复静态 11 只，无需改代码。
+# ============================================================
+pool:
+  mode: "dynamic"
+  file: "state/tradeable_pool.json"
+  history: "state/tradeable_pool_history.jsonl"
+  size: 10                    # 目标只数（上限；相关性闸/容量闸可能压到更少）
+  n_out: 30                   # 出池缓冲：排名跌出 30 才卖（进 10 / 出 30）
+  smooth: 5                   # 排序轴 rs_20 的 5 日均
+  rank_axis: "rs_20"          # 唯一排序轴；不用五态评分（未通过检验的收益排序）
+  corr_max: 0.90              # 与池内已有标的 60 日 |corr| > 0.90 不新增
+  corr_win: 60
+  corr_min_obs: 20
+  amt_floor_yi: 0.3           # 指数 20 日成交额中位数地板（0.3 亿）
+  min_bars: 252
+  exclude_ohlc_proxy: true    # 当前仅收盘价（ATR/ADX 代理）不进池
+  min_cross_section: 40
+  aum_yi: 0.3                 # 组合规模 → 单只目标市值 = AUM/N
+  adv_share: 0.05             # 单只 ≤ ETF 日成交额 5%
+  etf_adv_floor_yi: 0.3
+  quote_max_age_hours: 72     # 行情过期 → 容量口径降级为 unknown（不做硬闸）
+  freeze_days: 5              # 熔断后冻结交易日数
+  adv_crash_pct: 0.50         # ADV 相对上期跌超 50% → 强制出池并冻结
+  state:
+    half_on_D: true           # D 态目标仓位 ×0.5（风险预算）
+    no_add_on_E: true         # E 态允许持有、禁止新增（不是清仓）
+    na_below_conf: true       # 置信不足 → 评级 NA，不加仓
+
+# ============================================================
+# 口径披露（2026-11-09）：哪些数字不能当证据，写进每份决策 JSON
+# ============================================================
+disclosure:
+  enabled: true
+  backtest_window: "2021-05-12 → 2026-11-06（面板 118 只 × 1,333 个交易日）"
+  items:
+    - {id: d1, level: HIGH, text: "R0 固定 11 只的 +0.896%/20 日（t 2.04）含事后选样偏差：11 只是 2026 年已知结果后挑的，回测到 2021 等于把答案抄进试卷，不构成证据。"}
+    - {id: d2, level: HIGH, text: "全部日频超额 t 在 1.0–1.8 之间，无一过 2；R6 的 14.7x 换手与 13.87% 年化是方向一致但统计不显著，不能按点估计承诺收益。"}
+    - {id: d3, level: MED, text: "映射状态用当前快照回测历史，属轻度前视（方向为生存偏差）；只影响「能不能买」，不参与排序。干净做法是维护 point-in-time 映射台账。"}
+    - {id: d4, level: MED, text: "ETF 成交额若为过期/半日快照，容量口径降级为 unknown：不做硬闸，也不代表真有流动性，需行情恢复后复核。"}
+    - {id: d5, level: MED, text: "state_weight（概率加权 0–1）与 eligibility.score（0–100 四因子）不可比；报告里的「五态评分」一律指 state_weight。"}
+    - {id: d6, level: LOW, text: "组合回测为等权、日频调仓、单边 8bp；未建模冲击成本随规模上升、涨跌停无法成交、ETF 折溢价与申赎限制。"}
+    - {id: d7, level: LOW, text: "本文所有数字来自历史回放，不构成投资建议；仓位为模型建议比例，不是下单指令。"}

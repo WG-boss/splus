@@ -62,15 +62,24 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
         etf_stats = {"error": f"{type(exc).__name__}: {exc}"}
 
     # ② 治理门禁接入行为矩阵
+    # 2026-11-09 口径统一：开仓意向优先读 eligibility.permission.add——
+    # 资格层与决策层从此共用**同一个布尔**，不再出现「资格 FULL 但不可开仓」
+    # 的两套门槛同时出现在一份 JSON 里（此前创新药 931152 即为此例）。
+    # 缺 permission（资格层未跑/回滚）才回落到 conf + 状态的老判定，并标注来源。
     thr = float(cfg["state"]["min_confidence_to_act"])
     gate_results: Dict[str, Any] = {}
     open_intents = []
     for code, v in per_index.items():
         st = v.get("state") or {}
-        intent = (bool(v.get("tradeable"))
-                  and st.get("confidence", 0) >= thr
-                  and st.get("dominant") in ("A", "B", "C")
-                  and not veto)
+        perm = ((v.get("eligibility") or {}).get("permission") or {})
+        if "add" in perm:
+            add_ok = bool(perm.get("add"))
+            perm_src = "eligibility.permission"
+        else:
+            add_ok = (st.get("confidence", 0) >= thr
+                      and st.get("dominant") in ("A", "B", "C"))
+            perm_src = "legacy(conf+state)"
+        intent = bool(v.get("tradeable")) and add_ok and not veto
         if intent:
             open_intents.append(code)
             try:
@@ -86,6 +95,7 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
         gate_results[code] = {
             "allowed": allowed,
             "open_intent": bool(intent),
+            "permission_source": perm_src,
             "market_veto": veto,
             "errors": g.get("errors") or [],
             "skipped": g.get("skipped", ""),
@@ -110,8 +120,13 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
     cal_cfg = cfg.get("calibration_display") or {}
     min_settled = int(cal_cfg.get("min_settled") or 30)
     hedge_txt = _hedge_text(cfg, p_de, hedge_need)
-    confirmed = etf_stats.get("confirmed", 0)
+    # 只统计「可交易集合」内的映射就绪度：池收缩到 9 只后，
+    # 用全局 confirmed(52) 去比 tradeable(9) 会显示成 "52/9 已核实"，纯属错位。
     tradeable_n = sum(1 for v in per_index.values() if v.get("tradeable"))
+    confirmed = sum(1 for v in per_index.values()
+                    if v.get("tradeable")
+                    and (v.get("instrument") or {}).get("status") == "confirmed"
+                    and (v.get("instrument") or {}).get("verified"))
     alloc = account_mod.allocation(account_state, actionable)
 
     # P1-①：敞口 → 金额/份额/整手（三重 fail-closed，异常隔离）
@@ -137,6 +152,14 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
         steps.append("市场闸门通过；逐个标的检查治理门禁（事前验尸+红队质询）后方可建仓")
     if not account_state.get("configured"):
         steps.append("账户真实净值未接入：本页仓位仅为模型建议，未做账户级回撤节流")
+    _na = sum(1 for v in per_index.values()
+              if (v.get("state") or {}).get("rating") == "NA")
+    if _na:
+        steps.append(f"{_na} 只标的置信度不足门槛 → 评级 NA：只观察/只持有，不得开新仓")
+    _pool_n = sum(1 for v in per_index.values() if (v.get("pool") or {}).get("member"))
+    if _pool_n:
+        steps.append(f"可交易池为动态结果（R6 宽缓冲）：今日 {_pool_n} 只，"
+                     "进出由缓冲带决定，排名抖动不产生交易")
     if confirmed < tradeable_n:
         steps.append(f"场内标的映射 {confirmed}/{tradeable_n} 已核实；"
                      "未确认项禁止据此下单")

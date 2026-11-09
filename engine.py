@@ -209,9 +209,27 @@ def quality_check(bars: List[Dict[str, Any]]) -> List[str]:
 
     # 6) 仅收盘价（软）：部分新发布中证指数在官网只给 close，无 OHLC。
     #    ATR/ADX 会退化为收盘口径代理，必须在报告里披露，不得静默当正常数据。
-    ohlc_flat = sum(1 for b in bars if b["high"] == b["low"] == b["close"])
-    if ohlc_flat > len(bars) * 0.9:
-        issues.append("SOFT|源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理")
+    #
+    # 2026-11-09 修正：原来只按「全样本 flat 占比 > 90%」判定，会漏掉
+    # 「半路才开始只给收盘价」的标的长连续段（5 只，最长 400+ 根）。
+    # 改为三条任一命中：全样本占比 >90% / 最长连续段 ≥60 根 / 近 120 根 ≥90%。
+    # 60 个交易日 O=H=L=C 对真实指数几乎不可能，故不构成误报风险。
+    flat = [b["high"] == b["low"] == b["close"] for b in bars]
+    ratio = sum(flat) / len(flat) if flat else 0.0
+    run = best = 0
+    for f in flat:
+        run = run + 1 if f else 0
+        best = max(best, run)
+    recent = flat[-120:]
+    recent_ratio = sum(recent) / len(recent) if recent else 0.0
+    if ratio > 0.9 or recent_ratio >= 0.9:
+        issues.append("SOFT|源仅提供收盘价（无 OHLC），ATR/ADX 已退化为收盘口径代理"
+                      f"（全样本 {ratio:.0%} / 近 120 根 {recent_ratio:.0%} / 最长连续 {best} 根）")
+    elif best >= 60:
+        # 历史上曾长期只有收盘价、但当前已恢复 OHLC：不影响今日 ATR/ADX，
+        # 只影响历史回测口径 → 单独披露，不据此把标的挡在池外。
+        issues.append(f"SOFT|历史有 {best} 根连续记录仅有收盘价（当前已恢复 OHLC），"
+                      "历史回测的 ATR/ADX 为代理口径")
 
     return issues
 
@@ -542,13 +560,25 @@ def state_scores(f: Dict[str, Any], model: Dict[str, Any]) -> Dict[str, float]:
 
 def state_probs(f: Dict[str, Any], prev: Optional[Dict[str, float]],
                 persistence: float, temp: float,
-                model: Dict[str, Any], uniform: float = 0.2) -> Dict[str, Any]:
+                model: Dict[str, Any], uniform: float = 0.2,
+                persistence_by_state: Optional[Dict[str, float]] = None) -> Dict[str, Any]:
+    """贝叶斯状态后验。
+
+    `persistence_by_state` 给定时按状态取各自的先验粘性（分态模式，默认不用；
+    见 config 注释——换它等于换状态机，必须连带重跑全部检验）。
+    """
     scores = state_scores(f, model)
     keys = ["A", "B", "C", "D", "E"]
 
     u = float(uniform)
     if prev:
-        prior = {k: persistence * prev.get(k, u) + (1 - persistence) * u for k in keys}
+        if persistence_by_state:
+            prior = {k: (float(persistence_by_state.get(k, persistence))
+                         * prev.get(k, u)
+                         + (1 - float(persistence_by_state.get(k, persistence))) * u)
+                     for k in keys}
+        else:
+            prior = {k: persistence * prev.get(k, u) + (1 - persistence) * u for k in keys}
     else:
         prior = {k: u for k in keys}
 
@@ -903,6 +933,69 @@ def kill_switches(cfg: Dict[str, Any], per_index: Dict[str, Any],
 # 主流程
 # ============================================================
 
+def build_bucket_exposure(per_index: Dict[str, Any], cfg: Dict[str, Any],
+                          haircut: float = 1.0, e_dom_n: int = 0
+                          ) -> Tuple[Dict[str, Any], float]:
+    """桶敞口 = 成员 `sizing.final` 之和 → bucket_max 截断 → 开关 haircut → 主题组硬顶。
+
+    返回 (buckets, total_pre_switch)。`exposure_pre_switch` 是开关压缩前的值，
+    用于报告里「压缩前 → 压缩后」的对照。
+
+    这是全链路唯一的桶敞口算法：资格层乘数、状态调制、池权限都已经写进
+    每个成员的 `sizing.final`，桶只做求和与上限，不再重算任何系数。
+    """
+    bm_cfg = cfg["risk"]["bucket_max"]
+
+    def _bm(b: str) -> float:
+        if isinstance(bm_cfg, dict):
+            return float(bm_cfg.get(b, bm_cfg.get("default", min(bm_cfg.values()))))
+        return float(bm_cfg)
+
+    groups: Dict[str, List[str]] = {}
+    for code, v in per_index.items():
+        if v.get("tradeable"):
+            groups.setdefault(v["bucket"], []).append(code)
+
+    theme_bks = set(cfg["risk"].get("theme_buckets") or ["theme"])
+    theme_cap = float(cfg["risk"].get("theme_cap_under_e", 0.06))
+
+    out: Dict[str, Any] = {}
+    for b, codes in groups.items():
+        fins = [float((per_index[c].get("sizing") or {}).get("final") or 0.0)
+                for c in codes]
+        raw = sum(fins)
+        cap = _bm(b)
+        capped = min(raw, cap)
+        note = ("单标的，按单仓上限" if len(codes) == 1
+                else f"{len(codes)} 只，成员 final 求和")
+        if raw > cap + 1e-9:
+            note += f"；桶上限 {cap:.0%} 截断（求和 {raw:.1%}）"
+        out[b] = {"codes": codes, "exposure_pre_bucket": round(raw, 4),
+                  "exposure": round(capped, 4),
+                  "per_name": round(capped / len(codes), 4), "note": note}
+
+    # 主题组按【组内合计】卡硬顶，不是每桶各卡一次（否则加一个桶就把硬顶放大一倍）
+    theme_sum = sum(v["exposure"] for b, v in out.items()
+                    if b in theme_bks) * float(haircut)
+    theme_scale = 1.0
+    if e_dom_n >= 2 and theme_sum > theme_cap > 0:
+        theme_scale = theme_cap / theme_sum
+
+    total_pre = 0.0
+    for b, v in out.items():
+        pre = v["exposure"]
+        v["exposure_pre_switch"] = pre
+        total_pre += pre
+        capped = pre * float(haircut)
+        if b in theme_bks and theme_scale < 1.0:
+            capped = pre * float(haircut) * theme_scale
+            v["cap_reason"] = (f"E 阶段主题组硬上限 {theme_cap:.0%}"
+                               f"（组内合计 {theme_sum:.2%} → 缩放 {theme_scale:.2f}）")
+        v["exposure"] = round(capped, 4)
+        v["per_name"] = round(capped / len(v.get("codes") or [1]), 4)
+    return out, round(total_pre, 4)
+
+
 def load_config(path: str) -> Dict[str, Any]:
     if yaml is None:
         raise RuntimeError("缺少 pyyaml")
@@ -993,11 +1086,15 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         else:
             prev = prev_rec.get("probs")
             prior_used = None
+        _pbs = (cfg["state"].get("persistence_by_state")
+                if str(cfg["state"].get("persistence_mode", "scalar")) == "per_state"
+                else None)
         sp = state_probs(obj["features"], prev,
                          float(cfg["state"]["persistence"]),
                          float(cfg["state"]["temperature"]),
                          cfg["state"]["scoring"],
-                         float(cfg["state"].get("uniform_prior", 0.2)))
+                         float(cfg["state"].get("uniform_prior", 0.2)),
+                         persistence_by_state=_pbs)
         if prior_used:
             sp["prior"] = prior_used
         per_index[code] = {
@@ -1024,6 +1121,46 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             _sd, _days = state_streak(_hist, c, v["state"]["dominant"])
             v["state"]["state_start"] = _sd
             v["state"]["state_days"] = _days
+
+    # ---- L1 评级出口 + 经验转移（2026-11-09 口径修复）----
+    # ① 评级出口：conf < min_confidence_to_act → "NA"，不再强行输出字母。
+    #    历史 29.3% 的标的日低于自身行动门槛却仍给出确定评级（B/D 两态过半）。
+    #    机构做法（卖方 NR / HMM 低后验丢弃）都是留出口，而不是硬 argmax。
+    # ② 经验转移：expected_duration_days 替代「标量 persistence」的直觉外推，
+    #    并给出 P(最可能次态)。来源 state_transition.py（面板实测，只读查表）。
+    _thr_conf = float(cfg["state"]["min_confidence_to_act"])
+    _mat = None
+    try:
+        import state_transition as _st_mod
+        _mat = _st_mod.load()
+    except Exception as _exc:
+        print(f"[warn] 转移矩阵加载失败（评级照常，期望持续留空）: {_exc!r}",
+              file=sys.stderr)
+    for _c, _v in per_index.items():
+        _s = _v["state"]
+        _s["rating"] = _s["dominant"] if _s["confidence"] >= _thr_conf else "NA"
+        _s["rating_reason"] = (
+            f"置信度 {_s['confidence']:.2f} ≥ 门槛 {_thr_conf:.2f}"
+            if _s["rating"] != "NA" else
+            f"置信度 {_s['confidence']:.2f} < 门槛 {_thr_conf:.2f} → 无评级（只观察/只持有）")
+        if _mat:
+            _st_mod.annotate(_s, _mat, cfg)
+
+    # ---- R6 宽缓冲动态可交易池（2026-11-09）----
+    # 位置必须在「桶合并」之前：池决定谁 tradeable，桶才知道自己有哪些成员。
+    # fail-closed：建池异常 → 保持配置里的静态 tradeable，不让异常删仓。
+    pool_info: Dict[str, Any] = {"enabled": False, "mode": "fixed"}
+    try:
+        import etf_map as _em_pool
+        _em_pool.attach(per_index, mapping)   # 幂等；池的 L0 容量闸需要 instrument
+        import pool as _pool_mod
+        pool_info = _pool_mod.build_and_apply(cfg, per_index, loaded,
+                                              common_as_of or "", base_dir)
+    except Exception as _exc:
+        pool_info = {"enabled": False,
+                     "mode": str(((cfg.get("pool") or {}).get("mode")) or "fixed"),
+                     "error": f"{type(_exc).__name__}: {_exc}"}
+        print(f"[warn] 动态池构建失败，沿用静态 tradeable: {_exc!r}", file=sys.stderr)
 
     # ---- L2 传导链 + 相关性 ----
     rets = {c: log_returns(o["bars"]) for c, o in loaded.items()}
@@ -1100,6 +1237,17 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         if v["tradeable"]:
             v["sizing"] = position_sizing(cfg, v["features"].get("ann_vol_20"),
                                           v["state_weight"], port_dd, corr_mean)
+            # 池的状态动作 → 风险预算（不是排序）：D 态减半，其它不动。
+            _pm = (v.get("pool") or {}).get("weight_mult")
+            if _pm is not None and abs(float(_pm) - 1.0) > 1e-9:
+                _old = float(v["sizing"]["final"])
+                v["sizing"]["final"] = round(_old * float(_pm), 4)
+                v["sizing"]["decomposition"]["pool_state"] = round(float(_pm), 4)
+                v["sizing"]["notes"]["pool_state"] = (
+                    f"池状态动作 {v['pool'].get('state_action')} ×{_pm:g}"
+                    f" → {_old * 100:.2f}%→{v['sizing']['final'] * 100:.2f}%")
+                v["sizing"]["binding"] = min(v["sizing"]["decomposition"],
+                                             key=v["sizing"]["decomposition"].get)
         else:
             v["sizing"] = {
                 "cap_vol": 0.0, "coef_dd": 1.0, "coef_corr": 1.0,
@@ -1139,55 +1287,11 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             v["execution"]["note"] += "；且允许战术反弹仓"
 
     # ---- 组合层：按桶合并（同桶视为一个仓位；仅可交易标的计入） ----
-    buckets: Dict[str, List[str]] = {}
-    for code, v in per_index.items():
-        if v["tradeable"]:
-            buckets.setdefault(v["bucket"], []).append(code)
-
-    # bucket_max 双形态兼容（B2 P2）：标量=全桶统一（原行为）；dict=按桶系数
-    # （core/theme/ai_hw/pharma/watch 各档，缺省桶用 "default" 键，再缺省用最小值）。
-    bm_cfg = cfg["risk"]["bucket_max"]
-    if isinstance(bm_cfg, dict):
-        def _bm(b: str) -> float:
-            return float(bm_cfg.get(b, bm_cfg.get("default", min(bm_cfg.values()))))
-    else:
-        def _bm(b: str) -> float:
-            return float(bm_cfg)
-
-    bucket_exposure: Dict[str, Any] = {}
-    for b, codes in buckets.items():
-        if len(codes) == 1:
-            bucket_exposure[b] = {
-                "codes": codes,
-                "exposure": per_index[codes[0]]["sizing"]["final"],
-                # 单成员桶同样给出 per_name（修复 2026-11-07：此前缺失导致
-                # execution_plan 取 per_name=0 → 单标的预案被静默丢仓）
-                "per_name": per_index[codes[0]]["sizing"]["final"],
-                "note": "单标的，按单仓上限",
-            }
-        else:
-            vols = [(c, per_index[c]["features"].get("ann_vol_20") or 0.35) for c in codes]
-            # 保守：同桶按最高波动率计上限，等权分配
-            vmax = max(v for _, v in vols)
-            cap = clamp(cfg["risk"]["vol_target"] / vmax, 0, _bm(b))
-            wmean = mean([per_index[c]["state_weight"] for c in codes]) or 0.0
-            dd_c = dd_throttle(cfg, port_dd)
-            c_corr = 1.0 if corr_mean is None or corr_mean <= cfg["risk"]["corr_threshold"] else \
-                max(0.3, 1.0 - (corr_mean - cfg["risk"]["corr_threshold"]) * cfg["risk"]["corr_penalty_k"])
-            exp_total = clamp(cap * dd_c * c_corr * wmean, 0, _bm(b))
-            bucket_exposure[b] = {
-                "codes": codes,
-                "exposure": round(exp_total, 4),
-                "per_name": round(exp_total / len(codes), 4),
-                "note": f"同桶合并计仓（最高vol {vmax:.1%}，{len(codes)} 只等权）",
-            }
-
-    total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
-
-    # ---- L5 风险 ----
+    # 2026-11-09 口径统一（P0）：桶敞口 = 成员 sizing.final 之和，只在 bucket_max
+    # 与主题组硬顶处截断。此前桶用 cap_vol×dd×corr×wmean 另算一遍，与
+    # per_index.sizing.final 是两套算法（实测差 3 倍），资格层/调制层再按比例
+    # 回同步一次，误差叠两层且"谁是紧约束"永远查不清。
     switches = kill_switches(cfg, per_index, corr, chain)
-
-    # ---- 开关真正作用于仓位（而不是只展示）----
     haircut = 1.0
     applied: List[str] = []
     for s in switches:
@@ -1195,35 +1299,11 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         if h < haircut:
             haircut = h
         applied.append(f"{s['id']}→{h:.2f}")
-
-    theme_cap = cfg["risk"].get("theme_cap_under_e", 0.06)
-    theme_bks = set(cfg["risk"].get("theme_buckets") or ["theme"])
     e_dom_n = sum(1 for v in per_index.values()
                   if v.get("tradeable", True) and v["state"]["dominant"] == "E")
 
-    # 主题组按【组内合计】卡硬顶，不是每桶各卡一次。
-    # 否则每加一个主题桶，硬顶就实际抬高一倍（6%→12%→18%），约束被静默放宽。
-    theme_sum = 0.0
-    for b, v in bucket_exposure.items():
-        if b in theme_bks:
-            theme_sum += v["exposure"] * haircut
-    theme_scale = 1.0
-    if e_dom_n >= 2 and theme_sum > theme_cap > 0:
-        theme_scale = theme_cap / theme_sum
-
-    for b, v in bucket_exposure.items():
-        pre = v["exposure"]
-        v["exposure_pre_switch"] = pre
-        capped = pre * haircut
-        if b in theme_bks and theme_scale < 1.0:
-            capped = pre * haircut * theme_scale
-            v["cap_reason"] = (f"E 阶段主题组硬上限 {theme_cap:.0%}"
-                               f"（组内合计 {theme_sum:.2%} → 缩放 {theme_scale:.2f}）")
-        v["exposure"] = round(capped, 4)
-        # per_name 对单成员桶同样成立（修复 2026-11-07，见桶初始化注释）
-        v["per_name"] = round(capped / len(v.get("codes", []) or [1]), 4)
-
-    total_pre_switch = total_exposure
+    bucket_exposure, total_pre_switch = build_bucket_exposure(
+        per_index, cfg, haircut=haircut, e_dom_n=e_dom_n)
     total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
 
     hedge_need = 0.0
@@ -1268,8 +1348,10 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                         _quotes = (json.load(_f) or {}).get("quotes") or {}
                 except Exception:
                     _quotes = {}  # 行情快照损坏 → 各标的 inv 保守 0（引擎内单标的隔离）
-            _scores = _elig.compute_all(per_index, quality_warnings_list, _quotes,
-                                        _elig_cfg)
+            _scores = _elig.compute_all(
+                per_index, quality_warnings_list, _quotes, _elig_cfg,
+                min_confidence=float(cfg["state"]["min_confidence_to_act"]),
+                aum_yi=float((cfg.get("pool") or {}).get("aum_yi") or 0) or None)
             # 审计修复（2026-11-06）：捕获乘数前基线，供桶敞口比例重同步
             _pre_finals = {c: float(v.get("sizing", {}).get("final") or 0.0)
                            for c, v in per_index.items() if v.get("tradeable")}
@@ -1287,6 +1369,11 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                     _old_final = float(_v["sizing"].get("final") or 0.0)
                     _new_final = _old_final * _mult
                     _v["sizing"]["final"] = _new_final
+                    # 乘数进分解表 → binding 不再永远指 state（2026-11-09）
+                    _v["sizing"].setdefault("decomposition", {})["eligibility"] = round(_mult, 4)
+                    if _v["sizing"].get("decomposition"):
+                        _v["sizing"]["binding"] = min(_v["sizing"]["decomposition"],
+                                                      key=_v["sizing"]["decomposition"].get)
                     if _mult < 1.0 and _old_final > 0:
                         _v["sizing"]["notes"]["eligibility"] = (
                             f"B2 档位权限 {_tier} ×{_mult:g} → "
@@ -1339,6 +1426,11 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                     if _v.get("tradeable") and "sizing" in _v \
                             and _v["sizing"].get("final", 0) > 0:
                         _v["sizing"]["final"] *= _M
+                        _v["sizing"].setdefault("decomposition", {})["modulation"] = round(_M, 4)
+                        if _v["sizing"].get("decomposition"):
+                            _v["sizing"]["binding"] = min(
+                                _v["sizing"]["decomposition"],
+                                key=_v["sizing"]["decomposition"].get)
                         _v["sizing"]["notes"]["modulation"] = (
                             f"B2 状态调制 M={_M:.2f}（E 态占比 {_ratio:.0%}）")
             result_modulation = {
@@ -1353,28 +1445,17 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     else:
         result_modulation = {"enabled": False}
 
-    # ---- B2 审计修复（2026-11-06）：桶敞口/总敞口按档位乘数+调制后的
-    # sizing.final 比例重同步——haircut/theme 缩放因子保持，只传导资格收缩，
-    # 消除"11 只全归零但 total_exposure 仍 3.81%"的口径漂移。----
-    if _elig_cfg.get("enabled", True) and _elig_cfg.get("enforce_sizing_zero", True):
+    # ---- 桶敞口重算（2026-11-09 改为整算，不再按比例回同步）----
+    # 资格乘数、状态调制、池的状态动作用都已经写进 sizing.final；
+    # 桶只做「求和 + 上限 + 开关 + 主题组硬顶」，因此重算一次即可精确一致，
+    # 不存在"比例近似"和"谁是紧约束说不清"的问题（旧实现误差可差 3 倍）。
+    if _elig_cfg.get("enabled", True):
         try:
-            for _b, _bv in bucket_exposure.items():
-                _codes_b = _bv.get("codes") or []
-                _pre_sum = sum(_pre_finals.get(c, 0.0) for c in _codes_b)
-                if _pre_sum <= 1e-9:
-                    continue  # 基线即零：资格层无收缩可传导
-                _post_sum = sum(float(per_index[c]["sizing"].get("final") or 0.0)
-                                for c in _codes_b)
-                _scale = _post_sum / _pre_sum
-                if _scale < 1.0:
-                    _bv["exposure"] = round(_bv["exposure"] * _scale, 4)
-                    # 单成员桶同样维护 per_name（修复 2026-11-07）
-                    _bv["per_name"] = round(_bv["exposure"] / len(_codes_b), 4)
-                    _bv["cap_reason"] = (_bv.get("cap_reason", "") +
-                                         f"；B2 资格收缩 ×{_scale:.2f}").lstrip("；")
+            bucket_exposure, total_pre_switch = build_bucket_exposure(
+                per_index, cfg, haircut=haircut, e_dom_n=e_dom_n)
             total_exposure = sum(v["exposure"] for v in bucket_exposure.values())
         except Exception as _exc:
-            print(f"[warn] 桶敞口重同步失败: {_exc!r}", file=sys.stderr)
+            print(f"[warn] 桶敞口重算失败（沿用上一版）: {_exc!r}", file=sys.stderr)
 
     # ---- P0-②③④⑤：市场闸门顶层否决 + 治理门禁接线 + ETF 映射 + 一页纸决策卡 ----
     try:
@@ -1419,9 +1500,13 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
                     "scores": {k: round(s, 3) for k, s in v["state"]["scores"].items()},
                     "state_start": v["state"].get("state_start"),
                     "state_days": int(v["state"].get("state_days", 0) or 0),
+                    "rating": v["state"].get("rating"),
+                    "rating_reason": v["state"].get("rating_reason"),
+                    "transition": v["state"].get("transition"),
                 },
                 "state_weight": round(v["state_weight"], 4),
                 "tradeable": v["tradeable"],
+                "pool": v.get("pool"),
                 "sizing": v["sizing"],
                 "execution": v["execution"],
                 "l2_suppress": v.get("l2_suppress"),
@@ -1434,6 +1519,7 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         "correlation": corr,
         "chain": chain,
         "buckets": bucket_exposure,
+        "pool": pool_info,
         "total_exposure": round(total_exposure, 4),
         "eligibility_modulation": result_modulation,
         "total_exposure_pre_switch": round(total_pre_switch, 4),
@@ -1513,6 +1599,15 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
         result["_paths"]["governance"] = gov_path
     except Exception as exc:
         result["governance"] = {"status": f"治理层未运行：{exc}"}
+
+    # ---- 口径披露（2026-11-09）：静态边界 + 当日事实 ----
+    # 放在落盘前，确保每一份决策 JSON 都自带「哪些数字不能当证据」。
+    try:
+        import disclosure as _disc
+        result["disclosures"] = _disc.build(cfg, result, base_dir)
+    except Exception as exc:
+        result["disclosures"] = []
+        print(f"[warn] 口径披露生成失败: {exc!r}", file=sys.stderr)
 
     # ---- P0：概率未校准不得显示成"胜率" ----
     if isinstance(result.get("decision_card"), dict):

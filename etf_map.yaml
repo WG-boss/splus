@@ -7,7 +7,7 @@ meta:
   confirmed_count: 52
   policy: 候选一律 needs_review；仅 --confirm 后 status=confirmed 才展示可下单代码
   review_version: 1.0.0
-  last_reviewed_at: '2026-11-08T00:56:02'
+  last_reviewed_at: '2026-11-09T09:48:37'
 instruments:
   000688:
     name: 科创50
@@ -60,7 +60,7 @@ instruments:
       top_code: '588150'
       top_name: 科创50ETF南方
       top_amount_cny: 34965607.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399673':
     name: 创业板50
@@ -113,7 +113,7 @@ instruments:
       top_code: '159298'
       top_name: 创业板50ETF大成
       top_amount_cny: 19098742.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   hkHSTECH:
     name: 恒生科技
@@ -165,7 +165,7 @@ instruments:
       top_code: '516500'
       top_name: 生物科技ETF华夏
       top_amount_cny: 3532949.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30590:
     name: 机器人
@@ -219,7 +219,7 @@ instruments:
       top_code: '159048'
       top_name: 机器人ETF大成
       top_amount_cny: 19728843.67
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30184:
     name: 半导体
@@ -272,7 +272,7 @@ instruments:
       top_code: '159582'
       top_name: 半导体ETF博时
       top_amount_cny: 182494834.78
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '931152':
     name: 创新药
@@ -326,7 +326,7 @@ instruments:
       top_code: '517380'
       top_name: 创新药ETF天弘
       top_amount_cny: 173168226.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '932666':
     name: 高频PCB
@@ -348,7 +348,7 @@ instruments:
       top_code: null
       top_name: ''
       top_amount_cny: null
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931594':
     name: 商业航天
@@ -383,7 +383,7 @@ instruments:
       top_code: '512620'
       top_name: 农业ETF天弘
       top_amount_cny: 2867545.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931743':
     name: 半导体材料设备
@@ -436,7 +436,7 @@ instruments:
       top_code: '159327'
       top_name: 半导体设备ETF万家
       top_amount_cny: 209567169.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '931723':
     name: 光模块CPO
@@ -458,7 +458,7 @@ instruments:
       top_code: null
       top_name: ''
       top_amount_cny: null
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '932580':
     name: 磁电存储
@@ -480,7 +480,7 @@ instruments:
       top_code: null
       top_name: ''
       top_amount_cny: null
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '000300':
     name: 沪深300
@@ -534,7 +534,7 @@ instruments:
       top_code: '510380'
       top_name: 沪深300ETF国寿
       top_amount_cny: 527278.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000905:
     name: 中证500
@@ -588,7 +588,7 @@ instruments:
       top_code: '515550'
       top_name: 中证500ETF国联
       top_amount_cny: 995562.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   usNDX:
     name: 纳斯达克100
@@ -645,7 +645,7 @@ instruments:
       top_code: '159808'
       top_name: 创100ETF融通
       top_amount_cny: 2840350.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   000009:
     name: 上证380
@@ -699,7 +699,7 @@ instruments:
       top_code: '510290'
       top_name: 上证380ETF南方
       top_amount_cny: 2005448.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '000010':
     name: 上证180
@@ -753,7 +753,7 @@ instruments:
       top_code: '530680'
       top_name: 上证180ETF兴业
       top_amount_cny: 425604.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '000015':
     name: 红利指数
@@ -806,7 +806,7 @@ instruments:
       top_code: '159905'
       top_name: 红利ETF工银
       top_amount_cny: 33266045.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '000016':
     name: 上证50
@@ -860,7 +860,7 @@ instruments:
       top_code: '510680'
       top_name: 上证50ETF万家
       top_amount_cny: 2703283.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '000044':
     name: 上证中盘
@@ -906,7 +906,7 @@ instruments:
       top_code: '510130'
       top_name: 上证中盘ETF易方达
       top_amount_cny: 4759707.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000048:
     name: 责任指数
@@ -932,7 +932,7 @@ instruments:
       top_code: '510090'
       top_name: 责任ETF建信
       top_amount_cny: 36331.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '000056':
     name: 上证国企
@@ -985,7 +985,7 @@ instruments:
       top_code: '510760'
       top_name: 上证指数ETF国泰
       top_amount_cny: 271969155.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   000068:
     name: 上证资源
@@ -1031,7 +1031,7 @@ instruments:
       top_code: '510910'
       top_name: 上证指数ETF南方
       top_amount_cny: 29970419.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000069:
     name: 消费80
@@ -1085,7 +1085,7 @@ instruments:
       top_code: '515650'
       top_name: 消费50ETF富国
       top_amount_cny: 75170203.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '000510':
     name: 中证A500
@@ -1139,7 +1139,7 @@ instruments:
       top_code: '563860'
       top_name: 中证A500ETF海富通
       top_amount_cny: 3410383.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000685:
     name: 科创芯片
@@ -1192,7 +1192,7 @@ instruments:
       top_code: '589190'
       top_name: 科创芯片ETF华宝
       top_amount_cny: 36717720.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   000698:
     name: 科创100
@@ -1245,7 +1245,7 @@ instruments:
       top_code: '588210'
       top_name: 科创100ETF易方达
       top_amount_cny: 18311174.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   000813:
     name: 细分化工
@@ -1299,7 +1299,7 @@ instruments:
       top_code: '159129'
       top_name: 化工ETF嘉实
       top_amount_cny: 11530388.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000852:
     name: 中证1000
@@ -1352,7 +1352,7 @@ instruments:
       top_code: '512100'
       top_name: 中证1000ETF南方
       top_amount_cny: 3699203434.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   000922:
     name: 中证红利
@@ -1402,7 +1402,7 @@ instruments:
       top_code: '515080'
       top_name: 中证红利ETF招商
       top_amount_cny: 326239023.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399001':
     name: 深证成指
@@ -1439,7 +1439,7 @@ instruments:
       top_code: '159943'
       top_name: 深证成指ETF大成
       top_amount_cny: 42286514.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399005':
     name: 中小100
@@ -1493,7 +1493,7 @@ instruments:
       top_code: '159902'
       top_name: 中小100ETF华夏
       top_amount_cny: 5113895.2
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399006':
     name: 创业板指
@@ -1547,7 +1547,7 @@ instruments:
       top_code: '159289'
       top_name: 创业板综指ETF鹏华
       top_amount_cny: 3944744.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399012':
     name: 创业300
@@ -1601,7 +1601,7 @@ instruments:
       top_code: '159836'
       top_name: 创业板300ETF天弘
       top_amount_cny: 2069641.2
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399019':
     name: 创业200
@@ -1655,7 +1655,7 @@ instruments:
       top_code: '159571'
       top_name: 创业板200ETF富国
       top_amount_cny: 2602239.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399102':
     name: 创业板综
@@ -1709,7 +1709,7 @@ instruments:
       top_code: '159541'
       top_name: 创业板综ETF万家
       top_amount_cny: 8350679.6
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399264':
     name: 创业软件
@@ -1763,7 +1763,7 @@ instruments:
       top_code: '158072'
       top_name: 创业板软件ETF南方
       top_amount_cny: 4067484.12
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399266':
     name: 创新能源
@@ -1816,7 +1816,7 @@ instruments:
       top_code: '589960'
       top_name: 科创新能源ETF易方达
       top_amount_cny: 47577020.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399275':
     name: 创医药
@@ -1869,7 +1869,7 @@ instruments:
       top_code: '588700'
       top_name: 科创医药ETF嘉实
       top_amount_cny: 41611620.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399276':
     name: 创科技
@@ -1903,7 +1903,7 @@ instruments:
       top_code: '159777'
       top_name: 创科技ETF国联安
       top_amount_cny: 3560001.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399291':
     name: 创精选88
@@ -1930,7 +1930,7 @@ instruments:
       top_code: '159804'
       top_name: 创中盘88ETF国寿
       top_amount_cny: 655897.1
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399293':
     name: 创业大盘
@@ -1983,7 +1983,7 @@ instruments:
       top_code: '159814'
       top_name: 创业大盘ETF西部利得
       top_amount_cny: 21779112.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399295':
     name: 创价值
@@ -2037,7 +2037,7 @@ instruments:
       top_code: '588910'
       top_name: 科创价值ETF建信
       top_amount_cny: 7218416.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399296':
     name: 创成长
@@ -2091,7 +2091,7 @@ instruments:
       top_code: '589490'
       top_name: 科创成长ETF华夏
       top_amount_cny: 6282673.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399303':
     name: 国证2000
@@ -2145,7 +2145,7 @@ instruments:
       top_code: '159907'
       top_name: 国证2000ETF广发
       top_amount_cny: 8639314.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399324':
     name: 深证红利
@@ -2200,7 +2200,7 @@ instruments:
       top_code: '515080'
       top_name: 中证红利ETF招商
       top_amount_cny: 326239023.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399326':
     name: 成长40
@@ -2231,7 +2231,7 @@ instruments:
       top_code: '159906'
       top_name: 深成长ETF大成
       top_amount_cny: 8335050.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399330':
     name: 深证100
@@ -2285,7 +2285,7 @@ instruments:
       top_code: '159576'
       top_name: 深证100ETF广发
       top_amount_cny: 4620807.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399348':
     name: 深证价值
@@ -2339,7 +2339,7 @@ instruments:
       top_code: '159913'
       top_name: 深价值ETF交银
       top_amount_cny: 9481.1
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399361':
     name: 在线消费
@@ -2393,7 +2393,7 @@ instruments:
       top_code: '159728'
       top_name: 在线消费ETF南方
       top_amount_cny: 1682439.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399362':
     name: 民企100
@@ -2448,7 +2448,7 @@ instruments:
       top_code: '159106'
       top_name: 民企300ETF前海开源
       top_amount_cny: 435421.6
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399365':
     name: 国证粮食
@@ -2503,7 +2503,7 @@ instruments:
       top_code: '158047'
       top_name: 粮食ETF永赢
       top_amount_cny: 848010.55
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399372':
     name: 大盘成长
@@ -2557,7 +2557,7 @@ instruments:
       top_code: '158026'
       top_name: 大盘成长ETF华夏
       top_amount_cny: 766887.93
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399373':
     name: 大盘价值
@@ -2611,7 +2611,7 @@ instruments:
       top_code: '159391'
       top_name: 大盘价值ETF博时
       top_amount_cny: 2433748.1
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399378':
     name: ESG 300
@@ -2665,7 +2665,7 @@ instruments:
       top_code: '159653'
       top_name: ESG300ETF国联安
       top_amount_cny: 1299.6
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399389':
     name: 国证通信
@@ -2720,7 +2720,7 @@ instruments:
       top_code: '515560'
       top_name: 证券ETF建信
       top_amount_cny: 1500028.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399396':
     name: 国证食品
@@ -2774,7 +2774,7 @@ instruments:
       top_code: '159151'
       top_name: 食品ETF华夏
       top_amount_cny: 21375081.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399433':
     name: 国证交运
@@ -2805,7 +2805,7 @@ instruments:
       top_code: '159662'
       top_name: 交运ETF南方
       top_amount_cny: 5166162.2
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399437':
     name: 证券龙头
@@ -2860,7 +2860,7 @@ instruments:
       top_code: '159993'
       top_name: 证券ETF鹏华
       top_amount_cny: 28775271.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399438':
     name: 绿色电力
@@ -2914,7 +2914,7 @@ instruments:
       top_code: '159669'
       top_name: 绿色电力ETF国泰
       top_amount_cny: 2051897.2
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399439':
     name: 国证油气
@@ -2949,7 +2949,7 @@ instruments:
       top_code: '561760'
       top_name: 油气ETF博时
       top_amount_cny: 2188245.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399441':
     name: 生物医药
@@ -3002,7 +3002,7 @@ instruments:
       top_code: '159859'
       top_name: 生物医药ETF天弘
       top_amount_cny: 142247621.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '399550':
     name: 央视50
@@ -3056,7 +3056,7 @@ instruments:
       top_code: '159965'
       top_name: 央视50ETF国联
       top_amount_cny: 678605.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399610':
     name: TMT50
@@ -3086,7 +3086,7 @@ instruments:
       top_code: '159909'
       top_name: TMT50ETF招商
       top_amount_cny: 3601805.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399624':
     name: 中创400
@@ -3140,7 +3140,7 @@ instruments:
       top_code: '159918'
       top_name: 中创400ETF嘉实
       top_amount_cny: 1568991.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399667':
     name: 创业成长
@@ -3194,7 +3194,7 @@ instruments:
       top_code: '158025'
       top_name: 创业板成长ETF鹏华
       top_amount_cny: 3156297.17
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399750':
     name: 深主板50
@@ -3248,7 +3248,7 @@ instruments:
       top_code: '159578'
       top_name: 深证主板50ETF南方
       top_amount_cny: 418575.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399975':
     name: 证券公司
@@ -3303,7 +3303,7 @@ instruments:
       top_code: '159993'
       top_name: 证券ETF鹏华
       top_amount_cny: 28775271.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '399986':
     name: 中证银行
@@ -3358,7 +3358,7 @@ instruments:
       top_code: '510530'
       top_name: 中证500ETF工银
       top_amount_cny: 7514924.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '399989':
     name: 中证医疗
@@ -3408,7 +3408,7 @@ instruments:
       top_code: '159828'
       top_name: 医疗ETF国泰
       top_amount_cny: 94867301.56
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '930708':
     name: 中证有色
@@ -3464,7 +3464,7 @@ instruments:
       top_code: '560290'
       top_name: 有色ETF景顺
       top_amount_cny: 4163206.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '930709':
     name: 香港证券
@@ -3520,7 +3520,7 @@ instruments:
       top_code: '159993'
       top_name: 证券ETF鹏华
       top_amount_cny: 28775271.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '930955':
     name: 红利低波100
@@ -3574,7 +3574,7 @@ instruments:
       top_code: '515480'
       top_name: 红利低波100ETF南方
       top_amount_cny: 1269680.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931071':
     name: 人工智能
@@ -3628,7 +3628,7 @@ instruments:
       top_code: '589410'
       top_name: 科创人工智能ETF嘉实
       top_amount_cny: 6327534.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931079':
     name: 5G通信
@@ -3683,7 +3683,7 @@ instruments:
       top_code: '159511'
       top_name: 通信ETF南方
       top_amount_cny: 12130196.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931160':
     name: 通信设备
@@ -3734,7 +3734,7 @@ instruments:
       top_code: '159511'
       top_name: 通信ETF南方
       top_amount_cny: 12130196.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931238':
     name: SSH黄金股票
@@ -3780,7 +3780,7 @@ instruments:
       top_code: '517400'
       top_name: 黄金股ETF国泰
       top_amount_cny: 106029628.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931573':
     name: 港股通科技
@@ -3824,7 +3824,7 @@ instruments:
       top_code: '517350'
       top_name: 沪港深科技ETF广发
       top_amount_cny: 334676.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931637':
     name: 港股通互联网
@@ -3881,7 +3881,7 @@ instruments:
       top_code: '159550'
       top_name: 互联网ETF东财
       top_amount_cny: 4170736.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931643':
     name: 科创创业50
@@ -3935,7 +3935,7 @@ instruments:
       top_code: '588350'
       top_name: 科创创业50ETF鹏扬
       top_amount_cny: 2605467.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931719':
     name: CS电池
@@ -3990,7 +3990,7 @@ instruments:
       top_code: '159077'
       top_name: 电池ETF鑫元
       top_amount_cny: 1428434.68
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '931994':
     name: 电网设备主题
@@ -4031,7 +4031,7 @@ instruments:
       top_code: '561380'
       top_name: 电网设备ETF国泰
       top_amount_cny: 43689533.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '950125':
     name: 科创半导体材料设备
@@ -4084,7 +4084,7 @@ instruments:
       top_code: '589020'
       top_name: 科创半导体设备ETF鹏华
       top_amount_cny: 1286252336.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '950580':
     name: 上证580
@@ -4138,7 +4138,7 @@ instruments:
       top_code: '530530'
       top_name: 上证580ETF华夏
       top_amount_cny: 498528.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '970070':
     name: 创业板人工智能
@@ -4192,7 +4192,7 @@ instruments:
       top_code: '158031'
       top_name: 创业板人工智能ETF易方达
       top_amount_cny: 7754568.89
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '970081':
     name: 创业板电池
@@ -4245,7 +4245,7 @@ instruments:
       top_code: '158078'
       top_name: 创业板电池ETF华宝
       top_amount_cny: 18918138.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '970083':
     name: 创业板算力
@@ -4298,7 +4298,7 @@ instruments:
       top_code: '158055'
       top_name: 创业板算力ETF国泰
       top_amount_cny: 77486427.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '970085':
     name: 创业板金融科技
@@ -4352,7 +4352,7 @@ instruments:
       top_code: '158062'
       top_name: 创业板金融科技ETF建信
       top_amount_cny: 7946690.39
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980001':
     name: 湾创100
@@ -4407,7 +4407,7 @@ instruments:
       top_code: '159808'
       top_name: 创100ETF融通
       top_amount_cny: 2840350.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980015':
     name: 疫苗生科
@@ -4450,7 +4450,7 @@ instruments:
       top_code: '562860'
       top_name: 疫苗ETF嘉实
       top_amount_cny: 7960215.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980016':
     name: 医疗健康
@@ -4504,7 +4504,7 @@ instruments:
       top_code: '159760'
       top_name: 医疗健康ETF泰康
       top_amount_cny: 559312.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980017':
     name: 国证芯片
@@ -4559,7 +4559,7 @@ instruments:
       top_code: '159599'
       top_name: 芯片ETF东财
       top_amount_cny: 196919331.57
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980018':
     name: 卫星通信
@@ -4614,7 +4614,7 @@ instruments:
       top_code: '158036'
       top_name: 卫星ETF华夏
       top_amount_cny: 5540289.89
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980022':
     name: 机器人产业
@@ -4669,7 +4669,7 @@ instruments:
       top_code: '159048'
       top_name: 机器人ETF大成
       top_amount_cny: 19728843.67
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980027':
     name: 国证储能电池
@@ -4715,7 +4715,7 @@ instruments:
       top_code: '159052'
       top_name: 储能电池ETF嘉实
       top_amount_cny: 12788564.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980028':
     name: 龙头家电
@@ -4770,7 +4770,7 @@ instruments:
       top_code: '515640'
       top_name: 家电ETF华夏
       top_amount_cny: 34082.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980030':
     name: 消费电子
@@ -4824,7 +4824,7 @@ instruments:
       top_code: '159178'
       top_name: 消费电子ETF汇添富
       top_amount_cny: 6094385.8
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980032':
     name: 新能电池
@@ -4879,7 +4879,7 @@ instruments:
       top_code: '159052'
       top_name: 储能电池ETF嘉实
       top_amount_cny: 12788564.4
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980034':
     name: 工业软件
@@ -4933,7 +4933,7 @@ instruments:
       top_code: '159108'
       top_name: 工业软件ETF博时
       top_amount_cny: 5326387.7
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980076':
     name: 通用航空
@@ -4987,7 +4987,7 @@ instruments:
       top_code: '563870'
       top_name: 通用航空ETF鹏华
       top_amount_cny: 1426162.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '980080':
     name: 成长100
@@ -5043,7 +5043,7 @@ instruments:
       top_code: '159808'
       top_name: 创100ETF融通
       top_amount_cny: 2840350.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980081':
     name: 价值100
@@ -5099,7 +5099,7 @@ instruments:
       top_code: '159808'
       top_name: 创100ETF融通
       top_amount_cny: 2840350.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '980092':
     name: 自由现金流
@@ -5152,7 +5152,7 @@ instruments:
       top_code: '159232'
       top_name: 自由现金流ETF南方
       top_amount_cny: 70401056.76
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   '987008':
     name: 港股通科技
@@ -5196,7 +5196,7 @@ instruments:
       top_code: '517350'
       top_name: 沪港深科技ETF广发
       top_amount_cny: 334676.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987016':
     name: 港股通红利低波
@@ -5250,7 +5250,7 @@ instruments:
       top_code: '159118'
       top_name: 港股通红利低波ETF华夏
       top_amount_cny: 6716639.9
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '987019':
     name: 港股通创新药（人民币）
@@ -5306,7 +5306,7 @@ instruments:
       top_code: '517380'
       top_name: 创新药ETF天弘
       top_amount_cny: 173168226.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987023':
     name: 港股通互联网（人民币）
@@ -5363,7 +5363,7 @@ instruments:
       top_code: '159550'
       top_name: 互联网ETF东财
       top_amount_cny: 4170736.3
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '987024':
     name: 港股通消费
@@ -5410,7 +5410,7 @@ instruments:
       top_code: '510150'
       top_name: 消费ETF招商
       top_amount_cny: 34315482.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   CN5075:
     name: 国证信创
@@ -5465,7 +5465,7 @@ instruments:
       top_code: '562570'
       top_name: 信创ETF华夏
       top_amount_cny: 7713480.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   CN5082:
     name: 国证航天
@@ -5495,7 +5495,7 @@ instruments:
       top_code: '159267'
       top_name: 航天ETF华安
       top_amount_cny: 62465881.1
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   CN5097:
     name: 消费服务
@@ -5549,7 +5549,7 @@ instruments:
       top_code: '516600'
       top_name: 消费服务ETF工银
       top_amount_cny: 3944797.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   CN6051:
     name: 有色指数
@@ -5604,7 +5604,7 @@ instruments:
       top_code: '560290'
       top_name: 有色ETF景顺
       top_amount_cny: 4163206.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   H30269:
     name: 红利低波
@@ -5658,7 +5658,7 @@ instruments:
       top_code: '520610'
       top_name: 港股红利低波ETF银华
       top_amount_cny: 2001019.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '930050':
     name: 中证A50
@@ -5712,7 +5712,7 @@ instruments:
       top_code: '560820'
       top_name: 中证A50ETF新华
       top_amount_cny: 36579.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000903:
     name: 中证A100
@@ -5766,7 +5766,7 @@ instruments:
       top_code: '159923'
       top_name: 中证A100ETF大成
       top_amount_cny: 2820926.5
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   000906:
     name: 中证800
@@ -5820,7 +5820,7 @@ instruments:
       top_code: '159800'
       top_name: 中证800ETF鹏华
       top_amount_cny: 1920290.1
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选，需人工核对跟踪指数与流动性
   '932000':
     name: 中证2000
@@ -5873,7 +5873,7 @@ instruments:
       top_code: '563300'
       top_name: 中证2000ETF华泰柏瑞
       top_amount_cny: 523316044.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 名称高度吻合，仍需人工核对跟踪指数
   H30007:
     name: 芯片
@@ -5927,7 +5927,7 @@ instruments:
       top_code: '159599'
       top_name: 芯片ETF东财
       top_amount_cny: 196919331.57
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm
   '931239':
     name: 港股汽车
@@ -5962,5 +5962,5 @@ instruments:
       top_code: '516110'
       top_name: 汽车ETF国泰
       top_amount_cny: 15808881.0
-      reviewed_at: '2026-11-08'
+      reviewed_at: '2026-11-09'
       note: 自动候选疑似错配，必须人工核实后方可 --confirm

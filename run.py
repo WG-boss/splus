@@ -104,19 +104,40 @@ def render(res):
             L.append(f"- MED / LOW 共 {low_n} 条按级别折叠于 HTML 报告（不改变样本是否参与计算）")
         L.append("")
 
+    # ---- 0.2 读数纪律（口径披露）：哪些数字不能当证据 ----
+    dsc = res.get("disclosures") or []
+    if dsc:
+        L.append("## 读数纪律（口径披露）")
+        L.append("")
+        for it in dsc:
+            L.append(f"- **[{it.get('level')}]** {it.get('text')}")
+        L.append("")
+
     # ---- 1 状态 ----
     L.append("## 一、状态概率向量（L1）")
     L.append("")
-    L.append("| 指数 | 收盘 | 年化波动 | 距52周高 | 主状态 | 概率 | 置信 | 状态权重 |")
-    L.append("|---|---|---|---|---|---|---|---|")
+    L.append("| 指数 | 收盘 | 年化波动 | 距52周高 | 主状态 | 评级 | 概率 | 置信 | 期望持续 | 状态权重 |")
+    L.append("|---|---|---|---|---|---|---|---|---|---|")
     for c, v in res["per_index"].items():
         tag = "" if v.get("tradeable", True) else "（参照）"
+        st = v["state"]
+        tr = st.get("transition") or {}
+        exp = tr.get("expected_duration_days")
+        rating = st.get("rating") or st["dominant"]
         L.append(
             f"| {v['name']}{tag} | {v['close']:.1f} | {pp(v['ann_vol_20'])} | "
-            f"{pct(v['dd_from_high'])} | {v['state']['dominant_name']} | "
-            f"{pp(v['state']['probs'][v['state']['dominant']])} | "
-            f"{v['state']['confidence']:.2f} | {v['state_weight']:.2f} |"
+            f"{pct(v['dd_from_high'])} | {st['dominant_name']} | "
+            f"**{rating}** | "
+            f"{pp(st['probs'][st['dominant']])} | "
+            f"{st['confidence']:.2f} | "
+            f"{('%s 日' % exp) if exp else '—'} | {v['state_weight']:.2f} |"
         )
+    L.append("")
+    _na_n = sum(1 for v in res["per_index"].values()
+                if (v["state"].get("rating") or v["state"]["dominant"]) == "NA")
+    L.append(f"> 评级 **NA** = 置信度低于门槛，模型自己不确定：只观察/只持有，不得开新仓。"
+             f"今日 {_na_n}/{len(res['per_index'])} 只为 NA。"
+             f"期望持续来自经验转移矩阵（面板实测，非模型参数）。")
     L.append("")
     L.append("### 概率分布明细")
     L.append("")
@@ -166,6 +187,54 @@ def render(res):
     else:
         L.append(f"⚠️ {cor.get('reason')}")
     L.append("")
+
+    # ---- 3.5 动态可交易池（R6 宽缓冲）----
+    pool = res.get("pool") or {}
+    if pool.get("enabled"):
+        mem = pool.get("members") or []
+        L.append("## 三·补 动态可交易池（R6 宽缓冲）")
+        L.append("")
+        pm = pool.get("params") or {}
+        L.append(f"> 规则 **{pool.get('rule')}**：进 {pm.get('size')} / 出 {pm.get('n_out')} / "
+                 f"平滑 {pm.get('smooth')} 日 ｜ 排序轴 `{pm.get('rank_axis')}`（不是五态评分）"
+                 f" ｜ 相关闸 {pm.get('corr_max')} ｜ AUM {pm.get('aum_yi')} 亿")
+        L.append("")
+        L.append(f"- 可执行宇宙 **{pool.get('universe_executable')}** 只 → 池内 **{len(mem)}** 只"
+                 f"（单边换手 {100 * float((pool.get('metrics') or {}).get('turnover_one_way') or 0):.1f}%）")
+        cap = pool.get("capacity") or {}
+        if cap.get("quote_stale"):
+            L.append(f"- ⚠️ ETF 行情快照过期 {cap.get('quote_age_hours')} 小时 → "
+                     f"容量口径 unknown {cap.get('unknown')} 只，不做硬闸，下单前须复核")
+        L.append("")
+        L.append("| # | 代码 | 名称 | 状态 | 评级 | rs20(5日) | 置信 | 状态动作 | 指数ADV(亿) | 目标仓位 | 入池 |")
+        L.append("|---|---|---|---|---|---|---|---|---|---|---|")
+        _zero = []
+        for m in mem:
+            _v = res["per_index"].get(m.get("code")) or {}
+            _fin = float(((_v.get("sizing") or {}).get("final")) or 0.0)
+            if _fin <= 0:
+                _zero.append(m.get("name"))
+            L.append(f"| {m.get('rank')} | {m.get('code')} | {m.get('name')} | {m.get('state')} | "
+                     f"{m.get('rating')} | {float(m.get('rs20') or 0) * 100:+.2f}% | "
+                     f"{(m.get('conf') if m.get('conf') is not None else float('nan')):.2f} | "
+                     f"{m.get('state_action')} | {float(m.get('adv20') or 0) / 1e8:.1f} | "
+                     f"{_fin * 100:.1f}% | {m.get('reason')}@{m.get('since')} |")
+        L.append("")
+        L.append("> 池回答的是「买得动 ∩ 相对强」，仓位回答的是「资格分 × 状态 × 风险预算」——"
+                 "两者是不同问题：入池不等于配仓。")
+        if _zero:
+            L.append(f"> 今日 {len(_zero)}/{len(mem)} 只入池但目标仓位为 0："
+                     f"{'、'.join(_zero)}——多为 ETF 日额偏薄（investability 低 → 资格 OBSERVE）"
+                     "或 E 态禁新增。它们进池是因为指数层面流动性够，配不了是因为**可交易的 ETF**不够。")
+        L.append("")
+        if pool.get("exits"):
+            L.append("- 出池：" + "、".join(
+                f"{e.get('name') or e.get('code')}（{e.get('reason')}）"
+                for e in pool["exits"]))
+        if pool.get("frozen_today"):
+            L.append("- 熔断：" + "；".join(pool["frozen_today"].values()))
+        L.append(f"- {pool.get('rationale', '')}")
+        L.append("")
 
     # ---- 4 仓位 ----
     L.append("## 四、仓位建议（L3 三重约束）")

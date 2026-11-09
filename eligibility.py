@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import json
 import os
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 # ---------------------------------------------------------------- 常量与默认
 
@@ -79,17 +79,38 @@ def _clamp01(x: Optional[float]) -> float:
 
 # ---------------------------------------------------------------- 因子一：可投资性
 
+def investability_window(c: Dict[str, Any], aum_yi: Optional[float] = None,
+                         slots: int = 10) -> Tuple[float, float]:
+    """可投性打分窗口（floor, full，单位元）。
+
+    默认 0.3–5 亿是**为 1 亿以上 AUM 拍的**：在 0.3 亿 AUM、10 只等权、单只
+    不超过日额 5% 的口径下，单只只需 0.6 亿日额就够，而旧窗口给 0.66 亿打
+    0.08 分（等于判它"没流动性"），与池的容量闸（0.6 亿）自相矛盾。
+    开启 `aum_aware` 后按 AUM 反推：need = AUM/N/adv_share，
+    floor = 0.5×need、full = 2×need，并各自夹在绝对上下限内。
+    """
+    floor = float(c["amount_floor_yi"]) * 1e8
+    full = float(c["amount_full_yi"]) * 1e8
+    if c.get("aum_aware", True) and aum_yi:
+        need = (float(aum_yi) * 1e8 / max(1, int(slots))) / float(c.get("adv_share", 0.05))
+        floor = max(0.05e8, min(floor, 0.5 * need))
+        full = max(floor * 1.5, min(full, 2.0 * need))
+    return floor, full
+
+
 def investability_score(amount: Optional[float], premium: Optional[float] = None,
-                        cfg: Optional[Dict[str, Any]] = None) -> Optional[float]:
-    """成交额线性插值 0.3–5 亿；|溢价率|>1.5% 线性扣分。
+                        cfg: Optional[Dict[str, Any]] = None,
+                        aum_yi: Optional[float] = None,
+                        slots: int = 10) -> Optional[float]:
+    """成交额线性插值 floor–full 亿；|溢价率|>1.5% 线性扣分。
 
     amount 单位：元（etf_quotes.json quotes[code]["amount"]）。
     premium：溢价率（小数，如 0.012 = 1.2%）；None → 不罚（P4 接入溢价源）。
     amount 缺失 → None（上层按保守 0 计）。
+    aum_yi 给定且 aum_aware 开启时，窗口按组合规模反推（见 investability_window）。
     """
     c = (cfg or {}).get("investability", DEFAULTS["investability"])
-    full = float(c["amount_full_yi"]) * 1e8
-    floor = float(c["amount_floor_yi"]) * 1e8
+    floor, full = investability_window(c, aum_yi, slots)
     if amount is None:
         return None
     amt = float(amount)
@@ -188,9 +209,18 @@ def map_ready_score(instrument: Optional[Dict[str, Any]],
 
 def tier_of(score: float, cfg: Optional[Dict[str, Any]] = None,
             state_fit: float = 1.0) -> str:
-    """四档权限；硬规则：StateFit=0（E 态全族 / D 态事件族）→ 强制 FROZEN。"""
+    """四档权限；StateFit=0 的处理由 `hard_rules.state_fit_gate` 决定。
+
+    "frozen"     ：StateFit=0 → 强制 FROZEN（tier ×0，等于清仓）。旧行为。
+    "permission" ：不强制 tier，只把 permission.add 置 False（禁新增、允许持有）。
+                   依据 docs/POOL_DYNAMIC_20261109.md §4.3⑤：剔除 E 态的规则
+                   年化反而低 0.8pp，证据只支持「禁新增」不支持「清仓」。
+    """
     c = _cfg_merge(cfg) if cfg and "tiers" not in cfg else (cfg or DEFAULTS)
-    if c.get("hard_rules", {}).get("state_fit_zero_frozen", True) and state_fit <= 0.0:
+    hr = c.get("hard_rules", {}) or {}
+    gate = str(hr.get("state_fit_gate") or
+               ("frozen" if hr.get("state_fit_zero_frozen", True) else "off"))
+    if gate == "frozen" and state_fit <= 0.0:
         return "FROZEN"
     t = c.get("tiers") or DEFAULTS["tiers"]
     if score >= float(t["full"]):
@@ -225,13 +255,18 @@ def tier_multiplier(tier: Optional[str],
 
 def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
                   quotes: Optional[Dict[str, Any]], amount: Optional[float],
-                  cfg: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+                  cfg: Optional[Dict[str, Any]] = None,
+                  min_confidence: Optional[float] = None,
+                  aum_yi: Optional[float] = None) -> Dict[str, Any]:
     """对单只标的计算资格分。
 
     v：decision JSON per_index 条目（含 name/role/tradeable/state/instrument）。
     amount：该标的 confirmed ETF 当日成交额（元）；由调用方从 quotes 查得；
             无映射/无行情 → None（因子保守 0）。
-    返回：{"score", "tier", "family", "factors", "notes"}（notes 记录保守化原因）。
+    min_confidence：开仓置信门槛（= state.min_confidence_to_act）。
+            2026-11-09 口径统一：资格分与决策层共用同一门槛，输出
+            `permission.add`（单一口径），避免「FULL 但不可开仓」并存。
+    返回：{"score","tier","rating","permission","factors","notes"}。
     """
     c = _cfg_merge(cfg)
     w = c["weights"]
@@ -239,12 +274,19 @@ def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
     name = v.get("name")
 
     # 因子 1：可投资性
-    inv = investability_score(amount, None, c)
+    _slots = int((c.get("investability") or {}).get("slots") or 10)
+    inv = investability_score(amount, None, c, aum_yi=aum_yi, slots=_slots)
     if inv is None:
-        notes.append("amount 缺失 → investability 保守 0")
+        # 区分「没有映射」与「有映射但没有行情」：前者是真不可投，后者是口径未知。
+        # 2026-11-09：原来一律按 0 计，报告里就出现「恒生科技 A 态但 investability=0」
+        # 这种把「没取到数」说成「没流动性」的假零。
+        inv_status = ("no_mapping" if not (v.get("instrument") or {}).get("etf_code")
+                      else "unknown_no_quote")
+        notes.append("amount 缺失（%s）→ investability 保守 0" % inv_status)
         inv_f = 0.0
     else:
         inv_f = inv
+        inv_status = "measured"
 
     # 因子 2：状态契合
     fam = role_family(v.get("role"), bool(v.get("tradeable")), c)
@@ -270,12 +312,33 @@ def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
                      + w["data_quality"] * dq_f + w["map_ready"] * mr)
     score = round(max(0.0, min(100.0, score)), 1)
     tier = tier_of(score, c, state_fit=sf)
+    mult = tier_multiplier(tier, c)
+    conf = (v.get("state") or {}).get("confidence")
+    # 评级出口：低置信不给字母（与 engine.state.rating 同一判定，单一口径）。
+    # 置信度只决定「要不要给评级 / 能不能开新仓」，**不决定目标仓位大小**——
+    # 后者由 tier_multiplier（资格分）与 sizing 链条负责，两者不可混用。
+    if min_confidence is not None and conf is not None \
+            and float(conf) < float(min_confidence):
+        rating = "NA"
+        notes.append(f"置信度 {float(conf):.2f} < 门槛 {float(min_confidence):.2f}"
+                     " → 评级 NA（只持有/观察，不加仓）")
+    else:
+        rating = dominant
+    add_allowed = bool(mult > 0 and rating != "NA" and sf > 0.0)
     return {
         "score": score,
         "tier": tier,
-        "tier_multiplier": tier_multiplier(tier, c),
+        "tier_multiplier": mult,
+        "rating": rating,
+        "permission": {
+            "add": add_allowed,
+            "size_mult": mult,
+            "reason": ("资格 " + tier + " ×" + ("%g" % mult)
+                       + ("；置信不足不加仓" if rating == "NA" else "")),
+        },
         "family": fam or "unknown",
         "dominant": dominant,
+        "investability_status": inv_status,
         "factors": {"investability": round(inv_f, 4), "state_fit": round(sf, 4),
                     "data_quality": round(dq_f, 4), "map_ready": round(mr, 4)},
         "notes": notes,
@@ -285,7 +348,9 @@ def compute_entry(v: Dict[str, Any], warnings: Optional[List[str]],
 def compute_all(per_index: Dict[str, Dict[str, Any]],
                 warnings: Optional[List[str]],
                 quotes: Optional[Dict[str, Any]],
-                cfg: Optional[Dict[str, Any]] = None) -> Dict[str, Dict[str, Any]]:
+                cfg: Optional[Dict[str, Any]] = None,
+                min_confidence: Optional[float] = None,
+                aum_yi: Optional[float] = None) -> Dict[str, Dict[str, Any]]:
     """全 universe 逐标的计算；fail-closed：任何单标的异常 → 该标的 FROZEN。
 
     fail_closed 全局开关开启时，引擎级异常（如 quotes 结构损坏）→ 全部 FROZEN。
@@ -301,17 +366,25 @@ def compute_all(per_index: Dict[str, Dict[str, Any]],
                 if quotes and etf_code:
                     q = quotes.get(str(etf_code)) or {}
                     amount = q.get("amount")
-                out[code] = compute_entry(v, warnings, quotes, amount, c)
+                out[code] = compute_entry(v, warnings, quotes, amount, c,
+                                          min_confidence=min_confidence,
+                                          aum_yi=aum_yi)
             except Exception as exc:  # 单标的异常隔离
                 out[code] = {"score": 0.0, "tier": "FROZEN", "family": "unknown",
-                             "dominant": None,
+                             "dominant": None, "rating": "NA",
+                             "permission": {"add": False, "size_mult": 0.0,
+                                            "reason": "单标的计算异常"},
+                             "investability_status": "error",
                              "factors": {"investability": 0.0, "state_fit": 0.0,
                                          "data_quality": 0.0, "map_ready": 0.0},
                              "notes": [f"单标的计算异常: {exc!r}"]}
     except Exception as exc:  # 引擎级异常 → 全体 fail-closed
         if c.get("fail_closed", True):
             frozen = {"score": 0.0, "tier": "FROZEN", "family": "unknown",
-                      "dominant": None,
+                      "dominant": None, "rating": "NA",
+                      "permission": {"add": False, "size_mult": 0.0,
+                                     "reason": "引擎级异常 fail-closed"},
+                      "investability_status": "error",
                       "factors": {"investability": 0.0, "state_fit": 0.0,
                                   "data_quality": 0.0, "map_ready": 0.0},
                       "notes": [f"引擎级异常 fail-closed: {exc!r}"]}
