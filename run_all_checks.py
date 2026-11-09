@@ -30,6 +30,7 @@ CHECKS = [
     ("动态可交易池 R6（运行时）", ["selftest_pool_runtime.py"]),
     ("口径披露 + 经验转移", ["selftest_disclosure.py"]),
     ("ETF 行情主源/gtimg 热备", ["selftest_etf_quotes.py"]),
+    ("影子观察台账 + go/no-go 判据", ["selftest_shadow_obs.py"]),
     ("ETF 映射覆盖校验", ["tools_etf_map.py", "--check"]),
     ("B2-P4 映射 SLA（可执行标的 100% confirmed）", ["tools_map_sla.py"]),
     ("ETF 映射复核（含观察池）", ["tools_etf_review.py", "--check"]),

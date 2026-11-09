@@ -192,13 +192,37 @@ def render(res):
     pool = res.get("pool") or {}
     if pool.get("enabled"):
         mem = pool.get("members") or []
-        L.append("## 三·补 动态可交易池（R6 宽缓冲）")
+        _shadow = (pool.get("mode") == "shadow")
+        L.append("## 三·补 " + ("影子可交易池（R6 宽缓冲 · 观察期）" if _shadow
+                                else "动态可交易池（R6 宽缓冲）"))
         L.append("")
         pm = pool.get("params") or {}
         L.append(f"> 规则 **{pool.get('rule')}**：进 {pm.get('size')} / 出 {pm.get('n_out')} / "
                  f"平滑 {pm.get('smooth')} 日 ｜ 排序轴 `{pm.get('rank_axis')}`（不是五态评分）"
                  f" ｜ 相关闸 {pm.get('corr_max')} ｜ AUM {pm.get('aum_yi')} 亿")
         L.append("")
+        if _shadow:
+            so = res.get("shadow_observation") or {}
+            pg = so.get("progress") or {}
+            L.append("> **⏸ 影子观察期：本节所有内容只记录、不生效。** "
+                     "实际可交易权限、仓位与敞口沿用配置静态白名单，"
+                     "与 `pool.mode: fixed` 逐字段一致。")
+            L.append("")
+            L.append(f"- 观察进度：**{pg.get('valid', 0)}/{pg.get('target', 0)}** 个有效交易日"
+                     f" ｜ 复核日 **{pg.get('review_on', '—')}**"
+                     f"（距复核 {pg.get('days_to_review', '—')} 天）"
+                     f" ｜ 当前结论 `{pg.get('decision', '—')}`"
+                     f" ｜ 台账 `{so.get('ledger', '—')}`")
+            if so.get("valid_session") is False:
+                L.append(f"- ⚠️ 本日**不计入**有效观察日：{so.get('invalid_reason')} "
+                         "（盘中预览 / 建池异常；收盘后刷新行情重跑才计入）")
+            else:
+                L.append(f"- 本日对照：影子池 {so.get('shadow_n', 0)} 只 / "
+                         f"现行白名单 {so.get('baseline_n', 0)} 只 / "
+                         f"重合 {so.get('overlap', 0)} 只 / Jaccard {so.get('jaccard', 0)}")
+            L.append("- 判据在观察开始前写死（建池稳定性、映射、容量、换手、制度冲突）；"
+                     "**收益不作为判据**——两周样本不足以做统计推断。")
+            L.append("")
         L.append(f"- 可执行宇宙 **{pool.get('universe_executable')}** 只 → 池内 **{len(mem)}** 只"
                  f"（单边换手 {100 * float((pool.get('metrics') or {}).get('turnover_one_way') or 0):.1f}%）")
         cap = pool.get("capacity") or {}
@@ -212,7 +236,8 @@ def render(res):
         if pool.get("intraday_hold"):
             L.append(f"- ⏸ 盘中运行：{pool.get('note')}")
         L.append("")
-        L.append("| # | 代码 | 名称 | 状态 | 评级 | rs20(5日) | 置信 | 状态动作 | 指数ADV(亿) | 目标仓位 | 入池 |")
+        _pos_col = "现行基线仓位" if _shadow else "目标仓位"
+        L.append(f"| # | 代码 | 名称 | 状态 | 评级 | rs20(5日) | 置信 | 状态动作 | 指数ADV(亿) | {_pos_col} | 入池 |")
         L.append("|---|---|---|---|---|---|---|---|---|---|---|")
         _zero = []
         for m in mem:
@@ -228,7 +253,11 @@ def render(res):
         L.append("")
         L.append("> 池回答的是「买得动 ∩ 相对强」，仓位回答的是「资格分 × 状态 × 风险预算」——"
                  "两者是不同问题：入池不等于配仓。")
-        if _zero:
+        if _shadow:
+            L.append("> **影子口径**：上表「现行基线仓位」是配置静态白名单下的仓位，"
+                     "影子池成员多数不在白名单里，显示 0% 属正常，不是漏配或数据缺失。"
+                     "切换 `dynamic` 后该列才会变成影子池自身的配仓。")
+        elif _zero:
             L.append(f"> 今日 {len(_zero)}/{len(mem)} 只入池但目标仓位为 0："
                      f"{'、'.join(_zero)}——多为 ETF 日额偏薄（investability 低 → 资格 OBSERVE）"
                      "或 E 态禁新增。它们进池是因为指数层面流动性够，配不了是因为**可交易的 ETF**不够。")

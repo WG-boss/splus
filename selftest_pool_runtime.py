@@ -203,6 +203,31 @@ def main() -> int:
     per_s = json.loads(json.dumps(per))
     P.apply(per_s, p1, mode="shadow")
     check("shadow：权限完全不变", all(not v["tradeable"] for v in per_s.values()))
+    check("shadow：pool.applied=False 且 weight_mult=None（零干预标记）",
+          all((v.get("pool") or {}).get("applied") is False
+              and (v.get("pool") or {}).get("weight_mult") is None
+              for v in per_s.values()))
+    import engine as _E9
+    _v_s = {"sizing": {"final": 0.08, "decomposition": {"vol": 0.5},
+                       "notes": {}},
+            "pool": {"member": True, "applied": False, "weight_mult": None,
+                     "state_action": "half"}}
+    _E9.apply_pool_risk_budget(_v_s)
+    check("shadow：D 态 ×0.5 不进仓位（对照组不被污染）",
+          abs(_v_s["sizing"]["final"] - 0.08) < 1e-9
+          and "pool_state" not in _v_s["sizing"]["decomposition"])
+    _v_d = {"sizing": {"final": 0.08, "decomposition": {"vol": 0.5},
+                       "notes": {}},
+            "pool": {"member": True, "applied": True, "weight_mult": 0.5,
+                     "state_action": "half"}}
+    _E9.apply_pool_risk_budget(_v_d)
+    check("dynamic：applied=True 时 D 态确实 ×0.5（门禁没把实验组也关掉）",
+          abs(_v_d["sizing"]["final"] - 0.04) < 1e-9
+          and abs(_v_d["sizing"]["decomposition"]["pool_state"] - 0.5) < 1e-9)
+    _mem_code = p1["members"][0]["code"]
+    check("dynamic：apply 保留 weight_mult 与 applied=True",
+          all((v.get("pool") or {}).get("applied") is True for v in per_d.values())
+          and per_d[_mem_code]["pool"].get("weight_mult") is not None)
 
     print("\n【T10】桶敞口单一口径：桶 = 成员 final 求和（只在 bucket_max / haircut 截断）")
     import engine as E

@@ -65,6 +65,8 @@ data/position_dashboard.html
 # ---- 2026-11-09 动态池：运行时产物（每日重建；state_transition.json 入库以便追溯口径）----
 state/tradeable_pool.json
 state/tradeable_pool_history.jsonl
+# 影子观察台账：每日重建的运行时数据；判据与窗口在 splus_config.yaml 里入库
+state/shadow_observation.jsonl
 *.bak.*
 
 # ---- 2026-11-08 回补/契约：派生数据与临时目录 ----

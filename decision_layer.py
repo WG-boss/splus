@@ -158,8 +158,15 @@ def apply(cfg: Dict[str, Any], base_dir: str, as_of: str,
         steps.append(f"{_na} 只标的置信度不足门槛 → 评级 NA：只观察/只持有，不得开新仓")
     _pool_n = sum(1 for v in per_index.values() if (v.get("pool") or {}).get("member"))
     if _pool_n:
-        steps.append(f"可交易池为动态结果（R6 宽缓冲）：今日 {_pool_n} 只，"
-                     "进出由缓冲带决定，排名抖动不产生交易")
+        _modes = {(v.get("pool") or {}).get("mode") for v in per_index.values()
+                  if (v.get("pool") or {}).get("mode")}
+        if "shadow" in _modes:
+            steps.append(f"影子观察期（R6 宽缓冲）：今日影子池 {_pool_n} 只，"
+                         "仅记录不生效；实际权限、仓位与敞口沿用配置静态白名单，"
+                         "观察期结束并复核通过后才可切 dynamic")
+        else:
+            steps.append(f"可交易池为动态结果（R6 宽缓冲）：今日 {_pool_n} 只，"
+                         "进出由缓冲带决定，排名抖动不产生交易")
     if confirmed < tradeable_n:
         steps.append(f"场内标的映射 {confirmed}/{tradeable_n} 已核实；"
                      "未确认项禁止据此下单")

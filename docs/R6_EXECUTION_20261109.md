@@ -232,3 +232,19 @@ python tools_state_history_backfill.py --apply   # 恢复运行时数据（自�
 **验收**：`run_all_checks` 20/20；`selftest_pool_runtime` 42 项、
 `selftest_etf_quotes` 30 项、`selftest_disclosure` 29 项、`lint_config` 通过。
 
+---
+
+## 十一、后续：进入影子观察期（2026-11-09 收盘前）
+
+R6 虽已在生产路径，但回测证据不足以直接把「池即权限」交给真实资金：
+全部日频超额 t 在 1.0–1.8、两次独立面板重跑名次互换、R0 含事后选样偏差。
+因此 `pool.mode` 由 `dynamic` 切为 **`shadow`，观察 2026-11-09 → 11-23**。
+
+同时修掉一个真 bug：旧 `shadow` 仍把 `pool.weight_mult` 乘进 `sizing.final`，
+「只算不用」其实一直在改仓位，会污染对照组。加 `applied` 门禁后，
+fixed vs shadow 端到端 10 个字段逐只一致。
+
+完整协议（观察台账、`session_date` 口径、6 条预先写死的判据、
+为何收益不判、每日行情刷新链路、两周后 go/no-go）见
+**`docs/SHADOW_OBSERVATION_20261109.md`**。
+

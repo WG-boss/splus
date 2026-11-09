@@ -122,14 +122,27 @@ def build(cfg: Dict[str, Any], result: Dict[str, Any],
     pool = result.get("pool") or {}
     if pool.get("enabled"):
         cap = pool.get("capacity") or {}
-        items.append({
-            "id": "d_pool", "level": "MED", "kind": "dynamic",
-            "text": (f"可交易池为动态结果（{pool.get('rule')}）："
-                     f"可执行宇宙 {pool.get('universe_executable')} → 池内 {len(pool.get('members') or [])} 只，"
-                     f"单边换手 {100 * float((pool.get('metrics') or {}).get('turnover_one_way') or 0):.1f}%。"
-                     "池成员是「今天买得动且相对强」，不是「明天会涨」；"
-                     "进出由缓冲带决定，排名 10↔11 的抖动不产生交易。"),
-        })
+        if str(pool.get("mode")) == "shadow":
+            sh = ((cfg.get("pool") or {}).get("shadow") or {})
+            items.append({
+                "id": "d_shadow", "level": "MED", "kind": "dynamic",
+                "text": (f"当前为**影子观察期**（{sh.get('start', '?')} → {sh.get('end', '?')}，"
+                         f"复核日 {sh.get('review_on', '?')}）：影子池 "
+                         f"{len(pool.get('members') or [])} 只仅记录不生效，"
+                         "实际权限、仓位、敞口全部沿用配置静态白名单，与 fixed 模式逐字段一致。"
+                         "观察只检验运营可行性（建池稳定性、映射、容量、换手、制度冲突），"
+                         "**收益不作判据**——两周样本不足以做统计推断；"
+                         "观察期未满不得提前下 go/no-go 结论。"),
+            })
+        else:
+            items.append({
+                "id": "d_pool", "level": "MED", "kind": "dynamic",
+                "text": (f"可交易池为动态结果（{pool.get('rule')}）："
+                         f"可执行宇宙 {pool.get('universe_executable')} → 池内 {len(pool.get('members') or [])} 只，"
+                         f"单边换手 {100 * float((pool.get('metrics') or {}).get('turnover_one_way') or 0):.1f}%。"
+                         "池成员是「今天买得动且相对强」，不是「明天会涨」；"
+                         "进出由缓冲带决定，排名 10↔11 的抖动不产生交易。"),
+            })
         if cap.get("quote_stale"):
             items.append({
                 "id": "d_quote", "level": "HIGH", "kind": "dynamic",

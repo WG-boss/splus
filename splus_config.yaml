@@ -451,9 +451,29 @@ eligibility:
 #   （年化 13.87% / Sharpe 0.51 / 年换手 14.7x / 日频超额 t 1.77）
 # mode: fixed（保留配置静态白名单）| shadow（只算不用）| dynamic（池即权限）
 # 回滚：mode 改 fixed 即恢复静态 11 只，无需改代码。
+#
+# 2026-11-09 起进入 **shadow 观察期**：池仍逐日计算并记台账，但绝不改变
+# tradeable / sizing / 敞口（pool.apply → applied=False，engine 的
+# apply_pool_risk_budget 只认 applied=True）。对照组 = 配置静态 11 只。
 # ============================================================
 pool:
-  mode: "dynamic"
+  mode: "shadow"
+
+  # ---- 两周影子观察协议：判据在观察开始前写死，事后不得调整阈值 ----
+  shadow:
+    enabled: true
+    ledger: "state/shadow_observation.jsonl"
+    start: "2026-11-09"
+    end: "2026-11-23"
+    review_on: "2026-11-23"
+    min_sessions: 9          # 两周 ≈ 11 个交易日，允许 2 天缺数据
+    max_invalid_days: 1      # 盘中预览/建池异常日上限（盘中不计有效观察日）
+    min_measured_ratio: 0.90 # 容量必须来自收盘全天额，不是半日量/隔夜额
+    min_mapped_ratio: 1.00   # 池成员 100% confirmed ∧ verified
+    max_avg_turnover: 0.20   # 日均单边换手上限（R6 回测年化 14.7x ≈ 6%/日）
+    max_conflict_sessions: 0 # 资格 FROZEN / 容量 unknown / 建池异常的日子
+    # 收益明确不作为判据：10 个交易日任何超额 t 都不可能显著，
+    # 且 R0–R6 两次独立面板重跑名次互换。详见 shadow_obs.py 模块说明。
   file: "state/tradeable_pool.json"
   history: "state/tradeable_pool_history.jsonl"
   size: 10                    # 目标只数（上限；相关性闸/容量闸可能压到更少）

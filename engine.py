@@ -884,6 +884,34 @@ def position_sizing(cfg: Dict[str, Any], ann_vol: Optional[float], state_w: floa
     }
 
 
+def apply_pool_risk_budget(v: Dict[str, Any]) -> None:
+    """池状态动作 → 风险预算（不是排序）。只认 `pool.applied=True`。
+
+    抽成独立函数是为了让「shadow 零干预」可被单元断言：2026-11-09 之前
+    仓位循环直接读 `pool.weight_mult`，导致 shadow 观察期里 D 态 ×0.5 仍然
+    改了实际仓位，对照组被污染。现在 shadow 下 apply() 写 applied=False，
+    这里直接返回，sizing.final 与 fixed 模式逐字段一致。
+    """
+    po = v.get("pool") or {}
+    if not po.get("applied", False):
+        return
+    pm = po.get("weight_mult")
+    if pm is None or abs(float(pm) - 1.0) <= 1e-9:
+        return
+    sizing = v.get("sizing") or {}
+    if not sizing or sizing.get("reference_only"):
+        return
+    old = float(sizing.get("final") or 0.0)
+    sizing["final"] = round(old * float(pm), 4)
+    sizing.setdefault("decomposition", {})["pool_state"] = round(float(pm), 4)
+    sizing.setdefault("notes", {})["pool_state"] = (
+        f"池状态动作 {po.get('state_action')} ×{float(pm):g}"
+        f" → {old * 100:.2f}%→{sizing['final'] * 100:.2f}%")
+    if sizing.get("decomposition"):
+        sizing["binding"] = min(sizing["decomposition"],
+                                key=sizing["decomposition"].get)
+
+
 # ============================================================
 # L5 风险层 —— KILL SWITCH
 # ============================================================
@@ -1238,16 +1266,9 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
             v["sizing"] = position_sizing(cfg, v["features"].get("ann_vol_20"),
                                           v["state_weight"], port_dd, corr_mean)
             # 池的状态动作 → 风险预算（不是排序）：D 态减半，其它不动。
-            _pm = (v.get("pool") or {}).get("weight_mult")
-            if _pm is not None and abs(float(_pm) - 1.0) > 1e-9:
-                _old = float(v["sizing"]["final"])
-                v["sizing"]["final"] = round(_old * float(_pm), 4)
-                v["sizing"]["decomposition"]["pool_state"] = round(float(_pm), 4)
-                v["sizing"]["notes"]["pool_state"] = (
-                    f"池状态动作 {v['pool'].get('state_action')} ×{_pm:g}"
-                    f" → {_old * 100:.2f}%→{v['sizing']['final'] * 100:.2f}%")
-                v["sizing"]["binding"] = min(v["sizing"]["decomposition"],
-                                             key=v["sizing"]["decomposition"].get)
+            # shadow 观察期由 apply_pool_risk_budget 内的 applied 门禁短路，
+            # 保证「只算不用」是真的零干预（见该函数 docstring）。
+            apply_pool_risk_budget(v)
         else:
             v["sizing"] = {
                 "cap_vol": 0.0, "coef_dd": 1.0, "coef_corr": 1.0,
@@ -1608,6 +1629,35 @@ def run(cfg_path: str, base_dir: str) -> Dict[str, Any]:
     except Exception as exc:
         result["disclosures"] = []
         print(f"[warn] 口径披露生成失败: {exc!r}", file=sys.stderr)
+
+    # ---- 影子观察台账（2026-11-09）：只在 pool.mode=shadow 时写 ----
+    # 必须在 disclosures 之后（要读 HIGH 条目），落盘之前（每日一条）。
+    # 纯记录：不改权限、不改仓位、不建池；同 as_of 幂等替换。
+    try:
+        import shadow_obs as _so
+        _row = _so.record(base_dir, cfg, result)
+        if _row:
+            _prog = _so.summarize(base_dir, cfg)
+            result["shadow_observation"] = {
+                "as_of": _row["as_of"],
+                "valid_session": _row["valid_session"],
+                "invalid_reason": _row["invalid_reason"],
+                "shadow_n": _row["shadow_pool"]["n"],
+                "baseline_n": _row["baseline"]["n"],
+                "overlap": _row["diff"]["overlap"],
+                "jaccard": _row["diff"]["jaccard"],
+                "ledger": _so.cfg_of(cfg)["ledger"],
+                "progress": {
+                    "valid": _prog["sessions_valid"],
+                    "target": _prog["target_sessions"],
+                    "decision": _prog["decision"],
+                    "review_on": _prog["window"]["review_on"],
+                    "days_to_review": _prog["window"]["days_to_review"],
+                },
+            }
+    except Exception as exc:
+        result["shadow_observation"] = {"error": f"{type(exc).__name__}: {exc}"}
+        print(f"[warn] 影子观察台账写入失败: {exc!r}", file=sys.stderr)
 
     # ---- P0：概率未校准不得显示成"胜率" ----
     if isinstance(result.get("decision_card"), dict):

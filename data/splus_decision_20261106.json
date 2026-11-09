@@ -21,7 +21,7 @@
     },
     "synthetic_note": "假设组合等权净值，仅供参考，不参与账户级节流"
   },
-  "generated_at": "2026-11-09 11:56:11",
+  "generated_at": "2026-11-09 12:51:16",
   "config_version": "1.0.0",
   "per_index": {
     "000688": {
@@ -78,24 +78,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1854,
-      "tradeable": false,
+      "state_weight": 0.1082,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.273,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1854,
+        "state_weight": 0.1082,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0295,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.273,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1082,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 54.9% = 27%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.95%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -103,7 +115,7 @@
         "trigger_price": 1798.78,
         "fail_price": 1066.92,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -115,7 +127,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1854,
+        "after": 0.1082
+      },
       "eligibility": {
         "score": 22.0,
         "tier": "FROZEN",
@@ -142,7 +159,7 @@
       "instrument": {
         "index_code": "000688",
         "index_name": "科创50",
-        "tradeable": false,
+        "tradeable": true,
         "status": "confirmed",
         "etf_code": "588150",
         "etf_name": "科创50ETF南方",
@@ -276,24 +293,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1414,
-      "tradeable": false,
+      "state_weight": 0.0825,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.3018,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1414,
+        "state_weight": 0.0825,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0249,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.3018,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.0825,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 49.7% = 30%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.49%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -301,7 +330,7 @@
         "trigger_price": 3936.54,
         "fail_price": 2257.22,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -313,7 +342,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1414,
+        "after": 0.0825
+      },
       "eligibility": {
         "score": 26.4,
         "tier": "FROZEN",
@@ -340,7 +374,7 @@
       "instrument": {
         "index_code": "399673",
         "index_name": "创业板50",
-        "tradeable": false,
+        "tradeable": true,
         "status": "confirmed",
         "etf_code": "159369",
         "etf_name": "创业板50ETF易方达",
@@ -476,24 +510,38 @@
           "aged": false
         }
       },
-      "state_weight": 0.284,
-      "tradeable": false,
+      "state_weight": 0.1657,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.3914,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.284,
-        "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "state_weight": 0.1657,
+        "final": 0.0162,
+        "raw_before_clamp": 0.0648,
+        "binding": "state",
+        "decomposition": {
+          "vol": 0.3914,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1657,
+          "eligibility": 0.5,
+          "modulation": 0.5
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 38.3% = 39%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 REDUCED ×0.5 → 6.48%→3.24%（降杠杆）",
+          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -501,7 +549,7 @@
         "trigger_price": 4839.66,
         "fail_price": 3582.7,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": true,
           "ema20_above_ema60": false,
@@ -513,7 +561,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.284,
+        "after": 0.1657
+      },
       "eligibility": {
         "score": 72.0,
         "tier": "REDUCED",
@@ -524,7 +577,7 @@
           "size_mult": 0.5,
           "reason": "资格 REDUCED ×0.5；置信不足不加仓"
         },
-        "family": "reference",
+        "family": "offense",
         "dominant": "A",
         "investability_status": "measured",
         "factors": {
@@ -540,7 +593,7 @@
       "instrument": {
         "index_code": "hkHSTECH",
         "index_name": "恒生科技",
-        "tradeable": false,
+        "tradeable": true,
         "status": "confirmed",
         "etf_code": "513130",
         "etf_name": "恒生科技指数ETF华夏",
@@ -672,24 +725,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.2599,
-      "tradeable": false,
+      "state_weight": 0.1516,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.3123,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2599,
+        "state_weight": 0.1516,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0473,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.3123,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1516,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 48.0% = 31%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 4.73%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 0.7,
@@ -697,7 +762,7 @@
         "trigger_price": 1942.56,
         "fail_price": 1426.26,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "主题指数：追价上限与失效位均收紧",
         "rebound": {
           "above_ema20": true,
           "ema20_above_ema60": false,
@@ -709,7 +774,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.2599,
+        "after": 0.1516
+      },
       "eligibility": {
         "score": 17.0,
         "tier": "FROZEN",
@@ -738,7 +808,7 @@
       "instrument": {
         "index_code": "H30590",
         "index_name": "机器人",
-        "tradeable": false,
+        "tradeable": true,
         "status": "needs_review",
         "etf_code": null,
         "etf_name": null,
@@ -874,24 +944,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1924,
-      "tradeable": false,
+      "state_weight": 0.1123,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.2408,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1924,
+        "state_weight": 0.1123,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.027,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.2408,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1123,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 62.3% = 24%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.70%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -899,7 +981,7 @@
         "trigger_price": 14448.53,
         "fail_price": 8187.41,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -911,7 +993,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1924,
+        "after": 0.1123
+      },
       "eligibility": {
         "score": 29.9,
         "tier": "FROZEN",
@@ -938,7 +1025,7 @@
       "instrument": {
         "index_code": "H30184",
         "index_name": "半导体",
-        "tradeable": false,
+        "tradeable": true,
         "status": "confirmed",
         "etf_code": "159582",
         "etf_name": "半导体ETF博时",
@@ -1081,9 +1168,11 @@
         "rating": "NA",
         "state_action": "no_add",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": 0.047612
+        "rs20": 0.047612,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.4589,
@@ -1295,24 +1384,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1348,
-      "tradeable": false,
+      "state_weight": 0.0786,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.2016,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1348,
+        "state_weight": 0.0786,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0158,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.2016,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.0786,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 74.4% = 20%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 1.58%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -1320,7 +1421,7 @@
         "trigger_price": 10415.91,
         "fail_price": 5152.14,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -1332,7 +1433,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1348,
+        "after": 0.0786
+      },
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
@@ -1360,7 +1466,7 @@
       "instrument": {
         "index_code": "932666",
         "index_name": "高频PCB",
-        "tradeable": false,
+        "tradeable": true,
         "status": "unmapped",
         "etf_code": null,
         "etf_name": null,
@@ -1447,24 +1553,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.2272,
-      "tradeable": false,
+      "state_weight": 0.1325,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.325,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2272,
+        "state_weight": 0.1325,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0431,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.325,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1325,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 46.2% = 33%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 4.31%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 0.7,
@@ -1472,7 +1590,7 @@
         "trigger_price": 937.35,
         "fail_price": 669.83,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "主题指数：追价上限与失效位均收紧",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -1484,7 +1602,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.2272,
+        "after": 0.1325
+      },
       "eligibility": {
         "score": 17.0,
         "tier": "FROZEN",
@@ -1513,7 +1636,7 @@
       "instrument": {
         "index_code": "931594",
         "index_name": "商业航天",
-        "tradeable": false,
+        "tradeable": true,
         "status": "needs_review",
         "etf_code": null,
         "etf_name": null,
@@ -1620,24 +1743,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1976,
-      "tradeable": false,
+      "state_weight": 0.1153,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.1974,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1976,
+        "state_weight": 0.1153,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0228,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.1974,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.1153,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 76.0% = 20%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 OBSERVE ×0 → 2.28%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -1645,7 +1780,7 @@
         "trigger_price": 10757.45,
         "fail_price": 5338.2,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -1657,7 +1792,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1976,
+        "after": 0.1153
+      },
       "eligibility": {
         "score": 52.0,
         "tier": "OBSERVE",
@@ -1684,7 +1824,7 @@
       "instrument": {
         "index_code": "931743",
         "index_name": "半导体材料设备",
-        "tradeable": false,
+        "tradeable": true,
         "status": "confirmed",
         "etf_code": "560780",
         "etf_name": "半导体设备ETF广发",
@@ -1818,24 +1958,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1354,
-      "tradeable": false,
+      "state_weight": 0.079,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.2451,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1354,
+        "state_weight": 0.079,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0194,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.2451,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.079,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 61.2% = 25%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 1.94%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -1843,7 +1995,7 @@
         "trigger_price": 12765.03,
         "fail_price": 6769.04,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -1855,7 +2007,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1354,
+        "after": 0.079
+      },
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
@@ -1883,7 +2040,7 @@
       "instrument": {
         "index_code": "931723",
         "index_name": "光模块CPO",
-        "tradeable": false,
+        "tradeable": true,
         "status": "unmapped",
         "etf_code": null,
         "etf_name": null,
@@ -1970,24 +2127,36 @@
           "aged": false
         }
       },
-      "state_weight": 0.1651,
-      "tradeable": false,
+      "state_weight": 0.0963,
+      "tradeable": true,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.0,
+        "cap_vol": 0.2138,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1651,
+        "state_weight": 0.0963,
         "final": 0.0,
-        "notes": {
-          "vol": "参照系，不计仓",
-          "dd": "—",
-          "corr": "—"
+        "raw_before_clamp": 0.0206,
+        "binding": "eligibility",
+        "decomposition": {
+          "vol": 0.2138,
+          "dd": 1.0,
+          "corr": 1.0,
+          "state": 0.0963,
+          "eligibility": 0.0
         },
-        "reference_only": true
+        "notes": {
+          "vol": "vol目标 15% / 实际 70.2% = 21%",
+          "dd": "组合回撤 0.0% → 系数 1.00",
+          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
+          "binding": "生效约束 state（四层取最小）",
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.06%→0.00%（禁开仓归零）"
+        }
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -1995,7 +2164,7 @@
         "trigger_price": 7603.9,
         "fail_price": 4155.39,
         "single_trade_risk_nav": 0.003,
-        "note": "参照系，不生成执行计划",
+        "note": "指数级标准口径",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -2007,7 +2176,12 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": null,
+      "l2_suppress": {
+        "leader_ret20": -0.1333,
+        "factor": 0.5835,
+        "before": 0.1651,
+        "after": 0.0963
+      },
       "eligibility": {
         "score": 12.0,
         "tier": "FROZEN",
@@ -2035,7 +2209,7 @@
       "instrument": {
         "index_code": "932580",
         "index_name": "磁电存储",
-        "tradeable": false,
+        "tradeable": true,
         "status": "unmapped",
         "etf_code": null,
         "etf_name": null,
@@ -2126,7 +2300,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -2326,7 +2502,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -2526,7 +2704,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -2730,7 +2910,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -2930,7 +3112,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -3127,8 +3311,8 @@
           "aged": true
         }
       },
-      "state_weight": 0.2756,
-      "tradeable": true,
+      "state_weight": 0.4724,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 2,
@@ -3136,34 +3320,24 @@
         "rating": "NA",
         "state_action": "half",
         "add_allowed": false,
-        "weight_mult": 0.5,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": 0.085445
+        "rs20": 0.085445,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.8357,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2756,
+        "state_weight": 0.4724,
         "final": 0.0,
-        "raw_before_clamp": 0.2303,
-        "binding": "eligibility",
-        "decomposition": {
-          "vol": 0.8357,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.2756,
-          "pool_state": 0.5,
-          "eligibility": 0.0
-        },
         "notes": {
-          "vol": "vol目标 15% / 实际 17.9% = 84%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "pool_state": "池状态动作 half ×0.5 → 23.03%→11.52%",
-          "eligibility": "B2 档位权限 OBSERVE ×0 → 11.52%→0.00%（禁开仓归零）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -3171,7 +3345,7 @@
         "trigger_price": 3446.97,
         "fail_price": 3119.69,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": true,
@@ -3183,28 +3357,23 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.4724,
-        "after": 0.2756
-      },
+      "l2_suppress": null,
       "eligibility": {
-        "score": 50.0,
-        "tier": "OBSERVE",
+        "score": 38.0,
+        "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "NA",
         "permission": {
           "add": false,
           "size_mult": 0.0,
-          "reason": "资格 OBSERVE ×0；置信不足不加仓"
+          "reason": "资格 FROZEN ×0；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "D",
         "investability_status": "measured",
         "factors": {
           "investability": 0.0,
-          "state_fit": 0.5,
+          "state_fit": 0.2,
           "data_quality": 1.0,
           "map_ready": 1.0
         },
@@ -3215,7 +3384,7 @@
       "instrument": {
         "index_code": "000015",
         "index_name": "红利指数",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "159905",
         "etf_name": "红利ETF工银",
@@ -3353,7 +3522,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -3554,7 +3725,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -3742,7 +3915,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -3896,8 +4071,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.2427,
-      "tradeable": true,
+      "state_weight": 0.416,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 4,
@@ -3905,34 +4080,24 @@
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": 0.08026
+        "rs20": 0.08026,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 1.0,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2427,
-        "final": 0.060675,
-        "raw_before_clamp": 0.2427,
-        "binding": "state",
-        "decomposition": {
-          "vol": 1.0,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.2427,
-          "eligibility": 0.5,
-          "modulation": 0.5
-        },
+        "state_weight": 0.416,
+        "final": 0.0,
         "notes": {
-          "vol": "vol目标 15% / 实际 8.0% = 100%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 REDUCED ×0.5 → 24.27%→12.13%（降杠杆）",
-          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -3940,7 +4105,7 @@
         "trigger_price": 1282.77,
         "fail_price": 1163.94,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -3952,12 +4117,7 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.416,
-        "after": 0.2427
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 60.0,
         "tier": "REDUCED",
@@ -3968,7 +4128,7 @@
           "size_mult": 0.5,
           "reason": "资格 REDUCED ×0.5；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
@@ -3978,14 +4138,14 @@
           "map_ready": 1.0
         },
         "notes": [
-          "StateFit=0（E 态 × offense）→ FROZEN 硬闸",
+          "StateFit=0（E 态 × reference）→ FROZEN 硬闸",
           "置信度 0.32 < 门槛 0.65 → 评级 NA（只持有/观察，不加仓）"
         ]
       },
       "instrument": {
         "index_code": "000056",
         "index_name": "上证国企",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "510210",
         "etf_name": "上证指数ETF富国",
@@ -4123,7 +4283,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -4312,7 +4474,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -4513,7 +4677,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -4709,8 +4875,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.1027,
-      "tradeable": true,
+      "state_weight": 0.176,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 15,
@@ -4718,32 +4884,24 @@
         "rating": "E",
         "state_action": "hold_only",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": -0.148397
+        "rs20": -0.148397,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.2267,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1027,
+        "state_weight": 0.176,
         "final": 0.0,
-        "raw_before_clamp": 0.0233,
-        "binding": "eligibility",
-        "decomposition": {
-          "vol": 0.2267,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.1027,
-          "eligibility": 0.0
-        },
         "notes": {
-          "vol": "vol目标 15% / 实际 66.2% = 23%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 FROZEN ×0 → 2.33%→0.00%（禁开仓归零）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -4751,7 +4909,7 @@
         "trigger_price": 4315.49,
         "fail_price": 2321.72,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -4763,12 +4921,7 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.176,
-        "after": 0.1027
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 36.7,
         "tier": "FROZEN",
@@ -4779,7 +4932,7 @@
           "size_mult": 0.0,
           "reason": "资格 FROZEN ×0"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
@@ -4789,13 +4942,13 @@
           "map_ready": 1.0
         },
         "notes": [
-          "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
+          "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
       "instrument": {
         "index_code": "000685",
         "index_name": "科创芯片",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "588290",
         "etf_name": "科创芯片ETF华安",
@@ -4933,7 +5086,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -5131,7 +5286,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -5330,8 +5487,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.1232,
-      "tradeable": true,
+      "state_weight": 0.2111,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 9,
@@ -5339,34 +5496,24 @@
         "rating": "E",
         "state_action": "hold_only",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": -0.029542
+        "rs20": -0.029542,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.4053,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1232,
-        "final": 0.012475,
-        "raw_before_clamp": 0.0499,
-        "binding": "state",
-        "decomposition": {
-          "vol": 0.4053,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.1232,
-          "eligibility": 0.5,
-          "modulation": 0.5
-        },
+        "state_weight": 0.2111,
+        "final": 0.0,
         "notes": {
-          "vol": "vol目标 15% / 实际 37.0% = 41%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 REDUCED ×0.5 → 4.99%→2.50%（降杠杆）",
-          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -5374,7 +5521,7 @@
         "trigger_price": 7995.5,
         "fail_price": 5902.56,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -5386,12 +5533,7 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.2111,
-        "after": 0.1232
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 60.0,
         "tier": "REDUCED",
@@ -5402,7 +5544,7 @@
           "size_mult": 0.5,
           "reason": "资格 REDUCED ×0.5"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
@@ -5412,13 +5554,13 @@
           "map_ready": 1.0
         },
         "notes": [
-          "StateFit=0（E 态 × offense）→ FROZEN 硬闸"
+          "StateFit=0（E 态 × reference）→ FROZEN 硬闸"
         ]
       },
       "instrument": {
         "index_code": "000852",
         "index_name": "中证1000",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "512100",
         "etf_name": "中证1000ETF南方",
@@ -5556,7 +5698,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -5751,7 +5895,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -5925,7 +6071,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -6125,7 +6273,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -6326,7 +6476,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -6527,7 +6679,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -6729,7 +6883,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -6930,7 +7086,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -7128,8 +7286,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.1588,
-      "tradeable": true,
+      "state_weight": 0.2722,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 8,
@@ -7137,32 +7295,24 @@
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": -0.02353
+        "rs20": -0.02353,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.3519,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1588,
+        "state_weight": 0.2722,
         "final": 0.0,
-        "raw_before_clamp": 0.0559,
-        "binding": "eligibility",
-        "decomposition": {
-          "vol": 0.3519,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.1588,
-          "eligibility": 0.0
-        },
         "notes": {
-          "vol": "vol目标 15% / 实际 42.6% = 35%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 FROZEN ×0 → 5.59%→0.00%（禁开仓归零）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -7170,7 +7320,7 @@
         "trigger_price": 3417.94,
         "fail_price": 2248.15,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径；且允许战术反弹仓",
+        "note": "参照系，不生成执行计划；且允许战术反弹仓",
         "rebound": {
           "above_ema20": true,
           "ema20_above_ema60": false,
@@ -7182,12 +7332,7 @@
         },
         "rebound_allowance": 0.08
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.2722,
-        "after": 0.1588
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 23.5,
         "tier": "FROZEN",
@@ -7198,7 +7343,7 @@
           "size_mult": 0.0,
           "reason": "资格 FROZEN ×0；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
@@ -7208,14 +7353,14 @@
           "map_ready": 1.0
         },
         "notes": [
-          "StateFit=0（E 态 × offense）→ FROZEN 硬闸",
+          "StateFit=0（E 态 × reference）→ FROZEN 硬闸",
           "置信度 0.53 < 门槛 0.65 → 评级 NA（只持有/观察，不加仓）"
         ]
       },
       "instrument": {
         "index_code": "399266",
         "index_name": "创新能源",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "589960",
         "etf_name": "科创新能源ETF易方达",
@@ -7353,7 +7498,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -7551,7 +7698,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -7722,7 +7871,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -7883,7 +8034,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -8081,7 +8234,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -8282,7 +8437,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -8483,7 +8640,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -8683,7 +8842,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -8886,7 +9047,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -9052,7 +9215,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -9252,7 +9417,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -9454,7 +9621,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -9655,7 +9824,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -9857,7 +10028,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -10059,7 +10232,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -10259,7 +10434,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -10459,7 +10636,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -10659,7 +10838,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -10861,7 +11042,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11062,7 +11245,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11228,7 +11413,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11430,7 +11617,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11628,7 +11817,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11801,7 +11992,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -11999,7 +12192,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -12200,7 +12395,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -12364,7 +12561,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -12564,7 +12763,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -12765,7 +12966,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -12967,7 +13170,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -13170,7 +13375,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -13372,7 +13579,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -13567,7 +13776,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -13770,7 +13981,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -13970,8 +14183,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.2869,
-      "tradeable": true,
+      "state_weight": 0.4918,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 1,
@@ -13979,34 +14192,24 @@
         "rating": "NA",
         "state_action": "half",
         "add_allowed": false,
-        "weight_mult": 0.5,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": 0.121468
+        "rs20": 0.121468,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 1.0,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.2869,
+        "state_weight": 0.4918,
         "final": 0.0,
-        "raw_before_clamp": 0.2869,
-        "binding": "eligibility",
-        "decomposition": {
-          "vol": 1.0,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.2869,
-          "pool_state": 0.5,
-          "eligibility": 0.0
-        },
         "notes": {
-          "vol": "vol目标 15% / 实际 12.4% = 100%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "pool_state": "池状态动作 half ×0.5 → 28.69%→14.34%",
-          "eligibility": "B2 档位权限 OBSERVE ×0 → 14.34%→0.00%（禁开仓归零）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -14014,7 +14217,7 @@
         "trigger_price": 11864.66,
         "fail_price": 11032.22,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": true,
           "ema20_above_ema60": true,
@@ -14026,14 +14229,9 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.4918,
-        "after": 0.2869
-      },
+      "l2_suppress": null,
       "eligibility": {
-        "score": 56.8,
+        "score": 44.8,
         "tier": "OBSERVE",
         "tier_multiplier": 0.0,
         "rating": "NA",
@@ -14042,12 +14240,12 @@
           "size_mult": 0.0,
           "reason": "资格 OBSERVE ×0；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "D",
         "investability_status": "measured",
         "factors": {
           "investability": 0.2258,
-          "state_fit": 0.5,
+          "state_fit": 0.2,
           "data_quality": 1.0,
           "map_ready": 1.0
         },
@@ -14058,7 +14256,7 @@
       "instrument": {
         "index_code": "930955",
         "index_name": "红利低波100",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "159307",
         "etf_name": "红利低波100ETF博时",
@@ -14198,7 +14396,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -14398,7 +14598,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -14601,7 +14803,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -14798,7 +15002,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -14988,7 +15194,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -15174,7 +15382,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -15378,7 +15588,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -15579,7 +15791,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -15778,8 +15992,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.1321,
-      "tradeable": true,
+      "state_weight": 0.2264,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 7,
@@ -15787,32 +16001,24 @@
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": -0.012606
+        "rs20": -0.012606,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 0.488,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.1321,
+        "state_weight": 0.2264,
         "final": 0.0,
-        "raw_before_clamp": 0.0645,
-        "binding": "eligibility",
-        "decomposition": {
-          "vol": 0.488,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.1321,
-          "eligibility": 0.0
-        },
         "notes": {
-          "vol": "vol目标 15% / 实际 30.7% = 49%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 FROZEN ×0 → 6.45%→0.00%（禁开仓归零）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -15820,7 +16026,7 @@
         "trigger_price": 3010.8,
         "fail_price": 2189.13,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -15832,12 +16038,7 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.2264,
-        "after": 0.1321
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 30.0,
         "tier": "FROZEN",
@@ -15848,7 +16049,7 @@
           "size_mult": 0.0,
           "reason": "资格 FROZEN ×0；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
@@ -15858,14 +16059,14 @@
           "map_ready": 1.0
         },
         "notes": [
-          "StateFit=0（E 态 × offense）→ FROZEN 硬闸",
+          "StateFit=0（E 态 × reference）→ FROZEN 硬闸",
           "置信度 0.57 < 门槛 0.65 → 评级 NA（只持有/观察，不加仓）"
         ]
       },
       "instrument": {
         "index_code": "931994",
         "index_name": "电网设备主题",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "561380",
         "etf_name": "电网设备ETF国泰",
@@ -15985,7 +16186,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -16183,7 +16386,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -16383,7 +16588,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -16583,7 +16790,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -16782,7 +16991,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -16980,7 +17191,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -17181,7 +17394,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -17384,7 +17599,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -17567,7 +17784,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -17767,7 +17986,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -17969,7 +18190,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -18170,7 +18393,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -18373,7 +18598,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -18564,7 +18791,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -18767,7 +18996,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -18967,7 +19198,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -19171,7 +19404,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -19372,7 +19607,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -19573,7 +19810,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -19776,7 +20015,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -19976,8 +20217,8 @@
           "aged": false
         }
       },
-      "state_weight": 0.146,
-      "tradeable": true,
+      "state_weight": 0.2502,
+      "tradeable": false,
       "pool": {
         "member": true,
         "rank": 3,
@@ -19985,34 +20226,24 @@
         "rating": "NA",
         "state_action": "no_add",
         "add_allowed": false,
-        "weight_mult": 1.0,
+        "weight_mult": null,
         "since": "2026-11-06",
-        "rs20": 0.081731
+        "rs20": 0.081731,
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
-        "cap_vol": 1.0,
+        "cap_vol": 0.0,
         "coef_dd": 1.0,
         "coef_corr": 1.0,
-        "state_weight": 0.146,
-        "final": 0.0365,
-        "raw_before_clamp": 0.146,
-        "binding": "state",
-        "decomposition": {
-          "vol": 1.0,
-          "dd": 1.0,
-          "corr": 1.0,
-          "state": 0.146,
-          "eligibility": 0.5,
-          "modulation": 0.5
-        },
+        "state_weight": 0.2502,
+        "final": 0.0,
         "notes": {
-          "vol": "vol目标 15% / 实际 13.3% = 100%",
-          "dd": "组合回撤 0.0% → 系数 1.00",
-          "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
-          "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 REDUCED ×0.5 → 14.60%→7.30%（降杠杆）",
-          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
-        }
+          "vol": "参照系，不计仓",
+          "dd": "—",
+          "corr": "—"
+        },
+        "reference_only": true
       },
       "execution": {
         "chase_atr_mult": 1.0,
@@ -20020,7 +20251,7 @@
         "trigger_price": 5225.77,
         "fail_price": 4749.11,
         "single_trade_risk_nav": 0.003,
-        "note": "指数级标准口径",
+        "note": "参照系，不生成执行计划",
         "rebound": {
           "above_ema20": false,
           "ema20_above_ema60": false,
@@ -20032,12 +20263,7 @@
         },
         "rebound_allowance": 0.0
       },
-      "l2_suppress": {
-        "leader_ret20": -0.1333,
-        "factor": 0.5835,
-        "before": 0.2502,
-        "after": 0.146
-      },
+      "l2_suppress": null,
       "eligibility": {
         "score": 63.9,
         "tier": "REDUCED",
@@ -20048,7 +20274,7 @@
           "size_mult": 0.5,
           "reason": "资格 REDUCED ×0.5；置信不足不加仓"
         },
-        "family": "offense",
+        "family": "reference",
         "dominant": "A",
         "investability_status": "measured",
         "factors": {
@@ -20064,7 +20290,7 @@
       "instrument": {
         "index_code": "980092",
         "index_name": "自由现金流",
-        "tradeable": true,
+        "tradeable": false,
         "status": "confirmed",
         "etf_code": "159232",
         "etf_name": "自由现金流ETF南方",
@@ -20202,7 +20428,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -20388,7 +20616,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -20588,7 +20818,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -20791,7 +21023,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -20995,7 +21229,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -21186,7 +21422,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -21387,7 +21625,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -21552,7 +21792,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -21750,7 +21992,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -21952,7 +22196,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -22153,7 +22399,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -22355,7 +22603,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -22555,7 +22805,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -22755,7 +23007,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -22954,7 +23208,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -23155,7 +23411,9 @@
       "tradeable": false,
       "pool": {
         "member": false,
-        "reason": "not_ranked"
+        "reason": "not_ranked",
+        "mode": "shadow",
+        "applied": false
       },
       "sizing": {
         "cap_vol": 0.0,
@@ -42244,18 +42502,57 @@
       }
     },
     "l2_suppress_applied": [
+      "科创50×0.58",
+      "创业板50×0.58",
+      "恒生科技×0.58",
+      "机器人×0.58",
+      "半导体×0.58",
       "创新药×0.58",
-      "红利指数×0.58",
-      "上证国企×0.58",
-      "科创芯片×0.58",
-      "中证1000×0.58",
-      "创新能源×0.58",
-      "红利低波100×0.58",
-      "电网设备主题×0.58",
-      "自由现金流×0.58"
+      "高频PCB×0.58",
+      "商业航天×0.58",
+      "半导体材料设备×0.58",
+      "光模块CPO×0.58",
+      "磁电存储×0.58"
     ]
   },
   "buckets": {
+    "core": {
+      "codes": [
+        "000688",
+        "399673",
+        "hkHSTECH"
+      ],
+      "exposure_pre_bucket": 0.0162,
+      "exposure": 0.0081,
+      "per_name": 0.0027,
+      "note": "3 只，成员 final 求和",
+      "exposure_pre_switch": 0.0162
+    },
+    "theme": {
+      "codes": [
+        "H30590",
+        "931594"
+      ],
+      "exposure_pre_bucket": 0.0,
+      "exposure": 0.0,
+      "per_name": 0.0,
+      "note": "2 只，成员 final 求和",
+      "exposure_pre_switch": 0.0
+    },
+    "ai_hw": {
+      "codes": [
+        "H30184",
+        "932666",
+        "931743",
+        "931723",
+        "932580"
+      ],
+      "exposure_pre_bucket": 0.0,
+      "exposure": 0.0,
+      "per_name": 0.0,
+      "note": "5 只，成员 final 求和",
+      "exposure_pre_switch": 0.0
+    },
     "pharma": {
       "codes": [
         "931152"
@@ -42265,23 +42562,6 @@
       "per_name": 0.0302,
       "note": "单标的，按单仓上限",
       "exposure_pre_switch": 0.0604
-    },
-    "watch": {
-      "codes": [
-        "000015",
-        "000056",
-        "000685",
-        "000852",
-        "399266",
-        "930955",
-        "931994",
-        "980092"
-      ],
-      "exposure_pre_bucket": 0.1096,
-      "exposure": 0.0548,
-      "per_name": 0.0069,
-      "note": "8 只，成员 final 求和",
-      "exposure_pre_switch": 0.1096
     }
   },
   "pool": {
@@ -43018,7 +43298,7 @@
     ],
     "capacity": {
       "quote_stale": false,
-      "quote_age_hours": 0.2,
+      "quote_age_hours": 1.1,
       "unknown": 9,
       "quote_intraday": true
     },
@@ -43032,18 +43312,18 @@
       }
     },
     "rationale": "进 10 / 出 30 / 平滑 5：把排名 10↔11 的抖动挡在成本之外",
-    "mode": "dynamic",
+    "mode": "shadow",
     "intraday_hold": true,
     "note": "盘中快照（半日成交额）：池沿用上一收盘结果，未重算、未落盘、换手 0；收盘后刷新自动恢复"
   },
-  "total_exposure": 0.085,
+  "total_exposure": 0.0383,
   "eligibility_modulation": {
     "enabled": true,
     "e_ratio": 0.7881,
     "multiplier": 0.5,
     "note": "E 态占比 79% → 全局仓位调制 M=0.50"
   },
-  "total_exposure_pre_switch": 0.17,
+  "total_exposure_pre_switch": 0.0766,
   "switch_haircut_applied": [
     "BROAD_E→0.50",
     "UPSTREAM_WEAK→0.80"
@@ -43056,7 +43336,7 @@
       "id": "BROAD_E",
       "level": "HIGH",
       "action": "两个以上可交易指数处于 E 阶段 → 禁止左侧加仓，仅允许右侧确认后建仓",
-      "detail": "E 阶段主导 5/9（仅计可交易标的）"
+      "detail": "E 阶段主导 9/11（仅计可交易标的）"
     },
     {
       "id": "UPSTREAM_WEAK",
@@ -44267,13 +44547,13 @@
     ],
     "account_label": "演示口径（缺少 meta.updated_at / account.as_of，无法判定新鲜度），回撤节流停用",
     "account_configured": false,
-    "model_exposure": 0.085,
+    "model_exposure": 0.0383,
     "actionable_exposure": 0.0,
     "allocation_cny": null,
     "hedge": "P(D)+P(E) 均值 0.67 → 建议等效降低敞口约 11%（个人可执行替代：减仓、转现金或配置低相关宽基）；融券/期指对冲仅为模型参考口径，个人通常不可执行",
     "hedge_retail_actionable": false,
-    "instrument_confirmed": 9,
-    "instrument_tradeable": 9,
+    "instrument_confirmed": 6,
+    "instrument_tradeable": 11,
     "calibration_label": "概率未校准（结算样本不足）：0/30 条结算样本；最早一批还需约 8 个交易日（≈1.6 周）",
     "calibration_min_settled": 30,
     "steps": [
@@ -44282,7 +44562,8 @@
       "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）",
       "账户真实净值未接入：本页仓位仅为模型建议，未做账户级回撤节流",
       "57 只标的置信度不足门槛 → 评级 NA：只观察/只持有，不得开新仓",
-      "可交易池为动态结果（R6 宽缓冲）：今日 9 只，进出由缓冲带决定，排名抖动不产生交易",
+      "影子观察期（R6 宽缓冲）：今日影子池 9 只，仅记录不生效；实际权限、仓位与敞口沿用配置静态白名单，观察期结束并复核通过后才可切 dynamic",
+      "场内标的映射 6/11 已核实；未确认项禁止据此下单",
       "概率30条结算样本前不作胜率解读",
       "执行换算：今日闸门否决，下表仅为预案",
       "数据口径：3 只标的为 HIGH 级提示，触发位/失效位可靠性下降，详见数据口径披露"
@@ -44315,6 +44596,128 @@
     },
     "rows": [
       {
+        "code": "000688",
+        "name": "科创50",
+        "bucket": "core",
+        "target_weight": 0.0027,
+        "target_cny": null,
+        "etf_code": "588150",
+        "etf_name": "科创50ETF南方",
+        "instrument_status": "confirmed",
+        "price": 0.897,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置"
+        ],
+        "quote_reason": ""
+      },
+      {
+        "code": "399673",
+        "name": "创业板50",
+        "bucket": "core",
+        "target_weight": 0.0027,
+        "target_cny": null,
+        "etf_code": "159369",
+        "etf_name": "创业板50ETF易方达",
+        "instrument_status": "confirmed",
+        "price": 0.955,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置"
+        ],
+        "quote_reason": ""
+      },
+      {
+        "code": "hkHSTECH",
+        "name": "恒生科技",
+        "bucket": "core",
+        "target_weight": 0.0027,
+        "target_cny": null,
+        "etf_code": "513130",
+        "etf_name": "恒生科技指数ETF华夏",
+        "instrument_status": "confirmed",
+        "price": 0.502,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置"
+        ],
+        "quote_reason": ""
+      },
+      {
+        "code": "H30590",
+        "name": "机器人",
+        "bucket": "theme",
+        "target_weight": 0.0,
+        "target_cny": null,
+        "etf_code": null,
+        "etf_name": null,
+        "instrument_status": "needs_review",
+        "price": null,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置",
+          "场内标的未核实",
+          "报价不可用（未核实标的，不取报价）"
+        ],
+        "quote_reason": "未核实标的，不取报价"
+      },
+      {
+        "code": "H30184",
+        "name": "半导体",
+        "bucket": "ai_hw",
+        "target_weight": 0.0,
+        "target_cny": null,
+        "etf_code": "159582",
+        "etf_name": "半导体ETF博时",
+        "instrument_status": "confirmed",
+        "price": 0.568,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置"
+        ],
+        "quote_reason": ""
+      },
+      {
         "code": "931152",
         "name": "创新药",
         "bucket": "pharma",
@@ -44339,15 +44742,67 @@
         "quote_reason": ""
       },
       {
-        "code": "000015",
-        "name": "红利指数",
-        "bucket": "watch",
-        "target_weight": 0.0069,
+        "code": "932666",
+        "name": "高频PCB",
+        "bucket": "ai_hw",
+        "target_weight": 0.0,
         "target_cny": null,
-        "etf_code": "159905",
-        "etf_name": "红利ETF工银",
+        "etf_code": null,
+        "etf_name": null,
+        "instrument_status": "unmapped",
+        "price": null,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置",
+          "场内标的未核实",
+          "报价不可用（未核实标的，不取报价）"
+        ],
+        "quote_reason": "未核实标的，不取报价"
+      },
+      {
+        "code": "931594",
+        "name": "商业航天",
+        "bucket": "theme",
+        "target_weight": 0.0,
+        "target_cny": null,
+        "etf_code": null,
+        "etf_name": null,
+        "instrument_status": "needs_review",
+        "price": null,
+        "shares": null,
+        "lots": null,
+        "actual_cny": null,
+        "fee_cny": null,
+        "slippage_cny": null,
+        "total_cny": null,
+        "executable": false,
+        "reasons": [
+          "市场闸门否决",
+          "无开仓意向",
+          "账户资金未配置",
+          "场内标的未核实",
+          "报价不可用（未核实标的，不取报价）"
+        ],
+        "quote_reason": "未核实标的，不取报价"
+      },
+      {
+        "code": "931743",
+        "name": "半导体材料设备",
+        "bucket": "ai_hw",
+        "target_weight": 0.0,
+        "target_cny": null,
+        "etf_code": "560780",
+        "etf_name": "半导体设备ETF广发",
         "instrument_status": "confirmed",
-        "price": 1.544,
+        "price": 0.76,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44363,15 +44818,15 @@
         "quote_reason": ""
       },
       {
-        "code": "000056",
-        "name": "上证国企",
-        "bucket": "watch",
-        "target_weight": 0.0069,
+        "code": "931723",
+        "name": "光模块CPO",
+        "bucket": "ai_hw",
+        "target_weight": 0.0,
         "target_cny": null,
-        "etf_code": "510210",
-        "etf_name": "上证指数ETF富国",
-        "instrument_status": "confirmed",
-        "price": 0.951,
+        "etf_code": null,
+        "etf_name": null,
+        "instrument_status": "unmapped",
+        "price": null,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44382,20 +44837,22 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置"
+          "账户资金未配置",
+          "场内标的未核实",
+          "报价不可用（未核实标的，不取报价）"
         ],
-        "quote_reason": ""
+        "quote_reason": "未核实标的，不取报价"
       },
       {
-        "code": "000685",
-        "name": "科创芯片",
-        "bucket": "watch",
-        "target_weight": 0.0069,
+        "code": "932580",
+        "name": "磁电存储",
+        "bucket": "ai_hw",
+        "target_weight": 0.0,
         "target_cny": null,
-        "etf_code": "588290",
-        "etf_name": "科创芯片ETF华安",
-        "instrument_status": "confirmed",
-        "price": 0.832,
+        "etf_code": null,
+        "etf_name": null,
+        "instrument_status": "unmapped",
+        "price": null,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44406,134 +44863,16 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置"
+          "账户资金未配置",
+          "场内标的未核实",
+          "报价不可用（未核实标的，不取报价）"
         ],
-        "quote_reason": ""
-      },
-      {
-        "code": "000852",
-        "name": "中证1000",
-        "bucket": "watch",
-        "target_weight": 0.0069,
-        "target_cny": null,
-        "etf_code": "512100",
-        "etf_name": "中证1000ETF南方",
-        "instrument_status": "confirmed",
-        "price": 2.658,
-        "shares": null,
-        "lots": null,
-        "actual_cny": null,
-        "fee_cny": null,
-        "slippage_cny": null,
-        "total_cny": null,
-        "executable": false,
-        "reasons": [
-          "市场闸门否决",
-          "无开仓意向",
-          "账户资金未配置"
-        ],
-        "quote_reason": ""
-      },
-      {
-        "code": "399266",
-        "name": "创新能源",
-        "bucket": "watch",
-        "target_weight": 0.0069,
-        "target_cny": null,
-        "etf_code": "589960",
-        "etf_name": "科创新能源ETF易方达",
-        "instrument_status": "confirmed",
-        "price": 0.731,
-        "shares": null,
-        "lots": null,
-        "actual_cny": null,
-        "fee_cny": null,
-        "slippage_cny": null,
-        "total_cny": null,
-        "executable": false,
-        "reasons": [
-          "市场闸门否决",
-          "无开仓意向",
-          "账户资金未配置"
-        ],
-        "quote_reason": ""
-      },
-      {
-        "code": "930955",
-        "name": "红利低波100",
-        "bucket": "watch",
-        "target_weight": 0.0069,
-        "target_cny": null,
-        "etf_code": "159307",
-        "etf_name": "红利低波100ETF博时",
-        "instrument_status": "confirmed",
-        "price": 1.06,
-        "shares": null,
-        "lots": null,
-        "actual_cny": null,
-        "fee_cny": null,
-        "slippage_cny": null,
-        "total_cny": null,
-        "executable": false,
-        "reasons": [
-          "市场闸门否决",
-          "无开仓意向",
-          "账户资金未配置"
-        ],
-        "quote_reason": ""
-      },
-      {
-        "code": "931994",
-        "name": "电网设备主题",
-        "bucket": "watch",
-        "target_weight": 0.0069,
-        "target_cny": null,
-        "etf_code": "561380",
-        "etf_name": "电网设备ETF国泰",
-        "instrument_status": "confirmed",
-        "price": 0.61,
-        "shares": null,
-        "lots": null,
-        "actual_cny": null,
-        "fee_cny": null,
-        "slippage_cny": null,
-        "total_cny": null,
-        "executable": false,
-        "reasons": [
-          "市场闸门否决",
-          "无开仓意向",
-          "账户资金未配置"
-        ],
-        "quote_reason": ""
-      },
-      {
-        "code": "980092",
-        "name": "自由现金流",
-        "bucket": "watch",
-        "target_weight": 0.0069,
-        "target_cny": null,
-        "etf_code": "159232",
-        "etf_name": "自由现金流ETF南方",
-        "instrument_status": "confirmed",
-        "price": 1.132,
-        "shares": null,
-        "lots": null,
-        "actual_cny": null,
-        "fee_cny": null,
-        "slippage_cny": null,
-        "total_cny": null,
-        "executable": false,
-        "reasons": [
-          "市场闸门否决",
-          "无开仓意向",
-          "账户资金未配置"
-        ],
-        "quote_reason": ""
+        "quote_reason": "未核实标的，不取报价"
       }
     ],
     "summary": {
-      "tradeable": 9,
-      "confirmed": 9,
+      "tradeable": 11,
+      "confirmed": 6,
       "executable": 0,
       "target_total_cny": null,
       "actual_total_cny": null,
@@ -45187,9 +45526,9 @@
   "settlement_progress": {
     "horizon_days": 20,
     "min_settled": 30,
-    "total_predictions": 110,
+    "total_predictions": 106,
     "settled_n": 0,
-    "pending_n": 110,
+    "pending_n": 106,
     "to_threshold": 30,
     "progress_pct": 0.0,
     "next_remaining_days": 8,
@@ -45260,7 +45599,7 @@
       },
       {
         "as_of": "2026-11-06",
-        "n": 23,
+        "n": 19,
         "elapsed_days": 0,
         "remaining_days": 20,
         "est_weeks": 4.0
@@ -45350,16 +45689,16 @@
       "text": "当前池规则的回测口径：1333 个交易日，年化 13.87%、Sharpe 0.51、最大回撤 -47.81%、年换手 14.7x、日频超额 14.18%（NW t 1.77）。t < 2 → 方向一致但不显著，不得把点估计当作预期收益。"
     },
     {
-      "id": "d_pool",
-      "level": "MED",
-      "kind": "dynamic",
-      "text": "可交易池为动态结果（R6-wide-buffer）：可执行宇宙 18 → 池内 9 只，单边换手 0.0%。池成员是「今天买得动且相对强」，不是「明天会涨」；进出由缓冲带决定，排名 10↔11 的抖动不产生交易。"
-    },
-    {
       "id": "d_quote_src",
       "level": "MED",
       "kind": "dynamic",
       "text": "ETF 行情主源（东方财富）不可用，本快照由腾讯 gtimg 热备生成（命中 1375/1375 只，23 批 / 失败 0 批）；快照取于盘中，成交额是半日量 → 容量闸与建池均跳过，池沿用上一收盘结果（未重算/未落盘/换手 0）、不驱动调仓；收盘后刷新才恢复全天硬闸，期间不代表全天流动性。"
+    },
+    {
+      "id": "d_shadow",
+      "level": "MED",
+      "kind": "dynamic",
+      "text": "当前为**影子观察期**（2026-11-09 → 2026-11-23，复核日 2026-11-23）：影子池 9 只仅记录不生效，实际权限、仓位、敞口全部沿用配置静态白名单，与 fixed 模式逐字段一致。观察只检验运营可行性（建池稳定性、映射、容量、换手、制度冲突），**收益不作判据**——两周样本不足以做统计推断；观察期未满不得提前下 go/no-go 结论。"
     },
     {
       "id": "d6",
@@ -45374,6 +45713,23 @@
       "text": "本文所有数字来自历史回放，不构成投资建议；仓位为模型建议比例，不是下单指令。"
     }
   ],
+  "shadow_observation": {
+    "as_of": "2026-11-06",
+    "valid_session": false,
+    "invalid_reason": "intraday_hold",
+    "shadow_n": 9,
+    "baseline_n": 11,
+    "overlap": 1,
+    "jaccard": 0.0526,
+    "ledger": "state/shadow_observation.jsonl",
+    "progress": {
+      "valid": 0,
+      "target": 9,
+      "decision": "INCOMPLETE",
+      "review_on": "2026-11-23",
+      "days_to_review": 14
+    }
+  },
   "lifecycle": {
     "promotions": [],
     "demotions": [],

@@ -459,19 +459,31 @@ def save(base_dir: str, cfg: Dict[str, Any], pool: Dict[str, Any]) -> str:
 
 def apply(per_index: Dict[str, Any], pool: Dict[str, Any],
           mode: str = "dynamic") -> Dict[str, Any]:
-    """把池写回 per_index：dynamic 覆盖 tradeable；shadow 只标注不改权限。"""
+    """把池写回 per_index：dynamic 覆盖 tradeable；shadow **零干预**。
+
+    2026-11-09 修正：旧实现在 shadow 下仍写入 `pool.weight_mult`，而 engine
+    的仓位循环无条件读它做风险预算（D 态 ×0.5）。结果是「只算不用」的影子
+    观察期其实一直在改实际仓位，对照组被污染，两周后拿不到干净 A/B。
+    现在用两道保险：
+      1) shadow 下 weight_mult 直接写 None，并标记 applied=False；
+      2) engine.apply_pool_risk_budget 只认 applied=True。
+    """
     mem = {m["code"]: m for m in pool.get("members") or []}
+    shadow = (mode == "shadow")
     for c, v in per_index.items():
         m = mem.get(c)
         if m:
             v["pool"] = {"member": True, "rank": m["rank"], "reason": m["reason"],
                          "rating": m.get("rating"), "state_action": m.get("state_action"),
                          "add_allowed": m.get("add_allowed"),
-                         "weight_mult": m.get("weight_mult"),
-                         "since": m.get("since"), "rs20": m.get("rs20")}
+                         "weight_mult": None if shadow else m.get("weight_mult"),
+                         "since": m.get("since"), "rs20": m.get("rs20"),
+                         "mode": mode, "applied": not shadow}
         else:
             ex = next((e for e in pool.get("exits") or [] if e["code"] == c), None)
-            v["pool"] = {"member": False, "reason": (ex or {}).get("reason") or "not_ranked"}
+            v["pool"] = {"member": False,
+                         "reason": (ex or {}).get("reason") or "not_ranked",
+                         "mode": mode, "applied": not shadow}
         if mode == "dynamic":
             was = bool(v.get("tradeable"))
             v["tradeable"] = bool(m)
