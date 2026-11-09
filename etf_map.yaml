@@ -7,7 +7,7 @@ meta:
   confirmed_count: 52
   policy: 候选一律 needs_review；仅 --confirm 后 status=confirmed 才展示可下单代码
   review_version: 1.0.0
-  last_reviewed_at: '2026-11-09T09:48:37'
+  last_reviewed_at: '2026-11-09T11:17:53'
 instruments:
   000688:
     name: 科创50

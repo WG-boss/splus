@@ -128,6 +128,40 @@ def main() -> int:
     check("per_state 但表缺失 → 回落标量",
           abs(S.persistence_for("Z", cfg_ps) - 0.55) < 1e-9)
 
+    print("\n【T9】主状态历史覆盖不足 → HIGH 护栏；充足时不打扰")
+    cfg_h = {"state": {"min_confidence_to_act": 0.65},
+             "disclosure": {"enabled": True, "items": [], "min_history_rows": 250},
+             "data": {"state_file": "state/last_state.json"}}
+    hd = os.path.join(tmp, "state")
+    os.makedirs(hd, exist_ok=True)
+    hp = os.path.join(hd, "state_dominant_history.jsonl")
+    with open(hp, "w", encoding="utf-8") as fh:
+        for i in range(9):
+            fh.write(json.dumps({"date": "2026-10-%02d" % (21 + i),
+                                 "d": {"a": "E"}}) + "\n")
+    it9 = D.build(cfg_h, {"per_index": {}, "as_of": "2026-11-06"}, tmp)
+    h9 = next((i for i in it9 if i["id"] == "d_state_hist"), None)
+    check("9 行 < 250 → 有 HIGH 护栏", h9 is not None and h9["level"] == "HIGH")
+    check("写明行数与回填命令",
+          h9 and "9 行" in h9["text"] and "tools_state_history_backfill.py" in h9["text"],
+          h9["text"] if h9 else "")
+    with open(hp, "w", encoding="utf-8") as fh:
+        for i in range(300):
+            fh.write(json.dumps({"date": "2025-%02d-%02d" % (1 + i // 28, 1 + i % 28),
+                                 "d": {"a": "E"}}) + "\n")
+    it10 = D.build(cfg_h, {"per_index": {}, "as_of": "2026-11-06"}, tmp)
+    check("300 行 ≥ 250 → 不产生噪音",
+          not any(i["id"] == "d_state_hist" for i in it10))
+    cfg_off = {"disclosure": {"enabled": True, "items": []}}
+    check("未配门槛 → 检查关闭（向后兼容）",
+          not any(i["id"] == "d_state_hist"
+                  for i in D.build(cfg_off, {"per_index": {}}, tmp)))
+    os.remove(hp)
+    it11 = D.build(cfg_h, {"per_index": {}}, tmp)
+    h11 = next((i for i in it11 if i["id"] == "d_state_hist"), None)
+    check("文件缺失 → 也提示 HIGH 且写明缺失",
+          h11 is not None and "缺失" in h11["text"], h11["text"] if h11 else "")
+
     print("\n" + "=" * 42)
     print("PASS=%d  FAIL=%d" % (_ok, _fail))
     return 0 if _fail == 0 else 1

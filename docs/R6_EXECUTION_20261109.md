@@ -1,6 +1,6 @@
 # R6 宽缓冲池 · 落地执行与遗留处理
 
-**日期**：2026-11-09　**基线**：`docs/POOL_DYNAMIC_20261109.md`（R0–R6 对比）　**commit**：见文末
+**日期**：2026-11-09　**基线**：`docs/POOL_DYNAMIC_20261109.md`（R0–R6 对比）　**commit**：`1ee5a89`（＋第九节的护栏增量）
 
 **一句话**：把 R6（漏斗 + 进 10 / 出 30 + 5 日平滑）从「回测里最好看的那一行」变成**每天真跑、能回滚、有读数纪律**的生产路径；同时把上一轮遗留的 1 个 P0、5 个 P1、3 个 P2 按「能确定性修的修、要换状态机的不偷换」逐项结清，并把「哪些数字不能当证据」写进每一份决策 JSON。
 
@@ -134,4 +134,39 @@ python state_transition.py                # 打印经验转移矩阵
 python tools_pool_apply.py                # 用最新决策重建池（不改权限）
 python tools_pool_apply.py --audit        # 池历史审计（换手/出池原因）
 python tools_state_history_backfill.py    # 干跑：连续段 8 → 22 日
+python tools_state_history_backfill.py --apply   # 恢复运行时数据（自动备份）
 ```
+
+---
+
+## 九、交付后复盘：运行时数据没跟上代码（2026-11-09 11:0x）
+
+**现象**：`1ee5a89` 提交完成后，工作区被回退到提交前状态——`pool.py`、
+`disclosure.py`、`state_transition.py`、两份新文档、两个新自测全部显示为
+`D`，`engine.py` / `splus_config.yaml` 等显示为 `M`。此时磁盘上的生产链路
+根本跑不起来。回退前的工作区差异已完整备份为
+`/tmp/r6_worktree_before_restore_20261109.patch`（15,085 行），`git restore -- .`
+后工作区与提交完全一致。
+
+**连带问题（更隐蔽）**：`state/state_dominant_history.jsonl` 被 `.gitignore`
+忽略，属运行时数据，**不随 `git restore` 回来**。它退化成最初的 9 行日志，
+于是同一份代码、同一个 `as_of 2026-11-06`，两次运行的 `state_days` 从 21
+变成 9、`state_start` 从 10-09 变成 10-21。这不是算法错误，是「代码有版本、
+数据没版本」造成的伪不幂等；如果没有对比两次落盘结果，它会一直静默。
+
+**处理**：
+
+| 动作 | 结果 |
+|---|---|
+| `python tools_state_history_backfill.py --apply` | 9 → **750 行**（2014-05-05 → 2026-11-06 面板最近 750 日），连续段中位 **8 → 22 日**，117 只中 112 只被修正；写前自动备份 `.bak.<时间戳>` |
+| `disclosure.min_history_rows: 250` | 新增护栏：历史行数低于门槛时，每份决策 JSON 自动挂一条 **HIGH** 披露 `d_state_hist`，写明行数、覆盖区间与回填命令；正常 750 行时不产生噪音。参数外置，设 0 即关闭 |
+| `selftest_disclosure.py` T9 | 4 项断言：9 行→HIGH、写明回填命令、300 行→不打扰、文件缺失→也提示；另验未配门槛时向后兼容 |
+
+**幂等验证**：连续两次 `python run.py`，逐只比对 `state_start` / `state_days`
+与 `total_exposure`，结果完全一致（仅 `generated_at` 时间戳变化）。
+
+**仍待办（部署纪律）**：把「首次部署 / 换机 / 代码回滚后必须重跑
+`tools_state_history_backfill.py --apply`」写进调度检查清单，或把逐日历史
+纳入 point-in-time 台账（与 §六-2 的映射台账一并做）。在此之前，护栏
+`d_state_hist` 是唯一兜底。
+

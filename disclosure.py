@@ -43,6 +43,40 @@ def _pool_stats(base_dir: str) -> Optional[Dict[str, Any]]:
             "excess_t": (e6 or {}).get("t")}
 
 
+def _state_history_coverage(base_dir: str,
+                            cfg: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """主状态逐日历史的覆盖度（只用于披露，不参与计算）。
+
+    state/state_dominant_history.jsonl 被 .gitignore 忽略，属于运行时数据：
+    代码回滚/换机/清理缓存后它可能只剩最近几行，而 state_days 是从它回算的。
+    历史不足时报告会静默把「E 态已 22 日」写成 8 日，且不报错——
+    因此必须由披露层主动喊出来，而不是让读者自己发现。
+    """
+    state_file = (cfg.get("data") or {}).get("state_file") or "state/last_state.json"
+    hist_dir = os.path.dirname(state_file) or "state"
+    path = os.path.join(base_dir, hist_dir, "state_dominant_history.jsonl")
+    if not os.path.exists(path):
+        return None
+    first = last = None
+    rows = 0
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                rec = json.loads(line)
+                d = str(rec.get("date") or "")
+                if not d:
+                    continue
+                first = d if first is None else min(first, d)
+                last = d if last is None else max(last, d)
+                rows += 1
+    except Exception:
+        return {"rows": 0, "first": None, "last": None, "unreadable": True}
+    return {"rows": rows, "first": first, "last": last, "unreadable": False}
+
+
 def build(cfg: Dict[str, Any], result: Dict[str, Any],
           base_dir: str) -> List[Dict[str, Any]]:
     """静态配置披露 + 当日事实披露，按 level 排序返回。"""
@@ -101,6 +135,25 @@ def build(cfg: Dict[str, Any], result: Dict[str, Any],
                      f"（NW t {ps.get('alpha_t')}）。t < 2 → 方向一致但不显著，"
                      "不得把点估计当作预期收益。"),
         })
+
+    # 历史覆盖不足 → state_days 会静默低估（2026-11-09 复盘：文件被 .gitignore
+    # 忽略，代码回滚后只剩 9 行，同一天的 state_days 从 21 变成 9）。
+    # 默认关闭，由 disclosure.min_history_rows 打开；正常 750 行时不产生噪音。
+    min_rows = int(dc.get("min_history_rows") or 0)
+    if min_rows > 0:
+        cov = _state_history_coverage(base_dir, cfg) or {
+            "rows": 0, "first": None, "last": None, "unreadable": True}
+        if cov["rows"] < min_rows:
+            span = (f"{cov['first']} → {cov['last']}" if cov.get("first") else "无有效记录")
+            items.append({
+                "id": "d_state_hist", "level": "HIGH", "kind": "dynamic",
+                "text": (f"主状态逐日历史只有 {cov['rows']} 行（{span}，门槛 {min_rows} 行）："
+                         "报告里的「状态起始日 / 已持续 N 日」由该历史回算，覆盖不足会"
+                         "系统性低估趋势年龄，不得据此判断「刚切换」或「已持续很久」。"
+                         "先跑 python tools_state_history_backfill.py --apply（面板回填约 750 日）"
+                         "再重跑生产。"
+                         + ("当前文件缺失或不可读。" if cov.get("unreadable") else "")),
+            })
 
     lo = result.get("data_lag") or []
     if lo:
