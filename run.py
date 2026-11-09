@@ -205,6 +205,12 @@ def render(res):
         if cap.get("quote_stale"):
             L.append(f"- ⚠️ ETF 行情快照过期 {cap.get('quote_age_hours')} 小时 → "
                      f"容量口径 unknown {cap.get('unknown')} 只，不做硬闸，下单前须复核")
+        if cap.get("quote_intraday"):
+            L.append(f"- ⚠️ ETF 快照取于盘中（半日成交额）：容量闸跳过、池沿用收盘口径、"
+                     f"不驱动换仓；容量口径 unknown {cap.get('unknown')} 只，"
+                     "收盘后刷新才恢复全天硬闸")
+        if pool.get("intraday_hold"):
+            L.append(f"- ⏸ 盘中运行：{pool.get('note')}")
         L.append("")
         L.append("| # | 代码 | 名称 | 状态 | 评级 | rs20(5日) | 置信 | 状态动作 | 指数ADV(亿) | 目标仓位 | 入池 |")
         L.append("|---|---|---|---|---|---|---|---|---|---|---|")

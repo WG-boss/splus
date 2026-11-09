@@ -57,6 +57,8 @@ DEFAULTS: Dict[str, Any] = {
     "adv_share": 0.05,             # 单只不超过 ETF 日成交额的 5%
     "etf_adv_floor_yi": 0.3,
     "quote_max_age_hours": 72,
+    "intraday_skip_capacity": True,  # 盘中半日额不参与容量判定（不驱动换仓）
+    "intraday_hold_pool": True,      # 盘中直接沿用上一收盘池：不重算/不落盘/换手 0
     "freeze_days": 5,              # 熔断后冻结交易日数
     "adv_crash_pct": 0.50,         # ADV 相对上期跌超此比例 → 强制出池并冻结
     "state": {"half_on_D": True, "no_add_on_E": True, "na_below_conf": True},
@@ -150,7 +152,7 @@ def _quote_state(base_dir: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
     rel = (cfg.get("execution_plan") or {}).get("quotes_file", "data/etf_quotes.json")
     path = os.path.join(base_dir, rel)
     out: Dict[str, Any] = {"path": path, "ok": False, "age_hours": None,
-                           "stale": True, "quotes": {}}
+                           "stale": True, "intraday": False, "quotes": {}}
     if not os.path.exists(path):
         return out
     try:
@@ -158,6 +160,8 @@ def _quote_state(base_dir: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
             raw = json.load(fh)
         out["quotes"] = raw.get("quotes") or {}
         out["fetched_at"] = raw.get("fetched_at")
+        # 盘中快照：成交额是半日量，不能当全天 ADV 用（2026-11-09 热备复盘）
+        out["intraday"] = bool(raw.get("intraday"))
         ts = raw.get("fetched_at")
         if ts:
             t0 = datetime.datetime.fromisoformat(str(ts))
@@ -216,18 +220,27 @@ def build(cfg: Dict[str, Any], per_index: Dict[str, Any], loaded: Dict[str, Any]
             rejected.append({"code": c, "reason": "rs_unavailable", "detail": "横截面不足"})
             continue
         # 容量：单只目标市值 = AUM/N，占 ETF 日额 ≤ adv_share。
-        # 快照过期时**不做硬闸**——半天量/隔夜价会把整池误杀；
-        # 降级为 flag，由报告披露，等行情恢复后自动回到硬闸口径。
+        # 只有「收盘后的全天额」才执行硬闸：
+        #   * stale（隔夜/过期）→ 门槛 ×0.5 只挡极端情况；
+        #   * intraday（盘中半日额）→ 完全跳过容量判定，池沿用收盘口径。
+        #     2026-11-09 实测：拿半日额跑硬闸会把 U0 18→9、池 9→6，
+        #     并凭空产生 16.7% 换手；盘中刷新不得驱动任何调仓。
+        # 收盘后刷新（intraday=False）自动恢复全天硬闸口径。
         need = max(float(p["etf_adv_floor_yi"]) * 1e8,
                    (float(p["aum_yi"]) * 1e8 / max(1, n)) / float(p["adv_share"]))
         etf = (qs.get("quotes") or {}).get(str(ins.get("etf_code"))) or {}
         etf_amt = etf.get("amount")
         stale = bool(qs.get("stale"))
+        intraday = bool(qs.get("intraday"))
         cap = {"need": round(need, 1), "etf_amt": etf_amt,
-               "status": "unknown", "pass": True, "stale": stale}
+               "status": "unknown", "pass": True,
+               "stale": stale, "intraday": intraday}
         if etf_amt and stale:
             cap["status"] = "stale"
-            cap["pass"] = float(etf_amt) >= need * 0.5   # 半日量 → 只挡极端情况
+            cap["pass"] = float(etf_amt) >= need * 0.5   # 隔夜额 → 只挡极端情况
+        elif etf_amt and intraday and bool(p.get("intraday_skip_capacity", True)):
+            cap["status"] = "intraday"
+            cap["pass"] = True                          # 盘中快照不参与容量判定
         elif etf_amt:
             cap["status"] = "measured"
             cap["pass"] = float(etf_amt) >= need
@@ -364,11 +377,12 @@ def build(cfg: Dict[str, Any], per_index: Dict[str, Any], loaded: Dict[str, Any]
         "universe_executable": len(u0),
         "rejected": rejected,
         "capacity": {"quote_stale": bool(qs.get("stale")),
+                     "quote_intraday": bool(qs.get("intraday")),
                      "quote_age_hours": qs.get("age_hours"),
-                     # stale 也要计入 unknown：半日量/隔夜额同样不是当日容量
+                     # stale / intraday 也计入 unknown：隔夜额、半日量都不是全天容量
                      "unknown": sum(1 for m in members
                                     if (m.get("capacity") or {}).get("status")
-                                    in ("unknown", "stale"))},
+                                    in ("unknown", "stale", "intraday"))},
         "metrics": {"turnover_one_way": round(turnover, 4),
                     "n": len(members), "n_prev": len(prev_set),
                     "state_mix": _mix(members)},
@@ -478,6 +492,30 @@ def build_and_apply(cfg: Dict[str, Any], per_index: Dict[str, Any],
     if not as_of:
         return {"enabled": False, "mode": mode, "note": "无统一 as_of，跳过建池"}
     prev = load(base_dir, cfg)
+    # 盘中快照（半日成交额）：池不重算、不落盘，直接沿用上一收盘结果。
+    # 2026-11-09 实测：拿 11:42 的半日额跑容量闸，U0 18→9、池 9→6、
+    # 凭空产生 16.7% 换手；跳过容量闸又会放到 U0=51。机构口径是
+    # 「盘中数据不驱动调仓」，所以整个建池动作都跳过，而不是只松一档阈值。
+    qs = _quote_state(base_dir, cfg)
+    if qs.get("intraday") and bool(p.get("intraday_hold_pool", True)):
+        if not prev:
+            return {"enabled": False, "mode": mode, "intraday_hold": True,
+                    "note": "盘中快照（半日额）且无上期池 → 跳过建池，沿用静态 tradeable"}
+        held = dict(prev)
+        held.update(enabled=True, mode=mode, intraday_hold=True, exits=[])
+        held["note"] = ("盘中快照（半日成交额）：池沿用上一收盘结果，"
+                        "未重算、未落盘、换手 0；收盘后刷新自动恢复")
+        # 容量/行情元信息必须反映**当前**快照，不能沿用上期池里过期的
+        # quote_age_hours（否则报告会出现「行情过期 94.6h」与盘中披露打架）。
+        held["capacity"] = dict(held.get("capacity") or {})
+        held["capacity"].update(
+            quote_intraday=True, quote_stale=bool(qs.get("stale")),
+            quote_age_hours=qs.get("age_hours"),
+            unknown=len(held.get("members") or []))
+        held["metrics"] = dict(held.get("metrics") or {})
+        held["metrics"]["turnover_one_way"] = 0.0
+        apply(per_index, held, mode=mode)
+        return held
     pool = build(cfg, per_index, loaded, as_of, base_dir, prev)
     pool["mode"] = mode
     save(base_dir, cfg, pool)

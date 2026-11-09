@@ -471,6 +471,9 @@ pool:
   adv_share: 0.05             # 单只 ≤ ETF 日成交额 5%
   etf_adv_floor_yi: 0.3
   quote_max_age_hours: 72     # 行情过期 → 容量口径降级为 unknown（不做硬闸）
+  intraday_skip_capacity: true # 盘中半日额不参与容量判定：池沿用收盘口径，不凭空换仓
+  intraday_hold_pool: true     # 盘中运行直接沿用上一收盘池（不重算、不落盘、换手 0）
+                              # 收盘后刷新（intraday=false）自动恢复正常建池与全天硬闸
   freeze_days: 5              # 熔断后冻结交易日数
   adv_crash_pct: 0.50         # ADV 相对上期跌超 50% → 强制出池并冻结
   state:
@@ -494,7 +497,7 @@ disclosure:
     - {id: d1, level: HIGH, text: "R0 固定 11 只的 +0.896%/20 日（t 2.04）含事后选样偏差：11 只是 2026 年已知结果后挑的，回测到 2021 等于把答案抄进试卷，不构成证据。"}
     - {id: d2, level: HIGH, text: "全部日频超额 t 在 1.0–1.8 之间，无一过 2；R6 的 14.7x 换手与 13.87% 年化是方向一致但统计不显著，不能按点估计承诺收益。"}
     - {id: d3, level: MED, text: "映射状态用当前快照回测历史，属轻度前视（方向为生存偏差）；只影响「能不能买」，不参与排序。干净做法是维护 point-in-time 映射台账。"}
-    - {id: d4, level: MED, text: "ETF 成交额若为过期/半日快照，容量口径降级为 unknown：不做硬闸，也不代表真有流动性，需行情恢复后复核。"}
+    - {id: d4, level: MED, text: "ETF 容量口径分三态：measured（收盘后全天额，执行硬闸）/ stale（过期，门槛 ×0.5 只挡极端）/ intraday（盘中半日额，容量闸跳过、不驱动换仓）；后两者不代表全天流动性，收盘刷新后复核。"}
     - {id: d5, level: MED, text: "state_weight（概率加权 0–1）与 eligibility.score（0–100 四因子）不可比；报告里的「五态评分」一律指 state_weight。"}
     - {id: d6, level: LOW, text: "组合回测为等权、日频调仓、单边 8bp；未建模冲击成本随规模上升、涨跌停无法成交、ETF 折溢价与申赎限制。"}
     - {id: d7, level: LOW, text: "本文所有数字来自历史回放，不构成投资建议；仓位为模型建议比例，不是下单指令。"}

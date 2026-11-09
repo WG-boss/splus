@@ -226,6 +226,80 @@ def main() -> int:
     check("开关 haircut 作用在截断之后",
           abs(bx3["core"]["exposure"] - 0.15) < 1e-9, str(bx3["core"]))
 
+    print("\n【T11】盘中半日量 → 与 stale 同走宽松闸，不驱动换仓")
+    # 2026-11-09：东财主源挂掉、gtimg 热备在 11:42 拉到的是半日成交额，
+    # 若按全天 ADV 执行硬闸，U0 18→9、池 9→6、凭空产生 16.7% 换手。
+    dp11 = os.path.join(tmp, "data")
+    os.makedirs(dp11, exist_ok=True)
+    qp11 = os.path.join(dp11, "etf_quotes.json")
+    loaded11, per11 = mk_universe()
+    as_of11 = loaded11["c00"]["bars"][-1]["date"]
+    snap = {"fetched_at": datetime.datetime.now().isoformat(timespec="seconds"),
+            "quotes": {"5%05d" % 19: {"amount": 3.5e7}}}
+    json.dump(dict(snap, intraday=True), open(qp11, "w", encoding="utf-8"))
+    pa = P.build(CFG, per11, loaded11, as_of11, tmp)
+    check("3500 万 ≥ 0.5×6000 万 → c19 不被半日量误杀",
+          "c19" in {m["code"] for m in pa["members"]})
+    check("容量状态标 intraday",
+          any((m.get("capacity") or {}).get("status") == "intraday"
+              for m in pa["members"] if m["code"] == "c19"))
+    check("capacity.quote_intraday=True",
+          (pa.get("capacity") or {}).get("quote_intraday") is True)
+    check("intraday 计入 unknown", (pa.get("capacity") or {}).get("unknown", 0) >= 1)
+    json.dump(dict(snap, intraday=True,
+                   quotes={"5%05d" % 19: {"amount": 1e6}}),
+              open(qp11, "w", encoding="utf-8"))
+    pc = P.build(CFG, per11, loaded11, as_of11, tmp)
+    check("盘中极低额也不因容量出局（快照完全不参与判定）",
+          "c19" in {m["code"] for m in pc["members"]})
+    json.dump(dict(snap, intraday=False), open(qp11, "w", encoding="utf-8"))
+    pb = P.build(CFG, per11, loaded11, as_of11, tmp)
+    check("同一金额标全天 → measured 硬闸剔除（口径不可混）",
+          any(r["code"] == "c19" and r["reason"] == "capacity"
+              for r in pb["rejected"]))
+
+    print("\n【T12】盘中快照 → 沿用上期池，不重算 / 不落盘 / 换手 0")
+    tmp3 = tempfile.mkdtemp(prefix="pooltest_hold_")
+    for sub in ("data", "state"):
+        os.makedirs(os.path.join(tmp3, sub), exist_ok=True)
+    qp12 = os.path.join(tmp3, "data", "etf_quotes.json")
+    json.dump({"fetched_at": datetime.datetime.now().isoformat(timespec="seconds"),
+               "intraday": True, "quotes": {}},
+              open(qp12, "w", encoding="utf-8"))
+    prev_pool = {
+        "enabled": True, "as_of": as_of11, "rule": "R6-wide-buffer",
+        "universe_executable": 18,
+        "members": [{"code": "c19", "name": "标的19", "rank": 1,
+                     "reason": "keep", "rating": "A", "state_action": "normal",
+                     "add_allowed": True, "weight_mult": 1.0,
+                     "since": "2024-01-01", "rs20": 0.1}],
+        "metrics": {"turnover_one_way": 0.0}, "capacity": {"unknown": 0},
+    }
+    pfile = os.path.join(tmp3, "state", "tradeable_pool.json")
+    json.dump(prev_pool, open(pfile, "w", encoding="utf-8"))
+    cfg_dyn = json.loads(json.dumps(CFG))
+    cfg_dyn["pool"]["mode"] = "dynamic"
+    per12 = json.loads(json.dumps(per11))
+    held = P.build_and_apply(cfg_dyn, per12, loaded11, as_of11, tmp3)
+    check("intraday_hold=True", held.get("intraday_hold") is True)
+    check("成员沿用上期 c19", [m["code"] for m in held["members"]] == ["c19"])
+    check("换手 0", held["metrics"]["turnover_one_way"] == 0.0)
+    check("容量元信息按当前快照刷新（不沿用上期 unknown=0）",
+          held["capacity"]["unknown"] == 1
+          and held["capacity"]["quote_intraday"] is True)
+    check("quote_age_hours 来自当前快照",
+          held["capacity"].get("quote_age_hours") is not None)
+    check("池文件未被盘中运行改写",
+          json.load(open(pfile, encoding="utf-8")) == prev_pool)
+    check("dynamic 权限按上期池应用",
+          per12["c19"]["tradeable"] is True and per12["c00"]["tradeable"] is False)
+    json.dump(dict(snap, intraday=False), open(qp12, "w", encoding="utf-8"))
+    normal = P.build_and_apply(cfg_dyn, per12, loaded11, as_of11, tmp3)
+    check("收盘口径 → 正常重算（无 intraday_hold）",
+          not normal.get("intraday_hold"))
+    check("收盘口径 → 池文件被更新",
+          json.load(open(pfile, encoding="utf-8")) != prev_pool)
+
     print("\n" + "=" * 42)
     print("PASS=%d  FAIL=%d" % (_ok, _fail))
     return 0 if _fail == 0 else 1

@@ -77,6 +77,24 @@ def _state_history_coverage(base_dir: str,
     return {"rows": rows, "first": first, "last": last, "unreadable": False}
 
 
+def _quotes_meta(base_dir: str,
+                 cfg: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """行情快照的来源元信息：是否走了热备、是否盘中半日量。"""
+    fname = ((cfg.get("execution_plan") or {}).get("quotes_file")
+             or "data/etf_quotes.json")
+    p = os.path.join(base_dir, fname)
+    if not os.path.exists(p):
+        return None
+    try:
+        with open(p, encoding="utf-8") as fh:
+            d = json.load(fh)
+    except Exception:
+        return None
+    return {"fallback": d.get("fallback") or {},
+            "intraday": bool(d.get("intraday")),
+            "count": d.get("count")}
+
+
 def build(cfg: Dict[str, Any], result: Dict[str, Any],
           base_dir: str) -> List[Dict[str, Any]]:
     """静态配置披露 + 当日事实披露，按 level 排序返回。"""
@@ -124,6 +142,26 @@ def build(cfg: Dict[str, Any], result: Dict[str, Any],
                 "id": "d_freeze", "level": "MED", "kind": "dynamic",
                 "text": "熔断出池：" + "；".join(pool["frozen_today"].values()),
             })
+
+    # 行情来源护栏（2026-11-09）：主源东财可用时什么都不写；只有走了
+    # gtimg 热备或盘中半日量才披露，避免把备源快照读成常规全日行情。
+    qm = _quotes_meta(base_dir, cfg)
+    if qm and (qm["fallback"].get("used") or qm["intraday"]):
+        fb = qm["fallback"]
+        bits = []
+        if fb.get("used"):
+            bits.append(
+                f"ETF 行情主源（东方财富）不可用，本快照由腾讯 gtimg 热备生成"
+                f"（命中 {fb.get('returned')}/{fb.get('requested')} 只，"
+                f"{fb.get('batches')} 批 / 失败 {fb.get('batch_failed')} 批）")
+        if qm["intraday"]:
+            bits.append("快照取于盘中，成交额是半日量 → 容量闸与建池均跳过，"
+                        "池沿用上一收盘结果（未重算/未落盘/换手 0）、不驱动调仓；"
+                        "收盘后刷新才恢复全天硬闸，期间不代表全天流动性")
+        items.append({
+            "id": "d_quote_src", "level": "MED", "kind": "dynamic",
+            "text": "；".join(bits) + "。",
+        })
 
     ps = _pool_stats(base_dir)
     if ps:

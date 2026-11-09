@@ -162,6 +162,31 @@ def main() -> int:
     check("文件缺失 → 也提示 HIGH 且写明缺失",
           h11 is not None and "缺失" in h11["text"], h11["text"] if h11 else "")
 
+    print("\n【T10】行情热备 / 盘中半日量 → 来源披露；常规快照不打扰")
+    dd = os.path.join(tmp, "data")
+    os.makedirs(dd, exist_ok=True)
+    qp = os.path.join(dd, "etf_quotes.json")
+    json.dump({"fallback": {"used": True, "returned": 1370, "requested": 1376,
+                            "batches": 23, "batch_failed": 0},
+               "intraday": True, "count": 1370},
+              open(qp, "w", encoding="utf-8"))
+    it12 = D.build(CFG, {"per_index": {}}, tmp)
+    q12 = next((i for i in it12 if i["id"] == "d_quote_src"), None)
+    check("热备 → MED 来源披露", q12 is not None and q12["level"] == "MED")
+    check("写明命中数与 gtimg",
+          q12 and "1370/1376" in q12["text"] and "gtimg" in q12["text"],
+          q12["text"] if q12 else "")
+    check("写明半日量偏保守", q12 and "半日量" in q12["text"])
+    json.dump({"fallback": {"used": False}, "intraday": False, "count": 1370},
+              open(qp, "w", encoding="utf-8"))
+    check("常规快照 → 不产生噪音",
+          not any(i["id"] == "d_quote_src"
+                  for i in D.build(CFG, {"per_index": {}}, tmp)))
+    os.remove(qp)
+    check("文件缺失 → 不崩且不编造",
+          not any(i["id"] == "d_quote_src"
+                  for i in D.build(CFG, {"per_index": {}}, tmp)))
+
     print("\n" + "=" * 42)
     print("PASS=%d  FAIL=%d" % (_ok, _fail))
     return 0 if _fail == 0 else 1

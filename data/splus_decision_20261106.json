@@ -21,7 +21,7 @@
     },
     "synthetic_note": "假设组合等权净值，仅供参考，不参与账户级节流"
   },
-  "generated_at": "2026-11-09 11:18:29",
+  "generated_at": "2026-11-09 11:56:11",
   "config_version": "1.0.0",
   "per_index": {
     "000688": {
@@ -117,7 +117,7 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 23.7,
+        "score": 22.0,
         "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
@@ -130,7 +130,7 @@
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.0552,
+          "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -206,7 +206,7 @@
           "top_score": 1.0,
           "top_code": "588150",
           "top_name": "科创50ETF南方",
-          "top_amount_cny": 34965607.0,
+          "top_amount_cny": 20473617.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -315,20 +315,20 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 48.9,
-        "tier": "OBSERVE",
+        "score": 26.4,
+        "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
         "permission": {
           "add": false,
           "size_mult": 0.0,
-          "reason": "资格 OBSERVE ×0"
+          "reason": "资格 FROZEN ×0"
         },
         "family": "event",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.8959,
+          "investability": 0.1483,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -399,14 +399,16 @@
         "market": "sz",
         "qdii": false,
         "review": {
-          "risk": "low",
-          "flags": [],
+          "risk": "medium",
+          "flags": [
+            "thin_liquidity"
+          ],
           "top_score": 1.0,
           "top_code": "159298",
           "top_name": "创业板50ETF大成",
-          "top_amount_cny": 19098742.3,
+          "top_amount_cny": 8210026.0,
           "reviewed_at": "2026-11-09",
-          "note": "名称高度吻合，仍需人工核对跟踪指数"
+          "note": "自动候选，需人工核对跟踪指数与流动性"
         }
       },
       "governance_gate": {
@@ -513,26 +515,25 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 42.0,
-        "tier": "OBSERVE",
-        "tier_multiplier": 0.0,
+        "score": 72.0,
+        "tier": "REDUCED",
+        "tier_multiplier": 0.5,
         "rating": "NA",
         "permission": {
           "add": false,
-          "size_mult": 0.0,
-          "reason": "资格 OBSERVE ×0；置信不足不加仓"
+          "size_mult": 0.5,
+          "reason": "资格 REDUCED ×0.5；置信不足不加仓"
         },
         "family": "reference",
         "dominant": "A",
-        "investability_status": "unknown_no_quote",
+        "investability_status": "measured",
         "factors": {
-          "investability": 0.0,
+          "investability": 1.0,
           "state_fit": 0.5,
           "data_quality": 0.6,
           "map_ready": 1.0
         },
         "notes": [
-          "amount 缺失（unknown_no_quote）→ investability 保守 0",
           "置信度 0.40 < 门槛 0.65 → 评级 NA（只持有/观察，不加仓）"
         ]
       },
@@ -601,7 +602,7 @@
           "top_score": 0.6,
           "top_code": "516500",
           "top_name": "生物科技ETF华夏",
-          "top_amount_cny": 3532949.0,
+          "top_amount_cny": 1234574.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -803,7 +804,7 @@
           "top_score": 1.0,
           "top_code": "159048",
           "top_name": "机器人ETF大成",
-          "top_amount_cny": 19728843.67,
+          "top_amount_cny": 18022623.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -912,20 +913,20 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 52.0,
-        "tier": "OBSERVE",
+        "score": 29.9,
+        "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
         "permission": {
           "add": false,
           "size_mult": 0.0,
-          "reason": "资格 OBSERVE ×0"
+          "reason": "资格 FROZEN ×0"
         },
         "family": "offense",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 1.0,
+          "investability": 0.2634,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -1001,7 +1002,7 @@
           "top_score": 1.0,
           "top_code": "159582",
           "top_name": "半导体ETF博时",
-          "top_amount_cny": 182494834.78,
+          "top_amount_cny": 53708792.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -1076,7 +1077,7 @@
       "pool": {
         "member": true,
         "rank": 5,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "no_add",
         "add_allowed": false,
@@ -1224,7 +1225,7 @@
           "top_score": 1.0,
           "top_code": "517380",
           "top_name": "创新药ETF天弘",
-          "top_amount_cny": 173168226.0,
+          "top_amount_cny": 55748821.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -1549,7 +1550,7 @@
           "top_score": 0.5,
           "top_code": "512620",
           "top_name": "农业ETF天弘",
-          "top_amount_cny": 2867545.0,
+          "top_amount_cny": 8290084.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -1747,7 +1748,7 @@
           "top_score": 0.7143,
           "top_code": "159327",
           "top_name": "半导体设备ETF万家",
-          "top_amount_cny": 209567169.9,
+          "top_amount_cny": 132147086.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -2251,7 +2252,7 @@
           "top_score": 1.0,
           "top_code": "510380",
           "top_name": "沪深300ETF国寿",
-          "top_amount_cny": 527278.0,
+          "top_amount_cny": 885133.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -2451,7 +2452,7 @@
           "top_score": 1.0,
           "top_code": "515550",
           "top_name": "中证500ETF国联",
-          "top_amount_cny": 995562.0,
+          "top_amount_cny": 438297.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -2655,7 +2656,7 @@
           "top_score": 0.4615,
           "top_code": "159808",
           "top_name": "创100ETF融通",
-          "top_amount_cny": 2840350.9,
+          "top_amount_cny": 3682119.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -2855,7 +2856,7 @@
           "top_score": 1.0,
           "top_code": "510290",
           "top_name": "上证380ETF南方",
-          "top_amount_cny": 2005448.0,
+          "top_amount_cny": 2214714.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -3056,7 +3057,7 @@
           "top_score": 1.0,
           "top_code": "530680",
           "top_name": "上证180ETF兴业",
-          "top_amount_cny": 425604.0,
+          "top_amount_cny": 441.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -3131,7 +3132,7 @@
       "pool": {
         "member": true,
         "rank": 2,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "half",
         "add_allowed": false,
@@ -3189,7 +3190,7 @@
         "after": 0.2756
       },
       "eligibility": {
-        "score": 51.1,
+        "score": 50.0,
         "tier": "OBSERVE",
         "tier_multiplier": 0.0,
         "rating": "NA",
@@ -3202,7 +3203,7 @@
         "dominant": "D",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.0363,
+          "investability": 0.0,
           "state_fit": 0.5,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -3278,7 +3279,7 @@
           "top_score": 0.9167,
           "top_code": "159905",
           "top_name": "红利ETF工银",
-          "top_amount_cny": 33266045.5,
+          "top_amount_cny": 20134538.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -3479,7 +3480,7 @@
           "top_score": 1.0,
           "top_code": "510680",
           "top_name": "上证50ETF万家",
-          "top_amount_cny": 2703283.0,
+          "top_amount_cny": 1926530.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -3667,7 +3668,7 @@
           "top_score": 1.0,
           "top_code": "510130",
           "top_name": "上证中盘ETF易方达",
-          "top_amount_cny": 4759707.0,
+          "top_amount_cny": 367087.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -3787,7 +3788,7 @@
         },
         "family": "reference",
         "dominant": "E",
-        "investability_status": "measured",
+        "investability_status": "unknown_no_quote",
         "factors": {
           "investability": 0.0,
           "state_fit": 0.0,
@@ -3795,6 +3796,7 @@
           "map_ready": 1.0
         },
         "notes": [
+          "amount 缺失（unknown_no_quote）→ investability 保守 0",
           "StateFit=0（E 态 × reference）→ FROZEN 硬闸",
           "置信度 0.39 < 门槛 0.65 → 评级 NA（只持有/观察，不加仓）"
         ]
@@ -3819,16 +3821,14 @@
         "market": "sh",
         "qdii": false,
         "review": {
-          "risk": "medium",
-          "flags": [
-            "thin_liquidity"
-          ],
+          "risk": "low",
+          "flags": [],
           "top_score": 0.9167,
           "top_code": "510090",
           "top_name": "责任ETF建信",
-          "top_amount_cny": 36331.0,
+          "top_amount_cny": null,
           "reviewed_at": "2026-11-09",
-          "note": "自动候选，需人工核对跟踪指数与流动性"
+          "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
       },
       "governance_gate": {
@@ -3901,7 +3901,7 @@
       "pool": {
         "member": true,
         "rank": 4,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
@@ -4049,7 +4049,7 @@
           "top_score": 0.75,
           "top_code": "510760",
           "top_name": "上证指数ETF国泰",
-          "top_amount_cny": 271969155.0,
+          "top_amount_cny": 276954158.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -4238,7 +4238,7 @@
           "top_score": 0.5,
           "top_code": "510910",
           "top_name": "上证指数ETF南方",
-          "top_amount_cny": 29970419.0,
+          "top_amount_cny": 23428024.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -4439,7 +4439,7 @@
           "top_score": 0.6,
           "top_code": "515650",
           "top_name": "消费50ETF富国",
-          "top_amount_cny": 75170203.0,
+          "top_amount_cny": 42727301.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -4639,7 +4639,7 @@
           "top_score": 1.0,
           "top_code": "563860",
           "top_name": "中证A500ETF海富通",
-          "top_amount_cny": 3410383.0,
+          "top_amount_cny": 5088131.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -4714,7 +4714,7 @@
       "pool": {
         "member": true,
         "rank": 15,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "E",
         "state_action": "hold_only",
         "add_allowed": false,
@@ -4742,7 +4742,7 @@
           "dd": "组合回撤 0.0% → 系数 1.00",
           "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
-          "eligibility": "B2 档位权限 OBSERVE ×0 → 2.33%→0.00%（禁开仓归零）"
+          "eligibility": "B2 档位权限 FROZEN ×0 → 2.33%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -4770,20 +4770,20 @@
         "after": 0.1027
       },
       "eligibility": {
-        "score": 52.0,
-        "tier": "OBSERVE",
+        "score": 36.7,
+        "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
         "permission": {
           "add": false,
           "size_mult": 0.0,
-          "reason": "资格 OBSERVE ×0"
+          "reason": "资格 FROZEN ×0"
         },
         "family": "offense",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 1.0,
+          "investability": 0.49,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -4859,7 +4859,7 @@
           "top_score": 1.0,
           "top_code": "589190",
           "top_name": "科创芯片ETF华宝",
-          "top_amount_cny": 36717720.0,
+          "top_amount_cny": 38996839.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -5057,7 +5057,7 @@
           "top_score": 1.0,
           "top_code": "588210",
           "top_name": "科创100ETF易方达",
-          "top_amount_cny": 18311174.0,
+          "top_amount_cny": 10170176.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -5254,12 +5254,13 @@
         "review": {
           "risk": "medium",
           "flags": [
-            "score_low"
+            "score_low",
+            "thin_liquidity"
           ],
           "top_score": 0.5,
           "top_code": "159129",
           "top_name": "化工ETF嘉实",
-          "top_amount_cny": 11530388.0,
+          "top_amount_cny": 5258514.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -5334,7 +5335,7 @@
       "pool": {
         "member": true,
         "rank": 9,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "E",
         "state_action": "hold_only",
         "add_allowed": false,
@@ -5481,7 +5482,7 @@
           "top_score": 1.0,
           "top_code": "512100",
           "top_name": "中证1000ETF南方",
-          "top_amount_cny": 3699203434.0,
+          "top_amount_cny": 1949163494.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -5676,7 +5677,7 @@
           "top_score": 1.0,
           "top_code": "515080",
           "top_name": "中证红利ETF招商",
-          "top_amount_cny": 326239023.0,
+          "top_amount_cny": 164241753.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -5785,7 +5786,7 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 34.1,
+        "score": 30.0,
         "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
@@ -5798,7 +5799,7 @@
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.1365,
+          "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -5850,7 +5851,7 @@
           "top_score": 1.0,
           "top_code": "159943",
           "top_name": "深证成指ETF大成",
-          "top_amount_cny": 42286514.7,
+          "top_amount_cny": 16240875.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -6050,7 +6051,7 @@
           "top_score": 1.0,
           "top_code": "159902",
           "top_name": "中小100ETF华夏",
-          "top_amount_cny": 5113895.2,
+          "top_amount_cny": 2402940.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -6251,7 +6252,7 @@
           "top_score": 0.7273,
           "top_code": "159289",
           "top_name": "创业板综指ETF鹏华",
-          "top_amount_cny": 3944744.7,
+          "top_amount_cny": 1931044.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -6452,7 +6453,7 @@
           "top_score": 0.7692,
           "top_code": "159836",
           "top_name": "创业板300ETF天弘",
-          "top_amount_cny": 2069641.2,
+          "top_amount_cny": 2052489.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -6654,7 +6655,7 @@
           "top_score": 0.7692,
           "top_code": "159571",
           "top_name": "创业板200ETF富国",
-          "top_amount_cny": 2602239.3,
+          "top_amount_cny": 2147847.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -6855,7 +6856,7 @@
           "top_score": 1.0,
           "top_code": "159541",
           "top_name": "创业板综ETF万家",
-          "top_amount_cny": 8350679.6,
+          "top_amount_cny": 5064186.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -7057,7 +7058,7 @@
           "top_score": 0.7273,
           "top_code": "158072",
           "top_name": "创业板软件ETF南方",
-          "top_amount_cny": 4067484.12,
+          "top_amount_cny": 3248782.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -7132,7 +7133,7 @@
       "pool": {
         "member": true,
         "rank": 8,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
@@ -7188,7 +7189,7 @@
         "after": 0.1588
       },
       "eligibility": {
-        "score": 27.9,
+        "score": 23.5,
         "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "NA",
@@ -7201,7 +7202,7 @@
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.1953,
+          "investability": 0.0502,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -7278,7 +7279,7 @@
           "top_score": 1.0,
           "top_code": "589960",
           "top_name": "科创新能源ETF易方达",
-          "top_amount_cny": 47577020.0,
+          "top_amount_cny": 34518307.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -7476,7 +7477,7 @@
           "top_score": 0.9167,
           "top_code": "588700",
           "top_name": "科创医药ETF嘉实",
-          "top_amount_cny": 41611620.0,
+          "top_amount_cny": 16853538.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -7647,7 +7648,7 @@
           "top_score": 0.9167,
           "top_code": "159777",
           "top_name": "创科技ETF国联安",
-          "top_amount_cny": 3560001.5,
+          "top_amount_cny": 1408618.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -7808,7 +7809,7 @@
           "top_score": 0.5,
           "top_code": "159804",
           "top_name": "创中盘88ETF国寿",
-          "top_amount_cny": 655897.1,
+          "top_amount_cny": 258297.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -8006,7 +8007,7 @@
           "top_score": 1.0,
           "top_code": "159814",
           "top_name": "创业大盘ETF西部利得",
-          "top_amount_cny": 21779112.9,
+          "top_amount_cny": 10714497.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -8207,7 +8208,7 @@
           "top_score": 0.9167,
           "top_code": "588910",
           "top_name": "科创价值ETF建信",
-          "top_amount_cny": 7218416.0,
+          "top_amount_cny": 6780368.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -8408,7 +8409,7 @@
           "top_score": 0.9167,
           "top_code": "589490",
           "top_name": "科创成长ETF华夏",
-          "top_amount_cny": 6282673.0,
+          "top_amount_cny": 4283623.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -8608,7 +8609,7 @@
           "top_score": 1.0,
           "top_code": "159907",
           "top_name": "国证2000ETF广发",
-          "top_amount_cny": 8639314.7,
+          "top_amount_cny": 4737120.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -8811,7 +8812,7 @@
           "top_score": 0.6,
           "top_code": "515080",
           "top_name": "中证红利ETF招商",
-          "top_amount_cny": 326239023.0,
+          "top_amount_cny": 164241753.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -8977,7 +8978,7 @@
           "top_score": 0.4444,
           "top_code": "159906",
           "top_name": "深成长ETF大成",
-          "top_amount_cny": 8335050.4,
+          "top_amount_cny": 3222339.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -9177,7 +9178,7 @@
           "top_score": 1.0,
           "top_code": "159576",
           "top_name": "深证100ETF广发",
-          "top_amount_cny": 4620807.7,
+          "top_amount_cny": 4060711.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -9379,7 +9380,7 @@
           "top_score": 0.6667,
           "top_code": "159913",
           "top_name": "深价值ETF交银",
-          "top_amount_cny": 9481.1,
+          "top_amount_cny": 163149.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -9580,7 +9581,7 @@
           "top_score": 1.0,
           "top_code": "159728",
           "top_name": "在线消费ETF南方",
-          "top_amount_cny": 1682439.3,
+          "top_amount_cny": 3637153.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -9782,7 +9783,7 @@
           "top_score": 0.5714,
           "top_code": "159106",
           "top_name": "民企300ETF前海开源",
-          "top_amount_cny": 435421.6,
+          "top_amount_cny": 354270.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -9984,7 +9985,7 @@
           "top_score": 0.5,
           "top_code": "158047",
           "top_name": "粮食ETF永赢",
-          "top_amount_cny": 848010.55,
+          "top_amount_cny": 806347.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -10184,7 +10185,7 @@
           "top_score": 1.0,
           "top_code": "158026",
           "top_name": "大盘成长ETF华夏",
-          "top_amount_cny": 766887.93,
+          "top_amount_cny": 540118.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -10384,7 +10385,7 @@
           "top_score": 1.0,
           "top_code": "159391",
           "top_name": "大盘价值ETF博时",
-          "top_amount_cny": 2433748.1,
+          "top_amount_cny": 1672766.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -10584,7 +10585,7 @@
           "top_score": 1.0,
           "top_code": "159653",
           "top_name": "ESG300ETF国联安",
-          "top_amount_cny": 1299.6,
+          "top_amount_cny": 124285.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -10786,7 +10787,7 @@
           "top_score": 0.5,
           "top_code": "515560",
           "top_name": "证券ETF建信",
-          "top_amount_cny": 1500028.0,
+          "top_amount_cny": 4481059.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -10981,12 +10982,13 @@
         "review": {
           "risk": "medium",
           "flags": [
-            "score_low"
+            "score_low",
+            "thin_liquidity"
           ],
           "top_score": 0.5,
           "top_code": "159151",
           "top_name": "食品ETF华夏",
-          "top_amount_cny": 21375081.7,
+          "top_amount_cny": 6108730.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -11152,7 +11154,7 @@
           "top_score": 0.5,
           "top_code": "159662",
           "top_name": "交运ETF南方",
-          "top_amount_cny": 5166162.2,
+          "top_amount_cny": 2834720.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -11354,7 +11356,7 @@
           "top_score": 0.5,
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
-          "top_amount_cny": 28775271.4,
+          "top_amount_cny": 22441176.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -11552,7 +11554,7 @@
           "top_score": 1.0,
           "top_code": "159669",
           "top_name": "绿色电力ETF国泰",
-          "top_amount_cny": 2051897.2,
+          "top_amount_cny": 807440.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -11725,7 +11727,7 @@
           "top_score": 0.5,
           "top_code": "561760",
           "top_name": "油气ETF博时",
-          "top_amount_cny": 2188245.0,
+          "top_amount_cny": 5397924.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -11834,7 +11836,7 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 55.6,
+        "score": 50.0,
         "tier": "OBSERVE",
         "tier_multiplier": 0.0,
         "rating": "NA",
@@ -11847,7 +11849,7 @@
         "dominant": "A",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.1865,
+          "investability": 0.0,
           "state_fit": 0.5,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -11923,7 +11925,7 @@
           "top_score": 1.0,
           "top_code": "159859",
           "top_name": "生物医药ETF天弘",
-          "top_amount_cny": 142247621.3,
+          "top_amount_cny": 55012763.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -12124,7 +12126,7 @@
           "top_score": 1.0,
           "top_code": "159965",
           "top_name": "央视50ETF国联",
-          "top_amount_cny": 678605.5,
+          "top_amount_cny": 644845.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -12288,7 +12290,7 @@
           "top_score": 1.0,
           "top_code": "159909",
           "top_name": "TMT50ETF招商",
-          "top_amount_cny": 3601805.0,
+          "top_amount_cny": 1539587.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -12488,7 +12490,7 @@
           "top_score": 1.0,
           "top_code": "159918",
           "top_name": "中创400ETF嘉实",
-          "top_amount_cny": 1568991.5,
+          "top_amount_cny": 518578.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -12689,7 +12691,7 @@
           "top_score": 0.7273,
           "top_code": "158025",
           "top_name": "创业板成长ETF鹏华",
-          "top_amount_cny": 3156297.17,
+          "top_amount_cny": 960249.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -12891,7 +12893,7 @@
           "top_score": 0.7692,
           "top_code": "159578",
           "top_name": "深证主板50ETF南方",
-          "top_amount_cny": 418575.5,
+          "top_amount_cny": 189220.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -13094,7 +13096,7 @@
           "top_score": 0.5,
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
-          "top_amount_cny": 28775271.4,
+          "top_amount_cny": 22441176.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -13296,7 +13298,7 @@
           "top_score": 0.5455,
           "top_code": "510530",
           "top_name": "中证500ETF工银",
-          "top_amount_cny": 7514924.0,
+          "top_amount_cny": 4044757.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -13491,7 +13493,7 @@
           "top_score": 0.5,
           "top_code": "159828",
           "top_name": "医疗ETF国泰",
-          "top_amount_cny": 94867301.56,
+          "top_amount_cny": 37368974.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -13694,7 +13696,7 @@
           "top_score": 0.5,
           "top_code": "560290",
           "top_name": "有色ETF景顺",
-          "top_amount_cny": 4163206.0,
+          "top_amount_cny": 1078353.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -13898,7 +13900,7 @@
           "top_score": 0.5,
           "top_code": "159993",
           "top_name": "证券ETF鹏华",
-          "top_amount_cny": 28775271.4,
+          "top_amount_cny": 22441176.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -13973,7 +13975,7 @@
       "pool": {
         "member": true,
         "rank": 1,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "half",
         "add_allowed": false,
@@ -13986,17 +13988,16 @@
         "coef_dd": 1.0,
         "coef_corr": 1.0,
         "state_weight": 0.2869,
-        "final": 0.03585,
+        "final": 0.0,
         "raw_before_clamp": 0.2869,
-        "binding": "state",
+        "binding": "eligibility",
         "decomposition": {
           "vol": 1.0,
           "dd": 1.0,
           "corr": 1.0,
           "state": 0.2869,
           "pool_state": 0.5,
-          "eligibility": 0.5,
-          "modulation": 0.5
+          "eligibility": 0.0
         },
         "notes": {
           "vol": "vol目标 15% / 实际 12.4% = 100%",
@@ -14004,8 +14005,7 @@
           "corr": "相关性 0.50（阈值 0.70）→ 系数 1.00",
           "binding": "生效约束 state（四层取最小）",
           "pool_state": "池状态动作 half ×0.5 → 28.69%→14.34%",
-          "eligibility": "B2 档位权限 REDUCED ×0.5 → 14.34%→7.17%（降杠杆）",
-          "modulation": "B2 状态调制 M=0.50（E 态占比 79%）"
+          "eligibility": "B2 档位权限 OBSERVE ×0 → 14.34%→0.00%（禁开仓归零）"
         }
       },
       "execution": {
@@ -14033,20 +14033,20 @@
         "after": 0.2869
       },
       "eligibility": {
-        "score": 66.7,
-        "tier": "REDUCED",
-        "tier_multiplier": 0.5,
+        "score": 56.8,
+        "tier": "OBSERVE",
+        "tier_multiplier": 0.0,
         "rating": "NA",
         "permission": {
           "add": false,
-          "size_mult": 0.5,
-          "reason": "资格 REDUCED ×0.5；置信不足不加仓"
+          "size_mult": 0.0,
+          "reason": "资格 OBSERVE ×0；置信不足不加仓"
         },
         "family": "offense",
         "dominant": "D",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.5568,
+          "investability": 0.2258,
           "state_fit": 0.5,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -14124,7 +14124,7 @@
           "top_score": 1.0,
           "top_code": "515480",
           "top_name": "红利低波100ETF南方",
-          "top_amount_cny": 1269680.0,
+          "top_amount_cny": 788360.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -14233,20 +14233,20 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 60.0,
-        "tier": "REDUCED",
-        "tier_multiplier": 0.5,
+        "score": 45.7,
+        "tier": "OBSERVE",
+        "tier_multiplier": 0.0,
         "rating": "E",
         "permission": {
           "add": false,
-          "size_mult": 0.5,
-          "reason": "资格 REDUCED ×0.5"
+          "size_mult": 0.0,
+          "reason": "资格 OBSERVE ×0"
         },
         "family": "reference",
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 1.0,
+          "investability": 0.5244,
           "state_fit": 0.0,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -14324,7 +14324,7 @@
           "top_score": 1.0,
           "top_code": "589410",
           "top_name": "科创人工智能ETF嘉实",
-          "top_amount_cny": 6327534.0,
+          "top_amount_cny": 1845848.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -14521,12 +14521,13 @@
           "risk": "high",
           "flags": [
             "top_candidate_conflict",
-            "score_low"
+            "score_low",
+            "thin_liquidity"
           ],
           "top_score": 0.5,
           "top_code": "159511",
           "top_name": "通信ETF南方",
-          "top_amount_cny": 12130196.4,
+          "top_amount_cny": 9442122.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -14717,12 +14718,13 @@
           "risk": "high",
           "flags": [
             "top_candidate_conflict",
-            "score_low"
+            "score_low",
+            "thin_liquidity"
           ],
           "top_score": 0.5,
           "top_code": "159511",
           "top_name": "通信ETF南方",
-          "top_amount_cny": 12130196.4,
+          "top_amount_cny": 9442122.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -14912,7 +14914,7 @@
           "top_score": 0.5,
           "top_code": "517400",
           "top_name": "黄金股ETF国泰",
-          "top_amount_cny": 106029628.0,
+          "top_amount_cny": 33874055.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -15098,7 +15100,7 @@
           "top_score": 0.5,
           "top_code": "517350",
           "top_name": "沪港深科技ETF广发",
-          "top_amount_cny": 334676.0,
+          "top_amount_cny": 249408.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -15302,7 +15304,7 @@
           "top_score": 0.5455,
           "top_code": "159550",
           "top_name": "互联网ETF东财",
-          "top_amount_cny": 4170736.3,
+          "top_amount_cny": 1840205.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -15503,7 +15505,7 @@
           "top_score": 1.0,
           "top_code": "588350",
           "top_name": "科创创业50ETF鹏扬",
-          "top_amount_cny": 2605467.0,
+          "top_amount_cny": 4306534.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -15706,7 +15708,7 @@
           "top_score": 0.5,
           "top_code": "159077",
           "top_name": "电池ETF鑫元",
-          "top_amount_cny": 1428434.68,
+          "top_amount_cny": 1825536.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -15781,7 +15783,7 @@
       "pool": {
         "member": true,
         "rank": 7,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "hold_only",
         "add_allowed": false,
@@ -15837,7 +15839,7 @@
         "after": 0.1321
       },
       "eligibility": {
-        "score": 34.6,
+        "score": 30.0,
         "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "NA",
@@ -15850,7 +15852,7 @@
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.1521,
+          "investability": 0.0,
           "state_fit": 0.0,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -15909,7 +15911,7 @@
           "top_score": 0.6667,
           "top_code": "561380",
           "top_name": "电网设备ETF国泰",
-          "top_amount_cny": 43689533.0,
+          "top_amount_cny": 21602359.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -16107,7 +16109,7 @@
           "top_score": 0.7778,
           "top_code": "589020",
           "top_name": "科创半导体设备ETF鹏华",
-          "top_amount_cny": 1286252336.0,
+          "top_amount_cny": 478001687.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -16307,7 +16309,7 @@
           "top_score": 1.0,
           "top_code": "530530",
           "top_name": "上证580ETF华夏",
-          "top_amount_cny": 498528.0,
+          "top_amount_cny": 101601.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -16416,7 +16418,7 @@
       },
       "l2_suppress": null,
       "eligibility": {
-        "score": 29.1,
+        "score": 25.4,
         "tier": "FROZEN",
         "tier_multiplier": 0.0,
         "rating": "E",
@@ -16429,7 +16431,7 @@
         "dominant": "E",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.2376,
+          "investability": 0.1118,
           "state_fit": 0.0,
           "data_quality": 0.6,
           "map_ready": 1.0
@@ -16507,7 +16509,7 @@
           "top_score": 1.0,
           "top_code": "158031",
           "top_name": "创业板人工智能ETF易方达",
-          "top_amount_cny": 7754568.89,
+          "top_amount_cny": 3610860.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -16706,7 +16708,7 @@
           "top_score": 1.0,
           "top_code": "158078",
           "top_name": "创业板电池ETF华宝",
-          "top_amount_cny": 18918138.4,
+          "top_amount_cny": 16382728.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -16904,7 +16906,7 @@
           "top_score": 1.0,
           "top_code": "158055",
           "top_name": "创业板算力ETF国泰",
-          "top_amount_cny": 77486427.3,
+          "top_amount_cny": 50812002.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -17105,7 +17107,7 @@
           "top_score": 1.0,
           "top_code": "158062",
           "top_name": "创业板金融科技ETF建信",
-          "top_amount_cny": 7946690.39,
+          "top_amount_cny": 1346685.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -17308,7 +17310,7 @@
           "top_score": 0.7273,
           "top_code": "159808",
           "top_name": "创100ETF融通",
-          "top_amount_cny": 2840350.9,
+          "top_amount_cny": 3682119.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -17491,7 +17493,7 @@
           "top_score": 0.5,
           "top_code": "562860",
           "top_name": "疫苗ETF嘉实",
-          "top_amount_cny": 7960215.0,
+          "top_amount_cny": 3841713.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -17691,7 +17693,7 @@
           "top_score": 1.0,
           "top_code": "159760",
           "top_name": "医疗健康ETF泰康",
-          "top_amount_cny": 559312.3,
+          "top_amount_cny": 646772.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -17893,7 +17895,7 @@
           "top_score": 0.5,
           "top_code": "159599",
           "top_name": "芯片ETF东财",
-          "top_amount_cny": 196919331.57,
+          "top_amount_cny": 57338605.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -18089,13 +18091,12 @@
         "review": {
           "risk": "medium",
           "flags": [
-            "score_low",
-            "thin_liquidity"
+            "score_low"
           ],
           "top_score": 0.5,
           "top_code": "158036",
           "top_name": "卫星ETF华夏",
-          "top_amount_cny": 5540289.89,
+          "top_amount_cny": 18647150.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -18298,7 +18299,7 @@
           "top_score": 0.6,
           "top_code": "159048",
           "top_name": "机器人ETF大成",
-          "top_amount_cny": 19728843.67,
+          "top_amount_cny": 18022623.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -18483,12 +18484,13 @@
         "review": {
           "risk": "high",
           "flags": [
-            "top_candidate_conflict"
+            "top_candidate_conflict",
+            "thin_liquidity"
           ],
           "top_score": 0.6667,
           "top_code": "159052",
           "top_name": "储能电池ETF嘉实",
-          "top_amount_cny": 12788564.4,
+          "top_amount_cny": 8188721.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -18691,7 +18693,7 @@
           "top_score": 0.5,
           "top_code": "515640",
           "top_name": "家电ETF华夏",
-          "top_amount_cny": 34082.0,
+          "top_amount_cny": 313289.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -18891,7 +18893,7 @@
           "top_score": 1.0,
           "top_code": "159178",
           "top_name": "消费电子ETF汇添富",
-          "top_amount_cny": 6094385.8,
+          "top_amount_cny": 5062557.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -19089,12 +19091,13 @@
           "risk": "high",
           "flags": [
             "top_candidate_conflict",
-            "score_low"
+            "score_low",
+            "thin_liquidity"
           ],
           "top_score": 0.6,
           "top_code": "159052",
           "top_name": "储能电池ETF嘉实",
-          "top_amount_cny": 12788564.4,
+          "top_amount_cny": 8188721.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -19295,7 +19298,7 @@
           "top_score": 1.0,
           "top_code": "159108",
           "top_name": "工业软件ETF博时",
-          "top_amount_cny": 5326387.7,
+          "top_amount_cny": 3411678.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -19496,7 +19499,7 @@
           "top_score": 1.0,
           "top_code": "563870",
           "top_name": "通用航空ETF鹏华",
-          "top_amount_cny": 1426162.0,
+          "top_amount_cny": 674516.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -19699,7 +19702,7 @@
           "top_score": 0.5455,
           "top_code": "159808",
           "top_name": "创100ETF融通",
-          "top_amount_cny": 2840350.9,
+          "top_amount_cny": 3682119.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -19903,7 +19906,7 @@
           "top_score": 0.5455,
           "top_code": "159808",
           "top_name": "创100ETF融通",
-          "top_amount_cny": 2840350.9,
+          "top_amount_cny": 3682119.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -19978,7 +19981,7 @@
       "pool": {
         "member": true,
         "rank": 3,
-        "reason": "keep",
+        "reason": "enter",
         "rating": "NA",
         "state_action": "no_add",
         "add_allowed": false,
@@ -20036,7 +20039,7 @@
         "after": 0.146
       },
       "eligibility": {
-        "score": 63.5,
+        "score": 63.9,
         "tier": "REDUCED",
         "tier_multiplier": 0.5,
         "rating": "NA",
@@ -20049,7 +20052,7 @@
         "dominant": "A",
         "investability_status": "measured",
         "factors": {
-          "investability": 0.4489,
+          "investability": 0.4648,
           "state_fit": 0.5,
           "data_quality": 1.0,
           "map_ready": 1.0
@@ -20125,7 +20128,7 @@
           "top_score": 1.0,
           "top_code": "159232",
           "top_name": "自由现金流ETF南方",
-          "top_amount_cny": 70401056.76,
+          "top_amount_cny": 71830186.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -20311,7 +20314,7 @@
           "top_score": 0.5,
           "top_code": "517350",
           "top_name": "沪港深科技ETF广发",
-          "top_amount_cny": 334676.0,
+          "top_amount_cny": 249408.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -20511,7 +20514,7 @@
           "top_score": 1.0,
           "top_code": "159118",
           "top_name": "港股通红利低波ETF华夏",
-          "top_amount_cny": 6716639.9,
+          "top_amount_cny": 380304.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -20714,7 +20717,7 @@
           "top_score": 0.5455,
           "top_code": "517380",
           "top_name": "创新药ETF天弘",
-          "top_amount_cny": 173168226.0,
+          "top_amount_cny": 55748821.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -20918,7 +20921,7 @@
           "top_score": 0.5455,
           "top_code": "159550",
           "top_name": "互联网ETF东财",
-          "top_amount_cny": 4170736.3,
+          "top_amount_cny": 1840205.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -21109,7 +21112,7 @@
           "top_score": 0.4444,
           "top_code": "510150",
           "top_name": "消费ETF招商",
-          "top_amount_cny": 34315482.0,
+          "top_amount_cny": 15480317.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -21305,13 +21308,12 @@
         "review": {
           "risk": "medium",
           "flags": [
-            "score_low",
-            "thin_liquidity"
+            "score_low"
           ],
           "top_score": 0.5,
           "top_code": "562570",
           "top_name": "信创ETF华夏",
-          "top_amount_cny": 7713480.0,
+          "top_amount_cny": 15992723.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -21476,7 +21478,7 @@
           "top_score": 0.5,
           "top_code": "159267",
           "top_name": "航天ETF华安",
-          "top_amount_cny": 62465881.1,
+          "top_amount_cny": 61964650.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -21674,7 +21676,7 @@
           "top_score": 1.0,
           "top_code": "516600",
           "top_name": "消费服务ETF工银",
-          "top_amount_cny": 3944797.0,
+          "top_amount_cny": 4663853.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -21876,7 +21878,7 @@
           "top_score": 0.9167,
           "top_code": "560290",
           "top_name": "有色ETF景顺",
-          "top_amount_cny": 4163206.0,
+          "top_amount_cny": 1078353.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -22077,7 +22079,7 @@
           "top_score": 1.0,
           "top_code": "520610",
           "top_name": "港股红利低波ETF银华",
-          "top_amount_cny": 2001019.0,
+          "top_amount_cny": 7374418.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -22279,7 +22281,7 @@
           "top_score": 1.0,
           "top_code": "560820",
           "top_name": "中证A50ETF新华",
-          "top_amount_cny": 36579.0,
+          "top_amount_cny": 11829.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -22479,7 +22481,7 @@
           "top_score": 1.0,
           "top_code": "159923",
           "top_name": "中证A100ETF大成",
-          "top_amount_cny": 2820926.5,
+          "top_amount_cny": 1714443.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -22679,7 +22681,7 @@
           "top_score": 1.0,
           "top_code": "159800",
           "top_name": "中证800ETF鹏华",
-          "top_amount_cny": 1920290.1,
+          "top_amount_cny": 332670.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选，需人工核对跟踪指数与流动性"
         }
@@ -22878,7 +22880,7 @@
           "top_score": 1.0,
           "top_code": "563300",
           "top_name": "中证2000ETF华泰柏瑞",
-          "top_amount_cny": 523316044.0,
+          "top_amount_cny": 386948379.0,
           "reviewed_at": "2026-11-09",
           "note": "名称高度吻合，仍需人工核对跟踪指数"
         }
@@ -23079,7 +23081,7 @@
           "top_score": 0.9167,
           "top_code": "159599",
           "top_name": "芯片ETF东财",
-          "top_amount_cny": 196919331.57,
+          "top_amount_cny": 57338605.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -23252,7 +23254,7 @@
           "top_score": 0.5,
           "top_code": "516110",
           "top_name": "汽车ETF国泰",
-          "top_amount_cny": 15808881.0,
+          "top_amount_cny": 12949022.0,
           "reviewed_at": "2026-11-09",
           "note": "自动候选疑似错配，必须人工核实后方可 --confirm"
         }
@@ -42275,11 +42277,11 @@
         "931994",
         "980092"
       ],
-      "exposure_pre_bucket": 0.1455,
-      "exposure": 0.0727,
-      "per_name": 0.0091,
+      "exposure_pre_bucket": 0.1096,
+      "exposure": 0.0548,
+      "per_name": 0.0069,
       "note": "8 只，成员 final 求和",
-      "exposure_pre_switch": 0.1455
+      "exposure_pre_switch": 0.1096
     }
   },
   "pool": {
@@ -42314,7 +42316,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "half",
@@ -42336,7 +42338,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "half",
@@ -42358,7 +42360,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "no_add",
@@ -42380,7 +42382,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "hold_only",
@@ -42402,7 +42404,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "no_add",
@@ -42424,7 +42426,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "hold_only",
@@ -42446,7 +42448,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "NA",
         "state_action": "hold_only",
@@ -42468,7 +42470,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "E",
         "state_action": "hold_only",
@@ -42490,7 +42492,7 @@
           "pass": true,
           "stale": true
         },
-        "reason": "keep",
+        "reason": "enter",
         "since": "2026-11-06",
         "rating": "E",
         "state_action": "hold_only",
@@ -43015,30 +43017,33 @@
       }
     ],
     "capacity": {
-      "quote_stale": true,
-      "quote_age_hours": 96.2,
-      "unknown": 9
+      "quote_stale": false,
+      "quote_age_hours": 0.2,
+      "unknown": 9,
+      "quote_intraday": true
     },
     "metrics": {
       "turnover_one_way": 0.0,
       "n": 9,
-      "n_prev": 9,
+      "n_prev": 0,
       "state_mix": {
         "NA": 7,
         "E": 2
       }
     },
     "rationale": "进 10 / 出 30 / 平滑 5：把排名 10↔11 的抖动挡在成本之外",
-    "mode": "dynamic"
+    "mode": "dynamic",
+    "intraday_hold": true,
+    "note": "盘中快照（半日成交额）：池沿用上一收盘结果，未重算、未落盘、换手 0；收盘后刷新自动恢复"
   },
-  "total_exposure": 0.1029,
+  "total_exposure": 0.085,
   "eligibility_modulation": {
     "enabled": true,
     "e_ratio": 0.7881,
     "multiplier": 0.5,
     "note": "E 态占比 79% → 全局仓位调制 M=0.50"
   },
-  "total_exposure_pre_switch": 0.2059,
+  "total_exposure_pre_switch": 0.17,
   "switch_haircut_applied": [
     "BROAD_E→0.50",
     "UPSTREAM_WEAK→0.80"
@@ -44262,7 +44267,7 @@
     ],
     "account_label": "演示口径（缺少 meta.updated_at / account.as_of，无法判定新鲜度），回撤节流停用",
     "account_configured": false,
-    "model_exposure": 0.1029,
+    "model_exposure": 0.085,
     "actionable_exposure": 0.0,
     "allocation_cny": null,
     "hedge": "P(D)+P(E) 均值 0.67 → 建议等效降低敞口约 11%（个人可执行替代：减仓、转现金或配置低相关宽基）；融券/期指对冲仅为模型参考口径，个人通常不可执行",
@@ -44303,10 +44308,10 @@
     "slippage_rate": 0.001,
     "quotes": {
       "ok": true,
-      "count": 1373,
-      "fetched_at": "2026-11-05T11:04:04",
-      "stale": true,
-      "reason": "行情快照过期 96.2h > 72h"
+      "count": 1375,
+      "fetched_at": "2026-11-09T11:42:16",
+      "stale": false,
+      "reason": ""
     },
     "rows": [
       {
@@ -44318,7 +44323,7 @@
         "etf_code": "159992",
         "etf_name": "创新药ETF银华",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 0.835,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44329,21 +44334,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "000015",
         "name": "红利指数",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "159905",
         "etf_name": "红利ETF工银",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 1.544,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44354,21 +44358,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "000056",
         "name": "上证国企",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "510210",
         "etf_name": "上证指数ETF富国",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 0.951,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44379,21 +44382,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "000685",
         "name": "科创芯片",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "588290",
         "etf_name": "科创芯片ETF华安",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 0.832,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44404,21 +44406,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "000852",
         "name": "中证1000",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "512100",
         "etf_name": "中证1000ETF南方",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 2.658,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44429,21 +44430,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "399266",
         "name": "创新能源",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "589960",
         "etf_name": "科创新能源ETF易方达",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 0.731,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44454,21 +44454,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "930955",
         "name": "红利低波100",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "159307",
         "etf_name": "红利低波100ETF博时",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 1.06,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44479,21 +44478,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "931994",
         "name": "电网设备主题",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "561380",
         "etf_name": "电网设备ETF国泰",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 0.61,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44504,21 +44502,20 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       },
       {
         "code": "980092",
         "name": "自由现金流",
         "bucket": "watch",
-        "target_weight": 0.0091,
+        "target_weight": 0.0069,
         "target_cny": null,
         "etf_code": "159232",
         "etf_name": "自由现金流ETF南方",
         "instrument_status": "confirmed",
-        "price": null,
+        "price": 1.132,
         "shares": null,
         "lots": null,
         "actual_cny": null,
@@ -44529,10 +44526,9 @@
         "reasons": [
           "市场闸门否决",
           "无开仓意向",
-          "账户资金未配置",
-          "报价不可用（行情快照过期 96.2h > 72h）"
+          "账户资金未配置"
         ],
-        "quote_reason": "行情快照过期 96.2h > 72h"
+        "quote_reason": ""
       }
     ],
     "summary": {
@@ -44547,7 +44543,6 @@
     "warnings": [
       "市场闸门顶层否决：今日不开新仓，下表仅为闸门通过后的预案",
       "账户真实净值未配置：不换算任何金额/份额",
-      "行情快照不可用：行情快照过期 96.2h > 72h",
       "A股整体市场为「存量」，非「增量」",
       "大盘闸门不可用：大盘闸门状态未定稿（status=STALE）"
     ],
@@ -45192,9 +45187,9 @@
   "settlement_progress": {
     "horizon_days": 20,
     "min_settled": 30,
-    "total_predictions": 106,
+    "total_predictions": 110,
     "settled_n": 0,
-    "pending_n": 106,
+    "pending_n": 110,
     "to_threshold": 30,
     "progress_pct": 0.0,
     "next_remaining_days": 8,
@@ -45265,7 +45260,7 @@
       },
       {
         "as_of": "2026-11-06",
-        "n": 19,
+        "n": 23,
         "elapsed_days": 0,
         "remaining_days": 20,
         "est_weeks": 4.0
@@ -45331,12 +45326,6 @@
       "text": "今日 57/118 只（48%）置信度低于门槛 0.65，评级输出 NA（无评级）：只能观察/持有，不得据此开新仓。这不是「跌」，是「模型自己不确定」。"
     },
     {
-      "id": "d_quote",
-      "level": "HIGH",
-      "kind": "dynamic",
-      "text": "ETF 行情快照已过期 96.2 小时：9 只成员的容量（ETF 日成交额）口径为 unknown。容量闸已降级为 flag，不代表这些标的真有流动性；下单前必须复核实时盘口。"
-    },
-    {
       "id": "d3",
       "level": "MED",
       "kind": "static",
@@ -45346,7 +45335,7 @@
       "id": "d4",
       "level": "MED",
       "kind": "static",
-      "text": "ETF 成交额若为过期/半日快照，容量口径降级为 unknown：不做硬闸，也不代表真有流动性，需行情恢复后复核。"
+      "text": "ETF 容量口径分三态：measured（收盘后全天额，执行硬闸）/ stale（过期，门槛 ×0.5 只挡极端）/ intraday（盘中半日额，容量闸跳过、不驱动换仓）；后两者不代表全天流动性，收盘刷新后复核。"
     },
     {
       "id": "d5",
@@ -45365,6 +45354,12 @@
       "level": "MED",
       "kind": "dynamic",
       "text": "可交易池为动态结果（R6-wide-buffer）：可执行宇宙 18 → 池内 9 只，单边换手 0.0%。池成员是「今天买得动且相对强」，不是「明天会涨」；进出由缓冲带决定，排名 10↔11 的抖动不产生交易。"
+    },
+    {
+      "id": "d_quote_src",
+      "level": "MED",
+      "kind": "dynamic",
+      "text": "ETF 行情主源（东方财富）不可用，本快照由腾讯 gtimg 热备生成（命中 1375/1375 只，23 批 / 失败 0 批）；快照取于盘中，成交额是半日量 → 容量闸与建池均跳过，池沿用上一收盘结果（未重算/未落盘/换手 0）、不驱动调仓；收盘后刷新才恢复全天硬闸，期间不代表全天流动性。"
     },
     {
       "id": "d6",
